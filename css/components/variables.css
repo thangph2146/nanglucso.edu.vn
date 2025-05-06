@@ -3,29 +3,47 @@
     --hub-red: #a70000;             /* Màu đỏ đô chủ đạo */
     --hub-red-light: #c10000;       /* Màu đỏ đô nhạt hơn */
     --hub-red-dark: #800000;        /* Màu đỏ đô đậm hơn */
-    --hub-gold: #d4af37;            /* Màu vàng gold */
-    --hub-gold-light: #f5e7a9;      /* Màu vàng gold nhạt */
+    --hub-gold: #f8c53a;            /* Màu vàng gold */
+    --hub-gold-light: #ffd966;      /* Màu vàng gold nhạt */
+    --hub-gold-dark: #e6b800;       /* Màu vàng gold đậm */
+    --hub-navy: #192346;            /* Màu xanh navy */
+    --hub-navy-dark: #0f1834;       /* Màu xanh navy đậm */
+    --hub-navy-light: #2a3a6a;      /* Màu xanh navy nhạt */
     --hub-blue: #1a3c80;            /* Màu xanh dương bổ sung */
     
     /* Màu nền và text */
-    --bg-dark: #2a0000;             /* Màu nền tối */
+    --bg-dark: #151525;             /* Màu nền tối */
     --bg-light: #f8f9fa;            /* Màu nền sáng */
     --bg-white: #ffffff;            /* Màu nền trắng */
+    --bg-gray: #f5f5f8;             /* Màu nền xám */
     --text-dark: #343a40;           /* Màu text chính */
     --text-light: #f8f9fa;          /* Màu text sáng */
     --text-muted: #6c757d;          /* Màu text nhạt */
     
+    /* Màu gradient */
+    --gradient-primary: linear-gradient(135deg, var(--hub-red) 0%, var(--hub-red-dark) 100%);
+    --gradient-gold: linear-gradient(135deg, var(--hub-gold) 0%, var(--hub-gold-dark) 100%);
+    --gradient-dark: linear-gradient(135deg, var(--hub-navy) 0%, var(--hub-navy-dark) 100%);
+    --gradient-card: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,0,0,0.8) 100%);
+    --gradient-overlay: linear-gradient(45deg, rgba(167,0,0,0.85) 0%, rgba(25,35,70,0.85) 100%);
+    --gradient-menu: linear-gradient(to right, var(--hub-red) 0%, var(--hub-red-light) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--hub-red) 0%, var(--hub-red-dark) 60%, var(--hub-navy) 100%);
+    --gradient-button: linear-gradient(to right, var(--hub-gold) 0%, var(--hub-gold-dark) 100%);
+    --gradient-feature: linear-gradient(135deg, var(--hub-navy-light) 0%, var(--hub-navy) 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    
     /* Màu bootstrap */
     --bs-primary: var(--hub-red);   /* Bootstrap primary */
     --bs-secondary: var(--hub-gold);/* Bootstrap secondary */
-    --bs-success: #28a745;          /* Bootstrap success */
-    --bs-info: #17a2b8;             /* Bootstrap info */
-    --bs-warning: #ffc107;          /* Bootstrap warning */
-    --bs-danger: #dc3545;           /* Bootstrap danger */
+    --bs-success: #2ecc71;          /* Bootstrap success */
+    --bs-info: #3498db;             /* Bootstrap info */
+    --bs-warning: #f39c12;          /* Bootstrap warning */
+    --bs-danger: #e74c3c;           /* Bootstrap danger */
     
     /* Font chữ */
     --font-family-base: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --font-family-heading: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-alt: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     
     /* Font sizes */
     --font-size-xs: 0.75rem;        /* 12px */
@@ -46,18 +64,34 @@
     --spacing-xxl: 3rem;            /* 48px */
     
     /* Border radii */
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;
-    --border-radius-lg: 1rem;
+    --border-radius-xs: 0.125rem;   /* 2px */
+    --border-radius-sm: 0.25rem;    /* 4px */
+    --border-radius-md: 0.5rem;     /* 8px */
+    --border-radius-lg: 1rem;       /* 16px */
+    --border-radius-xl: 1.5rem;     /* 24px */
     --border-radius-pill: 50rem;
     
     /* Box shadows */
     --shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
     --shadow-md: 0 .5rem 1rem rgba(0, 0, 0, .15);
     --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+    --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .075);
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.1);
+    --shadow-dropdown: 0 15px 50px rgba(0, 0, 0, 0.15);
+    --shadow-red: 0 5px 15px rgba(167, 0, 0, 0.2);
     
     /* Transitions */
     --transition-base: all 0.3s ease;
     --transition-slow: all 0.5s ease;
     --transition-fast: all 0.15s ease;
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Z-index layers */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-header: 1030;
+    --z-overlay: 1040;
+    --z-modal: 1050;
+    --z-tooltip: 1060;
 } 

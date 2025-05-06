@@ -13,12 +13,14 @@
 .btn-primary {
     background-color: var(--hub-red) !important;
     border-color: var(--hub-red) !important;
+    color: var(--text-light) !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: var(--hub-red-dark) !important;
     border-color: var(--hub-red-dark) !important;
+    color: var(--text-dark) !important;
 }
 
 .btn-secondary {

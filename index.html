@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi-VN" style="height: 100%;">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head id="Head">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Google Tag Manager -->
+    <script async="" src="//traffic.nvcms.net/matomo.js"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-787190540&amp;l=dataLayer&amp;cx=c&amp;gtm=45He5521za200&amp;tag_exp=101509156~103101750~103101752~103116026~103200004~103231718~103231720~103233424~103251618~103251620~103252644~103252646"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-853297293&amp;l=dataLayer&amp;cx=c&amp;gtm=45He5521za200&amp;tag_exp=101509156~103101750~103101752~103116026~103200004~103231718~103231720~103233424~103251618~103251620~103252644~103252646"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PMNXQ9D"></script>
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PJZ5VVV"></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJZ5VVV');</script>
+    <!-- End Google Tag Manager -->     
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-81349775-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PMNXQ9D');</script>
+    <!-- End Google Tag Manager -->
+
     <title>Trường Đại học Ngân hàng TP.HCM - HUB</title>
-
+    <meta id="MetaDescription" name="description" content="Trường Đại học Ngân hàng TP.HCM (HUB) - Trường đại học công lập chất lượng cao đào tạo đa ngành về kinh tế, tài chính, ngân hàng và quản trị">
+    <meta id="MetaKeywords" name="keywords" content="đại học ngân hàng, hub, banking university, tài chính, ngân hàng, kinh tế">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -17,6 +57,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/components/variables.css">
+    <link rel="stylesheet" href="css/components/reset.css">
+    <link rel="stylesheet" href="css/components/main.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/courses.css">
+    <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -29,172 +76,383 @@
         <i class="bi bi-arrow-up"></i>
     </a>
 
-    <!-- Header -->
+    <!-- HEADER SECTION -->
     <header class="header">
-        <!-- Top Header -->
-        <div class="top-header">
+        <!-- Topbar -->
+        <div class="topbar">
             <div class="container">
-                <div class="contact-info">
-                    <div class="item">
-                        <i class="bi bi-geo-alt"></i>
-                        36 Tôn Thất Đạm, P. Nguyễn Thái Bình, Q. 1, TP.HCM
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="topbar-contact">
+                            <a href="tel:+842838212430" class="d-none d-sm-flex">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>(028) 3821 2430</span>
+                            </a>
+                            <a href="mailto:info@hub.edu.vn">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@hub.edu.vn</span>
+                            </a>
+                            <a href="#" class="d-none d-md-flex">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>39 Hàm Nghi, Quận 1, TP.HCM</span>
+                            </a>
+                        </div>
                     </div>
-                    <a href="tel:02838212430">
-                        <i class="bi bi-telephone"></i>
-                        (028) 38 212 430
-                    </a>
-                    <a href="mailto:info@hub.edu.vn">
-                        <i class="bi bi-envelope"></i>
-                        info@hub.edu.vn
-                    </a>
-                </div>
-                <div class="contact-info">
-                    <a href="#" title="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="#" title="YouTube">
-                        <i class="bi bi-youtube"></i>
-                    </a>
-                    <a href="#" title="Instagram">
-                        <i class="bi bi-instagram"></i>
-                    </a>
+                    <div class="col-lg-6">
+                        <div class="topbar-social">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="Zalo"><i class="fas fa-comment"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Main Navigation -->
-        <nav class="navbar">
+        <div class="main-nav">
             <div class="container">
-
-                <div class="navbar-collapse d-flex justify-content-between">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo/logo-white.png" alt="Trường Đại học Ngân hàng TP.HCM">
-                    </a>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Trang chủ</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">Giới thiệu</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Tổng quan</a></li>
-                                <li><a class="dropdown-item" href="#">Lịch sử phát triển</a></li>
-                                <li><a class="dropdown-item" href="#">Cơ cấu tổ chức</a></li>
-                                <li><a class="dropdown-item" href="#">Thành tựu</a></li>
-                                <li><a class="dropdown-item" href="#">Cơ sở vật chất</a></li>
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="header-container">
+                        <a class="navbar-brand" href="index.html">
+                            <div class="header-logo">
+                                <img src="images/logo-white.png" alt="HUB Logo">
+                            </div>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <div class="collapse navbar-collapse" id="navbarContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGioiThieu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Giới thiệu
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownGioiThieu">
+                                        <li><a class="dropdown-item" href="#">Tổng quan về HUB</a></li>
+                                        <li><a class="dropdown-item" href="#">Sứ mệnh & Tầm nhìn</a></li>
+                                        <li><a class="dropdown-item" href="#">Cơ cấu tổ chức</a></li>
+                                        <li><a class="dropdown-item" href="#">Thông điệp hiệu trưởng</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Lịch sử phát triển</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDaoTao" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Đào tạo
+                                    </a>
+                                    <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdownDaoTao">
+                                        <div class="row">
+                                            <div class="col-md-3 mega-menu-column">
+                                                <h5 class="mega-menu-title">Bậc đào tạo</h5>
+                                                <ul class="mega-menu-list">
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Đại học chính quy</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Đại học liên thông</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Đại học văn bằng 2</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Sau đại học</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3 mega-menu-column">
+                                                <h5 class="mega-menu-title">Ngành học</h5>
+                                                <ul class="mega-menu-list">
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Tài chính - Ngân hàng</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Kế toán - Kiểm toán</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Quản trị kinh doanh</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Kinh tế quốc tế</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Công nghệ thông tin</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3 mega-menu-column">
+                                                <h5 class="mega-menu-title">Chương trình đặc biệt</h5>
+                                                <ul class="mega-menu-list">
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Chương trình chất lượng cao</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Chương trình liên kết quốc tế</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Chương trình song bằng</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Đào tạo từ xa</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3 mega-menu-column">
+                                                <h5 class="mega-menu-title">Tài nguyên học tập</h5>
+                                                <ul class="mega-menu-list">
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Thư viện</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">E-learning</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Lịch học - lịch thi</a></li>
+                                                    <li class="mega-menu-item"><a class="mega-menu-link" href="#">Biểu mẫu - văn bản</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNghienCuu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Nghiên cứu
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownNghienCuu">
+                                        <li><a class="dropdown-item" href="#">Đề tài nghiên cứu</a></li>
+                                        <li><a class="dropdown-item" href="#">Công bố khoa học</a></li>
+                                        <li><a class="dropdown-item" href="#">Tạp chí khoa học</a></li>
+                                        <li><a class="dropdown-item" href="#">Hội thảo khoa học</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHopTac" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Hợp tác
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownHopTac">
+                                        <li><a class="dropdown-item" href="#">Hợp tác quốc tế</a></li>
+                                        <li><a class="dropdown-item" href="#">Hợp tác doanh nghiệp</a></li>
+                                        <li><a class="dropdown-item" href="#">Cựu sinh viên</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTuyenSinh" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Tuyển sinh
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownTuyenSinh">
+                                        <li><h6 class="dropdown-header">ĐẠI HỌC</h6></li>
+                                        <li><a class="dropdown-item" href="#">Thông tin tuyển sinh</a></li>
+                                        <li><a class="dropdown-item" href="#">Đăng ký xét tuyển</a></li>
+                                        <li><a class="dropdown-item" href="#">Học phí - Học bổng</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><h6 class="dropdown-header">SAU ĐẠI HỌC</h6></li>
+                                        <li><a class="dropdown-item" href="#">Thạc sĩ</a></li>
+                                        <li><a class="dropdown-item" href="#">Tiến sĩ</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Sinh viên</a>
+                                </li>
                             </ul>
-                        </li>
+                            
+                            <div class="user-menu">
+                                <button class="search-btn" type="button" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <a href="#" class="user-menu-link">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <span class="d-none d-xl-inline">Đăng ký học</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER SECTION -->
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">Đào tạo</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Đại học chính quy</a></li>
-                                <li><a class="dropdown-item" href="#">Sau đại học</a></li>
-                                <li><a class="dropdown-item" href="#">Vừa làm vừa học</a></li>
-                                <li><a class="dropdown-item" href="#">Đào tạo quốc tế</a></li>
-                                <li><a class="dropdown-item" href="#">Chương trình chất lượng cao</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">Nghiên cứu</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Hoạt động khoa học</a></li>
-                                <li><a class="dropdown-item" href="#">Tạp chí khoa học</a></li>
-                                <li><a class="dropdown-item" href="#">Hội thảo</a></li>
-                                <li><a class="dropdown-item" href="#">Công bố khoa học</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">Sinh viên</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Hoạt động sinh viên</a></li>
-                                <li><a class="dropdown-item" href="#">Hỗ trợ sinh viên</a></li>
-                                <li><a class="dropdown-item" href="#">Câu lạc bộ</a></li>
-                                <li><a class="dropdown-item" href="#">Học bổng</a></li>
-                                <li><a class="dropdown-item" href="#">Thông tin việc làm</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">Hợp tác</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Đối tác quốc tế</a></li>
-                                <li><a class="dropdown-item" href="#">Chương trình trao đổi</a></li>
-                                <li><a class="dropdown-item" href="#">Liên kết doanh nghiệp</a></li>
-                                <li><a class="dropdown-item" href="#">Cựu sinh viên</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tuyển sinh</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Liên hệ</a>
-                        </li>
-                    </ul>
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Tìm kiếm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="GET">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="upload/video/campus-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 animate-fadeInUp">
+                <div class="col-lg-6">
                     <div class="hero-content">
-                        <h1 class="hero-title">Trường Đại học Ngân hàng TP.HCM</h1>
-                        <h2 class="hero-subtitle">Kiến tạo tương lai - Thành công vững bước</h2>
-                        <p class="hero-text">Với hơn 45 năm xây dựng và phát triển, Trường Đại học Ngân hàng TP.HCM
-                            không ngừng nâng cao chất lượng đào tạo, nghiên cứu khoa học và hợp tác quốc tế, luôn là nơi
-                            đáng tin cậy cho sinh viên lựa chọn con đường sự nghiệp tương lai.</p>
-                        <div class="hero-buttons">
-                            <a href="#" class="btn-primary text-white">
-                                Tuyển sinh 2025
-                                <i class="bi bi-arrow-right"></i>
+                        <h2 class="hero-subtitle fade-in-up" data-delay="0.2">Trường Đại học Ngân hàng TP.HCM</h2>
+                        <h1 class="hero-title fade-in-up" data-delay="0.4">Nơi khởi đầu <span>tương lai</span> tài chính của bạn</h1>
+                        <p class="hero-text fade-in-up" data-delay="0.6">
+                            Hệ thống đào tạo hiện đại, đội ngũ giảng viên chuyên môn cao, chương trình học 
+                            linh hoạt và cơ hội việc làm rộng mở trong lĩnh vực tài chính - ngân hàng.
+                        </p>
+                        
+                        <div class="hero-buttons fade-in-up" data-delay="0.8">
+                            <a href="#" class="btn-primary">
+                                <i class="bi bi-person-plus"></i> Đăng ký tuyển sinh
                             </a>
-                            <a href="#" class="btn-secondary text-white">
-                                Tìm hiểu thêm
-                                <i class="bi bi-info-circle"></i>
+                            <a href="#" class="btn-secondary">
+                                <i class="bi bi-info-circle"></i> Tìm hiểu thêm
                             </a>
                         </div>
-
-                        <div class="stats-counter row mt-5">
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <div class="stat-number" data-count="45">0</div>
-                                    <div class="stat-text">Năm thành lập</div>
-                                </div>
+                        
+                        <div class="stats-counter fade-in-up" data-delay="1">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="40" data-suffix="+">0</div>
+                                <div class="stat-text">Năm phát triển</div>
                             </div>
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <div class="stat-number" data-count="20000">0</div>
-                                    <div class="stat-text">Sinh viên</div>
-                                </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="25000" data-suffix="+">0</div>
+                                <div class="stat-text">Sinh viên</div>
                             </div>
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <div class="stat-number" data-count="18">0</div>
-                                    <div class="stat-text">Ngành đào tạo</div>
-                                </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="20" data-suffix="+">0</div>
+                                <div class="stat-text">Ngành đào tạo</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="98" data-suffix="%">0</div>
+                                <div class="stat-text">Tỷ lệ việc làm</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block animate-fadeInUp">
-                    <div class="hero-image">
-                        <img src="images/logo/logo-white-vertical.png" alt="Trường Đại học Ngân hàng TP.HCM"
-                            class="img-fluid">
+                
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="hero-image fade-in-left" data-delay="0.5">
+                        <img src="images/logo/logo-white-vertical.png" alt="Sinh viên Đại học Ngân hàng TP.HCM" data-tilt>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Partner Section -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="partners-title fade-in-up">Đối tác chiến lược</h2>
+            
+            <div class="partner-logos">
+                <img src="images/partners/partner-1.png" alt="Partner 1" class="fade-in-up" data-delay="0.1">
+                <img src="images/partners/partner-2.png" alt="Partner 2" class="fade-in-up" data-delay="0.2">
+                <img src="images/partners/partner-3.png" alt="Partner 3" class="fade-in-up" data-delay="0.3">
+                <img src="images/partners/partner-4.png" alt="Partner 4" class="fade-in-up" data-delay="0.4">
+                <img src="images/partners/partner-5.png" alt="Partner 5" class="fade-in-up" data-delay="0.5">
+                <img src="images/partners/partner-6.png" alt="Partner 6" class="fade-in-up" data-delay="0.6">
+            </div>
+        </div>
+    </section>
 
+    <!-- News Section -->
+    <section class="section section-light" id="news">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Tin tức - Sự kiện</h2>
+                <p class="section-subtitle">Cập nhật thông tin mới nhất về hoạt động của trường</p>
+            </div>
+
+            <div class="news-grid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="images/news1.jpg" alt="Thông tin tuyển sinh" class="img-fluid">
+                                <div class="news-date">
+                                    <span class="day">03</span>
+                                    <span class="month">03</span>
+                                    <span class="year">2025</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h4 class="news-title">Thông tin tuyển sinh đại học chính quy năm 2025</h4>
+                                <p class="news-text">Thông tin tuyển sinh đại học chính quy năm 2025</p>
+                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="images/news2.jpg" alt="Tuyển sinh thạc sĩ" class="img-fluid">
+                                <div class="news-date">
+                                    <span class="day">01</span>
+                                    <span class="month">04</span>
+                                    <span class="year">2025</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h4 class="news-title">Thông báo Tuyển sinh trình độ Thạc sĩ năm 2025</h4>
+                                <p class="news-text">Thông báo Tuyển sinh trình độ Thạc sĩ năm 2025</p>
+                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="images/news3.jpg" alt="Lớp học tinh hoa" class="img-fluid">
+                                <div class="news-date">
+                                    <span class="day">25</span>
+                                    <span class="month">04</span>
+                                    <span class="year">2025</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h4 class="news-title">Thông báo Đăng ký tham gia lớp học tinh hoa (HUB ELITE CLASS)</h4>
+                                <p class="news-text">Thông báo Đăng ký tham gia lớp học tinh hoa (HUB ELITE CLASS)</p>
+                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="images/news4.jpg" alt="Workshop" class="img-fluid">
+                                <div class="news-date">
+                                    <span class="day">28</span>
+                                    <span class="month">04</span>
+                                    <span class="year">2025</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h4 class="news-title">HUB tổ chức Workshop "The Future of Business Process Automation"</h4>
+                                <p class="news-text">HUB tổ chức Workshop "The Future of Business Process Automation: A Glimpse into the AI-Driven Process Automation Journey"</p>
+                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="images/news5.jpg" alt="Lễ trao bằng" class="img-fluid">
+                                <div class="news-date">
+                                    <span class="day">16</span>
+                                    <span class="month">04</span>
+                                    <span class="year">2025</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h4 class="news-title">Thông báo Về việc tổ chức Lễ trao bằng tốt nghiệp</h4>
+                                <p class="news-text">Thông báo Về việc tổ chức Lễ trao bằng tốt nghiệp Tiến sĩ, Thạc sĩ, Cử nhân Tháng 5 năm 2025</p>
+                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex align-items-center justify-content-center">
+                        <div class="view-all-news">
+                            <a href="#" class="btn btn-outline-danger">
+                                Xem tất cả tin tức
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Courses Section -->
     <section class="section section-white" id="courses">
@@ -205,37 +463,73 @@
                     với chất lượng hàng đầu</p>
             </div>
 
+            <!-- Giảng viên Counter -->
+            <div class="faculty-counter">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </div>
+                            <div class="counter-number" data-count="50">0</div>
+                            <div class="counter-text">Giáo sư, Phó Giáo sư</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <div class="counter-number" data-count="200">0</div>
+                            <div class="counter-text">Tiến sĩ</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="bi bi-journal-bookmark"></i>
+                            </div>
+                            <div class="counter-number" data-count="250">0</div>
+                            <div class="counter-text">Thạc sĩ</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="counter-item">
+                            <div class="counter-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div class="counter-number" data-count="500">0</div>
+                            <div class="counter-text">Giảng viên cơ hữu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Category Tabs -->
-            <div class="category-tabs">
+            <div class="category-tabs mt-5">
                 <ul class="nav nav-pills justify-content-center" id="coursesTabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all"
                             type="button" role="tab">
-                            <i class="bi bi-grid"></i> Tất cả
+                            <i class="bi bi-grid"></i> Đại học
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="finance-tab" data-bs-toggle="pill" data-bs-target="#finance"
+                        <button class="nav-link" id="graduate-tab" data-bs-toggle="pill" data-bs-target="#graduate"
                             type="button" role="tab">
-                            <i class="bi bi-currency-exchange"></i> Tài chính - Ngân hàng
+                            <i class="bi bi-mortarboard"></i> Sau đại học
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="business-tab" data-bs-toggle="pill" data-bs-target="#business"
+                        <button class="nav-link" id="shortterm-tab" data-bs-toggle="pill" data-bs-target="#shortterm"
                             type="button" role="tab">
-                            <i class="bi bi-briefcase"></i> Kinh doanh - Quản lý
+                            <i class="bi bi-calendar-check"></i> Đào tạo ngắn hạn
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tech-tab" data-bs-toggle="pill" data-bs-target="#tech"
+                        <button class="nav-link" id="distance-tab" data-bs-toggle="pill" data-bs-target="#distance"
                             type="button" role="tab">
-                            <i class="bi bi-cpu"></i> CNTT - Kỹ thuật
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="language-tab" data-bs-toggle="pill" data-bs-target="#language"
-                            type="button" role="tab">
-                            <i class="bi bi-translate"></i> Ngôn ngữ
+                            <i class="bi bi-laptop"></i> Đào tạo từ xa
                         </button>
                     </li>
                 </ul>
@@ -333,20 +627,67 @@
                 </div>
 
                 <!-- Tab content for other tabs would go here -->
-                <div class="tab-pane fade" id="finance" role="tabpanel">
-                    <!-- Finance courses content here -->
+                <div class="tab-pane fade" id="graduate" role="tabpanel">
+                    <!-- Sau đại học content here -->
                 </div>
 
-                <div class="tab-pane fade" id="business" role="tabpanel">
-                    <!-- Business courses content here -->
+                <div class="tab-pane fade" id="shortterm" role="tabpanel">
+                    <!-- Đào tạo ngắn hạn content here -->
                 </div>
 
-                <div class="tab-pane fade" id="tech" role="tabpanel">
-                    <!-- Tech courses content here -->
+                <div class="tab-pane fade" id="distance" role="tabpanel">
+                    <!-- Đào tạo từ xa content here -->
+                </div>
+            </div>
+
+            <!-- Research Stats Section -->
+            <div class="research-stats mt-5 pt-5">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Nghiên cứu Khoa học</h2>
+                    <p class="section-subtitle">Đóng góp của trường trong lĩnh vực nghiên cứu khoa học</p>
                 </div>
 
-                <div class="tab-pane fade" id="language" role="tabpanel">
-                    <!-- Language courses content here -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="research-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-journal-richtext"></i>
+                            </div>
+                            <div class="stat-number">26</div>
+                            <div class="stat-text">Đề tài nghiên cứu khoa học</div>
+                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="research-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <div class="stat-number">295</div>
+                            <div class="stat-text">Công bố quốc tế</div>
+                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="research-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-journal-bookmark"></i>
+                            </div>
+                            <div class="stat-number">35</div>
+                            <div class="stat-text">Tạp chí AJEB</div>
+                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="research-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="stat-number">100</div>
+                            <div class="stat-text">Tọa đàm, Hội thảo</div>
+                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -372,15 +713,15 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Khoa Tài chính - Ngân hàng</td>
+                                    <td>Khoa Tài chính</td>
                                     <td>1976</td>
                                     <td>4</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Khoa Kế toán - Kiểm toán</td>
-                                    <td>1978</td>
+                                    <td>Khoa Ngân hàng</td>
+                                    <td>1976</td>
                                     <td>3</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
                                 </tr>
@@ -393,35 +734,63 @@
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td>Khoa Kinh tế</td>
+                                    <td>Khoa Kế toán - Kiểm toán</td>
+                                    <td>1978</td>
+                                    <td>3</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Khoa Kinh tế quốc tế</td>
                                     <td>1996</td>
                                     <td>2</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
                                 </tr>
                                 <tr>
-                                    <td>5</td>
+                                    <td>6</td>
                                     <td>Khoa Hệ thống thông tin quản lý</td>
                                     <td>2002</td>
                                     <td>2</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
                                 </tr>
                                 <tr>
-                                    <td>6</td>
-                                    <td>Khoa Luật</td>
+                                    <td>7</td>
+                                    <td>Khoa Luật kinh tế</td>
                                     <td>2004</td>
                                     <td>1</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
                                 </tr>
                                 <tr>
-                                    <td>7</td>
-                                    <td>Khoa Ngôn ngữ Anh</td>
+                                    <td>8</td>
+                                    <td>Khoa Ngoại ngữ</td>
                                     <td>2005</td>
                                     <td>1</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
                                 </tr>
                                 <tr>
-                                    <td>8</td>
-                                    <td>Viện Đào tạo quốc tế</td>
+                                    <td>9</td>
+                                    <td>Khoa Khoa học xã hội</td>
+                                    <td>2006</td>
+                                    <td>2</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Khoa Sau Đại học</td>
+                                    <td>2000</td>
+                                    <td>5</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>Khoa Khoa học dữ liệu trong kinh doanh</td>
+                                    <td>2020</td>
+                                    <td>1</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>Viện đào tạo quốc tế</td>
                                     <td>2008</td>
                                     <td>2</td>
                                     <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
@@ -434,14 +803,231 @@
         </div>
     </section>
 
+    <!-- Kết nối & Phục vụ cộng đồng Section -->
+    <section class="section section-light" id="connection">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Kết nối & Phục vụ cộng đồng</h2>
+                <p class="section-subtitle">Hệ thống kết nối rộng khắp và các hoạt động phục vụ cộng đồng</p>
+            </div>
+
+            <div class="connection-stats">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="connection-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-globe-americas"></i>
+                            </div>
+                            <div class="stat-number">100</div>
+                            <div class="stat-text">Tổ chức giáo dục quốc tế hàng đầu</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="connection-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <div class="stat-number">200</div>
+                            <div class="stat-text">Hoạt động thiện nguyện</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="connection-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-building"></i>
+                            </div>
+                            <div class="stat-number">500</div>
+                            <div class="stat-text">Doanh nghiệp, Hiệp hội nghề nghiệp</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="connection-stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="stat-number">50.000</div>
+                            <div class="stat-text">Cựu người học</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connection-services mt-5">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h4 class="service-title">Kết nối cựu người học</h4>
+                            <p class="service-desc">Mạng lưới cựu sinh viên rộng khắp tại nhiều doanh nghiệp và tổ chức hàng đầu trong và ngoài nước.</p>
+                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <h4 class="service-title">Hợp tác quốc tế</h4>
+                            <p class="service-desc">Mở rộng quan hệ hợp tác quốc tế với các tổ chức giáo dục hàng đầu thế giới.</p>
+                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-house-heart"></i>
+                            </div>
+                            <h4 class="service-title">Kết nối cộng đồng</h4>
+                            <p class="service-desc">Các chương trình hướng đến cộng đồng và xã hội, nâng cao giá trị nhân văn.</p>
+                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <h4 class="service-title">Kết nối doanh nghiệp</h4>
+                            <p class="service-desc">Hợp tác chặt chẽ với các doanh nghiệp trong đào tạo và tuyển dụng sinh viên.</p>
+                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HUB 4.0 Section -->
+    <section class="section section-white" id="hub40">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">HUB 4.0</h2>
+                <p class="section-subtitle">Trải nghiệm công nghệ hiện đại trong môi trường học tập</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="digital-card">
+                        <div class="digital-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h4 class="digital-title">Chat Bot AI</h4>
+                        <p class="digital-desc">Trợ lý ảo thông minh hỗ trợ sinh viên 24/7 với các thắc mắc về học tập và thông tin trường.</p>
+                        <a href="#" class="digital-button">
+                            Trải nghiệm ngay
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="digital-card">
+                        <div class="digital-icon">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+                        <h4 class="digital-title">Thư viện điện tử</h4>
+                        <p class="digital-desc">Kho tài liệu điện tử phong phú với hàng nghìn đầu sách, tạp chí khoa học trong và ngoài nước.</p>
+                        <a href="#" class="digital-button">
+                            Truy cập ngay
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="digital-card">
+                        <div class="digital-icon">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                        <h4 class="digital-title">HUB Tour</h4>
+                        <p class="digital-desc">Tham quan khuôn viên trường thông qua tour ảo 360 độ, khám phá mọi không gian của HUB.</p>
+                        <a href="#" class="digital-button">
+                            Khám phá ngay
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Câu chuyện thành công section -->
+    <section class="section section-light" id="success">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Câu chuyện thành công</h2>
+                <p class="section-subtitle">Những thành tựu nổi bật của sinh viên và cựu sinh viên HUB</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="success-story-card">
+                        <div class="success-image">
+                            <img src="images/success1.jpg" alt="Tuyển dụng Techcombank" class="img-fluid">
+                        </div>
+                        <div class="success-content">
+                            <h4 class="success-title">TB phối hợp với Techcombank - Tổ chức tuyển dụng trực tiếp tại trường</h4>
+                            <p class="success-text">Chương trình tuyển dụng trực tiếp mang đến cơ hội việc làm cho sinh viên ngay tại trường.</p>
+                            <a href="#" class="success-link">Xem thêm <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="success-story-card">
+                        <div class="success-image">
+                            <img src="images/success2.jpg" alt="SV Startup" class="img-fluid">
+                        </div>
+                        <div class="success-content">
+                            <h4 class="success-title">SV.Startup-2020- Cấp quốc qua [Kết quả vòng bán kết cuộc thi "Học sinh, Sinh viên với ý tưởng khởi nghiệp" năm 2020]</h4>
+                            <p class="success-text">Chúc mừng dự án khởi nghiệp E.D2 hand của Sinh viên trường Đại học Ngân hàng TP. HCM đã xuất sắc vượt qua vòng Bán kết cuộc thi "Học sinh, sinh viên với ý tưởng khởi nghiệp" năm 2020 cấp Quốc gia.</p>
+                            <a href="#" class="success-link">Xem thêm <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="certification py-4">
+                <div class="row">
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="cert-item">
+                            <img src="images/certificates/aun-qa.png" alt="AUN-QA">
+                            <div class="cert-desc">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn AUN-QA</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="cert-item">
+                            <img src="images/certificates/csgd.png" alt="MOET">
+                            <div class="cert-desc">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn MOET</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="cert-item">
+                            <img src="images/certificates/iso.png" alt="ISO">
+                            <div class="cert-desc">Chứng nhận Hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:2015 của Tổ chức Afnor Cộng hòa Pháp</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="cert-item">
+                            <img src="images/certificates/cea.png" alt="CEA">
+                            <div class="cert-desc">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn MOET</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-brand">
                         <div class="footer-logo">
-                            <img src="images/logo/logo-white.png" alt="HUB Logo" style="width: 200px; height: 100%;">
+                            <img src="images/logo/logo-white.png" alt="HUB Logo" style="width: 200px; height: auto;">
                         </div>
                         <p class="footer-about">
                             Trường Đại học Ngân hàng TP.HCM là cơ sở giáo dục đại học công lập trực thuộc Ngân hàng Nhà
@@ -467,75 +1053,112 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-widget">
-                        <h4 class="footer-widget-title">Liên kết nhanh</h4>
-                        <ul class="footer-links">
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Đào tạo</a></li>
-                            <li><a href="#">Tuyển sinh</a></li>
-                            <li><a href="#">Nghiên cứu</a></li>
-                            <li><a href="#">Hợp tác</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget">
-                        <h4 class="footer-widget-title">Đào tạo</h4>
-                        <ul class="footer-links">
-                            <li><a href="#">Đại học chính quy</a></li>
-                            <li><a href="#">Sau đại học</a></li>
-                            <li><a href="#">Vừa làm vừa học</a></li>
-                            <li><a href="#">Đào tạo từ xa</a></li>
-                            <li><a href="#">Đào tạo quốc tế</a></li>
-                            <li><a href="#">Chương trình chất lượng cao</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget">
-                        <h4 class="footer-widget-title">Liên hệ</h4>
+                        <h4 class="footer-widget-title">Thông tin liên hệ</h4>
                         <ul class="contact-info d-flex flex-column align-items-start">
                             <li>
                                 <i class="bi bi-geo-alt"></i>
                                 <div>
                                     <strong>Trụ sở chính:</strong>
-                                    36 Tôn Thất Đạm, P. Nguyễn Thái Bình, Quận 1, TP.HCM
+                                    36 Tôn Thất Đạm, Quận 1, Thành phố Hồ Chí Minh
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-buildings"></i>
+                                <div>
+                                    <strong>Cơ sở Hàm Nghi:</strong>
+                                    39 Hàm Nghi, Quận 1, Thành phố Hồ Chí Minh
                                 </div>
                             </li>
                             <li>
                                 <i class="bi bi-buildings"></i>
                                 <div>
                                     <strong>Cơ sở Thủ Đức:</strong>
-                                    56 Hoàng Diệu 2, Phường Linh Chiểu, TP Thủ Đức, TP.HCM
-                                </div>
-                            </li>
-                            <li>
-                                <i class="bi bi-telephone"></i>
-                                <div>
-                                    <strong>Điện thoại:</strong>
-                                    (028) 38 212 430
+                                    56 Hoàng Diệu II, Quận Thủ Đức, Thành phố Hồ Chí Minh
                                 </div>
                             </li>
                             <li>
                                 <i class="bi bi-envelope"></i>
                                 <div>
                                     <strong>Email:</strong>
-                                    info@hub.edu.vn
+                                    dhnhtphcm@hub.edu.vn
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-phone"></i>
+                                <div>
+                                    <strong>Hotline Tuyển sinh:</strong>
+                                    0888 353 488
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-telephone"></i>
+                                <div>
+                                    <strong>Hotline Đào tạo:</strong>
+                                    (028) 38 212 430
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-widget">
+                                <h4 class="footer-widget-title">Dành cho người học</h4>
+                                <ul class="footer-links">
+                                    <li><a href="#">Cổng thông tin đào tạo</a></li>
+                                    <li><a href="#">Trang đăng ký tín chỉ</a></li>
+                                    <li><a href="#">E-Student</a></li>
+                                    <li><a href="#">Học trực tuyến HUB-LMS</a></li>
+                                    <li><a href="#">Thư viện</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-widget">
+                                <h4 class="footer-widget-title">Dành cho người học tương lai</h4>
+                                <ul class="footer-links">
+                                    <li><a href="#">Trang thông tin tuyển sinh</a></li>
+                                    <li><a href="#">Trang đăng ký xét tuyển</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-widget mt-4">
+                                <h4 class="footer-widget-title">Liên kết</h4>
+                                <ul class="footer-links">
+                                    <li><a href="#">Bộ Giáo dục và Đào tạo</a></li>
+                                    <li><a href="#">Ngân hàng nhà nước Việt Nam</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="copyright">
-                &copy; 2023 Trường Đại học Ngân hàng TP.HCM. Tất cả các quyền được bảo lưu.
+                &copy; 2023 Đại Học Ngân Hàng TP. Hồ Chí Minh. Giấy phép ICP số: 41/GP-TTĐT. All Rights Reserved.
             </div>
+        </div>
+
+        <!-- Quick links floating buttons -->
+        <div class="quick-buttons">
+            <a href="tel:0888353488" class="quick-button phone-button" data-bs-toggle="tooltip" data-bs-placement="left" title="Gọi ngay">
+                <i class="bi bi-telephone-fill"></i>
+            </a>
+            <a href="mailto:dhnhtphcm@hub.edu.vn" class="quick-button email-button" data-bs-toggle="tooltip" data-bs-placement="left" title="Gửi email">
+                <i class="bi bi-envelope-fill"></i>
+            </a>
+            <a href="#" class="quick-button zalo-button" data-bs-toggle="tooltip" data-bs-placement="left" title="Chat Zalo">
+                <i class="bi bi-chat-fill"></i>
+            </a>
+            <a href="#" class="quick-button fb-button" data-bs-toggle="tooltip" data-bs-placement="left" title="Messenger">
+                <i class="bi bi-messenger"></i>
+            </a>
+            <a href="#" class="quick-button back-to-top" id="backToTop" data-bs-toggle="tooltip" data-bs-placement="left" title="Lên đầu trang">
+                <i class="bi bi-arrow-up"></i>
+            </a>
         </div>
     </footer>
 
@@ -545,11 +1168,15 @@
         crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
-    <script src="js/main.js"></script>
-    <script src="js/components/header.js"></script>
-    <script src="js/components/animations.js"></script>
-    <script src="js/components/tables.js"></script>
-    <script src="js/components/tabs.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Polyfill cho IntersectionObserver cho các trình duyệt cũ
+        if (!('IntersectionObserver' in window)) {
+            const script = document.createElement('script');
+            script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
+            document.head.appendChild(script);
+        }
+    </script>
 </body>
 
 </html>
