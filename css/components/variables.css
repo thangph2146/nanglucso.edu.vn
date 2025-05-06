@@ -1,0 +1,63 @@
+:root {
+    /* Màu sắc chính */
+    --hub-red: #a70000;             /* Màu đỏ đô chủ đạo */
+    --hub-red-light: #c10000;       /* Màu đỏ đô nhạt hơn */
+    --hub-red-dark: #800000;        /* Màu đỏ đô đậm hơn */
+    --hub-gold: #d4af37;            /* Màu vàng gold */
+    --hub-gold-light: #f5e7a9;      /* Màu vàng gold nhạt */
+    --hub-blue: #1a3c80;            /* Màu xanh dương bổ sung */
+    
+    /* Màu nền và text */
+    --bg-dark: #2a0000;             /* Màu nền tối */
+    --bg-light: #f8f9fa;            /* Màu nền sáng */
+    --bg-white: #ffffff;            /* Màu nền trắng */
+    --text-dark: #343a40;           /* Màu text chính */
+    --text-light: #f8f9fa;          /* Màu text sáng */
+    --text-muted: #6c757d;          /* Màu text nhạt */
+    
+    /* Màu bootstrap */
+    --bs-primary: var(--hub-red);   /* Bootstrap primary */
+    --bs-secondary: var(--hub-gold);/* Bootstrap secondary */
+    --bs-success: #28a745;          /* Bootstrap success */
+    --bs-info: #17a2b8;             /* Bootstrap info */
+    --bs-warning: #ffc107;          /* Bootstrap warning */
+    --bs-danger: #dc3545;           /* Bootstrap danger */
+    
+    /* Font chữ */
+    --font-family-base: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-heading: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    /* Font sizes */
+    --font-size-xs: 0.75rem;        /* 12px */
+    --font-size-sm: 0.875rem;       /* 14px */
+    --font-size-base: 1rem;         /* 16px */
+    --font-size-md: 1.125rem;       /* 18px */
+    --font-size-lg: 1.25rem;        /* 20px */
+    --font-size-xl: 1.5rem;         /* 24px */
+    --font-size-xxl: 2rem;          /* 32px */
+    --font-size-hero: 3.5rem;       /* 56px */
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;          /* 4px */
+    --spacing-sm: 0.5rem;           /* 8px */
+    --spacing-md: 1rem;             /* 16px */
+    --spacing-lg: 1.5rem;           /* 24px */
+    --spacing-xl: 2rem;             /* 32px */
+    --spacing-xxl: 3rem;            /* 48px */
+    
+    /* Border radii */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    --border-radius-pill: 50rem;
+    
+    /* Box shadows */
+    --shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    --shadow-md: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+    
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    --transition-fast: all 0.15s ease;
+} 
