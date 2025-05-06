@@ -4,7 +4,7 @@
     background: var(--gradient-hero);
     color: var(--text-light);
     padding: var(--spacing-xxl) 0;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 25px);
     display: flex;
     align-items: center;
     overflow: hidden;

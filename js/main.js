@@ -2,18 +2,10 @@
  * Main JavaScript file for HUB University website
  */
 
-import './components/header.js';
-import './components/animations.js';
-import './components/tables.js';
-import './components/tabs.js';
-
 document.addEventListener('DOMContentLoaded', function() {
     // Khai báo các biến toàn cục
     const header = document.querySelector('.header');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const dropdowns = document.querySelectorAll('.dropdown');
     const backToTop = document.querySelector('#backToTop');
-    const statCounters = document.querySelectorAll('.stat-number');
     
     // Header scroll effect
     function handleHeaderScroll() {
@@ -27,160 +19,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll to top button
     function handleScrollTopButton() {
         if (window.scrollY > 300) {
-            backToTop.classList.add('show');
+            backToTop.classList.add('active');
         } else {
-            backToTop.classList.remove('show');
+            backToTop.classList.remove('active');
         }
     }
 
-    // Counter animation
-    function initCounters() {
-        statCounters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-count') || 0);
-            const suffix = counter.getAttribute('data-suffix') || '';
-            const duration = 2000; // ms
-            const step = target / (duration / 16); // 60fps -> ~16ms per frame
-            let current = 0;
+    // Tooltips and Popovers initialization
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 
-            const updateCounter = () => {
-                current += step;
-                if (current >= target) {
-                    counter.textContent = target + suffix;
-                    return;
-                }
-                
-                counter.textContent = Math.ceil(current) + suffix;
-                requestAnimationFrame(updateCounter);
-            };
+    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    popoverTriggerList.map(function(popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+    });
 
-            // Start counter animation when element comes into view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        updateCounter();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            observer.observe(counter);
-        });
-    }
-
-    // Smooth scrolling for anchor links
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const offset = header.offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        document.querySelector('.navbar-toggler').click();
-                    }
-                }
-            });
-        });
-    }
-
-    // Initialize tooltips
-    function initTooltips() {
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        if (tooltipTriggerList.length > 0) {
-            [...tooltipTriggerList].map(tooltipTriggerEl => {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
-        }
-    }
-
-    // Bootstrap 5 Dropdown handling for desktop hover
-    function initDropdowns() {
-        if (window.innerWidth >= 992) {
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function() {
-                    const dropdownMenu = this.querySelector('.dropdown-menu');
-                    if (dropdownMenu) {
-                        dropdownMenu.classList.add('show');
-                        this.classList.add('show');
-                    }
-                });
-
-                dropdown.addEventListener('mouseleave', function() {
-                    const dropdownMenu = this.querySelector('.dropdown-menu');
-                    if (dropdownMenu) {
-                        dropdownMenu.classList.remove('show');
-                        this.classList.remove('show');
-                    }
-                });
-            });
-        }
-    }
-
-    // Fade-in animation for elements
-    function initFadeInElements() {
-        const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-        
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = entry.target.getAttribute('data-delay') || 0;
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, delay * 1000);
-                    fadeObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(element => {
-            fadeObserver.observe(element);
-        });
-    }
-
-    // Scroll event handlers
-    window.addEventListener('scroll', () => {
+    // Event listeners
+    window.addEventListener('scroll', function() {
         handleHeaderScroll();
         handleScrollTopButton();
     });
-    
-    // Click event for scroll to top button
-    if (backToTop) {
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-    
-    // Initialize all functions
-    handleHeaderScroll(); // Run once on page load
-    initSmoothScroll();
-    initDropdowns();
-    initCounters();
-    initTooltips();
-    initFadeInElements();
-    
-    // Responsive adjustments
-    window.addEventListener('resize', () => {
-        // Reinitialize dropdowns based on screen size
-        if (window.innerWidth >= 992) {
-            initDropdowns();
-        }
-    });
+
+    // Initialize header scroll state on page load
+    handleHeaderScroll();
 });
 
 /**

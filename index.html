@@ -65,6 +65,199 @@
     <link rel="stylesheet" href="css/components/courses.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .hero-section {
+            position: relative;
+            min-height: 90vh;
+            background: linear-gradient(to right, rgba(0, 46, 93, 0.9), rgba(0, 22, 45, 0.85)), url('images/bg/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 120px 0 60px;
+            overflow: hidden;
+        }
+        
+        .hero-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 46, 93, 0.8) 0%, rgba(0, 22, 45, 0.95) 100%);
+            z-index: 1;
+        }
+        
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-section .hero-content {
+            padding: 2rem 0;
+        }
+        
+        .fade-in-up, .fade-in-left {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: all 0.5s ease;
+        }
+        
+        /* Kiểu mới cho hero-content */
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-title span {
+            color: var(--hub-gold);
+            position: relative;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--hub-gold);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 90%;
+            line-height: 1.6;
+        }
+        
+        /* Kiểu cho các nút */
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary, .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--hub-red);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c91f29;
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            border: 2px solid var(--hub-gold);
+            color: var(--hub-gold);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--hub-gold);
+            color: var(--hub-navy);
+            transform: translateY(-3px);
+        }
+        
+        /* Stats counter styling */
+        .stats-counter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 110px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--hub-gold);
+        }
+        
+        .stat-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Hero image */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding: 100px 0 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-text {
+                font-size: 1rem;
+            }
+            
+            .stats-counter {
+                justify-content: center;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .stat-item {
+                min-width: calc(50% - 10px);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -269,13 +462,9 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section với background thay vì video -->
     <section class="hero-section">
-        <div class="hero-video-container">
-            <video autoplay muted loop class="hero-video">
-                <source src="upload/video/campus-video.mp4" type="video/mp4">
-            </video>
-        </div>
+        <div class="hero-bg-overlay"></div>
         
         <div class="container">
             <div class="row align-items-center">
@@ -299,19 +488,19 @@
                         
                         <div class="stats-counter fade-in-up" data-delay="1">
                             <div class="stat-item">
-                                <div class="stat-number" data-count="40" data-suffix="+">0</div>
+                                <div class="stat-number" data-count="45" data-suffix="">45</div>
                                 <div class="stat-text">Năm phát triển</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number" data-count="25000" data-suffix="+">0</div>
+                                <div class="stat-number" data-count="20000" data-suffix="+">20000+</div>
                                 <div class="stat-text">Sinh viên</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number" data-count="20" data-suffix="+">0</div>
-                                <div class="stat-text">Ngành đào tạo</div>
+                                <div class="stat-number" data-count="450" data-suffix="+">450+</div>
+                                <div class="stat-text">Giảng viên</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number" data-count="98" data-suffix="%">0</div>
+                                <div class="stat-number" data-count="98" data-suffix="%">98%</div>
                                 <div class="stat-text">Tỷ lệ việc làm</div>
                             </div>
                         </div>
@@ -320,30 +509,15 @@
                 
                 <div class="col-lg-6 d-none d-lg-block">
                     <div class="hero-image fade-in-left" data-delay="0.5">
-                        <img src="images/logo/logo-white-vertical.png" alt="Sinh viên Đại học Ngân hàng TP.HCM" data-tilt>
+                        <img src="images/logo/logo-white-vertical.png" alt="Sinh viên Đại học Ngân hàng TP.HCM">
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Partner Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h2 class="partners-title fade-in-up">Đối tác chiến lược</h2>
-            
-            <div class="partner-logos">
-                <img src="images/partners/partner-1.png" alt="Partner 1" class="fade-in-up" data-delay="0.1">
-                <img src="images/partners/partner-2.png" alt="Partner 2" class="fade-in-up" data-delay="0.2">
-                <img src="images/partners/partner-3.png" alt="Partner 3" class="fade-in-up" data-delay="0.3">
-                <img src="images/partners/partner-4.png" alt="Partner 4" class="fade-in-up" data-delay="0.4">
-                <img src="images/partners/partner-5.png" alt="Partner 5" class="fade-in-up" data-delay="0.5">
-                <img src="images/partners/partner-6.png" alt="Partner 6" class="fade-in-up" data-delay="0.6">
-            </div>
-        </div>
-    </section>
 
-    <!-- News Section -->
+    <!-- News Section điều chỉnh để không sử dụng hình ảnh không tồn tại -->
     <section class="section section-light" id="news">
         <div class="container">
             <div class="section-header text-center">
@@ -355,8 +529,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="news-card">
-                            <div class="news-image">
-                                <img src="images/news1.jpg" alt="Thông tin tuyển sinh" class="img-fluid">
+                            <div class="news-image news-image-placeholder">
                                 <div class="news-date">
                                     <span class="day">03</span>
                                     <span class="month">03</span>
@@ -373,8 +546,7 @@
 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="news-card">
-                            <div class="news-image">
-                                <img src="images/news2.jpg" alt="Tuyển sinh thạc sĩ" class="img-fluid">
+                            <div class="news-image news-image-placeholder">
                                 <div class="news-date">
                                     <span class="day">01</span>
                                     <span class="month">04</span>
@@ -391,8 +563,7 @@
 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="news-card">
-                            <div class="news-image">
-                                <img src="images/news3.jpg" alt="Lớp học tinh hoa" class="img-fluid">
+                            <div class="news-image news-image-placeholder">
                                 <div class="news-date">
                                     <span class="day">25</span>
                                     <span class="month">04</span>
@@ -407,56 +578,114 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="news-card">
-                            <div class="news-image">
-                                <img src="images/news4.jpg" alt="Workshop" class="img-fluid">
-                                <div class="news-date">
-                                    <span class="day">28</span>
-                                    <span class="month">04</span>
-                                    <span class="year">2025</span>
-                                </div>
-                            </div>
-                            <div class="news-content">
-                                <h4 class="news-title">HUB tổ chức Workshop "The Future of Business Process Automation"</h4>
-                                <p class="news-text">HUB tổ chức Workshop "The Future of Business Process Automation: A Glimpse into the AI-Driven Process Automation Journey"</p>
-                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="news-card">
-                            <div class="news-image">
-                                <img src="images/news5.jpg" alt="Lễ trao bằng" class="img-fluid">
-                                <div class="news-date">
-                                    <span class="day">16</span>
-                                    <span class="month">04</span>
-                                    <span class="year">2025</span>
-                                </div>
-                            </div>
-                            <div class="news-content">
-                                <h4 class="news-title">Thông báo Về việc tổ chức Lễ trao bằng tốt nghiệp</h4>
-                                <p class="news-text">Thông báo Về việc tổ chức Lễ trao bằng tốt nghiệp Tiến sĩ, Thạc sĩ, Cử nhân Tháng 5 năm 2025</p>
-                                <a href="#" class="news-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex align-items-center justify-content-center">
-                        <div class="view-all-news">
-                            <a href="#" class="btn btn-outline-danger">
-                                Xem tất cả tin tức
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
+                    <!-- Nút xem thêm -->
+                    <div class="col-12 text-center mt-4">
+                        <a href="#" class="btn btn-outline-danger">
+                            Xem tất cả tin tức
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses Section -->
+    <style>
+        /* Thêm vào CSS cho news card không có ảnh */
+        .news-image-placeholder {
+            height: 200px;
+            background-color: var(--hub-navy-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .news-image-placeholder:before {
+            content: "\F4FB"; /* Biểu tượng newspaper từ Bootstrap Icons */
+            font-family: "bootstrap-icons";
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .news-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-date {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--hub-red);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 1;
+            z-index: 1;
+        }
+        
+        .news-date .day {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .news-date .month,
+        .news-date .year {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--hub-navy);
+        }
+        
+        .news-text {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .news-link {
+            color: var(--hub-red);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .news-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .news-link:hover i {
+            transform: translateX(5px);
+        }
+    </style>
+
+    <!-- Courses Section - Cập nhật để tránh lỗi -->
     <section class="section section-white" id="courses">
         <div class="container">
             <div class="section-header text-center">
@@ -473,7 +702,7 @@
                             <div class="counter-icon">
                                 <i class="bi bi-mortarboard-fill"></i>
                             </div>
-                            <div class="counter-number" data-count="50">0</div>
+                            <div class="counter-number" data-count="50">50</div>
                             <div class="counter-text">Giáo sư, Phó Giáo sư</div>
                         </div>
                     </div>
@@ -482,7 +711,7 @@
                             <div class="counter-icon">
                                 <i class="bi bi-award"></i>
                             </div>
-                            <div class="counter-number" data-count="200">0</div>
+                            <div class="counter-number" data-count="200">200</div>
                             <div class="counter-text">Tiến sĩ</div>
                         </div>
                     </div>
@@ -491,7 +720,7 @@
                             <div class="counter-icon">
                                 <i class="bi bi-journal-bookmark"></i>
                             </div>
-                            <div class="counter-number" data-count="250">0</div>
+                            <div class="counter-number" data-count="250">250</div>
                             <div class="counter-text">Thạc sĩ</div>
                         </div>
                     </div>
@@ -500,532 +729,48 @@
                             <div class="counter-icon">
                                 <i class="bi bi-people-fill"></i>
                             </div>
-                            <div class="counter-number" data-count="500">0</div>
+                            <div class="counter-number" data-count="500">500</div>
                             <div class="counter-text">Giảng viên cơ hữu</div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Category Tabs -->
-            <div class="category-tabs mt-5">
-                <ul class="nav nav-pills justify-content-center" id="coursesTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all"
-                            type="button" role="tab">
-                            <i class="bi bi-grid"></i> Đại học
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="graduate-tab" data-bs-toggle="pill" data-bs-target="#graduate"
-                            type="button" role="tab">
-                            <i class="bi bi-mortarboard"></i> Sau đại học
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="shortterm-tab" data-bs-toggle="pill" data-bs-target="#shortterm"
-                            type="button" role="tab">
-                            <i class="bi bi-calendar-check"></i> Đào tạo ngắn hạn
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="distance-tab" data-bs-toggle="pill" data-bs-target="#distance"
-                            type="button" role="tab">
-                            <i class="bi bi-laptop"></i> Đào tạo từ xa
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="tab-content" id="coursesTabContent">
-                <div class="tab-pane fade show active" id="all" role="tabpanel">
-                    <div class="featured-courses">
-                        <div class="featured-header">
-                            <h3>Các khóa học nổi bật</h3>
-                            <a href="#" class="view-all">
-                                Xem tất cả
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="card course-card">
-                                    <img src="images/course1.jpg" class="card-img-top" alt="Tài chính - Ngân hàng">
-                                    <div class="card-body">
-                                        <span class="badge">Đại học</span>
-                                        <h4 class="card-title">Tài chính - Ngân hàng</h4>
-                                        <p class="card-text">Chương trình đào tạo cử nhân Tài chính - Ngân hàng chất
-                                            lượng cao, trang bị kiến thức và kỹ năng toàn diện.</p>
-                                        <div class="rating">
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <span class="count">5.0 (120)</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#" class="btn btn-outline-danger">Chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="card course-card">
-                                    <img src="images/course2.jpg" class="card-img-top" alt="Kế toán">
-                                    <div class="card-body">
-                                        <span class="badge">Đại học</span>
-                                        <h4 class="card-title">Kế toán - Kiểm toán</h4>
-                                        <p class="card-text">Chương trình cung cấp kiến thức chuyên sâu về kế toán, kiểm
-                                            toán và chuẩn mực báo cáo tài chính.</p>
-                                        <div class="rating">
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-half"></i>
-                                            </div>
-                                            <span class="count">4.5 (98)</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#" class="btn btn-outline-danger">Chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="card course-card">
-                                    <img src="images/course3.jpg" class="card-img-top" alt="Quản trị kinh doanh">
-                                    <div class="card-body">
-                                        <span class="badge">Đại học</span>
-                                        <h4 class="card-title">Quản trị kinh doanh</h4>
-                                        <p class="card-text">Đào tạo kỹ năng quản lý, lãnh đạo và kiến thức cốt lõi về
-                                            hoạt động doanh nghiệp hiện đại.</p>
-                                        <div class="rating">
-                                            <div class="stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <span class="count">4.9 (145)</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#" class="btn btn-outline-danger">Chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab content for other tabs would go here -->
-                <div class="tab-pane fade" id="graduate" role="tabpanel">
-                    <!-- Sau đại học content here -->
-                </div>
-
-                <div class="tab-pane fade" id="shortterm" role="tabpanel">
-                    <!-- Đào tạo ngắn hạn content here -->
-                </div>
-
-                <div class="tab-pane fade" id="distance" role="tabpanel">
-                    <!-- Đào tạo từ xa content here -->
-                </div>
-            </div>
-
-            <!-- Research Stats Section -->
-            <div class="research-stats mt-5 pt-5">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Nghiên cứu Khoa học</h2>
-                    <p class="section-subtitle">Đóng góp của trường trong lĩnh vực nghiên cứu khoa học</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="research-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-journal-richtext"></i>
-                            </div>
-                            <div class="stat-number">26</div>
-                            <div class="stat-text">Đề tài nghiên cứu khoa học</div>
-                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="research-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-globe"></i>
-                            </div>
-                            <div class="stat-number">295</div>
-                            <div class="stat-text">Công bố quốc tế</div>
-                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="research-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-journal-bookmark"></i>
-                            </div>
-                            <div class="stat-number">35</div>
-                            <div class="stat-text">Tạp chí AJEB</div>
-                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="research-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <div class="stat-number">100</div>
-                            <div class="stat-text">Tọa đàm, Hội thảo</div>
-                            <a href="#" class="stat-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Training Units Table -->
-            <div class="mt-5 pt-4">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Đơn vị đào tạo</h2>
-                    <p class="section-subtitle">Các khoa, viện trực thuộc Trường Đại học Ngân hàng TP.HCM</p>
-                </div>
-
-                <div class="units-table">
-                    <div class="table-responsive">
-                        <table class="table table-hover sortable-table">
-                            <thead>
-                                <tr>
-                                    <th class="sortable">STT <span class="sort-icon">▲</span></th>
-                                    <th class="sortable">Tên đơn vị <span class="sort-icon"></span></th>
-                                    <th class="sortable">Thành lập <span class="sort-icon"></span></th>
-                                    <th class="sortable">Số ngành <span class="sort-icon"></span></th>
-                                    <th>Liên hệ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Khoa Tài chính</td>
-                                    <td>1976</td>
-                                    <td>4</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Khoa Ngân hàng</td>
-                                    <td>1976</td>
-                                    <td>3</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Khoa Quản trị kinh doanh</td>
-                                    <td>1992</td>
-                                    <td>3</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Khoa Kế toán - Kiểm toán</td>
-                                    <td>1978</td>
-                                    <td>3</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Khoa Kinh tế quốc tế</td>
-                                    <td>1996</td>
-                                    <td>2</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Khoa Hệ thống thông tin quản lý</td>
-                                    <td>2002</td>
-                                    <td>2</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>Khoa Luật kinh tế</td>
-                                    <td>2004</td>
-                                    <td>1</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>Khoa Ngoại ngữ</td>
-                                    <td>2005</td>
-                                    <td>1</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>Khoa Khoa học xã hội</td>
-                                    <td>2006</td>
-                                    <td>2</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Khoa Sau Đại học</td>
-                                    <td>2000</td>
-                                    <td>5</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>11</td>
-                                    <td>Khoa Khoa học dữ liệu trong kinh doanh</td>
-                                    <td>2020</td>
-                                    <td>1</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>Viện đào tạo quốc tế</td>
-                                    <td>2008</td>
-                                    <td>2</td>
-                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Xem chi tiết</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Kết nối & Phục vụ cộng đồng Section -->
-    <section class="section section-light" id="connection">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Kết nối & Phục vụ cộng đồng</h2>
-                <p class="section-subtitle">Hệ thống kết nối rộng khắp và các hoạt động phục vụ cộng đồng</p>
-            </div>
-
-            <div class="connection-stats">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="connection-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-globe-americas"></i>
-                            </div>
-                            <div class="stat-number">100</div>
-                            <div class="stat-text">Tổ chức giáo dục quốc tế hàng đầu</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="connection-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-heart"></i>
-                            </div>
-                            <div class="stat-number">200</div>
-                            <div class="stat-text">Hoạt động thiện nguyện</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="connection-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-building"></i>
-                            </div>
-                            <div class="stat-number">500</div>
-                            <div class="stat-text">Doanh nghiệp, Hiệp hội nghề nghiệp</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="connection-stat-item">
-                            <div class="stat-icon">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <div class="stat-number">50.000</div>
-                            <div class="stat-text">Cựu người học</div>
-                        </div>
-                    </div>
+    <!-- Footer Certificates - loại bỏ hình ảnh không tồn tại -->
+    <div class="certification py-4 mb-4 border-bottom border-secondary">
+        <div class="row g-4">
+            <div class="col-md-3 col-6">
+                <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                    <div class="cert-icon mb-3"><i class="bi bi-patch-check-fill text-warning" style="font-size: 3rem;"></i></div>
+                    <div class="cert-desc small">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn AUN-QA</div>
                 </div>
             </div>
-
-            <div class="connection-services mt-5">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-people-fill"></i>
-                            </div>
-                            <h4 class="service-title">Kết nối cựu người học</h4>
-                            <p class="service-desc">Mạng lưới cựu sinh viên rộng khắp tại nhiều doanh nghiệp và tổ chức hàng đầu trong và ngoài nước.</p>
-                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-globe"></i>
-                            </div>
-                            <h4 class="service-title">Hợp tác quốc tế</h4>
-                            <p class="service-desc">Mở rộng quan hệ hợp tác quốc tế với các tổ chức giáo dục hàng đầu thế giới.</p>
-                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-house-heart"></i>
-                            </div>
-                            <h4 class="service-title">Kết nối cộng đồng</h4>
-                            <p class="service-desc">Các chương trình hướng đến cộng đồng và xã hội, nâng cao giá trị nhân văn.</p>
-                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-briefcase"></i>
-                            </div>
-                            <h4 class="service-title">Kết nối doanh nghiệp</h4>
-                            <p class="service-desc">Hợp tác chặt chẽ với các doanh nghiệp trong đào tạo và tuyển dụng sinh viên.</p>
-                            <a href="#" class="service-link">Tìm hiểu thêm <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
+            <div class="col-md-3 col-6">
+                <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                    <div class="cert-icon mb-3"><i class="bi bi-award-fill text-warning" style="font-size: 3rem;"></i></div>
+                    <div class="cert-desc small">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn MOET</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                    <div class="cert-icon mb-3"><i class="bi bi-shield-check text-warning" style="font-size: 3rem;"></i></div>
+                    <div class="cert-desc small">Chứng nhận Hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:2015</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                    <div class="cert-icon mb-3"><i class="bi bi-trophy-fill text-warning" style="font-size: 3rem;"></i></div>
+                    <div class="cert-desc small">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn MOET</div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- HUB 4.0 Section -->
-    <section class="section section-white" id="hub40">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">HUB 4.0</h2>
-                <p class="section-subtitle">Trải nghiệm công nghệ hiện đại trong môi trường học tập</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="digital-card">
-                        <div class="digital-icon">
-                            <i class="bi bi-chat-dots"></i>
-                        </div>
-                        <h4 class="digital-title">Chat Bot AI</h4>
-                        <p class="digital-desc">Trợ lý ảo thông minh hỗ trợ sinh viên 24/7 với các thắc mắc về học tập và thông tin trường.</p>
-                        <a href="#" class="digital-button">
-                            Trải nghiệm ngay
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="digital-card">
-                        <div class="digital-icon">
-                            <i class="bi bi-journal-text"></i>
-                        </div>
-                        <h4 class="digital-title">Thư viện điện tử</h4>
-                        <p class="digital-desc">Kho tài liệu điện tử phong phú với hàng nghìn đầu sách, tạp chí khoa học trong và ngoài nước.</p>
-                        <a href="#" class="digital-button">
-                            Truy cập ngay
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="digital-card">
-                        <div class="digital-icon">
-                            <i class="bi bi-camera-video"></i>
-                        </div>
-                        <h4 class="digital-title">HUB Tour</h4>
-                        <p class="digital-desc">Tham quan khuôn viên trường thông qua tour ảo 360 độ, khám phá mọi không gian của HUB.</p>
-                        <a href="#" class="digital-button">
-                            Khám phá ngay
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Câu chuyện thành công section -->
-    <section class="section section-light" id="success">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Câu chuyện thành công</h2>
-                <p class="section-subtitle">Những thành tựu nổi bật của sinh viên và cựu sinh viên HUB</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="success-story-card">
-                        <div class="success-image">
-                            <img src="images/success1.jpg" alt="Tuyển dụng Techcombank" class="img-fluid">
-                        </div>
-                        <div class="success-content">
-                            <h4 class="success-title">TB phối hợp với Techcombank - Tổ chức tuyển dụng trực tiếp tại trường</h4>
-                            <p class="success-text">Chương trình tuyển dụng trực tiếp mang đến cơ hội việc làm cho sinh viên ngay tại trường.</p>
-                            <a href="#" class="success-link">Xem thêm <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="success-story-card">
-                        <div class="success-image">
-                            <img src="images/success2.jpg" alt="SV Startup" class="img-fluid">
-                        </div>
-                        <div class="success-content">
-                            <h4 class="success-title">SV.Startup-2020- Cấp quốc qua [Kết quả vòng bán kết cuộc thi "Học sinh, Sinh viên với ý tưởng khởi nghiệp" năm 2020]</h4>
-                            <p class="success-text">Chúc mừng dự án khởi nghiệp E.D2 hand của Sinh viên trường Đại học Ngân hàng TP. HCM đã xuất sắc vượt qua vòng Bán kết cuộc thi "Học sinh, sinh viên với ý tưởng khởi nghiệp" năm 2020 cấp Quốc gia.</p>
-                            <a href="#" class="success-link">Xem thêm <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer pt-5">
         <div class="container">
-            <!-- Certification Section -->
-            <div class="certification py-4 mb-4 border-bottom border-secondary">
-                <div class="row g-4">
-                    <div class="col-md-3 col-6">
-                        <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                            <img src="images/certificates/aun-qa.png" alt="AUN-QA" class="img-fluid mb-3" style="max-height: 60px;">
-                            <div class="cert-desc small">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn AUN-QA</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                            <img src="images/certificates/csgd.png" alt="MOET" class="img-fluid mb-3" style="max-height: 60px;">
-                            <div class="cert-desc small">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn MOET</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                            <img src="images/certificates/iso.png" alt="ISO" class="img-fluid mb-3" style="max-height: 60px;">
-                            <div class="cert-desc small">Chứng nhận Hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:2015</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                            <img src="images/certificates/cea.png" alt="CEA" class="img-fluid mb-3" style="max-height: 60px;">
-                            <div class="cert-desc small">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn MOET</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Main Footer Content -->
             <div class="row g-4 mb-5">
                 <!-- School Logo and Info -->
@@ -1172,15 +917,11 @@
         crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
-    <script type="module" src="js/main.js"></script>
-    <script>
-        // Polyfill cho IntersectionObserver cho các trình duyệt cũ
-        if (!('IntersectionObserver' in window)) {
-            const script = document.createElement('script');
-            script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
-            document.head.appendChild(script);
-        }
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/animations.js"></script>
+    <script src="js/components/tables.js"></script>
+    <script src="js/components/tabs.js"></script>
 </body>
 
 </html>

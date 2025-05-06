@@ -21,45 +21,44 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Counter animation for statistics
+ * Counter animation for statistics - xử lý cả stat-number và counter-number
  */
 function initCounterAnimations() {
-    const counterElements = document.querySelectorAll('.counter');
+    const counters = document.querySelectorAll('.stat-number, .counter-number');
     
-    if (counterElements.length === 0) return;
+    if (counters.length === 0) return;
     
-    const options = {
-        threshold: 0.5,
-        rootMargin: "0px 0px -100px 0px"
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
+    const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = parseInt(counter.getAttribute('data-duration') || 2000);
-                const increment = target / (duration / 16);
-                let current = 0;
+                const target = parseInt(counter.getAttribute('data-count') || 0);
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const duration = 2000;
+                const startValue = 0;
+                const startTime = performance.now();
                 
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.ceil(current).toLocaleString();
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target.toLocaleString();
+                function updateCounter(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    if (elapsedTime >= duration) {
+                        counter.textContent = target + suffix;
+                        return;
                     }
-                };
+                    
+                    const progress = elapsedTime / duration;
+                    const currentValue = Math.floor(progress * target);
+                    counter.textContent = currentValue + suffix;
+                    requestAnimationFrame(updateCounter);
+                }
                 
                 requestAnimationFrame(updateCounter);
-                observer.unobserve(counter);
+                counterObserver.unobserve(counter);
             }
         });
-    }, options);
+    }, { threshold: 0.1 });
     
-    counterElements.forEach(counter => {
-        observer.observe(counter);
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
     });
 }
 
@@ -67,7 +66,7 @@ function initCounterAnimations() {
  * Scroll reveal animations for elements
  */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal, .fade-in-up, .fade-in-left, .fade-in-right');
     
     if (revealElements.length === 0) return;
     
@@ -79,7 +78,11 @@ function initScrollReveal() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
+                // Get animation delay
+                const delay = entry.target.getAttribute('data-delay') || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('revealed', 'visible');
+                }, delay * 1000);
                 
                 // Unobserve after revealing
                 observer.unobserve(entry.target);
@@ -89,15 +92,13 @@ function initScrollReveal() {
     
     revealElements.forEach(element => {
         // Set initial state
-        element.classList.add('reveal-init');
-        
-        // Get animation direction
-        const direction = element.getAttribute('data-reveal') || 'up';
-        element.classList.add(`reveal-${direction}`);
-        
-        // Get animation delay
-        const delay = element.getAttribute('data-delay') || 0;
-        element.style.transitionDelay = `${delay}ms`;
+        if (element.classList.contains('reveal')) {
+            element.classList.add('reveal-init');
+            
+            // Get animation direction
+            const direction = element.getAttribute('data-reveal') || 'up';
+            element.classList.add(`reveal-${direction}`);
+        }
         
         // Observe element
         observer.observe(element);
@@ -109,7 +110,7 @@ function initScrollReveal() {
  */
 function initHoverEffects() {
     // Card hover effects
-    const hoverCards = document.querySelectorAll('.hover-card');
+    const hoverCards = document.querySelectorAll('.hover-card, .course-card');
     
     hoverCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -118,23 +119,6 @@ function initHoverEffects() {
         
         card.addEventListener('mouseleave', function() {
             this.classList.remove('card-hovered');
-        });
-    });
-    
-    // Button hover effects with magnetic pull
-    const magneticButtons = document.querySelectorAll('.btn-magnetic');
-    
-    magneticButtons.forEach(button => {
-        button.addEventListener('mousemove', function(e) {
-            const position = button.getBoundingClientRect();
-            const x = e.clientX - position.left - position.width / 2;
-            const y = e.clientY - position.top - position.height / 2;
-            
-            button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            button.style.transform = 'translate(0px, 0px)';
         });
     });
     
@@ -186,7 +170,7 @@ function initParallax() {
  * Tilt effect for cards and images
  */
 function initTiltEffect() {
-    const tiltElements = document.querySelectorAll('.tilt-effect');
+    const tiltElements = document.querySelectorAll('[data-tilt], .tilt-effect');
     
     if (tiltElements.length === 0) return;
     
@@ -200,43 +184,11 @@ function initTiltEffect() {
             const yOffset = (yPos - 0.5) * 20;
             
             element.style.transform = `perspective(1000px) rotateX(${-yOffset}deg) rotateY(${xOffset}deg)`;
-            
-            // Add highlight effect
-            const glare = element.querySelector('.tilt-glare');
-            if (glare) {
-                glare.style.opacity = 0.3;
-                glare.style.transform = `translate(${xPos * 100}%, ${yPos * 100}%)`;
-            }
         });
         
         element.addEventListener('mouseleave', function() {
             element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-            
-            // Remove highlight effect
-            const glare = element.querySelector('.tilt-glare');
-            if (glare) {
-                glare.style.opacity = 0;
-            }
         });
-        
-        // Add glare element
-        const glare = document.createElement('div');
-        glare.classList.add('tilt-glare');
-        glare.style.position = 'absolute';
-        glare.style.top = 0;
-        glare.style.left = 0;
-        glare.style.width = '100%';
-        glare.style.height = '100%';
-        glare.style.background = 'radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 80%)';
-        glare.style.opacity = 0;
-        glare.style.pointerEvents = 'none';
-        glare.style.transition = 'opacity 0.3s ease';
-        
-        if (element.style.position !== 'absolute' && element.style.position !== 'fixed') {
-            element.style.position = 'relative';
-        }
-        
-        element.appendChild(glare);
     });
 }
 
@@ -288,4 +240,46 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         });
     }
-})(); 
+})();
+
+// Thêm khởi tạo trong DOMContentLoaded event ở cuối file
+window.addEventListener('load', function() {
+    // Khởi tạo hiệu ứng counter nếu chưa được khởi tạo
+    const counters = document.querySelectorAll('.counter-number, .stat-number');
+    if (counters.length > 0) {
+        const visibleCounters = Array.from(counters).filter(counter => {
+            const rect = counter.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        });
+        
+        if (visibleCounters.length > 0) {
+            visibleCounters.forEach(counter => {
+                if (counter.textContent === "0") {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const duration = 1000;
+                    const startTime = performance.now();
+                    const startValue = 0;
+                    
+                    function animate(currentTime) {
+                        const elapsedTime = currentTime - startTime;
+                        if (elapsedTime >= duration) {
+                            counter.textContent = target + suffix;
+                            return;
+                        }
+                        
+                        const progress = elapsedTime / duration;
+                        const currentValue = Math.floor(progress * target);
+                        counter.textContent = currentValue + suffix;
+                        requestAnimationFrame(animate);
+                    }
+                    
+                    requestAnimationFrame(animate);
+                }
+            });
+        }
+    }
+}); 
