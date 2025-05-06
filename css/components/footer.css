@@ -1,8 +1,7 @@
 /* FOOTER STYLES */
 .footer {
     background-color: var(--hub-navy);
-    color: var(--text-light);
-    padding-top: 4rem;
+    color: #fff;
     position: relative;
 }
 
@@ -12,8 +11,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 5px;
-    background: var(--gradient-primary);
+    height: 3px;
+    background: linear-gradient(90deg, var(--hub-red) 0%, var(--hub-gold) 100%);
 }
 
 .footer-top {
@@ -505,4 +504,113 @@
         bottom: 1rem;
         right: 1rem;
     }
+}
+
+/* Certification Items */
+.cert-item {
+    transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.cert-desc {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer widget styles */
+.footer-widget-title {
+    color: #fff;
+    position: relative;
+}
+
+.footer-widget-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--hub-gold);
+}
+
+/* Contact Info */
+.contact-info .flex-shrink-0 {
+    width: 30px;
+    transition: all 0.3s ease;
+}
+
+.contact-info li:hover .flex-shrink-0 {
+    transform: translateY(-3px);
+}
+
+/* Footer Links */
+.footer-links a {
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    transform: translateX(5px);
+}
+
+/* Footer Social Icons */
+.footer-social .social-icon {
+    transition: all 0.3s ease;
+}
+
+.footer-social .social-icon:hover {
+    transform: translateY(-5px);
+    background-color: var(--hub-gold) !important;
+    color: var(--hub-red-dark) !important;
+}
+
+/* Copyright */
+.copyright {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Quick Buttons */
+.quick-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.quick-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0.85;
+}
+
+.quick-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .quick-buttons {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .footer-widget-title {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Animation for hover-text-warning class */
+.hover-text-warning {
+    transition: color 0.3s ease;
+}
+
+.hover-text-warning:hover {
+    color: var(--hub-gold) !important;
 } 
