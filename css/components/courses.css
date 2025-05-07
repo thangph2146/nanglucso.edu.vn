@@ -176,7 +176,7 @@
 
 /* Faculty Counter */
 .faculty-counter {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-xs);
     margin-bottom: var(--spacing-xl);
     background-color: var(--bg-gray);
     border-radius: var(--border-radius-lg);
