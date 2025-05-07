@@ -9,7 +9,7 @@
 }
 
 .header.scrolled {
-    background-color: var(--hub-navy-dark);
+    /* background-color: var(--hub-navy-dark); */ /* Nền header khi scroll có thể không cần nữa nếu main-nav luôn màu đỏ */
     box-shadow: var(--shadow-md);
 }
 
@@ -38,13 +38,14 @@
 }
 
 /* Add padding to the body to prevent content from being hidden by the fixed header */
-/* This needs to account for both topbar and main-nav height */
 body {
-    padding-top: 110px; /* DEFAULT PADDING FOR DESKTOP HEADER */
-    /* This value should be the combined height of .topbar + .main-nav on desktop */
+    /* padding-top giờ sẽ luôn là chiều cao của .main-nav (thanh đỏ chứa logo và toggler) */
+    /* Giả sử .main-nav cao khoảng 60-70px */
+    padding-top: 70px; /* Điều chỉnh giá trị này cho phù hợp chiều cao .main-nav của bạn */
 }
 
-/* Topbar styles */
+/* Topbar styles - Giữ lại nếu topbar vẫn tồn tại và hiển thị trên mọi thiết bị */
+/* Nếu topbar cũng bị loại bỏ hoặc chỉ hiển thị trên một số điều kiện khác, cần điều chỉnh ở đây */
 .topbar {
     background-image: var(--gradient-hero); /* Kept: Theme background */
     font-size: var(--font-size-sm);      /* Kept: Theme font size */
@@ -87,202 +88,220 @@ body {
     background-color: var(--hub-gold-light); /* Kept: Theme hover background */
 }
 
-/* Main Navigation */
+/* Main Navigation - Thanh ngang màu đỏ chứa logo và toggler */
 .main-nav {
-    background-color: var(--hub-red); /* Kept: Theme background */
+    background-color: var(--hub-red); 
+    /* padding cho .main-nav có thể cần thiết để logo và toggler không sát mép */
+    /* Bootstrap .container bên trong đã có padding */
 }
 
-.navbar-toggler { /* This styles Bootstrap's .navbar-toggler */
-    color: var(--text-light);            /* Kept: Theme text color for icon (if not overridden by .navbar-dark) */
-    border: 1px solid var(--hub-red-light); /* Kept: Theme border color */
-    background-color: var(--hub-red-light); /* Kept: Theme background */
+/* Navbar Toggler - Luôn hiển thị */
+.navbar-toggler { 
+    color: var(--text-light); 
+    border: 1px solid var(--hub-red-light); 
+    background-color: var(--hub-red-light); 
+    padding: .25rem .75rem; /* Bootstrap default */
+    font-size: 1.25rem; /* Bootstrap default */
+}
+.navbar-toggler:hover { background-color: var(--hub-red); }
+.navbar-toggler:focus { box-shadow: 0 0 0 0.25rem var(--hub-red-pale); }
+
+/* ---- STYLES CHO MENU TOÀN MÀN HÌNH (TRƯỚC ĐÂY LÀ MOBILE) ---- */
+/* Áp dụng cho mọi thiết bị */
+
+.navbar-collapse {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: var(--white, #FFFFFF); 
+    padding: 15px; 
+    overflow-y: auto;
+    z-index: var(--z-modal); /* Cao hơn header để che phủ */
+    transform: translateX(-100%);
+    transition: transform 0.35s ease-in-out;
+    display: flex; 
+    flex-direction: column; 
 }
 
-.navbar-toggler:hover {
-    background-color: var(--hub-red); /* Kept: Theme hover background */
+.navbar-collapse.show {
+    transform: translateX(0);
 }
 
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 0.25rem var(--hub-red-pale); /* Kept: Theme focus ring style */
-}
-
-
-.nav-item {
-    position: relative; /* Kept: Needed for dropdown positioning */
-}
-
-.nav-link { /* Styles Bootstrap .nav-link */
-    color: var(--text-light);            /* Kept: Theme text color */
-    font-weight: 600;                    /* Kept: Theme font weight for emphasis */
-    text-transform: uppercase;           /* Kept: Theme text transform */
-    font-size: var(--font-size-xs);      /* Kept: Theme font size */
-    letter-spacing: 0.75px;             /* Kept: Theme letter spacing */
-}
-
-.nav-link:hover, 
-.nav-link:focus,
-.nav-item.show .nav-link, /* This handles dropdown parent link when dropdown is open */
-.nav-item .nav-link.active { /* .active class is standard for Bootstrap */
-    color: var(--hub-gold-light) !important;    /* Kept: Theme active/hover text color */
-    background-color: var(--bg-light-translucent-5, rgba(255,255,255,0.05)); /* Kept: Theme active/hover background */
-}
-
-/* Custom active/hover indicator line for nav-links */
-.nav-link::after {
-    content: '';
+.navbar-collapse .btn-close-menu {
     position: absolute;
-    bottom: 0; 
-    left: 1.1rem; /* Adjust based on actual padding of .nav-link if Bootstrap's default is used */
-    width: calc(100% - 2.2rem); /* Adjust based on actual padding */
-    height: 3px; 
-    background-color: var(--hub-gold);
-    opacity: 0;
-    border-radius: 2px;
-    transition: opacity 0.3s ease-in-out; 
-}
-
-.nav-link:hover::after, 
-.nav-link:focus::after,
-.nav-item.show .nav-link::after, 
-.nav-item .nav-link.active::after {
-    opacity: 1;
-}
-
-.dropdown-toggle::after {
-    transition: transform 0.2s ease-in-out; /* Simplified transition for arrow rotation */
-}
-
-
-.dropdown-menu { /* Styling for Bootstrap .dropdown-menu */
-    border: 1px solid rgba(var(--hub-navy-rgb, 25, 35, 70), 0.5); /* Kept: Theme border */
-    border-top: 3px solid var(--hub-gold);                         /* Kept: Theme top border accent */
-    background-color: var(--bg-white);  /* Kept: Theme background */
-    color: var(--text-light);                                     /* Kept: Theme default text color */
-    box-shadow: var(--shadow-xl);                                 /* Kept: Theme shadow */
-    
-    animation: fadeInDropdownKeyframes 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: top center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px); 
-    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s linear, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dropdown-divider { /* Styling for Bootstrap .dropdown-divider */
-    border-top-color: var(--hub-navy-light); /* Kept: Theme border color */
-}
-
-.dropdown-item { /* Styling for Bootstrap .dropdown-item */
-    color: var(--gray-300); /* Kept: Theme text color */
-    background-color: transparent; /* Ensures no inherited background before hover/focus */
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out; /* Standard Bootstrap-like transition */
-}
-
-.dropdown-item:hover, 
-.dropdown-item:focus {
-    color: var(--hub-gold-light);           /* Kept: Theme hover/focus text color */
-    background-color: var(--hub-navy);    /* Kept: Theme hover/focus background */
-}
-
-.dropdown-item-chevron:hover::before, /* Using a dedicated class for items that should have a chevron */
-.dropdown-item-chevron:focus::before {
-    content: '›';
-    position: absolute;
-    left: 1rem; /* Adjust if .dropdown-item padding changes */
-    color: var(--hub-gold-light);
-}
-
-.dropdown-item.active, 
-.dropdown-item:active { /* Styling for Bootstrap .active .dropdown-item */
-    color: var(--text-light);        /* Kept: Theme active text color */
-    background-color: var(--hub-red);/* Kept: Theme active background */
-}
-
-.dropdown-header { /* Styling for Bootstrap .dropdown-header */
-    color: var(--text-dark);            /* Kept: Theme text color */
-    text-transform: uppercase;         /* Kept: Theme text transform (can also be BS utility .text-uppercase) */
-    letter-spacing: 0.5px;           /* Kept: Theme letter spacing */
-}
-
-.mega-menu { /* Extends .dropdown-menu */
-    background-color: var(--bg-white);  /* Kept: Theme background */
-    color: var(--text-light);                                     /* Kept: Theme text color */
-    padding: var(--spacing-lg) var(--spacing-xl);                 /* Kept: Custom padding for mega layout */
-    border-top: 1px solid rgba(var(--hub-navy-rgb, 25, 35, 70), 0.7); /* Kept: Theme border */
-    max-height: 75vh;                                             /* Kept: Custom max height */
-    overflow-y: auto;                                             /* Kept: Custom overflow */
-    box-shadow: var(--shadow-xl);                                 /* Kept: Theme shadow (can be inherited if same as .dropdown-menu) */
-}
-.mega-menu-title {
-    color: var(--hub-gold-light);     /* Kept: Theme text color */
-    font-size: var(--font-size-lg);   /* Kept: Theme font size */
-    font-weight: 700;                 /* Kept: Theme font weight */
-    border-bottom: 1px solid var(--hub-gold-dark); /* Kept: Theme border */
-}
-.mega-menu-link {
-    color: var(--gray-300);           /* Kept: Theme text color */
-    font-size: var(--font-size-sm);   /* Kept: Theme font size */
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
-}
-
-.mega-menu-link:hover,
-.mega-menu-link:focus {
-    color: var(--hub-gold-light);         /* Kept: Theme hover/focus text color */
-    background-color: rgba(255,255,255, 0.03); /* Kept: Theme hover/focus background */
-}
-
-.user-menu {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-}
-
-.user-menu-link {
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.25rem;
-    border-radius: var(--border-radius-pill);
-    transition: var(--transition-fast);
-    text-decoration: none;
-    background-color: var(--hub-navy-light); /* Using a navy variant */
-    margin-left: 1rem;
-    font-weight: 500;
-}
-
-.user-menu-link:hover {
-    background-color: var(--hub-gold);
-    color: var(--hub-red-dark);
-    transform: translateY(-2px);
-}
-
-.user-menu-link i {
-    font-size: 1.25rem;
-}
-
-/* Search Button */
-.search-btn {
-    background-color: transparent;
+    top: 10px; 
+    right: 15px; 
+    font-size: 1.5rem; 
+    color: var(--text-dark, #212529); /* Màu tối, phù hợp với nền trắng của menu */
+    background: transparent;
     border: none;
-    color: white;
-    font-size: 1.25rem;
     padding: 0.5rem;
-    cursor: pointer;
-    transition: var(--transition-fast);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    line-height: 1;
+    z-index: 1; /* Đảm bảo nút hiển thị trên các nội dung khác trong menu */
+}
+.navbar-collapse .btn-close-menu:hover {
+    color: var(--hub-red); /* Màu đỏ khi hover */
 }
 
-.search-btn:hover {
-    background-color: var(--hub-navy-light); /* Using a navy variant */
-    color: var(--hub-gold);
-    transform: scale(1.05);
+.navbar-nav {
+    width: 100%; 
+    text-align: center; 
+    margin-top: calc(15px + 1rem); 
+    margin-bottom: var(--spacing-lg);
 }
+
+.navbar-collapse .nav-item { 
+    width: 100%; 
+    margin-bottom: 0; 
+    opacity: 0;
+    transform: translateX(-30px); 
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar-collapse.show .nav-item.item-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-link { /* Áp dụng cho các link trong menu toàn màn hình */
+    padding: var(--spacing-md) var(--spacing-xl); 
+    border-bottom: 1px solid var(--border-color, #dee2e6); 
+    font-size: var(--font-size-md); 
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 100%; 
+    color: var(--hub-navy-dark); 
+    text-transform: none; /* Bỏ uppercase nếu có từ style desktop cũ */
+    letter-spacing: normal; /* Bỏ letter-spacing nếu có */
+}
+
+.nav-link i.menu-icon {
+    margin-right: var(--spacing-lg); 
+    font-size: 1.3em; 
+    color: var(--hub-red); 
+    width: 28px; 
+    text-align: center;
+    flex-shrink: 0; 
+}
+
+.nav-link.active, /* Mục đang active (ví dụ Trang chủ) */
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--hub-red-dark) !important; 
+    background-color: var(--gray-100, #f8f9fa); 
+    border-bottom-color: var(--hub-red); 
+}
+.nav-link::after { display: none; } /* Bỏ gạch chân kiểu desktop */
+
+/* Dropdown và Mega Menu bên trong menu toàn màn hình */
+.dropdown-menu, .mega-menu { 
+    background-color: transparent; /* Nền của dropdown/mega sẽ là nền trắng của navbar-collapse */
+    box-shadow: none;
+    border: none;
+    padding-left: 0; 
+    width: 100%;
+    margin-top: 0 !important;
+    border-radius: 0;
+    animation: none; 
+    display: none; 
+    position: static !important; 
+    float: none !important; 
+    transform: none !important; 
+}
+.nav-item.dropdown.show > .dropdown-menu,
+.nav-item.dropdown.show > .mega-menu {
+    display: block; 
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-item, .mega-menu-link { 
+    color: var(--gray-700, #495057); 
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg); 
+    font-size: var(--font-size-sm); 
+    border-bottom: 1px solid var(--gray-200, #e9ecef); 
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+    text-align: left;
+    background-color: transparent !important; 
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.menu-icon-sub {
+    font-size: 1.1em; 
+    color: var(--hub-red-dark); 
+    margin-right: var(--spacing-md); 
+    flex-shrink: 0;
+    width: 22px; 
+    text-align: center;
+    line-height: 1; 
+}
+.dropdown-item > .menu-icon-sub, .mega-menu-link > .menu-icon-sub {
+    /* Cần kiểm tra lại việc căn chỉnh này */
+    margin-left: calc(-1 * var(--spacing-lg) + 28px + var(--spacing-md) ); 
+}
+.dropdown-item:last-child, 
+.mega-menu .list-unstyled:last-child .mega-menu-link:last-child {
+    border-bottom: none;
+}
+.dropdown-item:hover, .dropdown-item:focus,
+.mega-menu-link:hover, .mega-menu-link:focus {
+    color: var(--hub-red-darker, #A71D2A) !important; 
+    background-color: var(--gray-200, #e9ecef) !important; 
+    transform: translateX(3px); 
+}
+
+.mega-menu-title {
+    color: var(--hub-red-dark); 
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    padding: var(--spacing-md) var(--spacing-lg);
+    padding-left: calc(var(--spacing-lg) + 28px + var(--spacing-lg));
+    border-bottom: 2px solid var(--hub-red); 
+    margin-bottom: 0;
+    background-color: var(--gray-100, #f8f9fa); 
+}
+.dropdown-header { /* Style cho dropdown header nếu có */
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-weight: 600;
+}
+
+/* Animation cho <li> con - Giữ nguyên */
+.nav-item.dropdown.show .dropdown-menu > li,
+.nav-item.dropdown.show .mega-menu .list-unstyled > li { 
+    opacity: 0; 
+    transform: translateX(-20px); 
+    animation: slideInDropdownItem 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+/* ... (animation-delay giữ nguyên) ... */
+
+/* Mobile Search Form - giờ là search form cho mọi thiết bị trong menu */
+.mobile-search-form {
+    padding: 0; 
+    margin-bottom: var(--spacing-lg);
+}
+/* ... (style .mobile-search-form .form-control và .btn giữ nguyên) ... */
+
+/* User Menu - giờ là user menu cho mọi thiết bị trong menu */
+.user-menu {
+    margin-top: auto; 
+    padding-top: 0; 
+    width: 100%;
+    display: flex; 
+    flex-direction: column; 
+    padding-bottom: 0; 
+}
+.mobile-user-menu-link { 
+    /* ... (style .mobile-user-menu-link giữ nguyên) ... */
+}
+
+/* Keyframes (slideInDropdownItem, fadeInDropdownKeyframes, fadeInUpGeneral) giữ lại nếu fadeInDropdownKeyframes, fadeInUpGeneral còn dùng ở đâu đó, nếu không thì xóa bớt */
 
 /* Mobile Navigation */
 @media (max-width: 991.98px) {
