@@ -10,19 +10,7 @@
 @import url('components/footer.css');
 @import url('components/header.css');
 @import url('components/search-modal.css'); /* Added search modal styles */
-@import url('components/breadcrumb.css');
-@import url('components/pagination.css');
-@import url('components/sidebar.css');
-@import url('components/form-elements.css');
-@import url('components/buttons.css');
-@import url('components/tables.css');
-@import url('components/accordion.css');
-@import url('components/tabs.css');
-@import url('components/animations.css');
-@import url('components/responsive.css');
 
-/* Đã xóa các import trùng lặp với Bootstrap */
-/* Custom CSS */
 
 /* General Back To Top Styling (for <a class="back-to-top"> if used independently) */
 /* Note: The primary back-to-top is now id="backToTop" within .quick-buttons, styled in footer.css */
