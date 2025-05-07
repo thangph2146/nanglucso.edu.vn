@@ -1,20 +1,27 @@
 /* Component Imports */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
-@import url('components/variables.css');
-@import url('components/reset.css'); /* For base styling resets */
-@import url('components/hero.css');
-@import url('components/main.css'); /* Contains general styles for cards, buttons, etc. and also some specific sections like counters */
-@import url('components/courses.css'); /* Contains styles for sections, course cards, tables, tabs, potentially news cards */
-@import url('components/news.css'); /* Specific for news cards, ensure no overlap with courses.css */
-@import url('components/feedback.css');
-@import url('components/footer.css');
-@import url('components/header.css');
-@import url('components/search-modal.css'); /* Added search modal styles */
+@import url("components/variables.css");
+
+/* Component Styles */
+@import url("components/header.css");
+@import url("components/search-modal.css");
+@import url("components/hero.css");
+@import url("components/news.css");
+@import url("components/courses.css");
+@import url("components/footer.css");
 
 
-/* General Back To Top Styling (for <a class="back-to-top"> if used independently) */
-/* Note: The primary back-to-top is now id="backToTop" within .quick-buttons, styled in footer.css */
-/* Xóa bỏ style cho a.back-to-top vì đã loại bỏ khỏi HTML */
+/* Individual Component Files */
+@import url("components/cards.css");
+@import url("components/buttons.css");
+@import url("components/tables.css");
+@import url("components/badges.css");
+@import url("components/forms.css");
+@import url("components/alerts.css");
+@import url("components/helpers.css");
+@import url("components/stats.css");
+@import url("components/animations.css"); /* Ensure this file exists and is correctly populated */
+
 
 /* Styling for icons within Footer Certificates */
 .cert-icon .bi {

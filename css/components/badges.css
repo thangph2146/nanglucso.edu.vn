@@ -1,0 +1,16 @@
+/* Badges */
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.75em;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.5px;
+}
+
+.badge-danger {
+    background-color: var(--hub-red);
+}
+
+.badge-warning {
+    background-color: var(--hub-gold);
+    color: var(--bg-dark);
+} 

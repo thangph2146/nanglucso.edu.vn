@@ -1,0 +1,38 @@
+/* Animation for the counters - This keyframe is used by stats.css */
+/* @keyframes countUp { 
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+/* .stat-number, .counter-number { */
+    /* animation: countUp 0.5s ease-out forwards; */ /* Applied in stats.css if needed */
+/* } */
+
+/* Animation for fade-in elements */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+} 

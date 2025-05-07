@@ -1,0 +1,24 @@
+/* Card components */
+.card {
+    border: none;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--hub-red);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-text {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+} 

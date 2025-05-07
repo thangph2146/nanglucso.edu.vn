@@ -1,0 +1,34 @@
+/* Table components */
+.table-custom {
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.table-custom thead th {
+    background-color: var(--hub-red);
+    color: white;
+    font-weight: 600;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.table-custom tbody tr {
+    transition: var(--transition-base);
+}
+
+.table-custom tbody tr:hover {
+    background-color: rgba(167, 0, 0, 0.05);
+}
+
+.table-custom tbody td {
+    padding: var(--spacing-md);
+    border-color: rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+    font-size: var(--font-size-sm);
+} 

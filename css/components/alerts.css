@@ -1,0 +1,18 @@
+/* Alerts */
+.alert {
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.alert-danger {
+    background-color: rgba(167, 0, 0, 0.1);
+    border-color: rgba(167, 0, 0, 0.2);
+    color: var(--hub-red);
+}
+
+.alert-warning {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.2);
+    color: #9e8324;
+} 

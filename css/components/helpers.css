@@ -1,0 +1,24 @@
+/* Helper classes */
+.text-danger {
+    color: var(--hub-red) !important;
+}
+
+.bg-danger {
+    background-color: var(--hub-red) !important;
+}
+
+.border-danger {
+    border-color: var(--hub-red) !important;
+}
+
+.text-warning {
+    color: var(--hub-gold) !important;
+}
+
+.bg-warning {
+    background-color: var(--hub-gold) !important;
+}
+
+.border-warning {
+    border-color: var(--hub-gold) !important;
+} 
