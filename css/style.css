@@ -1,33 +1,23 @@
 /* Component Imports */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
 @import url('components/variables.css');
+@import url('components/reset.css'); /* For base styling resets */
 @import url('components/header.css');
+@import url('components/hero.css');
+@import url('components/main.css'); /* Contains general styles for cards, buttons, etc. and also some specific sections like counters */
+@import url('components/courses.css'); /* Contains styles for sections, course cards, tables, tabs, potentially news cards */
+@import url('components/news.css'); /* Specific for news cards, ensure no overlap with courses.css */
+@import url('components/feedback.css');
 @import url('components/footer.css');
-@import url('components/main.css');
 /* Đã xóa các import trùng lặp với Bootstrap */
 /* Custom CSS */
-.back-to-top {
-    bottom: 1.25rem;
-    right: 1.25rem;
-    width: 3rem;
-    height: 3rem;
-    z-index: 1030;
-    /* Sử dụng Bootstrap utilities */
-    @extend .position-fixed, .d-flex, .align-items-center, .justify-content-center, .rounded-circle, .shadow;
-    background-color: var(--hub-red);
-    color: white !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
 
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
+/* General Back To Top Styling (for <a class="back-to-top"> if used independently) */
+/* Note: The primary back-to-top is now id="backToTop" within .quick-buttons, styled in footer.css */
+/* Xóa bỏ style cho a.back-to-top vì đã loại bỏ khỏi HTML */
 
-.back-to-top:hover {
-    background-color: var(--hub-red-dark);
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+/* Styling for icons within Footer Certificates */
+.cert-icon .bi {
+    font-size: 3rem; /* Or use a variable like var(--font-size-display-3) */
+    line-height: 1;
 }

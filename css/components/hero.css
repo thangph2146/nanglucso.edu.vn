@@ -2,7 +2,7 @@
 .hero-section {
     position: relative;
     min-height: 95vh; /* Slightly increased height */
-    background: var(--gradient-hero, linear-gradient(135deg, rgba(0, 46, 93, 0.95), rgba(0, 22, 45, 0.9))); /* Use variable */
+    background: var(--gradient-hero, linear-gradient(135deg, rgba(2, 80, 158, 0.95), rgba(7, 74, 145, 0.9))); /* Use variable */
     background-size: cover;
     background-position: center center;
     color: var(--text-light);
