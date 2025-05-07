@@ -38,7 +38,7 @@
             <div class="container">
                 <nav class="navbar navbar-dark py-0">
                     <div class="container-fluid px-0">
-                        <a class="navbar-brand py-2" href="index.html">
+                        <a class="navbar-brand py-2 me-auto" href="index.html">
                             <div class="header-logo">
                                 <img src="images/logo/logo-white.png" alt="HUB Logo">
                             </div>
@@ -67,20 +67,28 @@
                             </li>
                         </ul>
 
-                        <!-- Desktop User Actions (LG and up) -->
-                        <div class="d-none d-lg-flex align-items-center">
-                            <button class="btn btn-outline-light btn-sm me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                        <!-- User Actions Area (Desktop and Mobile Toggler) -->
+                        <div class="ms-auto d-flex align-items-center">
+                            <!-- Desktop User Actions (LG and up) -->
+                            <div class="d-none d-lg-flex align-items-center">
+                                <button class="btn btn-outline-light btn-sm me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                                <a href="dang-ky-hoc.html" class="btn btn-sm mobile-user-menu-link" style="background-color: var(--hub-gold); color: var(--hub-navy-dark); border-color: var(--hub-gold-dark);">
+                                    <i class="bi bi-mortarboard-fill me-1"></i>Đăng ký học
+                                </a>
+                            </div>
+                            
+                            <!-- Mobile Search Button (visible on < LG) -->
+                            <button class="btn btn-outline-light btn-sm d-lg-none me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
                                 <i class="bi bi-search"></i>
                             </button>
-                            <a href="dang-ky-hoc.html" class="btn btn-sm mobile-user-menu-link" style="background-color: var(--hub-gold); color: var(--hub-navy-dark); border-color: var(--hub-gold-dark);">
-                                <i class="bi bi-mortarboard-fill me-1"></i>Đăng ký học
-                            </a>
+
+                            <!-- Mobile Navbar Toggler (visible on < LG) -->
+                            <button class="navbar-toggler d-lg-none shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
                         </div>
-                        
-                        <!-- Mobile Navbar Toggler (hidden on LG and up) -->
-                        <button class="navbar-toggler d-lg-none shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
                         
                         <!-- Mobile Fullscreen Menu -->
                         <div class="collapse navbar-collapse" id="navbarContent">
@@ -93,11 +101,13 @@
                                         <i class="bi bi-house-door-fill menu-icon"></i> Trang chủ
                                     </a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGioiThieuMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownGioiThieuMobile" role="button" 
+                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasGioiThieu" 
+                                       aria-controls="offcanvasGioiThieu" data-content-source="contentForOffcanvasGioiThieu">
                                         <i class="bi bi-info-circle-fill menu-icon"></i> Giới thiệu
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownGioiThieuMobile" id="contentForOffcanvasGioiThieu">
+                                    <ul class="d-none" aria-labelledby="navbarDropdownGioiThieuMobile" id="contentForOffcanvasGioiThieu">
                                         <li><a class="dropdown-item" href="gioi-thieu/tong-quan.html"><i class="bi bi-info-square menu-icon-sub"></i>Tổng quan về HUB</a></li>
                                         <li><a class="dropdown-item" href="gioi-thieu/su-menh-tam-nhin.html"><i class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
                                         <li><a class="dropdown-item" href="gioi-thieu/co-cau-to-chuc.html"><i class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
@@ -106,11 +116,13 @@
                                         <li><a class="dropdown-item" href="gioi-thieu/lich-su-phat-trien.html"><i class="bi bi-clock-history menu-icon-sub"></i>Lịch sử phát triển</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDaoTaoMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownDaoTaoMobile" role="button" 
+                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasDaoTao" 
+                                       aria-controls="offcanvasDaoTao" data-content-source="contentForOffcanvasDaoTao">
                                         <i class="bi bi-easel-fill menu-icon"></i> Đào tạo
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownDaoTaoMobile" id="contentForOffcanvasDaoTao">
+                                    <ul class="d-none" aria-labelledby="navbarDropdownDaoTaoMobile" id="contentForOffcanvasDaoTao">
                                         <li><h6 class="dropdown-header fw-bold text-uppercase">Bậc đào tạo</h6></li>
                                         <li><a class="dropdown-item" href="dao-tao/dai-hoc-chinh-quy.html"><i class="bi bi-journal-text menu-icon-sub"></i>Đại học chính quy</a></li>
                                         <li><a class="dropdown-item" href="dao-tao/dai-hoc-lien-thong.html"><i class="bi bi-arrow-repeat menu-icon-sub"></i>Đại học liên thông</a></li>
@@ -137,32 +149,38 @@
                                         <li><a class="dropdown-item" href="tai-nguyen/bieu-mau-van-ban.html"><i class="bi bi-file-earmark-text menu-icon-sub"></i>Biểu mẫu - văn bản</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNghienCuuMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownNghienCuuMobile" role="button" 
+                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasNghienCuu" 
+                                       aria-controls="offcanvasNghienCuu" data-content-source="contentForOffcanvasNghienCuu">
                                         <i class="bi bi-search-heart-fill menu-icon"></i> Nghiên cứu
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownNghienCuuMobile" id="contentForOffcanvasNghienCuu">
+                                    <ul class="d-none" aria-labelledby="navbarDropdownNghienCuuMobile" id="contentForOffcanvasNghienCuu">
                                         <li><a class="dropdown-item" href="nghien-cuu/de-tai.html"><i class="bi bi-search-heart menu-icon-sub"></i>Đề tài nghiên cứu</a></li>
                                         <li><a class="dropdown-item" href="nghien-cuu/cong-bo-khoa-hoc.html"><i class="bi bi-journal-richtext menu-icon-sub"></i>Công bố khoa học</a></li>
                                         <li><a class="dropdown-item" href="nghien-cuu/tap-chi-khoa-hoc.html"><i class="bi bi-journals menu-icon-sub"></i>Tạp chí khoa học</a></li>
                                         <li><a class="dropdown-item" href="nghien-cuu/hoi-thao-khoa-hoc.html"><i class="bi bi-mic menu-icon-sub"></i>Hội thảo khoa học</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHopTacMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownHopTacMobile" role="button" 
+                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasHopTac" 
+                                       aria-controls="offcanvasHopTac" data-content-source="contentForOffcanvasHopTac">
                                         <i class="bi bi-people-fill menu-icon"></i> Hợp tác
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownHopTacMobile" id="contentForOffcanvasHopTac">
+                                    <ul class="d-none" aria-labelledby="navbarDropdownHopTacMobile" id="contentForOffcanvasHopTac">
                                         <li><a class="dropdown-item" href="hop-tac/quoc-te.html"><i class="bi bi-globe2 menu-icon-sub"></i>Hợp tác quốc tế</a></li>
                                         <li><a class="dropdown-item" href="hop-tac/doanh-nghiep.html"><i class="bi bi-building-check menu-icon-sub"></i>Hợp tác doanh nghiệp</a></li>
                                         <li><a class="dropdown-item" href="hop-tac/cuu-sinh-vien.html"><i class="bi bi-person-check menu-icon-sub"></i>Cựu sinh viên</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTuyenSinhMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownTuyenSinhMobile" role="button" 
+                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasTuyenSinh" 
+                                       aria-controls="offcanvasTuyenSinh" data-content-source="contentForOffcanvasTuyenSinh">
                                          <i class="bi bi-person-plus-fill menu-icon"></i> Tuyển sinh
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownTuyenSinhMobile" id="contentForOffcanvasTuyenSinh">
+                                    <ul class="d-none" aria-labelledby="navbarDropdownTuyenSinhMobile" id="contentForOffcanvasTuyenSinh">
                                         <li><h6 class="dropdown-header fw-bold text-uppercase">Đại học</h6></li>
                                         <li><a class="dropdown-item" href="tuyen-sinh/dai-hoc/thong-tin.html"><i class="bi bi-info-lg menu-icon-sub"></i>Thông tin tuyển sinh</a></li>
                                         <li><a class="dropdown-item" href="tuyen-sinh/dai-hoc/dang-ky-xet-tuyen.html"><i class="bi bi-pencil-square menu-icon-sub"></i>Đăng ký xét tuyển</a></li>
@@ -192,7 +210,7 @@
                             <div class="user-menu d-flex align-items-center d-lg-none">
                                 <a href="dang-ky-hoc.html" class="user-menu-link btn btn-outline-light btn-sm d-flex align-items-center mobile-user-menu-link">
                                     <i class="bi bi-mortarboard-fill me-2"></i>
-                                    <span class="d-none d-xl-inline">Đăng ký học</span>
+                                    <span class="d-xl-inline">Đăng ký học</span>
                                 </a>
                             </div>
                         </div>

@@ -33,12 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
                 
-                const mobileNavbarCollapse = document.getElementById('navbarContent');
-                if (mobileNavbarCollapse && mobileNavbarCollapse.classList.contains('show')) {
-                    const mobileNavbarToggler = document.querySelector('.navbar-toggler.d-lg-none');
-                    if (mobileNavbarToggler) mobileNavbarToggler.click();
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('navbarContent');
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    const mobileMenuInstance = bootstrap.Collapse.getInstance(mobileMenu);
+                    if (mobileMenuInstance) {
+                        mobileMenuInstance.hide();
+                    }
                 }
 
+                // Close any open offcanvas
                 const openOffcanvas = document.querySelector('.offcanvas.show');
                 if (openOffcanvas) {
                     const offcanvasInstance = bootstrap.Offcanvas.getInstance(openOffcanvas);
@@ -56,9 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mobileNavbarToggler && mobileMenu) {
         mobileMenu.addEventListener('show.bs.collapse', function () {
-            if (overlay && window.innerWidth < 992) {
-                overlay.classList.add('active');
-            }
+            // Overlay is no longer activated by mobile menu itself
             document.body.classList.add('menu-open');
             const navItems = mobileMenu.querySelectorAll('.navbar-nav > .nav-item');
             navItems.forEach((item, index) => {
@@ -70,21 +72,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         mobileMenu.addEventListener('hide.bs.collapse', function () {
-            if (overlay && window.innerWidth < 992) {
-                overlay.classList.remove('active');
+            // Overlay is no longer deactivated by mobile menu itself
+            // If an offcanvas is not taking over, then remove menu-open
+            const isActiveOffcanvas = document.querySelector('.offcanvas.show');
+            if (!isActiveOffcanvas) {
+                document.body.classList.remove('menu-open');
             }
-            document.body.classList.remove('menu-open');
             const navItems = mobileMenu.querySelectorAll('.navbar-nav > .nav-item.item-visible');
             navItems.forEach((item) => {
                 item.classList.remove('item-visible');
             });
         });
+
+        // Ngăn chặn click bên trong menu mobile đóng menu
+        mobileMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
     }
 
-    // Desktop Offcanvas Submenu Logic
-    const desktopNavLinksWithOffcanvas = document.querySelectorAll('.navbar-nav.d-lg-flex .nav-link[data-bs-toggle="offcanvas"]');
+    // Combined Offcanvas Submenu Logic for Desktop and Mobile
+    const navLinksWithOffcanvas = document.querySelectorAll('.nav-link[data-bs-toggle="offcanvas"]');
 
-    desktopNavLinksWithOffcanvas.forEach(link => {
+    navLinksWithOffcanvas.forEach(link => {
         const offcanvasTargetId = link.getAttribute('data-bs-target');
         if (!offcanvasTargetId) return;
 
@@ -92,10 +101,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!offcanvasElement) return;
 
         offcanvasElement.addEventListener('show.bs.offcanvas', function () {
-            if (overlay && window.innerWidth >= 992) {
+            if (overlay) { // Overlay always active for any offcanvas
                 overlay.classList.add('active');
             }
-            document.body.classList.add('menu-open');
+            document.body.classList.add('menu-open'); // Keep body scroll locked
+
+            const isMobileTrigger = link.closest('#navbarContent');
+            if (isMobileTrigger && mobileMenu && mobileMenu.classList.contains('show')) {
+                const mobileMenuInstance = bootstrap.Collapse.getInstance(mobileMenu);
+                if (mobileMenuInstance) {
+                    mobileMenuInstance.hide();
+                }
+                offcanvasElement.dataset.triggeredFromMobile = 'true'; 
+            }
+
             const offcanvasTitleElement = this.querySelector('.offcanvas-title');
             const offcanvasBody = this.querySelector('.offcanvas-body');
             const mainMenuItemText = link.textContent.trim();
@@ -110,17 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (contentSourceElement) {
                     let parentMobileIconClass = null;
-                    const mobileMenuParentLinkId = contentSourceElement.getAttribute('aria-labelledby');
-                    if (mobileMenuParentLinkId) {
-                        const mobileMenuParentLink = document.getElementById(mobileMenuParentLinkId);
-                        if (mobileMenuParentLink) {
-                            const iconElement = mobileMenuParentLink.querySelector('i.menu-icon');
-                            if (iconElement) {
-                                // Lấy tất cả các class của icon trừ class 'menu-icon' (nếu có) để tránh xung đột
-                                parentMobileIconClass = Array.from(iconElement.classList).filter(cls => cls !== 'menu-icon').join(' ');
-                            }
-                        }
+                    // Directly use the icon from the clicked link (applies to both desktop and mobile)
+                    const iconElementOnTrigger = link.querySelector('i.menu-icon');
+                    if (iconElementOnTrigger) {
+                        parentMobileIconClass = Array.from(iconElementOnTrigger.classList).filter(cls => cls !== 'menu-icon').join(' ');
                     }
+                    
                     cloneAndRestructureContentNode(contentSourceElement, offcanvasBody, parentMobileIconClass);
                 } else {
                     offcanvasBody.innerHTML = '<p class="text-center p-3">Lỗi: Không tìm thấy nguồn nội dung (ID: ' + contentSourceId + ').</p>';
@@ -141,10 +155,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         offcanvasElement.addEventListener('hide.bs.offcanvas', function () {
-            if (overlay && window.innerWidth >= 992) {
+            if (overlay) { // Overlay always deactivated with offcanvas
                 overlay.classList.remove('active');
             }
-            document.body.classList.remove('menu-open');
+            // Only remove 'menu-open' if mobile menu is not also trying to be open.
+            // If triggered from mobile, mobile menu will re-show and handle its 'menu-open' and overlay.
+            if (offcanvasElement.dataset.triggeredFromMobile === 'true') {
+                if (mobileMenu) {
+                     const mobileMenuInstance = bootstrap.Collapse.getInstance(mobileMenu);
+                     if (mobileMenuInstance) {
+                        // Check if it's not already shown or being shown to avoid issues
+                        if (!mobileMenu.classList.contains('show') && !mobileMenu.classList.contains('collapsing')) {
+                           mobileMenuInstance.show();
+                        }
+                     }
+                }
+                delete offcanvasElement.dataset.triggeredFromMobile;
+            } else if (!document.querySelector('.navbar-collapse.show')) { 
+                // If not triggered from mobile, and no other collapse menu is showing
+                document.body.classList.remove('menu-open');
+            }
+            
             const offcanvasBody = this.querySelector('.offcanvas-body');
             if (offcanvasBody) {
                 const animatedItems = offcanvasBody.querySelectorAll('.offcanvas-item-animate-in');
@@ -158,15 +189,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Overlay Click Handler (Universal for closing mobile menu or desktop offcanvas) ---
     if (overlay) {
         overlay.addEventListener('click', function() {
-            // Check if mobile menu is open
+            const activeOffcanvas = document.querySelector('.offcanvas.show');
+            
+            // If mobile menu is open AND no offcanvas is active (or was triggered from mobile)
+            // If an offcanvas IS active, clicking overlay should close IT, and then the offcanvas's hide logic will handle overlay.
             if (mobileMenu && mobileMenu.classList.contains('show')) {
-                mobileNavbarToggler.click(); // Simulate a click on the toggler to close it
+                if (!activeOffcanvas) { // Only hide mobile menu if no offcanvas is currently controlling the overlay
+                     const mobileMenuInstance = bootstrap.Collapse.getInstance(mobileMenu);
+                     if (mobileMenuInstance) {
+                        mobileMenuInstance.hide();
+                     }
+                }
             }
             
-            // Check if any desktop offcanvas is open
-            const openOffcanvasDesktop = document.querySelector('.offcanvas.show');
-            if (openOffcanvasDesktop) {
-                const offcanvasInstance = bootstrap.Offcanvas.getInstance(openOffcanvasDesktop);
+            // Check if any offcanvas is open (this part is primary for overlay clicks)
+            if (activeOffcanvas) {
+                const offcanvasInstance = bootstrap.Offcanvas.getInstance(activeOffcanvas);
                 if (offcanvasInstance) {
                     offcanvasInstance.hide();
                 }
@@ -180,7 +218,8 @@ function cloneAndRestructureContentNode(sourceNode, offcanvasBody, parentMobileI
     offcanvasBody.innerHTML = ''; // Clear previous content
 
     // Remove general mobile-specific icons like main menu icons or dropdown arrows early
-    clonedSource.querySelectorAll('.arrow-icon, .menu-icon').forEach(icon => icon.remove());
+    // We keep .menu-icon-sub as those are specific to items
+    clonedSource.querySelectorAll('.arrow-icon, .menu-icon:not(.menu-icon-sub)').forEach(icon => icon.remove());
 
     let currentListElement = null;
 
@@ -209,8 +248,8 @@ function cloneAndRestructureContentNode(sourceNode, offcanvasBody, parentMobileI
                 // Lấy text content, không quan tâm thẻ gốc là a hay h6
                 title.textContent = node.textContent.trim(); 
                 
-                // Gắn icon của mục cha (nếu có và nếu logic này được áp dụng cho dropdown-header)
-                if (parentMobileIconClass) { // parentMobileIconClass được truyền vào cloneAndRestructureContentNode
+                // Gắn icon của mục cha (nếu có)
+                if (parentMobileIconClass) { 
                     const icon = document.createElement('i');
                     icon.className = parentMobileIconClass; 
                     // Chèn icon vào đầu, trước text
@@ -249,13 +288,15 @@ function cloneAndRestructureContentNode(sourceNode, offcanvasBody, parentMobileI
                     let textContent = '';
                     let iconSubElement = null;
 
+                    // Preserve text and .menu-icon-sub from the source <a>
                     Array.from(node.childNodes).forEach(childNode => {
                         if (childNode.nodeType === Node.TEXT_NODE) {
                             textContent += childNode.textContent;
                         } else if (childNode.nodeType === Node.ELEMENT_NODE && childNode.classList.contains('menu-icon-sub')) {
                             iconSubElement = childNode.cloneNode(true);
-                            iconSubElement.removeAttribute('style');
+                            iconSubElement.removeAttribute('style'); // Remove any inline styles
                         }
+                        // Ignore other elements like .menu-icon or .arrow-icon as they are handled globally or not needed
                     });
 
                     if (iconSubElement) {

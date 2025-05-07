@@ -163,6 +163,20 @@ body {
 .navbar-toggler.d-lg-none:hover { background-color: var(--hub-red); }
 .navbar-toggler.d-lg-none:focus { box-shadow: 0 0 0 0.25rem var(--hub-red-pale); }
 
+/* Style for the new mobile search button if needed */
+.main-nav .ms-auto .btn.d-lg-none {
+    color: var(--text-light); /* Match toggler color */
+    border-color: rgba(255,255,255,0.25); /* Lighter border to be subtle */
+    padding: 0.375rem 0.6rem; /* Adjust padding for a tighter look if needed */
+}
+.main-nav .ms-auto .btn.d-lg-none:hover {
+    background-color: var(--hub-red-light); /* Match toggler hover */
+    border-color: rgba(255,255,255,0.5);
+}
+.main-nav .ms-auto .btn.d-lg-none:focus {
+    box-shadow: 0 0 0 0.2rem var(--hub-red-pale); /* Match toggler focus */
+}
+
 /* --- STYLES FOR MOBILE FULLSCREEN MENU (.navbar-collapse) --- */
 /* These styles are now primarily for the mobile experience */
 .navbar-collapse {
@@ -174,7 +188,7 @@ body {
     background-color: var(--white, #FFFFFF); 
     padding: 15px; 
     overflow-y: auto;
-    z-index: var(--z-modal); 
+    z-index: 1045; /* Consistent with Bootstrap offcanvas, above overlay (1040) */
     transform: translateX(-100%);
     transition: transform 0.35s ease-in-out;
     display: flex; 
@@ -245,6 +259,18 @@ body {
     color: var(--hub-red-dark) !important; 
     background-color: var(--gray-100, #f8f9fa); 
     border-bottom-color: var(--hub-red); 
+}
+
+/* Style for active mobile navigation link */
+.navbar-collapse .nav-link.active {
+    background-color: var(--bs-gray-100); /* Subtle background highlight */
+    font-weight: 700; /* Bolder text */
+    border-bottom-color: var(--hub-red); /* Prominent bottom border */
+    color: var(--hub-navy-dark) !important; /* Ensure text color remains dark */
+}
+
+.navbar-collapse .nav-link.active i.menu-icon {
+    color: var(--hub-red-dark); /* Darker icon for active state */
 }
 
 /* Dropdown Menu inside .navbar-collapse (Mobile) */
@@ -320,6 +346,7 @@ body {
 
 /* Mobile Search Form (inside .navbar-collapse) */
 .navbar-collapse .mobile-search-form {
+    width: 100%;
     padding: 0; 
     margin-bottom: var(--spacing-lg);
 }
@@ -341,6 +368,7 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(var(--hub-red-rgb), 0.25); 
 }
 .navbar-collapse .mobile-search-form .btn {
+    width: 45px;
     background-color: var(--hub-red);
     color: var(--white, #FFFFFF);
     border: 1px solid var(--hub-red-dark);
@@ -358,6 +386,9 @@ body {
     padding-bottom: 0; 
 }
 .navbar-collapse .mobile-user-menu-link { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     margin-left: 0; 
     padding: var(--spacing-lg); 
@@ -487,39 +518,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Style for the FIRST link in a list (acting as a main/overview link for that section) */
-.offcanvas-submenu-items > .offcanvas-submenu-link {
-    font-weight: 600; /* Bolder */
-    color: var(--hub-red); 
-    font-size: var(--font-size-base); /* Slightly larger than other sub-links */
-    /* border-bottom: none; */ /* Optional: remove border for the main link */
-}
-
-.offcanvas-submenu-items > .offcanvas-submenu-link::after {
-    content: '\F285' !important; /* Bootstrap Icons: chevron-right */
-    font-family: 'bootstrap-icons';
-    font-weight: 900; 
-    font-size: 0.9em; /* Adjust size as needed */
-    color: var(--hub-red);
-    margin-left: var(--spacing-sm);
-    opacity: 1; /* Always visible for this main link */
-}
-
-/* Style for "Active" link - can be combined with or override first-child if logic allows */
-/* This is a general active state, VanLang's "TỔNG QUAN" is more like a special first-child */
-.offcanvas-submenu-link.active-offcanvas-link {
-    font-weight: 700; /* Even bolder or same as first-child */
-    color: var(--hub-red); 
-}
-.offcanvas-submenu-link.active-offcanvas-link::after {
-    content: '\F285' !important; /* Ensure chevron for active if it's not already the first child */
-    font-family: 'bootstrap-icons';
-    font-weight: 900; 
-    font-size: 0.9em; 
-    color: var(--hub-red);
-    margin-left: var(--spacing-sm);
-    opacity: 1;
-}
 
 /* Style for "View All" links */
 a.offcanvas-submenu-link.offcanvas-view-all-link {
@@ -587,7 +585,10 @@ a.offcanvas-submenu-link.offcanvas-view-all-link::after {
 
 @media (max-width: 991.98px) {
     .offcanvas-desktop {
-        width: 100%; /* Full width on mobile */
+        width: 100vw; /* Full viewport width on mobile */
+    }
+    .offcanvas-end{
+        width: 100vw; /* Full viewport width on mobile */
     }
 }
 
