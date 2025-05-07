@@ -9,7 +9,6 @@
 }
 
 .header.scrolled {
-    /* background-color: var(--hub-navy-dark); */ /* Nền header khi scroll có thể không cần nữa nếu main-nav luôn màu đỏ */
     box-shadow: var(--shadow-md);
 }
 
@@ -39,8 +38,6 @@
 
 /* Add padding to the body to prevent content from being hidden by the fixed header */
 body {
-    /* padding-top giờ sẽ luôn là chiều cao của .main-nav (thanh đỏ chứa logo và toggler) */
-    /* Giả sử .main-nav cao khoảng 60-70px */
     padding-top: 70px; /* Điều chỉnh giá trị này cho phù hợp chiều cao .main-nav của bạn */
 }
 
@@ -91,24 +88,72 @@ body {
 /* Main Navigation - Thanh ngang màu đỏ chứa logo và toggler */
 .main-nav {
     background-color: var(--hub-red); 
-    /* padding cho .main-nav có thể cần thiết để logo và toggler không sát mép */
-    /* Bootstrap .container bên trong đã có padding */
 }
 
-/* Navbar Toggler - Luôn hiển thị */
-.navbar-toggler { 
+
+/* Desktop Navigation Links (Horizontal) */
+.navbar-nav.d-lg-flex .nav-item {
+    margin-left: 0.5rem; 
+    margin-right: 0.5rem;
+}
+
+.navbar-nav.d-lg-flex .nav-link {
+    color: var(--text-light); /* Light text for red background */
+    padding: 0.75rem 0.5rem; /* Adjust padding as needed */
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent; /* For hover/active effect */
+    transition: color 0.2s ease, border-color 0.2s ease;
+    display: inline-flex; /* Added for icon alignment */
+    align-items: center; /* Added for icon alignment */
+}
+
+.navbar-nav.d-lg-flex .nav-link i {
+    /* margin-right: 0.35rem; /* Bootstrap .me-2 should handle this, but can adjust */
+    line-height: 1; /* Helps with vertical alignment if icons are slightly off */
+}
+
+.navbar-nav.d-lg-flex .nav-link:hover,
+.navbar-nav.d-lg-flex .nav-link:focus {
+    color: var(--hub-gold-light);
+    border-bottom-color: var(--hub-gold-light);
+}
+
+.navbar-nav.d-lg-flex .nav-link.active { /* If you have an active state for desktop */
+    color: var(--white);
+    border-bottom-color: var(--white);
+    font-weight: 700;
+}
+
+/* Desktop User Actions */
+.main-nav .d-lg-flex.align-items-center .btn {
+    color: var(--text-light); /* Default light color for buttons on red bar */
+}
+.main-nav .d-lg-flex.align-items-center .btn-outline-light:hover {
+    color: var(--hub-red); /* Text color on hover for outline button */
+}
+/* Specific style for desktop 'Đăng ký học' if different from mobile's .mobile-user-menu-link */
+.main-nav .d-lg-flex.align-items-center .btn.mobile-user-menu-link { 
+    padding: 0.375rem 0.75rem; /* Bootstrap .btn-sm default */
+}
+.main-nav .d-lg-flex.align-items-center .btn.mobile-user-menu-link:hover {
+    background-color: var(--hub-gold-dark) !important;
+    border-color: var(--hub-gold-darker) !important;
+}
+
+/* Mobile Navbar Toggler */
+.navbar-toggler.d-lg-none {
     color: var(--text-light); 
     border: 1px solid var(--hub-red-light); 
     background-color: var(--hub-red-light); 
-    padding: .25rem .75rem; /* Bootstrap default */
-    font-size: 1.25rem; /* Bootstrap default */
 }
-.navbar-toggler:hover { background-color: var(--hub-red); }
-.navbar-toggler:focus { box-shadow: 0 0 0 0.25rem var(--hub-red-pale); }
+.navbar-toggler.d-lg-none:hover { background-color: var(--hub-red); }
+.navbar-toggler.d-lg-none:focus { box-shadow: 0 0 0 0.25rem var(--hub-red-pale); }
 
-/* ---- STYLES CHO MENU TOÀN MÀN HÌNH (TRƯỚC ĐÂY LÀ MOBILE) ---- */
-/* Áp dụng cho mọi thiết bị */
-
+/* --- STYLES FOR MOBILE FULLSCREEN MENU (.navbar-collapse) --- */
+/* These styles are now primarily for the mobile experience */
 .navbar-collapse {
     position: fixed;
     top: 0; 
@@ -118,7 +163,7 @@ body {
     background-color: var(--white, #FFFFFF); 
     padding: 15px; 
     overflow-y: auto;
-    z-index: var(--z-modal); /* Cao hơn header để che phủ */
+    z-index: var(--z-modal); 
     transform: translateX(-100%);
     transition: transform 0.35s ease-in-out;
     display: flex; 
@@ -134,25 +179,25 @@ body {
     top: 10px; 
     right: 15px; 
     font-size: 1.5rem; 
-    color: var(--text-dark, #212529); /* Màu tối, phù hợp với nền trắng của menu */
+    color: var(--text-dark, #212529); 
     background: transparent;
     border: none;
     padding: 0.5rem;
     line-height: 1;
-    z-index: 1; /* Đảm bảo nút hiển thị trên các nội dung khác trong menu */
+    z-index: 1; 
 }
 .navbar-collapse .btn-close-menu:hover {
-    color: var(--hub-red); /* Màu đỏ khi hover */
+    color: var(--hub-red); 
 }
 
-.navbar-nav {
+.navbar-collapse .navbar-nav { /* Mobile nav list */
     width: 100%; 
     text-align: center; 
-    margin-top: calc(15px + 1rem); 
+    margin-top: calc(15px + 1rem); /* Space below close button */
     margin-bottom: var(--spacing-lg);
 }
 
-.navbar-collapse .nav-item { 
+.navbar-collapse .nav-item { /* Mobile nav items */
     width: 100%; 
     margin-bottom: 0; 
     opacity: 0;
@@ -164,7 +209,7 @@ body {
     transform: translateX(0);
 }
 
-.nav-link { /* Áp dụng cho các link trong menu toàn màn hình */
+.navbar-collapse .nav-link { /* Mobile nav links */
     padding: var(--spacing-md) var(--spacing-xl); 
     border-bottom: 1px solid var(--border-color, #dee2e6); 
     font-size: var(--font-size-md); 
@@ -173,12 +218,10 @@ body {
     align-items: center;
     text-align: left;
     width: 100%; 
-    color: var(--hub-navy-dark); 
-    text-transform: none; /* Bỏ uppercase nếu có từ style desktop cũ */
-    letter-spacing: normal; /* Bỏ letter-spacing nếu có */
+    color: var(--hub-navy-dark) !important; 
 }
 
-.nav-link i.menu-icon {
+.navbar-collapse .nav-link i.menu-icon { /* Icons in mobile nav links */
     margin-right: var(--spacing-lg); 
     font-size: 1.3em; 
     color: var(--hub-red); 
@@ -187,18 +230,16 @@ body {
     flex-shrink: 0; 
 }
 
-.nav-link.active, /* Mục đang active (ví dụ Trang chủ) */
-.nav-link:hover,
-.nav-link:focus {
+.navbar-collapse .nav-link:focus {
     color: var(--hub-red-dark) !important; 
     background-color: var(--gray-100, #f8f9fa); 
     border-bottom-color: var(--hub-red); 
 }
-.nav-link::after { display: none; } /* Bỏ gạch chân kiểu desktop */
 
-/* Dropdown và Mega Menu bên trong menu toàn màn hình */
-.dropdown-menu, .mega-menu { 
-    background-color: transparent; /* Nền của dropdown/mega sẽ là nền trắng của navbar-collapse */
+/* Dropdown Menu inside .navbar-collapse (Mobile) */
+/* Styles for .navbar-collapse .dropdown-menu are now primary */
+.navbar-collapse .dropdown-menu {
+    background-color: transparent; 
     box-shadow: none;
     border: none;
     padding-left: 0; 
@@ -206,19 +247,18 @@ body {
     margin-top: 0 !important;
     border-radius: 0;
     animation: none; 
-    display: none; 
+    display: none; /* Managed by Bootstrap JS */
     position: static !important; 
     float: none !important; 
     transform: none !important; 
 }
-.nav-item.dropdown.show > .dropdown-menu,
-.nav-item.dropdown.show > .mega-menu {
+.navbar-collapse .nav-item.dropdown.show > .dropdown-menu {
     display: block; 
     opacity: 1;
     visibility: visible;
 }
 
-.dropdown-item, .mega-menu-link { 
+.navbar-collapse .dropdown-item {
     color: var(--gray-700, #495057); 
     padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg); 
     font-size: var(--font-size-sm); 
@@ -230,7 +270,8 @@ body {
     background-color: transparent !important; 
     transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
-.menu-icon-sub {
+
+.navbar-collapse .menu-icon-sub { /* Styling for icons within dropdown items */
     font-size: 1.1em; 
     color: var(--hub-red-dark); 
     margin-right: var(--spacing-md); 
@@ -239,57 +280,65 @@ body {
     text-align: center;
     line-height: 1; 
 }
-.dropdown-item > .menu-icon-sub, .mega-menu-link > .menu-icon-sub {
-    /* Cần kiểm tra lại việc căn chỉnh này */
+/* Adjusted selector for .menu-icon-sub to only apply to dropdown-item context */
+.navbar-collapse .dropdown-item > .menu-icon-sub {
     margin-left: calc(-1 * var(--spacing-lg) + 28px + var(--spacing-md) ); 
 }
-.dropdown-item:last-child, 
-.mega-menu .list-unstyled:last-child .mega-menu-link:last-child {
+
+.navbar-collapse .dropdown-item:last-child { 
     border-bottom: none;
 }
-.dropdown-item:hover, .dropdown-item:focus,
-.mega-menu-link:hover, .mega-menu-link:focus {
+
+.navbar-collapse .dropdown-item:hover, 
+.navbar-collapse .dropdown-item:focus {
     color: var(--hub-red-darker, #A71D2A) !important; 
     background-color: var(--gray-200, #e9ecef) !important; 
     transform: translateX(3px); 
 }
 
-.mega-menu-title {
-    color: var(--hub-red-dark); 
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    padding: var(--spacing-md) var(--spacing-lg);
-    padding-left: calc(var(--spacing-lg) + 28px + var(--spacing-lg));
-    border-bottom: 2px solid var(--hub-red); 
-    margin-bottom: 0;
-    background-color: var(--gray-100, #f8f9fa); 
-}
-.dropdown-header { /* Style cho dropdown header nếu có */
-    color: var(--text-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-weight: 600;
-}
-
-/* Animation cho <li> con - Giữ nguyên */
-.nav-item.dropdown.show .dropdown-menu > li,
-.nav-item.dropdown.show .mega-menu .list-unstyled > li { 
+/* Animation for <li> children in mobile dropdown menu */
+.navbar-collapse .nav-item.dropdown.show .dropdown-menu > li { 
     opacity: 0; 
     transform: translateX(-20px); 
     animation: slideInDropdownItem 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
-/* ... (animation-delay giữ nguyên) ... */
+/* Animation delays for these items */
+.navbar-collapse .nav-item.dropdown.show .dropdown-menu > li:nth-child(1) { animation-delay: 0.05s; }
+.navbar-collapse .nav-item.dropdown.show .dropdown-menu > li:nth-child(2) { animation-delay: 0.08s; }
+/* ... add more delays if needed ... */
 
-/* Mobile Search Form - giờ là search form cho mọi thiết bị trong menu */
-.mobile-search-form {
+/* Mobile Search Form (inside .navbar-collapse) */
+.navbar-collapse .mobile-search-form {
     padding: 0; 
     margin-bottom: var(--spacing-lg);
 }
-/* ... (style .mobile-search-form .form-control và .btn giữ nguyên) ... */
+.navbar-collapse .mobile-search-form .form-control {
+    background-color: var(--gray-100, #f8f9fa); 
+    color: var(--text-dark);
+    border: 1px solid var(--border-color, #dee2e6);
+    border-right: none; 
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md); 
+    padding: var(--spacing-md); 
+    font-size: var(--font-size-md); 
+}
+.navbar-collapse .mobile-search-form .form-control::placeholder {
+    color: var(--gray-600, #6c757d);
+}
+.navbar-collapse .mobile-search-form .form-control:focus {
+    background-color: var(--white, #FFFFFF);
+    border-color: var(--hub-red);
+    box-shadow: 0 0 0 0.2rem rgba(var(--hub-red-rgb), 0.25); 
+}
+.navbar-collapse .mobile-search-form .btn {
+    background-color: var(--hub-red);
+    color: var(--white, #FFFFFF);
+    border: 1px solid var(--hub-red-dark);
+    border-left: none; 
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; 
+}
 
-/* User Menu - giờ là user menu cho mọi thiết bị trong menu */
-.user-menu {
+/* Mobile User Menu (inside .navbar-collapse) */
+.navbar-collapse .user-menu {
     margin-top: auto; 
     padding-top: 0; 
     width: 100%;
@@ -297,372 +346,351 @@ body {
     flex-direction: column; 
     padding-bottom: 0; 
 }
-.mobile-user-menu-link { 
-    /* ... (style .mobile-user-menu-link giữ nguyên) ... */
-}
-
-/* Keyframes (slideInDropdownItem, fadeInDropdownKeyframes, fadeInUpGeneral) giữ lại nếu fadeInDropdownKeyframes, fadeInUpGeneral còn dùng ở đâu đó, nếu không thì xóa bớt */
-
-/* Mobile Navigation */
-@media (max-width: 991.98px) {
-    /* --- START MOBILE HEADER HEIGHT ADJUSTMENTS --- */
-    /* 
-      IMPORTANT: Calculate the actual combined height of your .topbar and .main-nav 
-      when viewed on a mobile device, then update the three '100px' values below.
-      Example: If topbar is 45px and main-nav bar is 55px, total is 100px.
-    */
-    body {
-        padding-top: 66px; /* ADJUST THIS - Only .main-nav height on mobile */
-    }
-
-    .header.scrolled {
-        /* If header shrinks on scroll on mobile, adjust .navbar-collapse.scrolled accordingly if needed */
-    }
-
-    .navbar-collapse {
-        position: fixed;
-        top: 0; 
-        left: 0;
-        width: 100%;
-        height: 100%; 
-        background-color: var(--white, #FFFFFF); /* NỀN TRẮNG */
-        /* padding: var(--spacing-lg) 0; */ /* Bỏ padding này, dùng padding 15px bạn đã thêm */
-        padding: 15px; /* Giữ lại padding bạn đã thêm */
-        overflow-y: auto;
-        z-index: var(--z-modal); 
-        transform: translateX(-100%);
-        transition: transform 0.35s ease-in-out;
-        display: flex; 
-        flex-direction: column; 
-    }
-
-    .navbar-collapse.show {
-        transform: translateX(0);
-    }
-
-    .navbar-collapse .btn-close-menu {
-        position: absolute;
-        top: 10px; /* Điều chỉnh lại cho padding mới */
-        right: 15px; /* Điều chỉnh lại cho padding mới */
-        font-size: 1.5rem; 
-        color: var(--text-dark, #212529); /* Màu tối cho nút đóng */
-        background: transparent;
-        border: none;
-        padding: 0.5rem;
-        line-height: 1;
-        z-index: 1; 
-    }
-    .navbar-collapse .btn-close-menu:hover {
-        color: var(--hub-red); /* Màu accent khi hover */
-    }
-
-    .navbar-nav {
-        width: 100%; 
-        text-align: center; 
-        margin-top: calc(15px + 1rem); /* Khoảng cách từ top sau khi có padding mới và nút đóng */
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .navbar-collapse .nav-item { 
-        width: 100%; 
-        margin-bottom: 0; 
-        opacity: 0;
-        transform: translateX(-30px); /* Trượt từ trái vào */
-        transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .navbar-collapse.show .nav-item.item-visible {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    .nav-link { 
-        padding: var(--spacing-md) var(--spacing-lg); /* Giữ padding ngang, padding dọc đã có từ item */
-        border-bottom: 1px solid var(--border-color, #dee2e6); /* Border màu xám nhạt */
-        font-size: var(--font-size-md); 
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        text-align: left;
-        width: 100%; 
-        color: var(--hub-navy-dark); /* MÀU CHỮ TỐI */
-    }
-
-    .nav-link i.menu-icon {
-        margin-right: var(--spacing-lg); 
-        font-size: 1.3em; 
-        color: var(--hub-red); /* Icon màu accent */
-        width: 28px; 
-        text-align: center;
-        flex-shrink: 0; 
-    }
-
-    .nav-link.active,
-    .nav-link:hover,
-    .nav-link:focus {
-        color: var(--hub-red-dark) !important; /* Màu chữ accent đậm khi active/hover */
-        background-color: var(--gray-100, #f8f9fa); /* Nền xám rất nhạt */
-        border-bottom-color: var(--hub-red); 
-    }
-    .nav-link::after { display: none; }
-    
-    .dropdown-item, .mega-menu-link { 
-        color: var(--gray-700, #495057); /* Màu chữ tối vừa cho sub-item */
-        padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg); 
-        font-size: var(--font-size-sm); 
-        border-bottom: 1px solid var(--gray-200, #e9ecef); /* Border xám nhạt hơn */
-        display: flex; 
-        align-items: center; 
-        width: 100%;
-        text-align: left;
-        background-color: transparent !important; 
-        transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .menu-icon-sub {
-        font-size: 1.1em; 
-        color: var(--hub-red-dark); /* Icon sub màu accent đậm */
-        margin-right: var(--spacing-md); 
-        flex-shrink: 0;
-        width: 22px; 
-        text-align: center;
-        line-height: 1; 
-    }
-    .dropdown-item > .menu-icon-sub, .mega-menu-link > .menu-icon-sub {
-        margin-left: calc(-1 * var(--spacing-lg) + 28px + var(--spacing-md) ); /* Cần kiểm tra lại căn chỉnh này */
-    }
-
-    .dropdown-item:last-child, 
-    .mega-menu .list-unstyled:last-child .mega-menu-link:last-child {
-        border-bottom: none;
-    }
-    
-    .dropdown-item:hover,
-    .dropdown-item:focus,
-    .mega-menu-link:hover,
-    .mega-menu-link:focus {
-        color: var(--hub-red-darker, #A71D2A) !important; 
-        background-color: var(--gray-200, #e9ecef) !important; 
-        transform: translateX(3px); 
-    }
-
-    .mega-menu-title {
-        color: var(--hub-red-dark); /* Màu tối cho tiêu đề mega */
-        font-size: var(--font-size-base);
-        font-weight: 600;
-        padding: var(--spacing-md) var(--spacing-lg);
-        padding-left: calc(var(--spacing-lg) + 28px + var(--spacing-lg));
-        border-bottom: 2px solid var(--hub-red); /* Border accent */
-        margin-bottom: 0;
-        background-color: var(--gray-100, #f8f9fa); /* Nền xám nhạt */
-    }
-    
-    .nav-item.dropdown.show .dropdown-menu > li,
-    .nav-item.dropdown.show .mega-menu .list-unstyled > li {
-        opacity: 0; 
-        transform: translateX(-20px); 
-        animation: slideInDropdownItem 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    }
-    /* --- Animation Delays cho các <li> (Giữ nguyên) --- */
-    .nav-item.dropdown.show .dropdown-menu > li:nth-child(1), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(1) { animation-delay: 0.05s; }
-    .nav-item.dropdown.show .dropdown-menu > li:nth-child(2), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(2) { animation-delay: 0.08s; } /* Giảm nhẹ delay */
-    .nav-item.dropdown.show .dropdown-menu > li:nth-child(3), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(3) { animation-delay: 0.11s; }
-    .nav-item.dropdown.show .dropdown-menu > li:nth-child(4), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(4) { animation-delay: 0.14s; }
-    .nav-item.dropdown.show .dropdown-menu > li:nth-child(5), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(5) { animation-delay: 0.17s; }
-    .nav-item.dropdown.show .dropdown-menu > li:nth-child(6), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(6) { animation-delay: 0.20s; }
-
-    /* Mobile Search Form Styling với nền trắng */
-    .mobile-search-form {
-        padding: 0; /* Padding đã có từ .navbar-collapse */
-        margin-bottom: var(--spacing-lg);
-    }
-    .mobile-search-form .form-control {
-        background-color: var(--gray-100, #f8f9fa); 
-        color: var(--text-dark);
-        border: 1px solid var(--border-color, #dee2e6);
-        border-right: none; 
-        border-radius: var(--border-radius-md) 0 0 var(--border-radius-md); 
-        padding: var(--spacing-md); 
-        font-size: var(--font-size-md); 
-    }
-    .mobile-search-form .form-control::placeholder {
-        color: var(--gray-600, #6c757d);
-        opacity: 1;
-    }
-    .mobile-search-form .form-control:focus {
-        background-color: var(--white, #FFFFFF);
-        color: var(--text-dark);
-        border-color: var(--hub-red);
-        box-shadow: 0 0 0 0.2rem rgba(var(--hub-red-rgb), 0.25); 
-    }
-    .mobile-search-form .btn {
-        background-color: var(--hub-red);
-        color: var(--white, #FFFFFF);
-        border: 1px solid var(--hub-red-dark);
-        border-left: none; 
-        border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; 
-        padding: var(--spacing-md); 
-        display: flex; 
-        align-items: center;
-        justify-content: center;
-    }
-    .mobile-search-form .btn i { font-size: 1.2rem; }
-    .mobile-search-form .btn:hover,
-    .mobile-search-form .btn:focus {
-        background-color: var(--hub-red-dark);
-        color: var(--white, #FFFFFF);
-        border-color: var(--hub-red-darker, #A71D2A);
-    }
-
-    .user-menu {
-        margin-top: auto; 
-        padding-top: 0; 
-        width: 100%;
-        display: flex; 
-        flex-direction: column; 
-        padding-bottom: 0; 
-    }
-    
-    .mobile-user-menu-link { /* Giữ nguyên CTA màu đỏ */
-        width: 100%;
-        margin-left: 0; 
-        padding: var(--spacing-lg); 
-        font-size: var(--font-size-lg); 
-        font-weight: 600;
-        border-radius: 0; 
-        display: flex;
-        align-items: center;
-        justify-content: center; 
-        text-decoration: none;
-        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-        order: 1; 
-        background-color: var(--hub-red); 
-        color: var(--text-light);
-        border: none; 
-    }
-    .mobile-user-menu-link i { font-size: 1.3em; margin-right: var(--spacing-md); }
-    .mobile-user-menu-link:hover, .mobile-user-menu-link:focus {
-        background-color: var(--hub-red-dark); 
-        color: var(--hub-gold-light);
-    }
-    .mobile-user-menu-link .d-none { display: inline !important; }
-
-    .header-logo { height: 50px; }
-}
-
-/* Keyframes cho slide-in dropdown items (áp dụng cho <li>) */
-@keyframes slideInDropdownItem {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Animation keyframes */
-@keyframes fadeInDropdownKeyframes {
-    from {
-        opacity: 0.5;
-        transform: translateY(15px) scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Ensure the original fadeInUp is not removed if used elsewhere, or rename this one if it's specific to dropdowns */
-@keyframes fadeInUpGeneral {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.dropdown-item {
-    transition: all 0.2s ease;
-}
-
-.dropdown-item:hover {
-    background-color: rgba(var(--hub-gold-rgb), 0.1);
-    transform: translateX(5px);
-}
-
-/* Bootstrap Dropdown Fix */
-.dropdown-menu {
-    animation: fadeInDropdownKeyframes 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-    transform-origin: top center;
-    opacity: 0;
-    display: none;
-}
-
-.dropdown-menu.show {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.mega-menu {
-    animation: fadeInUpGeneral 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-/* Override Bootstrap Navbar Colors */
-.navbar-dark .navbar-nav .nav-link {
-    color: var(--hub-navy-dark);
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    padding: 8px
-
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link.active {
-    color: var(--hub-gold);
-}
-
-.navbar-dark .navbar-nav .nav-link:after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--hub-gold);
-    transition: width 0.3s ease;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover:after,
-.navbar-dark .navbar-nav .nav-link.active:after {
+.navbar-collapse .mobile-user-menu-link { 
     width: 100%;
+    margin-left: 0; 
+    padding: var(--spacing-lg); 
+    font-size: var(--font-size-lg); 
+    font-weight: 600;
+    border-radius: 0; 
+    background-color: var(--hub-red); 
+    color: var(--text-light);
+    border: none; 
+}
+.navbar-collapse .mobile-user-menu-link:hover, 
+.navbar-collapse .mobile-user-menu-link:focus {
+    background-color: var(--hub-red-dark); 
+    color: var(--hub-gold-light);
 }
 
-.navbar-dark .navbar-nav .dropdown-toggle:after {
-    transition: transform 0.3s ease;
+
+/* Animation for items appearing in offcanvas - Staging for Giai đoạn 2 */
+.offcanvas-body > * {
+    opacity: 0;
+    transform: translateX(-20px); 
+}
+.offcanvas-body.items-visible > * {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-.navbar-dark .navbar-nav .dropdown-toggle.show:after {
-    transform: rotate(-180deg);
+/* Staggered animation for direct children of offcanvas-body */
+/* JS will need to add .items-visible to .offcanvas-body */
+/* and then iterate through children to apply delays if this CSS-only approach is used. */
+/* Or JS directly adds a class like .offcanvas-item-visible with delay */
+
+/* Keyframes (slideInDropdownItem, etc.) */
+@keyframes slideInDropdownItem {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-/* Helper for transition hover effect */
-.transition-hover {
-    transition: all 0.3s ease;
+
+/* Helper for transition hover effect - general utility, can keep if used elsewhere */
+.transition-hover { transition: all 0.3s ease; }
+.transition-hover:hover { transform: translateY(-5px); }
+
+/* Helper for hover text colors - general utility, can keep if used */
+.hover-text-warning:hover { color: var(--hub-gold) !important; }
+
+/* Unified Styles for Offcanvas Submenu Content */
+
+.offcanvas-submenu-group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+    color: var(--hub-red) !important; 
+    font-weight: 700; /* Increased boldness */
+    text-transform: uppercase;
+    padding: 1rem 1.25rem; /* Increased padding */
+    font-size: 0.95rem; /* Slightly increased font size */
+    letter-spacing: 0.5px;
+    background-color: var(--bs-light); /* Lighter background for prominence */
+    border-bottom: 1px solid var(--bs-border-color); /* Clearer border */
+    margin-bottom: 0; 
 }
 
-.transition-hover:hover {
-    transform: translateY(-5px);
+/* Remove ::before pseudo-element as icon is now a real <i> tag - This rule should already exist from previous step */
+.offcanvas-submenu-group-title::before {
+    content: none;
 }
 
-/* Helper for hover text colors */
-.hover-text-warning:hover {
-    color: var(--hub-gold) !important;
+.offcanvas-submenu-group-title i {
+    font-size: 1.2em; /* Slightly larger icon */
+    color: var(--primary-color); 
+    line-height: 1; 
+    display: inline-block !important; /* Ensure display */
+    font-style: normal !important; /* Reset potential browser default for <i> */
+    speak: none;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Removed body overlay CSS as mega-menu is no longer full-screen fixed */
+.offcanvas-body > .offcanvas-submenu-group-title:first-child {
+    margin-top: 0; 
+    /* border-top: none; /* Optional: remove top border for the very first group title if desired */
+}
+
+.offcanvas-submenu-items {
+    list-style: none;
+    padding-left: 0; 
+    margin-bottom: var(--spacing-lg); 
+    margin-left: calc(1.1em + var(--spacing-sm)); /* Indent links to align with text part of title if under a group title */
+}
+/* If a submenu-items list is a direct child of offcanvas-body (not under a group title), no indent */
+.offcanvas-body > .offcanvas-submenu-items {
+    margin-left: 0;
+}
+
+.offcanvas-submenu-link {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) 0; 
+    font-size: var(--font-size-sm); 
+    font-weight: 400;
+    color: var(--hub-navy-dark, #2c3e50);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color-lighter, #f5f5f5); 
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.offcanvas-submenu-items li:last-child .offcanvas-submenu-link {
+    border-bottom: none; 
+}
+
+/* Default: No chevron icon for regular submenu links */
+.offcanvas-submenu-link::after {
+    content: none !important; 
+}
+
+.offcanvas-submenu-link:hover {
+    background-color: var(--hub-red-pale); /* Using existing variable */
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color); 
+    padding-left: calc(20px - 3px); 
+}
+
+.offcanvas-submenu-link:hover .menu-icon-sub {
+    color: var(--primary-color);
+}
+
+/* Style for the FIRST link in a list (acting as a main/overview link for that section) */
+.offcanvas-submenu-items > .offcanvas-submenu-link {
+    font-weight: 600; /* Bolder */
+    color: var(--hub-red); 
+    font-size: var(--font-size-base); /* Slightly larger than other sub-links */
+    /* border-bottom: none; */ /* Optional: remove border for the main link */
+}
+
+.offcanvas-submenu-items > .offcanvas-submenu-link::after {
+    content: '\F285' !important; /* Bootstrap Icons: chevron-right */
+    font-family: 'bootstrap-icons';
+    font-weight: 900; 
+    font-size: 0.9em; /* Adjust size as needed */
+    color: var(--hub-red);
+    margin-left: var(--spacing-sm);
+    opacity: 1; /* Always visible for this main link */
+}
+
+/* Style for "Active" link - can be combined with or override first-child if logic allows */
+/* This is a general active state, VanLang's "TỔNG QUAN" is more like a special first-child */
+.offcanvas-submenu-link.active-offcanvas-link {
+    font-weight: 700; /* Even bolder or same as first-child */
+    color: var(--hub-red); 
+}
+.offcanvas-submenu-link.active-offcanvas-link::after {
+    content: '\F285' !important; /* Ensure chevron for active if it's not already the first child */
+    font-family: 'bootstrap-icons';
+    font-weight: 900; 
+    font-size: 0.9em; 
+    color: var(--hub-red);
+    margin-left: var(--spacing-sm);
+    opacity: 1;
+}
+
+/* Style for "View All" links */
+a.offcanvas-submenu-link.offcanvas-view-all-link {
+    color: var(--hub-red);
+    font-weight: 500; 
+    font-size: var(--font-size-sm);
+    border-bottom: none; 
+    padding-top: var(--spacing-sm); 
+    margin-left: 0; /* Override indent from .offcanvas-submenu-items if it's directly under a group */
+}
+a.offcanvas-submenu-link.offcanvas-view-all-link:hover {
+    text-decoration: underline; 
+    color: var(--hub-red-dark);
+}
+/* Ensure no chevron for "View All" links specifically if default was re-enabled */
+a.offcanvas-submenu-link.offcanvas-view-all-link::after {
+    content: none !important;
+}
+
+.offcanvas-body > hr {
+    border-top: 1px solid var(--border-color-light, #eeeeee);
+    margin: var(--spacing-xl) 0; /* Increased vertical margin */
+}
+
+
+/* Ensure the styles for animation are still present and correct */
+.offcanvas-body > * { 
+    opacity: 0;
+    transform: translateX(-20px); 
+}
+
+.offcanvas-body > *.offcanvas-item-animate-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.35s ease-out, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+}
+
+/* Overlay for when offcanvas is open on desktop */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    z-index: 1040; /* Below offcanvas (default 1045), above most other content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Desktop Offcanvas Menu */
+.offcanvas-desktop {
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    width: 450px; /* Default width for desktop */
+    background-color: var(--background-color-light);
+    border-left: 1px solid var(--bs-border-color-translucent);
+}
+
+@media (max-width: 991.98px) {
+    .offcanvas-desktop {
+        width: 100%; /* Full width on mobile */
+    }
+}
+
+.offcanvas-header {
+    background-color: var(--background-color-light);
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+    padding: 1rem 1.5rem;
+}
+.offcanvas-title {
+    color: var(--hub-red);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.offcanvas-desktop .btn-close {
+    filter: var(--bs-btn-close-white-filter); /* Ensure close button is visible on light bg */
+}
+
+.offcanvas-desktop .offcanvas-body {
+    padding: 0; /* Remove default padding to allow full-width items */
+    overflow-y: auto;
+}
+
+
+.offcanvas-body > .offcanvas-submenu-group-title:first-child {
+    margin-top: 0; 
+    /* border-top: none; /* Optional: remove top border for the very first group title if desired */
+}
+
+.offcanvas-submenu-items {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0; /* Remove bottom margin from ul */
+}
+
+.offcanvas-submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem; /* Space between icon and text */
+    text-decoration: none;
+    padding: 12px 20px; /* Adjust padding */
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+    color: var(--text-color-dark);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.offcanvas-submenu-link .menu-icon-sub {
+    font-size: 1.1em; /* Adjust icon size */
+    color: var(--bs-gray-600); /* Default icon color */
+    transition: color 0.2s ease;
+    margin-right: 0.1rem; /* Slight space if gap isn't enough for some icons */
+}
+
+.offcanvas-submenu-link:hover {
+    background-color: var(--hub-red-pale); /* Using existing variable */
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color); 
+    padding-left: calc(20px - 3px); 
+}
+
+.offcanvas-submenu-link:hover .menu-icon-sub {
+    color: var(--primary-color);
+}
+
+/* Style for active link */
+.offcanvas-submenu-link.active {
+    background-color: var(--hub-red-pale); /* Using existing variable, same as hover for consistency */
+    color: var(--primary-color);
+    font-weight: 600; 
+    border-left: 3px solid var(--primary-color);
+    padding-left: calc(20px - 3px);
+}
+
+.offcanvas-submenu-link.active .menu-icon-sub {
+    color: var(--primary-color);
+}
+
+
+/* Remove bottom border from the last link in a list */
+ul.offcanvas-submenu-items > li:last-child > .offcanvas-submenu-link {
+    border-bottom: none;
+}
+
+.offcanvas-view-all-wrapper {
+    padding: 15px 20px;
+    background-color: var(--bs-gray-50); /* Slight background for view all section */
+    border-top: 1px solid var(--bs-border-color-translucent);
+}
+
+.offcanvas-view-all-link {
+    display: block;
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: var(--bs-border-radius);
+    transition: background-color 0.2s ease;
+}
+
+.offcanvas-view-all-link:hover {
+    background-color: var(--bs-gray-200);
+    color: var(--primary-color);
+}
+
+/* Animation for offcanvas items */
+.offcanvas-desktop .offcanvas-body > * {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.35s ease-out, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.offcanvas-desktop .offcanvas-body > *.offcanvas-item-animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}

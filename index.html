@@ -43,10 +43,46 @@
                                 <img src="images/logo/logo-white.png" alt="HUB Logo">
                             </div>
                         </a>
-                        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                        <!-- Desktop Navigation (LG and up) -->
+                        <ul class="navbar-nav d-none d-lg-flex flex-row mx-auto align-items-center">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door-fill me-2"></i>Trang chủ</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasGioiThieu" aria-controls="offcanvasGioiThieu" data-content-source="contentForOffcanvasGioiThieu"><i class="bi bi-info-circle-fill me-2"></i>Giới thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDaoTao" aria-controls="offcanvasDaoTao" data-content-source="contentForOffcanvasDaoTao"><i class="bi bi-easel-fill me-2"></i>Đào tạo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNghienCuu" aria-controls="offcanvasNghienCuu" data-content-source="contentForOffcanvasNghienCuu"><i class="bi bi-search-heart-fill me-2"></i>Nghiên cứu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHopTac" aria-controls="offcanvasHopTac" data-content-source="contentForOffcanvasHopTac"><i class="bi bi-people-fill me-2"></i>Hợp tác</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTuyenSinh" aria-controls="offcanvasTuyenSinh" data-content-source="contentForOffcanvasTuyenSinh"><i class="bi bi-person-plus-fill me-2"></i>Tuyển sinh</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sinh-vien.html"><i class="bi bi-backpack2-fill me-2"></i>Sinh viên</a>
+                            </li>
+                        </ul>
+
+                        <!-- Desktop User Actions (LG and up) -->
+                        <div class="d-none d-lg-flex align-items-center">
+                            <button class="btn btn-outline-light btn-sm me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                                <i class="bi bi-search"></i>
+                            </button>
+                            <a href="dang-ky-hoc.html" class="btn btn-sm mobile-user-menu-link" style="background-color: var(--hub-gold); color: var(--hub-navy-dark); border-color: var(--hub-gold-dark);">
+                                <i class="bi bi-mortarboard-fill me-1"></i>Đăng ký học
+                            </a>
+                        </div>
+                        
+                        <!-- Mobile Navbar Toggler (hidden on LG and up) -->
+                        <button class="navbar-toggler d-lg-none shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         
+                        <!-- Mobile Fullscreen Menu -->
                         <div class="collapse navbar-collapse" id="navbarContent">
                             <button type="button" class="btn-close-menu" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Đóng menu">
                                 <i class="bi bi-x-lg"></i>
@@ -58,109 +94,92 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGioiThieu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGioiThieuMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-info-circle-fill menu-icon"></i> Giới thiệu
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownGioiThieu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-info-square menu-icon-sub"></i>Tổng quan về HUB</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-chat-left-text menu-icon-sub"></i>Thông điệp hiệu trưởng</a></li>
+                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownGioiThieuMobile" id="contentForOffcanvasGioiThieu">
+                                        <li><a class="dropdown-item" href="gioi-thieu/tong-quan.html"><i class="bi bi-info-square menu-icon-sub"></i>Tổng quan về HUB</a></li>
+                                        <li><a class="dropdown-item" href="gioi-thieu/su-menh-tam-nhin.html"><i class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
+                                        <li><a class="dropdown-item" href="gioi-thieu/co-cau-to-chuc.html"><i class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
+                                        <li><a class="dropdown-item" href="gioi-thieu/thong-diep-hieu-truong.html"><i class="bi bi-chat-left-text menu-icon-sub"></i>Thông điệp hiệu trưởng</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-clock-history menu-icon-sub"></i>Lịch sử phát triển</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown position-static">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDaoTao" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Đào tạo
-                                    </a>
-                                    <div class="dropdown-menu mega-menu shadow border-0 w-100" aria-labelledby="navbarDropdownDaoTao">
-                                        <div class="p-4">
-                                            <div class="row g-3 py-4">
-                                                <div class="col-md-3">
-                                                    <h5 class="mega-menu-title border-bottom pb-2 mb-3">Bậc đào tạo</h5>
-                                                    <ul class="list-unstyled mb-0">
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-journal-text menu-icon-sub"></i>Đại học chính quy</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-arrow-repeat menu-icon-sub"></i>Đại học liên thông</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-journals menu-icon-sub"></i>Đại học văn bằng 2</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-capslock menu-icon-sub"></i>Sau đại học</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <h5 class="mega-menu-title border-bottom pb-2 mb-3">Ngành học</h5>
-                                                    <ul class="list-unstyled mb-0">
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-cash-coin menu-icon-sub"></i>Tài chính - Ngân hàng</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-calculator menu-icon-sub"></i>Kế toán - Kiểm toán</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-briefcase menu-icon-sub"></i>Quản trị kinh doanh</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-globe menu-icon-sub"></i>Kinh tế quốc tế</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-pc-display menu-icon-sub"></i>Công nghệ thông tin</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <h5 class="mega-menu-title border-bottom pb-2 mb-3">Chương trình đặc biệt</h5>
-                                                    <ul class="list-unstyled mb-0">
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-star menu-icon-sub"></i>Chương trình chất lượng cao</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-link-45deg menu-icon-sub"></i>Chương trình liên kết quốc tế</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-files menu-icon-sub"></i>Chương trình song bằng</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-camera-video menu-icon-sub"></i>Đào tạo từ xa</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <h5 class="mega-menu-title border-bottom pb-2 mb-3">Tài nguyên học tập</h5>
-                                                    <ul class="list-unstyled mb-0">
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-book-half menu-icon-sub"></i>Thư viện</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-laptop menu-icon-sub"></i>E-learning</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-calendar-week menu-icon-sub"></i>Lịch học - lịch thi</a></li>
-                                                        <li class="mb-2"><a class="mega-menu-link d-block" href="#"><i class="bi bi-file-earmark-text menu-icon-sub"></i>Biểu mẫu - văn bản</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNghienCuu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Nghiên cứu
-                                    </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownNghienCuu">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-search-heart menu-icon-sub"></i>Đề tài nghiên cứu</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-journal-richtext menu-icon-sub"></i>Công bố khoa học</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-journals menu-icon-sub"></i>Tạp chí khoa học</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-mic menu-icon-sub"></i>Hội thảo khoa học</a></li>
+                                        <li><a class="dropdown-item" href="gioi-thieu/lich-su-phat-trien.html"><i class="bi bi-clock-history menu-icon-sub"></i>Lịch sử phát triển</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHopTac" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Hợp tác
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDaoTaoMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-easel-fill menu-icon"></i> Đào tạo
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownHopTac">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-globe2 menu-icon-sub"></i>Hợp tác quốc tế</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-building-check menu-icon-sub"></i>Hợp tác doanh nghiệp</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-check menu-icon-sub"></i>Cựu sinh viên</a></li>
+                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownDaoTaoMobile" id="contentForOffcanvasDaoTao">
+                                        <li><h6 class="dropdown-header fw-bold text-uppercase">Bậc đào tạo</h6></li>
+                                        <li><a class="dropdown-item" href="dao-tao/dai-hoc-chinh-quy.html"><i class="bi bi-journal-text menu-icon-sub"></i>Đại học chính quy</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/dai-hoc-lien-thong.html"><i class="bi bi-arrow-repeat menu-icon-sub"></i>Đại học liên thông</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/dai-hoc-van-bang-2.html"><i class="bi bi-journals menu-icon-sub"></i>Đại học văn bằng 2</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/sau-dai-hoc.html"><i class="bi bi-capslock menu-icon-sub"></i>Sau đại học</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><h6 class="dropdown-header fw-bold text-uppercase">Ngành học</h6></li>
+                                        <li><a class="dropdown-item" href="dao-tao/nganh/tai-chinh-ngan-hang.html"><i class="bi bi-cash-coin menu-icon-sub"></i>Tài chính - Ngân hàng</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/nganh/ke-toan-kiem-toan.html"><i class="bi bi-calculator menu-icon-sub"></i>Kế toán - Kiểm toán</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/nganh/quan-tri-kinh-doanh.html"><i class="bi bi-briefcase menu-icon-sub"></i>Quản trị kinh doanh</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/nganh/kinh-te-quoc-te.html"><i class="bi bi-globe menu-icon-sub"></i>Kinh tế quốc tế</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/nganh/cong-nghe-thong-tin.html"><i class="bi bi-pc-display menu-icon-sub"></i>Công nghệ thông tin</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><h6 class="dropdown-header fw-bold text-uppercase">Chương trình đặc biệt</h6></li>
+                                        <li><a class="dropdown-item" href="dao-tao/chuong-trinh/chat-luong-cao.html"><i class="bi bi-star menu-icon-sub"></i>Chương trình chất lượng cao</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/chuong-trinh/lien-ket-quoc-te.html"><i class="bi bi-link-45deg menu-icon-sub"></i>Chương trình liên kết quốc tế</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/chuong-trinh/song-bang.html"><i class="bi bi-files menu-icon-sub"></i>Chương trình song bằng</a></li>
+                                        <li><a class="dropdown-item" href="dao-tao/chuong-trinh/dao-tao-tu-xa.html"><i class="bi bi-camera-video menu-icon-sub"></i>Đào tạo từ xa</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><h6 class="dropdown-header fw-bold text-uppercase">Tài nguyên học tập</h6></li>
+                                        <li><a class="dropdown-item" href="tai-nguyen/thu-vien.html"><i class="bi bi-book-half menu-icon-sub"></i>Thư viện</a></li>
+                                        <li><a class="dropdown-item" href="tai-nguyen/e-learning.html"><i class="bi bi-laptop menu-icon-sub"></i>E-learning</a></li>
+                                        <li><a class="dropdown-item" href="tai-nguyen/lich-hoc-lich-thi.html"><i class="bi bi-calendar-week menu-icon-sub"></i>Lịch học - lịch thi</a></li>
+                                        <li><a class="dropdown-item" href="tai-nguyen/bieu-mau-van-ban.html"><i class="bi bi-file-earmark-text menu-icon-sub"></i>Biểu mẫu - văn bản</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTuyenSinh" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Tuyển sinh
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNghienCuuMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-search-heart-fill menu-icon"></i> Nghiên cứu
                                     </a>
-                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownTuyenSinh">
+                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownNghienCuuMobile" id="contentForOffcanvasNghienCuu">
+                                        <li><a class="dropdown-item" href="nghien-cuu/de-tai.html"><i class="bi bi-search-heart menu-icon-sub"></i>Đề tài nghiên cứu</a></li>
+                                        <li><a class="dropdown-item" href="nghien-cuu/cong-bo-khoa-hoc.html"><i class="bi bi-journal-richtext menu-icon-sub"></i>Công bố khoa học</a></li>
+                                        <li><a class="dropdown-item" href="nghien-cuu/tap-chi-khoa-hoc.html"><i class="bi bi-journals menu-icon-sub"></i>Tạp chí khoa học</a></li>
+                                        <li><a class="dropdown-item" href="nghien-cuu/hoi-thao-khoa-hoc.html"><i class="bi bi-mic menu-icon-sub"></i>Hội thảo khoa học</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHopTacMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-people-fill menu-icon"></i> Hợp tác
+                                    </a>
+                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownHopTacMobile" id="contentForOffcanvasHopTac">
+                                        <li><a class="dropdown-item" href="hop-tac/quoc-te.html"><i class="bi bi-globe2 menu-icon-sub"></i>Hợp tác quốc tế</a></li>
+                                        <li><a class="dropdown-item" href="hop-tac/doanh-nghiep.html"><i class="bi bi-building-check menu-icon-sub"></i>Hợp tác doanh nghiệp</a></li>
+                                        <li><a class="dropdown-item" href="hop-tac/cuu-sinh-vien.html"><i class="bi bi-person-check menu-icon-sub"></i>Cựu sinh viên</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTuyenSinhMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                         <i class="bi bi-person-plus-fill menu-icon"></i> Tuyển sinh
+                                    </a>
+                                    <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownTuyenSinhMobile" id="contentForOffcanvasTuyenSinh">
                                         <li><h6 class="dropdown-header fw-bold text-uppercase">Đại học</h6></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-info-lg menu-icon-sub"></i>Thông tin tuyển sinh</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square menu-icon-sub"></i>Đăng ký xét tuyển</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-tags menu-icon-sub"></i>Học phí - Học bổng</a></li>
+                                        <li><a class="dropdown-item" href="tuyen-sinh/dai-hoc/thong-tin.html"><i class="bi bi-info-lg menu-icon-sub"></i>Thông tin tuyển sinh</a></li>
+                                        <li><a class="dropdown-item" href="tuyen-sinh/dai-hoc/dang-ky-xet-tuyen.html"><i class="bi bi-pencil-square menu-icon-sub"></i>Đăng ký xét tuyển</a></li>
+                                        <li><a class="dropdown-item" href="tuyen-sinh/dai-hoc/hoc-phi-hoc-bong.html"><i class="bi bi-tags menu-icon-sub"></i>Học phí - Học bổng</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><h6 class="dropdown-header fw-bold text-uppercase">Sau đại học</h6></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-video2 menu-icon-sub"></i>Thạc sĩ</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-video3 menu-icon-sub"></i>Tiến sĩ</a></li>
+                                        <li><a class="dropdown-item" href="tuyen-sinh/sau-dai-hoc/thac-si.html"><i class="bi bi-person-video2 menu-icon-sub"></i>Thạc sĩ</a></li>
+                                        <li><a class="dropdown-item" href="tuyen-sinh/sau-dai-hoc/tien-si.html"><i class="bi bi-person-video3 menu-icon-sub"></i>Tiến sĩ</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Sinh viên</a>
+                                    <a class="nav-link" href="sinh-vien.html"> <i class="bi bi-backpack2-fill menu-icon"></i> Sinh viên</a>
                                 </li>
                             </ul>
                             
-                            <!-- Mobile Search Form -->
-                            <form class="mobile-search-form my-3" action="#" method="GET">
+                            <!-- Mobile Search Form (hidden on LG and up) -->
+                            <form class="mobile-search-form my-3 d-lg-none" action="#" method="GET">
                                 <div class="input-group">
                                     <input type="search" class="form-control" placeholder="Tìm kiếm trong trang..." aria-label="Tìm kiếm trong trang">
                                     <button class="btn btn-outline-secondary" type="submit" id="mobile-search-submit">
@@ -169,8 +188,9 @@
                                 </div>
                             </form>
 
-                            <div class="user-menu d-flex align-items-center">
-                                <a href="#" class="user-menu-link btn btn-outline-light btn-sm d-flex align-items-center mobile-user-menu-link">
+                            <!-- Mobile User Menu (hidden on LG and up) -->
+                            <div class="user-menu d-flex align-items-center d-lg-none">
+                                <a href="dang-ky-hoc.html" class="user-menu-link btn btn-outline-light btn-sm d-flex align-items-center mobile-user-menu-link">
                                     <i class="bi bi-mortarboard-fill me-2"></i>
                                     <span class="d-none d-xl-inline">Đăng ký học</span>
                                 </a>
@@ -182,6 +202,58 @@
         </div>
     </header>
     <!-- END HEADER SECTION -->
+
+    <!-- Offcanvas Elements for Desktop Submenus -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasGioiThieu" aria-labelledby="offcanvasGioiThieuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasGioiThieuLabel">Giới thiệu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDaoTao" aria-labelledby="offcanvasDaoTaoLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDaoTaoLabel">Đào tạo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNghienCuu" aria-labelledby="offcanvasNghienCuuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNghienCuuLabel">Nghiên cứu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasHopTac" aria-labelledby="offcanvasHopTacLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasHopTacLabel">Hợp tác</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTuyenSinh" aria-labelledby="offcanvasTuyenSinhLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTuyenSinhLabel">Tuyển sinh</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+    <!-- END Offcanvas Elements -->
 
     <!-- Search Modal -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">

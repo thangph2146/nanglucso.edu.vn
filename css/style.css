@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
 @import url('components/variables.css');
 @import url('components/reset.css'); /* For base styling resets */
-@import url('components/header.css');
 @import url('components/hero.css');
 @import url('components/main.css'); /* Contains general styles for cards, buttons, etc. and also some specific sections like counters */
 @import url('components/courses.css'); /* Contains styles for sections, course cards, tables, tabs, potentially news cards */
 @import url('components/news.css'); /* Specific for news cards, ensure no overlap with courses.css */
 @import url('components/feedback.css');
 @import url('components/footer.css');
+@import url('components/header.css');
+
 /* Đã xóa các import trùng lặp với Bootstrap */
 /* Custom CSS */
 
