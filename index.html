@@ -372,7 +372,6 @@
             </div>
         </div>
     </header>
-    <!-- END HEADER SECTION -->
 
     <!-- Offcanvas Elements for Desktop Submenus -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasGioiThieu"
@@ -428,7 +427,6 @@
         </div>
     </div>
     <!-- END Offcanvas Elements -->
-
     <!-- Search Modal -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -454,62 +452,165 @@
             </div>
         </div>
     </div>
+    <!-- END HEADER SECTION -->
 
-    <!-- Hero Section với background thay vì video -->
-    <section class="hero-section">
-        <div class="hero-bg-overlay"></div>
+    <!-- Hero Section using Bootstrap Carousel -->
+    <section id="heroCarousel" class="carousel slide hero-section" data-bs-ride="carousel" data-bs-interval="7000"> 
 
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h2 class="hero-subtitle fade-in-up" data-delay="0.2">Trường Đại học Ngân hàng TP.HCM</h2>
-                        <h1 class="hero-title fade-in-up" data-delay="0.4">Nơi khởi đầu <span>tương lai</span> tài chính
-                            của bạn</h1>
-                        <p class="hero-text fade-in-up" data-delay="0.6">
-                            Hệ thống đào tạo hiện đại, đội ngũ giảng viên chuyên môn cao, chương trình học
-                            linh hoạt và cơ hội việc làm rộng mở trong lĩnh vực tài chính - ngân hàng.
-                        </p>
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
 
-                        <div class="hero-buttons fade-in-up" data-delay="0.8">
-                            <a href="#" class="btn-primary">
-                                <i class="bi bi-person-plus"></i> Đăng ký tuyển sinh
-                            </a>
-                            <a href="#" class="btn-secondary">
-                                <i class="bi bi-info-circle"></i> Tìm hiểu thêm
-                            </a>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <!-- Slide 1 (Active) -->
+            <div class="carousel-item active">
+                <div class="hero-bg-overlay"></div> 
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="hero-content">
+                                <!-- Removed fade-in classes, carousel handles transitions -->
+                                <h2 class="hero-subtitle">Trường Đại học Ngân hàng TP.HCM</h2> 
+                                <h1 class="hero-title">Nơi khởi đầu <span>tương lai</span> tài chính của bạn</h1>
+                                <p class="hero-text">
+                                    Hệ thống đào tạo hiện đại, đội ngũ giảng viên chuyên môn cao, chương trình học
+                                    linh hoạt và cơ hội việc làm rộng mở trong lĩnh vực tài chính - ngân hàng.
+                                </p>
+                                <div class="hero-buttons"> 
+                                    <a href="#" class="btn-primary">
+                                        <i class="bi bi-person-plus"></i> Đăng ký tuyển sinh
+                                    </a>
+                                    <a href="#" class="btn-secondary">
+                                        <i class="bi bi-info-circle"></i> Tìm hiểu thêm
+                                    </a>
+                                </div>
+                                <div class="stats-counter"> 
+                                    <div class="stat-item">
+                                        <div class="stat-number" data-count="45" data-suffix="">45</div>
+                                        <div class="stat-text">Năm phát triển</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number" data-count="20000" data-suffix="+">20000+</div>
+                                        <div class="stat-text">Sinh viên</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number" data-count="450" data-suffix="+">450+</div>
+                                        <div class="stat-text">Giảng viên</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number" data-count="98" data-suffix="%">98%</div>
+                                        <div class="stat-text">Tỷ lệ việc làm</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="stats-counter fade-in-up" data-delay="1">
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="45" data-suffix="">45</div>
-                                <div class="stat-text">Năm phát triển</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="20000" data-suffix="+">20000+</div>
-                                <div class="stat-text">Sinh viên</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="450" data-suffix="+">450+</div>
-                                <div class="stat-text">Giảng viên</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="98" data-suffix="%">98%</div>
-                                <div class="stat-text">Tỷ lệ việc làm</div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="hero-image"> 
+                                <img src="images/logo/logo-white-vertical.png" alt="Sinh viên Đại học Ngân hàng TP.HCM">
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 d-none d-lg-block">
-                    <div class="hero-image fade-in-left" data-delay="0.5">
-                        <img src="images/logo/logo-white-vertical.png" alt="Sinh viên Đại học Ngân hàng TP.HCM">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="hero-bg-overlay" style="background: linear-gradient(135deg, rgba(179, 61, 61, 0.9), rgba(140, 31, 31, 0.95));"></div> <!-- Different Overlay Example -->
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <div class="hero-content">
+                                <h2 class="hero-subtitle">Chương trình Đào tạo Đa dạng</h2> 
+                                <h1 class="hero-title"><span>Chất lượng</span> Quốc tế</h1>
+                                <p class="hero-text">
+                                    Khám phá các chương trình đào tạo chất lượng cao, liên kết quốc tế và các ngành học dẫn đầu xu thế.
+                                </p>
+                                <div class="hero-buttons">
+                                    <a href="#" class="btn-primary">
+                                        <i class="bi bi-journal-text"></i> Xem ngành học
+                                    </a>
+                                </div>
+                                <!-- Optional: Add different stats counter or remove -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="hero-bg-overlay" style="background: linear-gradient(135deg, rgba(218, 165, 32, 0.9), rgba(184, 134, 11, 0.95));"></div> <!-- Gold Overlay Example -->
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="hero-content">
+                                <h2 class="hero-subtitle">Nghiên cứu Khoa học</h2> 
+                                <h1 class="hero-title">Đổi mới & <span>Sáng tạo</span></h1>
+                                <p class="hero-text">
+                                    Thúc đẩy hoạt động nghiên cứu khoa học, công bố quốc tế và ứng dụng vào thực tiễn.
+                                </p>
+                                <div class="hero-buttons">
+                                    <a href="#" class="btn-secondary">
+                                        <i class="bi bi-search-heart"></i> Tìm hiểu NCKH
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="hero-image">
+                                <!-- Add a different image or graphic here if desired -->
+                                <img src="images/logo/logo-white-vertical.png" alt="Nghiên cứu khoa học HUB">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <div class="hero-bg-overlay"></div> 
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-7 text-center">
+                            <div class="hero-content">
+                                <h2 class="hero-subtitle">Tuyển sinh 2025</h2> 
+                                <h1 class="hero-title"><span>Mở cửa</span> Tương lai</h1>
+                                <p class="hero-text">
+                                    Thông tin tuyển sinh đại học, sau đại học và các chương trình đặc biệt năm 2025.
+                                </p>
+                                <div class="hero-buttons">
+                                    <a href="#" class="btn-primary">
+                                        <i class="bi bi-person-plus"></i> Đăng ký ngay
+                                    </a>
+                                    <a href="#" class="btn-secondary">
+                                        <i class="bi bi-info-circle"></i> Chi tiết tuyển sinh
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </section>
+    <!-- END Hero Section -->
 
     <!-- News Section điều chỉnh để không sử dụng hình ảnh không tồn tại -->
     <section class="section section-light" id="news">
@@ -642,39 +743,43 @@
             <div class="certification p-4 mb-4 border-bottom border-secondary">
                 <div class="row g-4">
                     <div class="col-md-3 col-6">
-                <div
-                    class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                    <div class="cert-icon mb-3"><i class="bi bi-patch-check-fill text-warning"></i></div>
-                    <div class="cert-desc small text-white">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn
-                        AUN-QA</div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div
-                    class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                    <div class="cert-icon mb-3"><i class="bi bi-award-fill text-warning"></i></div>
-                    <div class="cert-desc small text-white">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn MOET
+                        <div
+                            class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                            <div class="cert-icon mb-3"><i class="bi bi-patch-check-fill text-warning"></i></div>
+                            <div class="cert-desc small text-white">Chứng nhận kiểm định Chương trình đào tạo theo tiêu
+                                chuẩn
+                                AUN-QA</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div
+                            class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                            <div class="cert-icon mb-3"><i class="bi bi-award-fill text-warning"></i></div>
+                            <div class="cert-desc small text-white">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn
+                                MOET
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div
+                            class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                            <div class="cert-icon mb-3"><i class="bi bi-shield-check text-warning"></i></div>
+                            <div class="cert-desc small text-white">Chứng nhận Hệ thống quản lý chất lượng theo tiêu
+                                chuẩn ISO
+                                9001:2015</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div
+                            class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
+                            <div class="cert-icon mb-3"><i class="bi bi-trophy-fill text-warning"></i></div>
+                            <div class="cert-desc small text-white">Chứng nhận kiểm định Chương trình đào tạo theo tiêu
+                                chuẩn
+                                MOET</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6">
-                <div
-                    class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                    <div class="cert-icon mb-3"><i class="bi bi-shield-check text-warning"></i></div>
-                    <div class="cert-desc small text-white">Chứng nhận Hệ thống quản lý chất lượng theo tiêu chuẩn ISO
-                        9001:2015</div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div
-                    class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
-                    <div class="cert-icon mb-3"><i class="bi bi-trophy-fill text-warning"></i></div>
-                    <div class="cert-desc small text-white">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn
-                        MOET</div>
-                </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -819,30 +924,6 @@
         <div class="copyright py-4 text-center border-top border-secondary">
             <p class="mb-0">&copy; 2023 Đại Học Ngân Hàng TP. Hồ Chí Minh. Giấy phép ICP số: 41/GP-TTĐT. All Rights
                 Reserved.</p>
-        </div>
-
-        <!-- Quick links floating buttons -->
-        <div class="quick-buttons">
-            <a href="tel:0888353488" class="quick-button btn btn-danger rounded-circle mb-2 shadow"
-                data-bs-toggle="tooltip" data-bs-placement="left" title="Gọi ngay">
-                <i class="bi bi-telephone-fill"></i>
-            </a>
-            <a href="mailto:dhnhtphcm@hub.edu.vn" class="quick-button btn btn-primary rounded-circle mb-2 shadow"
-                data-bs-toggle="tooltip" data-bs-placement="left" title="Gửi email">
-                <i class="bi bi-envelope-fill"></i>
-            </a>
-            <a href="#" class="quick-button btn btn-info rounded-circle mb-2 shadow" data-bs-toggle="tooltip"
-                data-bs-placement="left" title="Chat Zalo">
-                <i class="bi bi-chat-fill"></i>
-            </a>
-            <a href="#" class="quick-button btn btn-primary rounded-circle mb-2 shadow" data-bs-toggle="tooltip"
-                data-bs-placement="left" title="Messenger">
-                <i class="bi bi-messenger"></i>
-            </a>
-            <a href="#" class="quick-button btn btn-dark rounded-circle shadow" id="backToTop" data-bs-toggle="tooltip"
-                data-bs-placement="left" title="Lên đầu trang">
-                <i class="bi bi-arrow-up"></i>
-            </a>
         </div>
     </footer>
 

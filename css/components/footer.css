@@ -428,50 +428,6 @@
     width: auto;
 }
 
-.footer-quick-buttons {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    z-index: 999;
-}
-
-.quick-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--hub-red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    font-size: 1.25rem;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition-bounce);
-    border: none;
-    opacity: 0.85;
-}
-
-.quick-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    opacity: 1;
-}
-
-.quick-button.scroll-top {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: var(--transition-base);
-}
-
-.quick-button.scroll-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 /* Footer widget styles */
 .footer-widget-title {
     color: #fff;

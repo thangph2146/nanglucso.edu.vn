@@ -6,7 +6,6 @@
     background-size: cover;
     background-position: center center;
     color: var(--text-light);
-    padding: 100px 0 80px; /* Adjusted padding */
     overflow: hidden;
     display: flex; /* For vertical centering of content */
     align-items: center; /* For vertical centering of content */
@@ -29,9 +28,7 @@
 }
 
 .hero-section .hero-content {
-    padding: 1rem 0; /* Reduced padding as section has it */
-    animation: fadeInUpGeneral 0.8s ease-out 0.3s forwards; /* Added animation */
-    opacity: 0; /* Start hidden for animation */
+    padding: 1rem 0; 
 }
 
 .fade-in-up, .fade-in-left {
@@ -164,8 +161,6 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    animation: fadeInRightGeneral 0.8s ease-out 0.5s forwards; /* Added animation */
-    opacity: 0; /* Start hidden for animation */
 }
 
 .hero-image img {
@@ -276,3 +271,110 @@
         transform: translateX(0);
     }
 }
+
+/* Hero Styles adapted for Bootstrap Carousel */
+.hero-section.carousel {
+    position: relative;
+    overflow: hidden;
+    min-height: 95vh; /* Keep min-height on the main section */
+    color: var(--text-light);
+}
+
+.carousel-item {
+    min-height: 95vh; /* Match section height */
+    background: var(--gradient-hero, linear-gradient(135deg, rgba(2, 80, 158, 0.95), rgba(7, 74, 145, 0.9))); /* Moved from .hero-section */
+    background-size: cover;
+    background-position: center center;
+    padding: 100px 0 80px; /* Moved from .hero-section */
+    transition: transform .6s ease-in-out; /* Default BS transition */
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Ensure container takes full width within item */
+}
+
+.hero-section .hero-content {
+    padding: 1rem 0; 
+}
+
+/* Removed fade-in helper classes as they conflict with carousel */
+/* 
+.fade-in-up, .fade-in-left {
+    opacity: 1 !important; 
+    transform: none !important; 
+}
+*/
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Carousel Controls Styling */
+.carousel-indicators {
+    bottom: 30px; /* Adjust position */
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
+    opacity: 0.7;
+    transition: opacity .6s ease;
+}
+
+.carousel-indicators .active {
+    background-color: var(--hub-red, #DC3545);
+    opacity: 1;
+}
+
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 5%; /* Smaller control area */
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.carousel-control-prev:hover, 
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    background-size: 60%; /* Slightly smaller icon */
+    background-color: rgba(0, 0, 0, 0.3); /* Darker background for better visibility */
+    border-radius: 50%;
+    padding: 1rem; /* Add padding to make the background circular */
+}
+
+/* Comment out old keyframes if no longer needed */
+/* 
+@keyframes fadeInUpGeneral {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRightGeneral {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+*/

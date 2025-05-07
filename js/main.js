@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Scroll to top button
     function handleScrollTopButton() {
+        if (!backToTop) {
+            return;
+        }
+        
         if (window.scrollY > 300) {
             backToTop.classList.add('active');
         } else {
