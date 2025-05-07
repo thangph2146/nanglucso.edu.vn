@@ -6,14 +6,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.querySelector('.overlay'); 
 
     // Toggle search modal
-    const searchButtonDesktop = document.querySelector('.main-nav .d-lg-flex .btn[data-bs-target="#searchModal"]');
-    const searchModal = document.getElementById('searchModal');
+    const searchModalTriggers = document.querySelectorAll('button[data-bs-target="#searchModal"]');
+    const searchModalElement = document.getElementById('searchModal');
+    const searchInput = document.getElementById('searchInputModal'); // Get the input field
+    const btnClearSearch = searchModalElement ? searchModalElement.querySelector('.btn-clear-search') : null; // Get the clear button
     
-    if (searchButtonDesktop && searchModal) {
-        const searchModalObj = new bootstrap.Modal(searchModal);
-        searchButtonDesktop.addEventListener('click', function() {
-            searchModalObj.show();
+    if (searchModalTriggers.length > 0 && searchModalElement) {
+        const searchModalObj = new bootstrap.Modal(searchModalElement);
+        searchModalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                searchModalObj.show();
+            });
         });
+
+        // Autofocus on input when modal is shown
+        searchModalElement.addEventListener('shown.bs.modal', function () {
+            if (searchInput) {
+                searchInput.focus();
+            }
+        });
+
+        // Logic for clear search button
+        if (searchInput && btnClearSearch) {
+            searchInput.addEventListener('input', function() {
+                if (searchInput.value.length > 0) {
+                    btnClearSearch.classList.remove('d-none');
+                } else {
+                    btnClearSearch.classList.add('d-none');
+                }
+            });
+
+            btnClearSearch.addEventListener('click', function() {
+                searchInput.value = '';
+                btnClearSearch.classList.add('d-none');
+                searchInput.focus();
+            });
+        }
     }
     
     // Smooth scrolling for anchor links
@@ -210,6 +238,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    }
+
+    // Scroll to hide/show topbar
+    const header = document.querySelector('.header');
+    const topbar = document.querySelector('.topbar');
+    let lastScrollTop = 0;
+    let topbarHeight = 0;
+
+    function updateTopbarHeight() {
+        if (topbar && getComputedStyle(topbar).display !== 'none') {
+            topbarHeight = topbar.offsetHeight;
+            document.documentElement.style.setProperty('--topbar-height', `${topbarHeight}px`);
+        } else {
+            topbarHeight = 0; // Topbar is hidden (e.g., on mobile)
+            document.documentElement.style.setProperty('--topbar-height', `0px`);
+        }
+    }
+
+    if (header && topbar) {
+        updateTopbarHeight(); // Initial calculation
+        window.addEventListener('resize', updateTopbarHeight); // Recalculate on resize
+
+        window.addEventListener('scroll', function() {
+            // Check if topbar is visible (not on mobile where display: none)
+            if (getComputedStyle(topbar).display === 'none') {
+                // Ensure header is not translated if topbar is not displayed
+                header.classList.remove('header-scrolled-up');
+                topbar.classList.remove('topbar-hidden'); // Reset classes if any
+                return; // Don't run scroll logic for header/topbar if topbar is hidden by CSS
+            }
+
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollThreshold = topbarHeight > 0 ? topbarHeight : 50; // Use actual height if available
+
+            if (scrollTop <= 5) { // At the very top or very close to it
+                topbar.classList.remove('topbar-hidden');
+                header.classList.remove('header-scrolled-up');
+            } else if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) { // Scrolling Down
+                topbar.classList.add('topbar-hidden');
+                header.classList.add('header-scrolled-up');
+            } else if (scrollTop < lastScrollTop) { // Scrolling Up
+                // Only remove if user scrolls up significantly, not just minor fluctuations
+                // Or if they scroll back above the threshold
+                if (scrollTop < (lastScrollTop - 10) || scrollTop <= scrollThreshold) {
+                    topbar.classList.remove('topbar-hidden');
+                    header.classList.remove('header-scrolled-up');
+                }
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
     }
 });
 

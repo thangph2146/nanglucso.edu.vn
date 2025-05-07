@@ -1,3 +1,7 @@
+:root {
+    --topbar-height: 40px; /* Default, JS will update */
+}
+
 /* HEADER STYLES */
 .header {
     position: fixed;
@@ -5,7 +9,11 @@
     left: 0;
     right: 0;
     z-index: var(--z-header, 1030);
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.header.header-scrolled-up {
+    transform: translateY(calc(-1 * var(--topbar-height)));
 }
 
 .header.scrolled {
@@ -38,7 +46,7 @@
 
 /* Add padding to the body to prevent content from being hidden by the fixed header */
 body {
-    padding-top: 70px; /* Điều chỉnh giá trị này cho phù hợp chiều cao .main-nav của bạn */
+    padding-top: 105px; /* Increased to accommodate topbar + main-nav height */
 }
 
 /* Topbar styles - Giữ lại nếu topbar vẫn tồn tại và hiển thị trên mọi thiết bị */
@@ -48,7 +56,14 @@ body {
     font-size: var(--font-size-sm);      /* Kept: Theme font size */
     color: var(--text-light);            /* Kept: Theme text color */
     border-bottom: 1px solid rgba(255,255,255,0.2); /* Kept: Theme border */
+    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Added for smooth hide/show */
     /* padding: 0.5rem 0; -> Removed, assuming .py-2 or similar in HTML */
+}
+
+.topbar.topbar-hidden {
+    /* transform: translateY(-100%); // We hide it by moving the whole header */
+    visibility: hidden;
+    opacity: 0;
 }
 
 /* .topbar-contact and .topbar-social flex properties are now handled by Bootstrap classes in HTML */
@@ -712,4 +727,18 @@ ul.offcanvas-submenu-items > li:last-child > .offcanvas-submenu-link {
 .offcanvas-desktop .offcanvas-body > *.offcanvas-item-animate-in {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* Hide topbar on mobile and adjust body padding */
+@media (max-width: 767.98px) { /* Bootstrap md breakpoint */
+    .topbar {
+        display: none !important;
+    }
+    body {
+        padding-top: 70px; /* Revert to main-nav only padding. Adjust if main-nav height changed. */
+    }
+    /* Ensure offcanvas is still full width if 991.98px rule is too broad for this specific body padding change */
+    .offcanvas-desktop, .offcanvas-end {
+        width: 100vw;
+    }
 }
