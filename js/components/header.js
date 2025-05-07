@@ -117,4 +117,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 250); // Adjust wait time as needed, e.g., 250ms
 
     window.addEventListener('resize', debouncedResizeHandler);
+
+    // Giả sử bạn có thể bắt sự kiện khi .navbar-collapse được mở (Bootstrap 'shown.bs.collapse')
+    const mobileMenu = document.getElementById('navbarContent');
+    mobileMenu.addEventListener('shown.bs.collapse', function () {
+        const navItems = mobileMenu.querySelectorAll('.navbar-nav > .nav-item');
+        navItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('item-visible');
+            }, index * 100); // Trễ 100ms cho mỗi item
+        });
+    });
+
+    mobileMenu.addEventListener('hide.bs.collapse', function () {
+        const navItems = mobileMenu.querySelectorAll('.navbar-nav > .nav-item');
+        navItems.forEach((item) => {
+            item.classList.remove('item-visible'); // Reset khi đóng menu
+        });
+    });
 });

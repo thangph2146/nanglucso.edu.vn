@@ -5,9 +5,7 @@
     left: 0;
     right: 0;
     z-index: var(--z-header, 1030);
-    transition: all 0.3s ease-in-out;
-    background-color: var(--hub-navy);
-    box-shadow: var(--shadow-sm);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .header.scrolled {
@@ -36,387 +34,203 @@
 }
 
 .header.scrolled .header-logo {
-    height: 55px; /* Slightly larger when scrolled for better visibility */
+    height: 55px;
 }
 
 /* Add padding to the body to prevent content from being hidden by the fixed header */
 /* This needs to account for both topbar and main-nav height */
 body {
-    /* Approximate height: topbar (~40-50px) + main-nav (~60-70px) */
-    /* Adjust this value based on the actual combined height of your .topbar and .main-nav */
-    padding-top: 110px; 
+    padding-top: 110px; /* DEFAULT PADDING FOR DESKTOP HEADER */
+    /* This value should be the combined height of .topbar + .main-nav on desktop */
 }
 
 /* Topbar styles */
 .topbar {
-    background-image: var(--gradient-hero); /* Apply the hero gradient */
-    font-size: var(--font-size-sm, 0.875rem); 
-    color: var(--text-light);
-    border-bottom: 1px solid rgba(255,255,255,0.2); /* A light, subtle border for gradient */
-    padding: 0.5rem 0; 
+    background-image: var(--gradient-hero); /* Kept: Theme background */
+    font-size: var(--font-size-sm);      /* Kept: Theme font size */
+    color: var(--text-light);            /* Kept: Theme text color */
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Kept: Theme border */
+    /* padding: 0.5rem 0; -> Removed, assuming .py-2 or similar in HTML */
 }
 
-.topbar-contact {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+/* .topbar-contact and .topbar-social flex properties are now handled by Bootstrap classes in HTML */
+
+.topbar-link { /* New class for styling topbar text links if needed beyond Bootstrap .text-decoration-none */
+    color: var(--text-light); /* Ensure link color matches topbar text */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Added for hover */
+    padding: 0.25rem 0.5rem; /* Can keep if specific padding is desired beyond button/link defaults */
+    border-radius: var(--border-radius-pill); /* Can keep for pill shape if not using .btn .rounded-pill */
 }
 
-.topbar-contact a {
-    color: var(--text-light);
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--border-radius-pill);
-    /* background-color: transparent; */ /* Ensure no conflicting background for links initially */
+.topbar-link:hover {
+    color: var(--hub-navy-dark);         /* Kept: Theme hover text color */
+    background-color: var(--hub-gold-light); /* Kept: Theme hover background */
 }
 
-.topbar-contact a:hover {
-    color: var(--hub-navy-dark); /* Darker text for contrast on gold hover */
-    background-color: var(--hub-gold-light); /* Gold light for hover, stands out on gradient */
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xs); 
+.topbar-icon { /* New class for icons within topbar links */
+    color: var(--text-light); /* Ensure icon color matches, can also use var(--hub-gold) if desired for accent */
+    transition: color 0.2s ease-in-out; /* Added for hover */
 }
 
-.topbar-contact a i {
-    transition: transform 0.3s ease;
-    /* color: var(--hub-gold); */ /* Icon color will be inherited or can be set to text-light */
-}
-
-.topbar-contact a:hover i {
-    transform: scale(1.2);
+.topbar-link:hover .topbar-icon {
     color: var(--hub-navy-dark); /* Match text color on hover */
 }
 
-.topbar-contact a i {
-    /* color: var(--hub-gold); */ /* Consider removing if text-light is desired, or make it white for better contrast on gradient */
-    color: var(--text-light); /* Making icon color consistent with link text color */
+.social-icon-custom { /* New class for social icons, assuming .btn .btn-sm in HTML */
+    color: var(--text-light);            /* Kept: Theme icon color */
+    background-color: rgba(255,255,255,0.15); /* Kept: Theme background */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Added for hover */
 }
 
-.topbar-social {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: flex-end;
-}
-
-.social-link {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    background-color: rgba(255,255,255,0.15); /* Slightly more opaque for visibility on gradient */
-    border-radius: 50%;
-    margin-left: 0.5rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: var(--shadow-xs);
-}
-
-.social-link:hover {
-    color: var(--hub-navy-dark);
-    background-color: var(--hub-gold-light); /* Gold light for hover */
-    transform: translateY(-3px) scale(1.15);
-    box-shadow: var(--shadow-md);
+.social-icon-custom:hover {
+    color: var(--hub-navy-dark);         /* Kept: Theme hover icon color */
+    background-color: var(--hub-gold-light); /* Kept: Theme hover background */
 }
 
 /* Main Navigation */
 .main-nav {
-    background-color: var(--hub-red);
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */ /* Removed for a cleaner look, header shadow is enough */
+    background-color: var(--hub-red); /* Kept: Theme background */
 }
 
-.navbar {
-    padding: 0;
-}
-
-.navbar-brand {
-    padding: 0;
-    margin-right: 2rem;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-toggler {
-    padding: 0.5rem;
-    font-size: 1.25rem;
-    color: var(--text-light);
-    border: 1px solid var(--hub-red-light); /* Border with a red variant */
-    background-color: var(--hub-red-light);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    margin-right: 0.5rem;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-xs);
+.navbar-toggler { /* This styles Bootstrap's .navbar-toggler */
+    color: var(--text-light);            /* Kept: Theme text color for icon (if not overridden by .navbar-dark) */
+    border: 1px solid var(--hub-red-light); /* Kept: Theme border color */
+    background-color: var(--hub-red-light); /* Kept: Theme background */
 }
 
 .navbar-toggler:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-sm);
-    background-color: var(--hub-red);
+    background-color: var(--hub-red); /* Kept: Theme hover background */
 }
 
 .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.25rem var(--hub-red-pale); /* Using a pale red for focus */
+    box-shadow: 0 0 0 0.25rem var(--hub-red-pale); /* Kept: Theme focus ring style */
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-collapse {
-    flex-grow: 1;
-}
-
-.navbar-nav {
-    display: flex;
-    align-items: center;
-}
 
 .nav-item {
-    position: relative;
-    transition: var(--transition-fast);
+    position: relative; /* Kept: Needed for dropdown positioning */
 }
 
-.nav-link {
-    color: var(--text-light);
-    font-weight: 600; /* Slightly bolder */
-    position: relative;
-    text-transform: uppercase;
-    font-size: var(--font-size-xs, 0.875rem); /* Use variable */
-    letter-spacing: 0.75px; /* Increased spacing */
-    padding: 1.35rem 1.1rem; /* !important removed, check if layout breaks */
-    transition: color 0.2s ease;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0; /* Adjusted to be a true underline */
-    left: 50%;
-    width: 0;
-    height: 3px; /* Thicker underline */
-    background-color: var(--hub-gold);
-    transition: width 0.3s ease, opacity 0.3s ease, left 0.3s ease; /* Added left transition */
-    transform: translateX(-50%);
-    opacity: 0;
-    border-radius: 2px;
+.nav-link { /* Styles Bootstrap .nav-link */
+    color: var(--text-light);            /* Kept: Theme text color */
+    font-weight: 600;                    /* Kept: Theme font weight for emphasis */
+    text-transform: uppercase;           /* Kept: Theme text transform */
+    font-size: var(--font-size-xs);      /* Kept: Theme font size */
+    letter-spacing: 0.75px;             /* Kept: Theme letter spacing */
 }
 
 .nav-link:hover, 
 .nav-link:focus,
-.nav-item.show .nav-link, /* For when dropdown is open */
-.nav-item .nav-link.active {
-    color: var(--hub-gold-light) !important; 
-    background-color: rgba(255,255,255,0.05); /* Subtle background for active/hover */
+.nav-item.show .nav-link, /* This handles dropdown parent link when dropdown is open */
+.nav-item .nav-link.active { /* .active class is standard for Bootstrap */
+    color: var(--hub-gold-light) !important;    /* Kept: Theme active/hover text color */
+    background-color: var(--bg-light-translucent-5, rgba(255,255,255,0.05)); /* Kept: Theme active/hover background */
+}
+
+/* Custom active/hover indicator line for nav-links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 1.1rem; /* Adjust based on actual padding of .nav-link if Bootstrap's default is used */
+    width: calc(100% - 2.2rem); /* Adjust based on actual padding */
+    height: 3px; 
+    background-color: var(--hub-gold);
+    opacity: 0;
+    border-radius: 2px;
+    transition: opacity 0.3s ease-in-out; 
 }
 
 .nav-link:hover::after, 
 .nav-link:focus::after,
-.nav-item.show .nav-link::after, /* For when dropdown is open */
+.nav-item.show .nav-link::after, 
 .nav-item .nav-link.active::after {
-    width: calc(100% - 2.2rem); /* Make underline cover most of the link text area, considering padding */
-    left: 1.1rem; /* Adjust to align with padding */
-    transform: translateX(0); /* Reset transform as left is now used */
     opacity: 1;
 }
 
-/* Dropdown Menu */
 .dropdown-toggle::after {
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease-in-out; /* Simplified transition for arrow rotation */
 }
 
-.dropdown-toggle:hover::after,
-.dropdown-toggle:focus::after,
-.dropdown.show .dropdown-toggle::after {
-    transform: rotate(180deg);
-}
 
-.dropdown-menu {
-    min-width: 16rem;
-    padding: 0.75rem 0;
-    margin-top: 0 !important; 
-    border: 1px solid rgba(var(--hub-navy-rgb, 25, 35, 70), 0.5); 
-    border-top: 3px solid var(--hub-gold);
-    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
-    background-color: rgba(var(--hub-navy-dark-rgb, 16, 26, 51), 0.95); 
-    color: var(--text-light); 
-    box-shadow: var(--shadow-xl); 
+.dropdown-menu { /* Styling for Bootstrap .dropdown-menu */
+    border: 1px solid rgba(var(--hub-navy-rgb, 25, 35, 70), 0.5); /* Kept: Theme border */
+    border-top: 3px solid var(--hub-gold);                         /* Kept: Theme top border accent */
+    background-color: var(--bg-white);  /* Kept: Theme background */
+    color: var(--text-light);                                     /* Kept: Theme default text color */
+    box-shadow: var(--shadow-xl);                                 /* Kept: Theme shadow */
+    
     animation: fadeInDropdownKeyframes 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top center;
-    /* display: block; */ /* Let Bootstrap handle display */
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px); /* Adjusted for smoother entry */
+    transform: translateY(-10px); 
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s linear, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    top: 100%;
-    z-index: var(--z-dropdown);
-    will-change: transform, opacity;
 }
 
-.dropdown.show .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.dropdown-divider { /* Styling for Bootstrap .dropdown-divider */
+    border-top-color: var(--hub-navy-light); /* Kept: Theme border color */
 }
 
-.dropdown.show .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-}
-
-.dropdown-divider {
-    margin: 0.5rem 1.5rem;
-    border-top: 1px solid var(--hub-navy-light); /* Consistent border color */
-}
-
-.dropdown-item {
-    padding: 0.6rem 1.5rem;
-    font-weight: 400;
-    color: var(--gray-300); /* Lighter text for dark background */
-    transition: var(--transition-fast);
-    position: relative;
-    display: flex;
-    align-items: center;
-    background-color: transparent; /* Ensure transparent base */
+.dropdown-item { /* Styling for Bootstrap .dropdown-item */
+    color: var(--gray-300); /* Kept: Theme text color */
+    background-color: transparent; /* Ensures no inherited background before hover/focus */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out; /* Standard Bootstrap-like transition */
 }
 
 .dropdown-item:hover, 
 .dropdown-item:focus {
-    color: var(--hub-gold-light); /* Gold text on hover/focus */
-    background-color: var(--hub-navy); /* Slightly lighter navy for hover/focus */
-    padding-left: 2rem; /* Keep the indent effect */
+    color: var(--hub-gold-light);           /* Kept: Theme hover/focus text color */
+    background-color: var(--hub-navy);    /* Kept: Theme hover/focus background */
 }
 
-.dropdown-item:hover::before,
-.dropdown-item:focus::before {
+.dropdown-item-chevron:hover::before, /* Using a dedicated class for items that should have a chevron */
+.dropdown-item-chevron:focus::before {
     content: '›';
     position: absolute;
-    left: 1rem;
-    transition: var(--transition-fast);
-    color: var(--hub-gold-light); /* Gold chevron */
+    left: 1rem; /* Adjust if .dropdown-item padding changes */
+    color: var(--hub-gold-light);
 }
 
 .dropdown-item.active, 
-.dropdown-item:active { /* Style for active dropdown item if any */
-    color: var(--text-light);
-    background-color: var(--hub-red); /* HUB red for active state */
+.dropdown-item:active { /* Styling for Bootstrap .active .dropdown-item */
+    color: var(--text-light);        /* Kept: Theme active text color */
+    background-color: var(--hub-red);/* Kept: Theme active background */
 }
 
-.dropdown-header {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--hub-gold); /* Gold color for header on dark background */
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.dropdown-header { /* Styling for Bootstrap .dropdown-header */
+    color: var(--text-dark);            /* Kept: Theme text color */
+    text-transform: uppercase;         /* Kept: Theme text transform (can also be BS utility .text-uppercase) */
+    letter-spacing: 0.5px;           /* Kept: Theme letter spacing */
 }
 
-/* Mega Menu */
-.mega-menu {
-    background-color: rgba(var(--hub-navy-dark-rgb, 16, 26, 51), 0.97); 
-    color: var(--text-light);
-    padding: var(--spacing-lg) var(--spacing-xl); 
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px); /* Adjusted for standard dropdown entry */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
-    will-change: transform, opacity;
-    z-index: var(--z-dropdown); /* Standard dropdown z-index */
-    border-top: 1px solid rgba(var(--hub-navy-rgb, 25, 35, 70), 0.7);
-    max-height: 75vh; /* A large but not viewport-fixed height */
-    overflow-y: auto;
-    box-shadow: var(--shadow-xl);
+.mega-menu { /* Extends .dropdown-menu */
+    background-color: var(--bg-white);  /* Kept: Theme background */
+    color: var(--text-light);                                     /* Kept: Theme text color */
+    padding: var(--spacing-lg) var(--spacing-xl);                 /* Kept: Custom padding for mega layout */
+    border-top: 1px solid rgba(var(--hub-navy-rgb, 25, 35, 70), 0.7); /* Kept: Theme border */
+    max-height: 75vh;                                             /* Kept: Custom max height */
+    overflow-y: auto;                                             /* Kept: Custom overflow */
+    box-shadow: var(--shadow-xl);                                 /* Kept: Theme shadow (can be inherited if same as .dropdown-menu) */
 }
-
-.nav-item.dropdown.position-static:hover .mega-menu,
-.nav-item.dropdown.position-static.show .mega-menu { 
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.mega-menu .container {
-    width: 100%;
-    max-width: 1200px; /* Or your preferred max-width for content */
-    margin: 0 auto;
-}
-
-.mega-menu .row {
-    width: 100%;
-    margin: 0;
-}
-
-.mega-menu-column {
-    padding: 0 var(--spacing-lg); /* Add horizontal padding to columns */
-    margin-bottom: var(--spacing-lg); /* Add bottom margin for spacing on smaller screens if they stack */
-}
-
 .mega-menu-title {
-    color: var(--hub-gold-light); /* Brighter title */
-    font-size: var(--font-size-lg, 1.25rem); /* Larger title */
-    font-weight: 700;
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    position: relative;
-    border-bottom: 1px solid var(--hub-gold-dark); /* Underline for title */
+    color: var(--hub-gold-light);     /* Kept: Theme text color */
+    font-size: var(--font-size-lg);   /* Kept: Theme font size */
+    font-weight: 700;                 /* Kept: Theme font weight */
+    border-bottom: 1px solid var(--hub-gold-dark); /* Kept: Theme border */
 }
-
-.mega-menu-title:after {
-    /* content: ''; */ /* Remove the previous small underline */
-    display: none;
-}
-
-.mega-menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mega-menu-item {
-    margin-bottom: var(--spacing-sm); /* Space between links */
-}
-
 .mega-menu-link {
-    color: var(--gray-300); /* Lighter link color for contrast on dark bg */
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    display: block;
-    padding: var(--spacing-xs) 0; /* Vertical padding, no extra horizontal as column has it */
-    font-size: var(--font-size-sm);
-    border-radius: var(--border-radius-xs);
-    position: relative;
-    /* border-left: 3px solid transparent; */ /* Remove left border for a cleaner look */
-    /* margin-left: -3px; */
+    color: var(--gray-300);           /* Kept: Theme text color */
+    font-size: var(--font-size-sm);   /* Kept: Theme font size */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 
 .mega-menu-link:hover,
 .mega-menu-link:focus {
-    color: var(--hub-gold-light); /* Brighter gold on hover */
-    background-color: rgba(255,255,255, 0.03); /* Very subtle hover background */
-    /* border-left-color: var(--hub-red); */
-    transform: translateX(5px); /* Keep the slight indent on hover */
+    color: var(--hub-gold-light);         /* Kept: Theme hover/focus text color */
+    background-color: rgba(255,255,255, 0.03); /* Kept: Theme hover/focus background */
 }
 
-.mega-menu-link:hover::before,
-.mega-menu-link:focus::before {
-    /* content: "\F285"; */ /* Bootstrap icon: chevron-right */
-    /* font-family: 'bootstrap-icons'; */
-    /* position: absolute; */
-    /* left: -1rem; */ /* Adjust if bringing back icon */
-    /* color: var(--hub-gold-light); */
-    /* font-weight: bold; */
-    /* opacity: 1; */
-    /* transition: opacity 0.2s ease, left 0.2s ease; */
-    display:none; /* Removing the chevron for a cleaner look, can be re-added */
-}
-
-/* User Menu */
 .user-menu {
     margin-left: auto;
     display: flex;
@@ -472,121 +286,259 @@ body {
 
 /* Mobile Navigation */
 @media (max-width: 991.98px) {
+    /* --- START MOBILE HEADER HEIGHT ADJUSTMENTS --- */
+    /* 
+      IMPORTANT: Calculate the actual combined height of your .topbar and .main-nav 
+      when viewed on a mobile device, then update the three '100px' values below.
+      Example: If topbar is 45px and main-nav bar is 55px, total is 100px.
+    */
+    body {
+        padding-top: 66px; /* ADJUST THIS - Only .main-nav height on mobile */
+    }
+
+    .header.scrolled {
+        /* If header shrinks on scroll on mobile, adjust .navbar-collapse.scrolled accordingly if needed */
+    }
+
     .navbar-collapse {
         position: fixed;
-        top: 60px;
+        top: 0; 
         left: 0;
         width: 100%;
-        height: calc(100vh - 60px);
-        background-color: var(--hub-navy);
-        padding: 1rem;
+        height: 100%; 
+        background-color: var(--white, #FFFFFF); /* NỀN TRẮNG */
+        /* padding: var(--spacing-lg) 0; */ /* Bỏ padding này, dùng padding 15px bạn đã thêm */
+        padding: 15px; /* Giữ lại padding bạn đã thêm */
         overflow-y: auto;
-        z-index: var(--z-dropdown);
+        z-index: var(--z-modal); 
         transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        transition: transform 0.35s ease-in-out;
+        display: flex; 
+        flex-direction: column; 
     }
-    
+
     .navbar-collapse.show {
         transform: translateX(0);
     }
 
+    .navbar-collapse .btn-close-menu {
+        position: absolute;
+        top: 10px; /* Điều chỉnh lại cho padding mới */
+        right: 15px; /* Điều chỉnh lại cho padding mới */
+        font-size: 1.5rem; 
+        color: var(--text-dark, #212529); /* Màu tối cho nút đóng */
+        background: transparent;
+        border: none;
+        padding: 0.5rem;
+        line-height: 1;
+        z-index: 1; 
+    }
+    .navbar-collapse .btn-close-menu:hover {
+        color: var(--hub-red); /* Màu accent khi hover */
+    }
+
     .navbar-nav {
-        flex-direction: column;
-        padding-bottom: 2rem;
+        width: 100%; 
+        text-align: center; 
+        margin-top: calc(15px + 1rem); /* Khoảng cách từ top sau khi có padding mới và nút đóng */
+        margin-bottom: var(--spacing-lg);
     }
 
-    .nav-item {
-        width: 100%;
+    .navbar-collapse .nav-item { 
+        width: 100%; 
+        margin-bottom: 0; 
+        opacity: 0;
+        transform: translateX(-30px); /* Trượt từ trái vào */
+        transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .navbar-collapse.show .nav-item.item-visible {
+        opacity: 1;
+        transform: translateX(0);
     }
 
-    .nav-link {
-        padding: 1rem 0;
-        border-bottom: 1px solid var(--hub-navy-light); 
+    .nav-link { 
+        padding: var(--spacing-md) var(--spacing-lg); /* Giữ padding ngang, padding dọc đã có từ item */
+        border-bottom: 1px solid var(--border-color, #dee2e6); /* Border màu xám nhạt */
+        font-size: var(--font-size-md); 
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        width: 100%; 
+        color: var(--hub-navy-dark); /* MÀU CHỮ TỐI */
     }
+
+    .nav-link i.menu-icon {
+        margin-right: var(--spacing-lg); 
+        font-size: 1.3em; 
+        color: var(--hub-red); /* Icon màu accent */
+        width: 28px; 
+        text-align: center;
+        flex-shrink: 0; 
+    }
+
+    .nav-link.active,
+    .nav-link:hover,
+    .nav-link:focus {
+        color: var(--hub-red-dark) !important; /* Màu chữ accent đậm khi active/hover */
+        background-color: var(--gray-100, #f8f9fa); /* Nền xám rất nhạt */
+        border-bottom-color: var(--hub-red); 
+    }
+    .nav-link::after { display: none; }
     
-    .dropdown-menu, .mega-menu {
-        position: static; /* All dropdowns become static in mobile */
-        float: none;
+    .dropdown-item, .mega-menu-link { 
+        color: var(--gray-700, #495057); /* Màu chữ tối vừa cho sub-item */
+        padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg); 
+        font-size: var(--font-size-sm); 
+        border-bottom: 1px solid var(--gray-200, #e9ecef); /* Border xám nhạt hơn */
+        display: flex; 
+        align-items: center; 
         width: 100%;
-        background-color: var(--hub-navy); /* Slightly lighter navy for mobile dropdown layers */
-        box-shadow: none;
-        border-radius: 0;
-        padding: 0.5rem 0;
-        display: none;
-        border-top: none;
-        transform: translateY(0); /* Reset transform for mobile */
-        max-height: none; /* Reset max-height for mobile */
-        overflow-y: visible; /* Reset overflow for mobile */
-        opacity: 1; /* Ensure visible when toggled by JS */
-        visibility: visible; /* Ensure visible when toggled by JS */
+        text-align: left;
+        background-color: transparent !important; 
+        transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
     }
-    
-    .dropdown.show .dropdown-menu, .dropdown.show .mega-menu { /* Ensure JS toggle works */
-        display: block;
+
+    .menu-icon-sub {
+        font-size: 1.1em; 
+        color: var(--hub-red-dark); /* Icon sub màu accent đậm */
+        margin-right: var(--spacing-md); 
+        flex-shrink: 0;
+        width: 22px; 
+        text-align: center;
+        line-height: 1; 
     }
-    
-    .dropdown-item {
-        color: var(--gray-300); /* Consistent item color in mobile */
-        padding: 0.75rem 1.5rem; /* Adjust padding for mobile */
+    .dropdown-item > .menu-icon-sub, .mega-menu-link > .menu-icon-sub {
+        margin-left: calc(-1 * var(--spacing-lg) + 28px + var(--spacing-md) ); /* Cần kiểm tra lại căn chỉnh này */
+    }
+
+    .dropdown-item:last-child, 
+    .mega-menu .list-unstyled:last-child .mega-menu-link:last-child {
+        border-bottom: none;
     }
     
     .dropdown-item:hover,
-    .dropdown-item:focus {
-        color: var(--hub-gold-light);
-        background-color: var(--hub-navy-dark); /* Darker hover for contrast on mobile */
-        padding-left: 1.5rem; /* Reset padding-left if chevron is removed or adjusted for mobile */
+    .dropdown-item:focus,
+    .mega-menu-link:hover,
+    .mega-menu-link:focus {
+        color: var(--hub-red-darker, #A71D2A) !important; 
+        background-color: var(--gray-200, #e9ecef) !important; 
+        transform: translateX(3px); 
     }
 
-    .dropdown-item:hover::before,
-    .dropdown-item:focus::before {
-        display: none; /* Hide chevron on mobile for simplicity, or adjust */
-    }
-
-    .mega-menu-column {
-        margin-bottom: 1rem;
-    }
-    
     .mega-menu-title {
-        color: var(--hub-gold);
-        border-bottom-color: var(--hub-navy-light) !important; /* Important may be needed due to specificity */
+        color: var(--hub-red-dark); /* Màu tối cho tiêu đề mega */
+        font-size: var(--font-size-base);
+        font-weight: 600;
+        padding: var(--spacing-md) var(--spacing-lg);
+        padding-left: calc(var(--spacing-lg) + 28px + var(--spacing-lg));
+        border-bottom: 2px solid var(--hub-red); /* Border accent */
+        margin-bottom: 0;
+        background-color: var(--gray-100, #f8f9fa); /* Nền xám nhạt */
     }
     
-    .mega-menu-link {
-        color: var(--gray-400); /* Slightly dimmer for mega links on mobile if needed */
-        padding: 0.5rem 0;
+    .nav-item.dropdown.show .dropdown-menu > li,
+    .nav-item.dropdown.show .mega-menu .list-unstyled > li {
+        opacity: 0; 
+        transform: translateX(-20px); 
+        animation: slideInDropdownItem 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     }
-    .mega-menu-link:hover, .mega-menu-link:focus {
-        color: var(--hub-gold-light);
-        background-color: transparent; /* Simpler hover for mega links on mobile */
-        transform: translateX(3px);
+    /* --- Animation Delays cho các <li> (Giữ nguyên) --- */
+    .nav-item.dropdown.show .dropdown-menu > li:nth-child(1), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(1) { animation-delay: 0.05s; }
+    .nav-item.dropdown.show .dropdown-menu > li:nth-child(2), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(2) { animation-delay: 0.08s; } /* Giảm nhẹ delay */
+    .nav-item.dropdown.show .dropdown-menu > li:nth-child(3), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(3) { animation-delay: 0.11s; }
+    .nav-item.dropdown.show .dropdown-menu > li:nth-child(4), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(4) { animation-delay: 0.14s; }
+    .nav-item.dropdown.show .dropdown-menu > li:nth-child(5), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(5) { animation-delay: 0.17s; }
+    .nav-item.dropdown.show .dropdown-menu > li:nth-child(6), .nav-item.dropdown.show .mega-menu .list-unstyled > li:nth-child(6) { animation-delay: 0.20s; }
+
+    /* Mobile Search Form Styling với nền trắng */
+    .mobile-search-form {
+        padding: 0; /* Padding đã có từ .navbar-collapse */
+        margin-bottom: var(--spacing-lg);
     }
-    
-    .user-menu {
-        flex-direction: column;
-        width: 100%;
-        align-items: flex-start;
-        margin-top: 1rem;
+    .mobile-search-form .form-control {
+        background-color: var(--gray-100, #f8f9fa); 
+        color: var(--text-dark);
+        border: 1px solid var(--border-color, #dee2e6);
+        border-right: none; 
+        border-radius: var(--border-radius-md) 0 0 var(--border-radius-md); 
+        padding: var(--spacing-md); 
+        font-size: var(--font-size-md); 
     }
-    
-    .user-menu-link {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 0.5rem;
-        justify-content: flex-start;
+    .mobile-search-form .form-control::placeholder {
+        color: var(--gray-600, #6c757d);
+        opacity: 1;
     }
-    
-    .header-logo {
-        height: 50px;
+    .mobile-search-form .form-control:focus {
+        background-color: var(--white, #FFFFFF);
+        color: var(--text-dark);
+        border-color: var(--hub-red);
+        box-shadow: 0 0 0 0.2rem rgba(var(--hub-red-rgb), 0.25); 
     }
-    
-    .topbar-contact,
-    .topbar-social {
+    .mobile-search-form .btn {
+        background-color: var(--hub-red);
+        color: var(--white, #FFFFFF);
+        border: 1px solid var(--hub-red-dark);
+        border-left: none; 
+        border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; 
+        padding: var(--spacing-md); 
+        display: flex; 
+        align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+    }
+    .mobile-search-form .btn i { font-size: 1.2rem; }
+    .mobile-search-form .btn:hover,
+    .mobile-search-form .btn:focus {
+        background-color: var(--hub-red-dark);
+        color: var(--white, #FFFFFF);
+        border-color: var(--hub-red-darker, #A71D2A);
+    }
+
+    .user-menu {
+        margin-top: auto; 
+        padding-top: 0; 
+        width: 100%;
+        display: flex; 
+        flex-direction: column; 
+        padding-bottom: 0; 
     }
     
-    .topbar-social {
-        margin-top: 0.5rem;
+    .mobile-user-menu-link { /* Giữ nguyên CTA màu đỏ */
+        width: 100%;
+        margin-left: 0; 
+        padding: var(--spacing-lg); 
+        font-size: var(--font-size-lg); 
+        font-weight: 600;
+        border-radius: 0; 
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        order: 1; 
+        background-color: var(--hub-red); 
+        color: var(--text-light);
+        border: none; 
+    }
+    .mobile-user-menu-link i { font-size: 1.3em; margin-right: var(--spacing-md); }
+    .mobile-user-menu-link:hover, .mobile-user-menu-link:focus {
+        background-color: var(--hub-red-dark); 
+        color: var(--hub-gold-light);
+    }
+    .mobile-user-menu-link .d-none { display: inline !important; }
+
+    .header-logo { height: 50px; }
+}
+
+/* Keyframes cho slide-in dropdown items (áp dụng cho <li>) */
+@keyframes slideInDropdownItem {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -643,9 +595,11 @@ body {
 
 /* Override Bootstrap Navbar Colors */
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--hub-navy-dark);
     position: relative;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 8px
+
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
