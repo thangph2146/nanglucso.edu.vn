@@ -1,0 +1,198 @@
+/* News Section Styles from index.html */
+.news-image-placeholder {
+    height: 220px; /* Increased height */
+    background-color: var(--bg-gray, #f0f0f0); /* Lighter placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md, 0.5rem) var(--border-radius-md, 0.5rem) 0 0;
+    transition: var(--transition-base);
+}
+
+.news-image-placeholder:before {
+    content: "\F4FB"; /* Bootstrap Icons newspaper */
+    font-family: "bootstrap-icons";
+    font-size: 3.5rem; /* Larger icon */
+    color: var(--text-muted-light, #adb5bd); /* More subtle icon color */
+    transition: var(--transition-base);
+}
+
+.news-card:hover .news-image-placeholder:before {
+    transform: scale(1.1);
+    color: var(--hub-red-light);
+}
+
+.news-card {
+    background-color: var(--bg-white, #fff);
+    border-radius: var(--border-radius-lg, 0.75rem); /* Consistent larger radius */
+    overflow: hidden;
+    box-shadow: var(--shadow-card, 0 0.125rem 0.25rem rgba(0,0,0,0.075));
+    transition: var(--transition-base);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color-light, #e9ecef);
+}
+
+.news-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover, 0 0.5rem 1rem rgba(0,0,0,0.15));
+    border-color: var(--hub-gold-light, #ffd966);
+}
+
+.news-date {
+    position: absolute;
+    top: var(--spacing-sm, 1rem);
+    left: var(--spacing-sm, 1rem);
+    background-color: var(--hub-red-dark, #A70000);
+    color: var(--text-light, #fff);
+    padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 0.75rem);
+    border-radius: var(--border-radius-sm, 0.25rem);
+    text-align: center;
+    line-height: 1.1;
+    z-index: 1;
+    font-family: var(--font-family-sans-serif);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.news-card:hover .news-date {
+    background-color: var(--hub-gold, #f8c53a);
+    color: var(--hub-navy-dark, #101a33);
+    transform: scale(1.05);
+}
+
+.news-date .day {
+    display: block;
+    font-size: var(--font-size-lg, 1.5rem);
+    font-weight: 700;
+}
+
+.news-date .month,
+.news-date .year {
+    display: block;
+    font-size: var(--font-size-xxs, 0.75rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.news-content {
+    padding: var(--spacing-md, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-title {
+    font-size: var(--font-size-md, 1.1rem); /* Adjusted size */
+    margin-bottom: var(--spacing-sm, 0.75rem);
+    font-weight: 700;
+    color: var(--hub-navy-dark, #101a33);
+    line-height: 1.4;
+    min-height: calc(1.4em * 2); /* Ensure space for 2 lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    transition: var(--transition-fast);
+}
+
+.news-card:hover .news-title {
+    color: var(--hub-red-dark, #A70000);
+}
+
+.news-text {
+    color: var(--text-secondary, #555);
+    margin-bottom: var(--spacing-md, 1rem);
+    font-size: var(--font-size-sm, 0.9rem);
+    line-height: 1.6;
+    flex-grow: 1; /* Allow text to take space before link */
+    min-height: calc(1.6em * 3); /* Ensure space for 3 lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.news-link {
+    color: var(--hub-red-dark, #A70000);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-sm, 0.9rem);
+    margin-top: auto; /* Push to bottom */
+    padding-top: var(--spacing-xs);
+    transition: var(--transition-base);
+}
+
+.news-link:hover {
+    color: var(--hub-gold-dark, #b38f2c);
+    text-decoration: underline;
+}
+
+.news-link i {
+    margin-left: var(--spacing-xs, 0.3rem);
+    transition: transform 0.2s ease-in-out;
+}
+
+.news-link:hover i {
+    transform: translateX(3px);
+}
+
+/* General Section Styling (if not already in main.css or courses.css) */
+/* These styles seem to be duplicated from courses.css or a general main.css. */
+/* Consider moving them to a shared file if they are truly general. */
+/* For now, I will assume they are intended to be here or are overridden elsewhere. */
+.section {
+    padding: var(--spacing-xxl, 3rem) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-light {
+    background-color: var(--bg-light, #f8f9fa);
+}
+
+.section-header {
+    margin-bottom: var(--spacing-xl, 2rem);
+    text-align: center;
+}
+
+.section-title {
+    font-size: var(--font-size-xl, 1.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md, 1rem);
+    color: var(--text-dark, #343a40);
+    display: inline-block;
+    padding-bottom: var(--spacing-sm, 0.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--hub-gold, #f8c53a);
+    border-radius: 3px;
+}
+
+.section-subtitle {
+    font-size: var(--font-size-md, 1.125rem);
+    color: var(--text-muted, #6c757d);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg, 1.5rem);
+    font-family: var(--font-family-alt, 'Open Sans');
+    font-weight: 400;
+}

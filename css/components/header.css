@@ -4,14 +4,15 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1030; /* Bootstrap z-index for fixed navbars */
-    transition: all 0.3s ease;
+    z-index: var(--z-header, 1030);
+    transition: all 0.3s ease-in-out;
     background-color: var(--hub-navy);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 .header.scrolled {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--hub-navy-dark);
+    box-shadow: var(--shadow-md);
 }
 
 .header-container {
@@ -24,7 +25,7 @@
 
 .header-logo {
     height: 60px;
-    transition: all 0.3s ease;
+    transition: height 0.3s ease-in-out;
 }
 
 .header-logo img {
@@ -35,15 +36,16 @@
 }
 
 .header.scrolled .header-logo {
-    height: 50px;
+    height: 55px; /* Slightly larger when scrolled for better visibility */
 }
 
 /* Topbar styles */
 .topbar {
     background-color: var(--hub-navy-dark);
-    font-size: 0.85rem;
-    color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: var(--font-size-sm, 0.875rem); /* Use variable and slightly increase */
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.5rem 0; /* Add some padding */
 }
 
 .topbar-contact {
@@ -53,15 +55,29 @@
 }
 
 .topbar-contact a {
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-pill);
 }
 
 .topbar-contact a:hover {
     color: var(--hub-gold);
+    background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.topbar-contact a i {
+    transition: transform 0.3s ease;
+}
+
+.topbar-contact a:hover i {
+    transform: scale(1.2);
 }
 
 .topbar-contact a i {
@@ -76,28 +92,30 @@
 }
 
 .social-link {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--text-light);
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    margin-left: 8px;
-    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .social-link:hover {
-    color: var(--hub-gold);
-    transform: translateY(-2px);
-    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--hub-navy-dark);
+    background-color: var(--hub-gold);
+    transform: translateY(-3px) scale(1.15);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Main Navigation */
 .main-nav {
     background-color: var(--hub-red);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */ /* Removed for a cleaner look, header shadow is enough */
 }
 
 .navbar {
@@ -112,14 +130,21 @@
 }
 
 .navbar-toggler {
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem;
     font-size: 1.25rem;
     color: var(--text-light);
     border: 1px solid rgba(255, 255, 255, 0.2);
     background-color: var(--hub-red-light);
-    transition: var(--transition-fast);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin-right: 0.5rem;
     border-radius: var(--border-radius-md);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.navbar-toggler:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: var(--hub-red);
 }
 
 .navbar-toggler:focus {
@@ -145,38 +170,42 @@
 }
 
 .nav-link {
-    color: white;
-    font-weight: 500;
+    color: var(--text-light);
+    font-weight: 600; /* Slightly bolder */
     position: relative;
     text-transform: uppercase;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    padding: 1.25rem 1rem !important;
+    font-size: var(--font-size-xs, 0.875rem); /* Use variable */
+    letter-spacing: 0.75px; /* Increased spacing */
+    padding: 1.35rem 1.1rem !important; /* Adjusted padding */
+    transition: color 0.2s ease;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0.75rem;
+    bottom: 0.85rem; /* Adjusted position */
     left: 50%;
     width: 0;
-    height: 2px;
+    height: 3px; /* Thicker underline */
     background-color: var(--hub-gold);
-    transition: all 0.2s ease;
+    transition: width 0.3s ease, opacity 0.3s ease;
     transform: translateX(-50%);
     opacity: 0;
+    border-radius: 2px;
 }
 
 .nav-link:hover, 
 .nav-link:focus,
+.nav-item.show .nav-link, /* For when dropdown is open */
 .nav-item .nav-link.active {
-    color: var(--hub-gold) !important;
+    color: var(--hub-gold-light) !important;
 }
 
 .nav-link:hover::after, 
 .nav-link:focus::after,
+.nav-item.show .nav-link::after, /* For when dropdown is open */
 .nav-item .nav-link.active::after {
-    width: 70%;
+    width: 60%; /* Slightly shorter */
     opacity: 1;
 }
 
@@ -192,22 +221,30 @@
 }
 
 .dropdown-menu {
-    min-width: 15rem;
-    padding: 1rem 0;
-    margin: 0;
-    border: none;
-    border-radius: var(--border-radius-md);
+    min-width: 16rem;
+    padding: 0.75rem 0;
+    margin-top: 0 !important;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-top: 3px solid var(--hub-gold);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
     background-color: var(--bg-white);
-    box-shadow: var(--shadow-dropdown);
-    animation: fadeInUp 0.3s ease forwards;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInDropdownKeyframes 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top center;
     display: block;
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition-base);
+    transform: translateY(-15px);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s linear, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     top: 100%;
     z-index: var(--z-dropdown);
-    border-top: 3px solid var(--hub-gold);
+    will-change: transform, opacity;
+}
+
+.dropdown.show .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown.show .dropdown-menu {
@@ -268,8 +305,17 @@
     left: 0;
     right: 0;
     padding: 2rem;
-    border-radius: 0.5rem;
-    border-top: 3px solid var(--hub-gold) !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s linear, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.nav-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .mega-menu .row {
@@ -282,11 +328,22 @@
 }
 
 .mega-menu-title {
-    color: var(--hub-red);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding-bottom: 0.5rem;
+    color: var(--hub-red-dark);
+    font-size: var(--font-size-md, 1.125rem); /* Use variable */
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    position: relative;
+}
+
+.mega-menu-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--hub-gold);
 }
 
 .mega-menu-list {
@@ -300,26 +357,36 @@
 }
 
 .mega-menu-link {
-    color: #333;
+    color: var(--text-muted);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: block;
-    padding: 0.375rem 0;
+    padding: 0.6rem 0.75rem;
+    font-size: var(--font-size-sm, 0.875rem);
+    border-radius: var(--border-radius-sm);
     position: relative;
+    border-left: 3px solid transparent;
+    margin-left: -3px;
 }
 
 .mega-menu-link:hover,
 .mega-menu-link:focus {
     color: var(--hub-red);
-    padding-left: 0.5rem;
+    background-color: rgba(var(--hub-gold-rgb), 0.05);
+    border-left-color: var(--hub-red);
+    transform: translateX(5px);
 }
 
-.mega-menu-link::before {
-    content: "›";
+.mega-menu-link:hover::before,
+.mega-menu-link:focus::before {
+    content: "\F285"; /* Bootstrap icon: chevron-right */
+    font-family: 'bootstrap-icons';
     position: absolute;
-    left: -0.5rem;
-    opacity: 0;
-    transition: var(--transition-fast);
+    left: 0.5rem;
+    color: var(--hub-red);
+    font-weight: bold;
+    opacity: 1; /* Ensure it's visible on hover */
+    transition: opacity 0.2s ease, left 0.2s ease;
 }
 
 .mega-menu-link:hover::before,
@@ -490,10 +557,22 @@
 }
 
 /* Animation keyframes */
-@keyframes fadeInUp {
+@keyframes fadeInDropdownKeyframes {
+    from {
+        opacity: 0.5;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Ensure the original fadeInUp is not removed if used elsewhere, or rename this one if it's specific to dropdowns */
+@keyframes fadeInUpGeneral {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
@@ -501,21 +580,68 @@
     }
 }
 
+.dropdown-item {
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(var(--hub-gold-rgb), 0.1);
+    transform: translateX(5px);
+}
+
 /* Bootstrap Dropdown Fix */
+.dropdown-menu {
+    animation: fadeInDropdownKeyframes 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    transform-origin: top center;
+    opacity: 0;
+    display: none;
+}
+
 .dropdown-menu.show {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
+.mega-menu {
+    animation: fadeInUpGeneral 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
 /* Override Bootstrap Navbar Colors */
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus {
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active {
     color: var(--hub-gold);
+}
+
+.navbar-dark .navbar-nav .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--hub-gold);
+    transition: width 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover:after,
+.navbar-dark .navbar-nav .nav-link.active:after {
+    width: 100%;
+}
+
+.navbar-dark .navbar-nav .dropdown-toggle:after {
+    transition: transform 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .dropdown-toggle.show:after {
+    transform: rotate(-180deg);
 }
 
 /* Helper for transition hover effect */
@@ -530,4 +656,4 @@
 /* Helper for hover text colors */
 .hover-text-warning:hover {
     color: var(--hub-gold) !important;
-} 
+}

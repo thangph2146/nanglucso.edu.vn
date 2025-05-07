@@ -1,97 +1,134 @@
 :root {
-    /* Màu sắc chính */
-    --hub-red: #a70000;             /* Màu đỏ đô chủ đạo */
-    --hub-red-light: #c10000;       /* Màu đỏ đô nhạt hơn */
-    --hub-red-dark: #800000;        /* Màu đỏ đô đậm hơn */
-    --hub-gold: #f8c53a;            /* Màu vàng gold */
-    --hub-gold-light: #ffd966;      /* Màu vàng gold nhạt */
-    --hub-gold-dark: #e6b800;       /* Màu vàng gold đậm */
+    /* === MÀU SẮC CHÍNH === */
+    --hub-red: #A70000;             /* Màu đỏ đô chủ đạo */
+    --hub-red-dark: #8C0000;        /* Màu đỏ đô đậm hơn */
+    --hub-red-light: #D92626;       /* Màu đỏ đô nhạt hơn (điều chỉnh) */
+    --hub-red-pale: rgba(167,0,0,0.1); /* Màu đỏ rất nhạt cho background */
+
+    --hub-gold: #F8C53A;            /* Màu vàng gold */
+    --hub-gold-light: #FFD966;      /* Màu vàng gold nhạt */
+    --hub-gold-dark: #B38F2C;       /* Màu vàng gold đậm (điều chỉnh) */
+
     --hub-navy: #192346;            /* Màu xanh navy */
-    --hub-navy-dark: #0f1834;       /* Màu xanh navy đậm */
-    --hub-navy-light: #2a3a6a;      /* Màu xanh navy nhạt */
-    --hub-blue: #1a3c80;            /* Màu xanh dương bổ sung */
+    --hub-navy-dark: #101A33;       /* Màu xanh navy đậm (điều chỉnh) */
+    --hub-navy-light: #2C3A6B;      /* Màu xanh navy nhạt (điều chỉnh) */
+
+    /* === MÀU TRUNG TÍNH (THEO HỆ THỐNG GRAY CỦA BOOTSTRAP) === */
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6; /* Dùng cho border mặc định */
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd; /* Dùng cho text muted nhạt */
+    --gray-600: #6c757d; /* Dùng cho text muted */
+    --gray-700: #495057; /* Dùng cho text phụ */
+    --gray-800: #343a40; /* Dùng cho text chính đậm, bg tối */
+    --gray-900: #212529; /* Dùng cho text tiêu đề đậm */
+
+    /* === MÀU NỀN VÀ TEXT === */
+    --bg-white: #ffffff;
+    --bg-light: var(--gray-100);
+    --bg-gray: var(--gray-200);
+    --bg-dark: var(--hub-navy-dark);
+    --bg-primary: var(--hub-red);
+    --bg-secondary: var(--hub-navy);
+
+    --text-light: #ffffff;
+    --text-dark: var(--gray-900);
+    --text-primary: var(--hub-red-dark);
+    --text-secondary: var(--gray-700);
+    --text-muted: var(--gray-600);
+    --text-muted-light: var(--gray-500);
+    --text-accent: var(--hub-gold-dark);
+
+    /* === MÀU GRADIENT === */
+    --gradient-primary: linear-gradient(90deg, var(--hub-red) 0%, var(--hub-gold) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(25, 35, 70, 0.92) 0%, rgba(15, 24, 52, 0.96) 100%); /* Gradient cho hero section */
+    --gradient-overlay: linear-gradient(135deg, rgba(25, 35, 70, 0.85) 0%, rgba(15, 24, 52, 0.98) 100%); /* Gradient cho overlay */
+    --gradient-button: linear-gradient(to right, var(--hub-gold), var(--hub-gold-dark));
+
+    /* === FONT CHỮ === */
+    --font-family-sans-serif: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-serif: 'Montserrat', Georgia, "Times New Roman", Times, serif; /* Cho tiêu đề lớn nếu cần */
+    --font-family-alt: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; /* Cho đoạn văn bản dài */
+    --font-family-base: var(--font-family-sans-serif);
+    --font-family-heading: var(--font-family-serif); 
+
+    /* === FONT SIZES === */
+    --font-size-root: 16px; 
+    --font-size-xxs: 0.75rem;  /* 12px */
+    --font-size-xs: 0.875rem; /* 14px */
+    --font-size-sm: 0.9375rem;/* 15px */
+    --font-size-base: 1rem;    /* 16px */
+    --font-size-md: 1.125rem; /* 18px */
+    --font-size-lg: 1.25rem;  /* 20px */
+    --font-size-xl: 1.5rem;   /* 24px */
+    --font-size-xxl: 1.75rem; /* 28px */
+    --font-size-display-1: 3.5rem;
+    --font-size-display-2: 3rem;
+    --font-size-display-3: 2.5rem;
+    --font-size-hero: var(--font-size-display-2);
+
+    /* === SPACING === */
+    --spacing-xxs: 0.25rem;  /* 4px */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 0.75rem;  /* 12px */
+    --spacing-md: 1rem;     /* 16px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+    --spacing-xxl: 3rem;    /* 48px */
+    --spacing-xxxl: 4rem;   /* 64px */
+
+    /* === BORDERS === */
+    --border-width: 1px;
+    --border-color: var(--gray-300);
+    --border-color-light: var(--gray-200);
+    --border-color-extra-light: var(--gray-100);
     
-    /* Màu nền và text */
-    --bg-dark: #151525;             /* Màu nền tối */
-    --bg-light: #f8f9fa;            /* Màu nền sáng */
-    --bg-white: #ffffff;            /* Màu nền trắng */
-    --bg-gray: #f5f5f8;             /* Màu nền xám */
-    --text-dark: #343a40;           /* Màu text chính */
-    --text-light: #f8f9fa;          /* Màu text sáng */
-    --text-muted: #6c757d;          /* Màu text nhạt */
-    
-    /* Màu gradient */
-    --gradient-primary: linear-gradient(135deg, var(--hub-red) 0%, var(--hub-red-dark) 100%);
-    --gradient-gold: linear-gradient(135deg, var(--hub-gold) 0%, var(--hub-gold-dark) 100%);
-    --gradient-dark: linear-gradient(135deg, var(--hub-navy) 0%, var(--hub-navy-dark) 100%);
-    --gradient-card: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,0,0,0.8) 100%);
-    --gradient-overlay: linear-gradient(45deg, rgba(167,0,0,0.85) 0%, rgba(25,35,70,0.85) 100%);
-    --gradient-menu: linear-gradient(to right, var(--hub-red) 0%, var(--hub-red-light) 100%);
-    --gradient-hero: linear-gradient(135deg, var(--hub-red) 0%, var(--hub-red-dark) 60%, var(--hub-navy) 100%);
-    --gradient-button: linear-gradient(to right, var(--hub-gold) 0%, var(--hub-gold-dark) 100%);
-    --gradient-feature: linear-gradient(135deg, var(--hub-navy-light) 0%, var(--hub-navy) 100%);
-    --gradient-shimmer: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    
-    /* Màu bootstrap */
-    --bs-primary: var(--hub-red);   /* Bootstrap primary */
-    --bs-secondary: var(--hub-gold);/* Bootstrap secondary */
-    --bs-success: #2ecc71;          /* Bootstrap success */
-    --bs-info: #3498db;             /* Bootstrap info */
-    --bs-warning: #f39c12;          /* Bootstrap warning */
-    --bs-danger: #e74c3c;           /* Bootstrap danger */
-    
-    /* Font chữ */
-    --font-family-base: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --font-family-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --font-family-alt: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    
-    /* Font sizes */
-    --font-size-xs: 0.75rem;        /* 12px */
-    --font-size-sm: 0.875rem;       /* 14px */
-    --font-size-base: 1rem;         /* 16px */
-    --font-size-md: 1.125rem;       /* 18px */
-    --font-size-lg: 1.25rem;        /* 20px */
-    --font-size-xl: 1.5rem;         /* 24px */
-    --font-size-xxl: 2rem;          /* 32px */
-    --font-size-hero: 3.5rem;       /* 56px */
-    
-    /* Spacing */
-    --spacing-xs: 0.25rem;          /* 4px */
-    --spacing-sm: 0.5rem;           /* 8px */
-    --spacing-md: 1rem;             /* 16px */
-    --spacing-lg: 1.5rem;           /* 24px */
-    --spacing-xl: 2rem;             /* 32px */
-    --spacing-xxl: 3rem;            /* 48px */
-    
-    /* Border radii */
-    --border-radius-xs: 0.125rem;   /* 2px */
-    --border-radius-sm: 0.25rem;    /* 4px */
-    --border-radius-md: 0.5rem;     /* 8px */
-    --border-radius-lg: 1rem;       /* 16px */
-    --border-radius-xl: 1.5rem;     /* 24px */
+    --border-radius-xs: 0.125rem; /* 2px */
+    --border-radius-sm: 0.25rem;  /* 4px */
+    --border-radius-md: 0.375rem; /* 6px */
+    --border-radius-lg: 0.5rem;   /* 8px */
+    --border-radius-xl: 0.75rem;  /* 12px */
+    --border-radius-xxl: 1rem;    /* 16px */
     --border-radius-pill: 50rem;
-    
-    /* Box shadows */
-    --shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
-    --shadow-md: 0 .5rem 1rem rgba(0, 0, 0, .15);
-    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
-    --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .075);
-    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
-    --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.1);
-    --shadow-dropdown: 0 15px 50px rgba(0, 0, 0, 0.15);
-    --shadow-red: 0 5px 15px rgba(167, 0, 0, 0.2);
-    
-    /* Transitions */
-    --transition-base: all 0.3s ease;
-    --transition-slow: all 0.5s ease;
-    --transition-fast: all 0.15s ease;
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
-    /* Z-index layers */
+
+    /* === BOX SHADOWS === */
+    --shadow-xs: 0 0.125rem 0.25rem rgba(0,0,0,0.05);
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    --shadow-md: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+    --shadow-lg: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    --shadow-xl: 0 1rem 2rem rgba(0,0,0,0.15);
+    --shadow-dropdown: var(--shadow-lg);
+    --shadow-card: var(--shadow-sm);
+    --shadow-hover: var(--shadow-md);
+
+    /* === TRANSITIONS === */
+    --transition-timing-function: ease-in-out;
+    --transition-duration-xs: 0.1s;
+    --transition-duration-sm: 0.2s;
+    --transition-duration-base: 0.3s;
+    --transition-duration-lg: 0.5s;
+
+    --transition-fast: all var(--transition-duration-sm) var(--transition-timing-function);
+    --transition-base: all var(--transition-duration-base) var(--transition-timing-function);
+    --transition-slow: all var(--transition-duration-lg) var(--transition-timing-function);
+    --transition-bounce: transform var(--transition-duration-base) cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    /* === Z-INDEX LAYERS === */
     --z-dropdown: 1000;
     --z-sticky: 1020;
-    --z-header: 1030;
-    --z-overlay: 1040;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
     --z-modal: 1050;
-    --z-tooltip: 1060;
-} 
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    --z-header: var(--z-fixed);
+
+    /* === BUTTON SPECIFIC === */
+    --button-padding-y: 0.5rem;
+    --button-padding-x: 1rem;
+    --button-padding-y-sm: 0.375rem;
+    --button-padding-x-sm: 0.75rem;
+    --button-padding-y-lg: 0.625rem;
+    --button-padding-x-lg: 1.25rem;
+}

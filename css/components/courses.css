@@ -230,60 +230,68 @@
 
 /* Course Cards */
 .course-card {
-    border: none;
-    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color-light, #e9ecef);
+    border-radius: var(--border-radius-lg, 0.75rem); /* Larger radius */
     overflow: hidden;
-    transition: var(--transition-bounce);
+    transition: var(--transition-base); /* Smoother transition */
     height: 100%;
     background-color: var(--bg-white);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card, 0 0.125rem 0.25rem rgba(0,0,0,0.075)); /* Softer shadow */
+    display: flex;
+    flex-direction: column;
 }
 
 .course-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover, 0 0.5rem 1rem rgba(0,0,0,0.15));
+    border-color: var(--hub-gold-light, #ffd966);
 }
 
 .course-card .card-img-top {
-    height: 200px;
+    height: 220px; /* Increased height */
     object-fit: cover;
-    border-bottom: 3px solid var(--hub-red);
-    transition: var(--transition-base);
+    /* border-bottom: 3px solid var(--hub-red); Removed for cleaner look with card border */
+    transition: transform 0.4s ease-out, filter 0.3s ease;
 }
 
 .course-card:hover .card-img-top {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    filter: brightness(0.95);
 }
 
 .course-card .card-body {
     padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows footer to be pushed down */
 }
 
 .course-card .badge {
-    background-color: var(--hub-red);
-    color: white;
-    font-weight: 500;
-    padding: 0.5em 0.75em;
-    border-radius: var(--border-radius-sm);
+    background-color: var(--hub-red-light, rgba(167,0,0,0.1));
+    color: var(--hub-red-dark, #A70000);
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+    border-radius: var(--border-radius-pill);
     margin-bottom: var(--spacing-sm);
     display: inline-block;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xxs, 0.7rem);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.75px;
+    /* box-shadow: none; */
 }
 
 .course-card .card-title {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-md, 1.1rem); /* Adjusted size */
     font-weight: 700;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs, 0.5rem);
     color: var(--text-dark);
-    line-height: 1.4;
-    height: 3rem;
+    line-height: 1.45;
+    min-height: calc(1.45em * 2); /* Ensure space for 2 lines */
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
     transition: var(--transition-base);
 }
 
@@ -292,15 +300,17 @@
 }
 
 .course-card .card-text {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
+    font-size: var(--font-size-sm, 0.9rem);
+    color: var(--text-secondary, #555);
     margin-bottom: var(--spacing-md);
-    min-height: 3rem;
+    min-height: calc(1.6em * 3); /* Ensure space for 3 lines */
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
     font-family: var(--font-family-alt);
+    line-height: 1.6;
 }
 
 .course-card .rating {
@@ -327,21 +337,29 @@
 
 .course-card .card-footer {
     background-color: transparent;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-color-extra-light, #f1f1f1);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-top: auto; /* Pushes footer to bottom */
 }
 
 .course-card .btn-outline-danger {
     color: var(--hub-red);
     border-color: var(--hub-red);
     background-color: transparent;
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--border-radius-md);
-    font-weight: 500;
-    transition: var(--transition-bounce);
+    padding: var(--button-padding-y, 0.6rem) var(--button-padding-x, 1rem); /* Adjusted padding */
+    border-radius: var(--border-radius-pill);
+    font-weight: 600;
+    transition: var(--transition-base);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    width: 100%; /* Full width */
+    text-transform: uppercase;
+    font-size: var(--font-size-xs, 0.8rem);
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .course-card .btn-outline-danger::before {
@@ -351,15 +369,20 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--hub-red);
-    transition: all 0.3s ease;
+    background: var(--hub-red); /* Fill effect */
+    transition: left 0.3s ease-in-out;
     z-index: -1;
+}
+.course-card .btn-outline-danger i {
+    margin-left: var(--spacing-xs);
+    font-size: 1.1em;
 }
 
 .course-card .btn-outline-danger:hover {
     color: white;
-    border-color: var(--hub-red);
-    transform: translateY(-3px);
+    border-color: var(--hub-red-dark);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: var(--shadow-sm);
 }
 
 .course-card .btn-outline-danger:hover::before {
@@ -934,4 +957,4 @@
     .news-image, .success-image {
         height: 180px;
     }
-} 
+}

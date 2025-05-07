@@ -92,11 +92,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Debounce function
+    function debounce(func, wait, immediate) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
     // Initialize dropdown hover on page load
     initDropdownHover();
     
-    // Update dropdown behavior on window resize
-    window.addEventListener('resize', function() {
+    // Update dropdown behavior on window resize with debounce
+    const debouncedResizeHandler = debounce(function() {
         initDropdownHover();
-    });
-}); 
+    }, 250); // Adjust wait time as needed, e.g., 250ms
+
+    window.addEventListener('resize', debouncedResizeHandler);
+});

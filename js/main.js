@@ -36,11 +36,29 @@ document.addEventListener('DOMContentLoaded', function() {
         return new bootstrap.Popover(popoverTriggerEl);
     });
 
+    // Debounce function
+    function debounce(func, wait, immediate) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
     // Event listeners
-    window.addEventListener('scroll', function() {
+    const debouncedScrollHandler = debounce(function() {
         handleHeaderScroll();
         handleScrollTopButton();
-    });
+    }, 100); // Adjust wait time as needed, e.g., 100ms
+
+    window.addEventListener('scroll', debouncedScrollHandler);
 
     // Initialize header scroll state on page load
     handleHeaderScroll();

@@ -4,10 +4,10 @@
 <head id="Head">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <!-- Google Tag Manager -->
-    <script async="" src="//traffic.nvcms.net/matomo.js"></script>
+    <!-- <script async="" src="//traffic.nvcms.net/matomo.js"></script> -->
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-787190540&amp;l=dataLayer&amp;cx=c&amp;gtm=45He5521za200&amp;tag_exp=101509156~103101750~103101752~103116026~103200004~103231718~103231720~103233424~103251618~103251620~103252644~103252646"></script>
-    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-853297293&amp;l=dataLayer&amp;cx=c&amp;gtm=45He5521za200&amp;tag_exp=101509156~103101750~103101752~103116026~103200004~103231718~103231720~103233424~103251618~103251620~103252644~103252646"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-787190540&l=dataLayer&cx=c&gtm=45He5521za200&tag_exp=101509156~103101750~103101752~103116026~103200004~103231718~103231720~103233424~103251618~103251620~103252644~103252646"></script>
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-853297293&l=dataLayer&cx=c&gtm=45He5521za200&tag_exp=101509156~103101750~103101752~103116026~103200004~103231718~103231720~103233424~103251618~103251620~103252644~103252646"></script>
     <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PMNXQ9D"></script>
     <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
     <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PJZ5VVV"></script>
@@ -57,207 +57,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/components/variables.css">
-    <link rel="stylesheet" href="css/components/reset.css">
-    <link rel="stylesheet" href="css/components/main.css">
-    <link rel="stylesheet" href="css/components/header.css">
-    <link rel="stylesheet" href="css/components/hero.css">
-    <link rel="stylesheet" href="css/components/courses.css">
-    <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .hero-section {
-            position: relative;
-            min-height: 90vh;
-            background: linear-gradient(to right, rgba(0, 46, 93, 0.9), rgba(0, 22, 45, 0.85)), url('images/bg/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 120px 0 60px;
-            overflow: hidden;
-        }
-        
-        .hero-bg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 46, 93, 0.8) 0%, rgba(0, 22, 45, 0.95) 100%);
-            z-index: 1;
-        }
-        
-        .hero-section .container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-section .hero-content {
-            padding: 2rem 0;
-        }
-        
-        .fade-in-up, .fade-in-left {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: all 0.5s ease;
-        }
-        
-        /* Kiểu mới cho hero-content */
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero-title span {
-            color: var(--hub-gold);
-            position: relative;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--hub-gold);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        
-        .hero-text {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 90%;
-            line-height: 1.6;
-        }
-        
-        /* Kiểu cho các nút */
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn-primary, .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .btn-primary {
-            background-color: var(--hub-red);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #c91f29;
-            transform: translateY(-3px);
-        }
-        
-        .btn-secondary {
-            border: 2px solid var(--hub-gold);
-            color: var(--hub-gold);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--hub-gold);
-            color: var(--hub-navy);
-            transform: translateY(-3px);
-        }
-        
-        /* Stats counter styling */
-        .stats-counter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 1.5rem;
-        }
-        
-        .stat-item {
-            flex: 1;
-            min-width: 110px;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 15px 10px;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--hub-gold);
-        }
-        
-        .stat-text {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        /* Hero image */
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-        }
-        
-        @media (max-width: 991.98px) {
-            .hero-section {
-                padding: 100px 0 40px;
-            }
-            
-            .hero-title {
-                font-size: 2.25rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-text {
-                font-size: 1rem;
-            }
-            
-            .stats-counter {
-                justify-content: center;
-            }
-            
-            .stat-item {
-                min-width: 120px;
-            }
-        }
-        
-        @media (max-width: 767.98px) {
-            .hero-title {
-                font-size: 1.75rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .stat-item {
-                min-width: calc(50% - 10px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/components/courses.css">
+    <link rel="stylesheet" href="css/components/feedback.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/news.css">
+    <link rel="stylesheet" href="css/components/reset.css">
 </head>
 
 <body>
@@ -590,101 +395,6 @@
         </div>
     </section>
 
-    <style>
-        /* Thêm vào CSS cho news card không có ảnh */
-        .news-image-placeholder {
-            height: 200px;
-            background-color: var(--hub-navy-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px 8px 0 0;
-        }
-        
-        .news-image-placeholder:before {
-            content: "\F4FB"; /* Biểu tượng newspaper từ Bootstrap Icons */
-            font-family: "bootstrap-icons";
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .news-card {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .news-date {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--hub-red);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            line-height: 1;
-            z-index: 1;
-        }
-        
-        .news-date .day {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .news-date .month,
-        .news-date .year {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .news-content {
-            padding: 20px;
-        }
-        
-        .news-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--hub-navy);
-        }
-        
-        .news-text {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
-        .news-link {
-            color: var(--hub-red);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .news-link i {
-            margin-left: 5px;
-            transition: transform 0.3s ease;
-        }
-        
-        .news-link:hover i {
-            transform: translateX(5px);
-        }
-    </style>
-
     <!-- Courses Section - Cập nhật để tránh lỗi -->
     <section class="section section-white" id="courses">
         <div class="container">
@@ -739,30 +449,30 @@
     </section>
 
     <!-- Footer Certificates - loại bỏ hình ảnh không tồn tại -->
-    <div class="certification py-4 mb-4 border-bottom border-secondary">
+    <div class="certification p-4 mb-4 border-bottom border-secondary">
         <div class="row g-4">
             <div class="col-md-3 col-6">
                 <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
                     <div class="cert-icon mb-3"><i class="bi bi-patch-check-fill text-warning" style="font-size: 3rem;"></i></div>
-                    <div class="cert-desc small">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn AUN-QA</div>
+                    <div class="cert-desc small text-white">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn AUN-QA</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
                     <div class="cert-icon mb-3"><i class="bi bi-award-fill text-warning" style="font-size: 3rem;"></i></div>
-                    <div class="cert-desc small">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn MOET</div>
+                    <div class="cert-desc small text-white">Chứng nhận kiểm định Cơ sở giáo dục theo tiêu chuẩn MOET</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
                     <div class="cert-icon mb-3"><i class="bi bi-shield-check text-warning" style="font-size: 3rem;"></i></div>
-                    <div class="cert-desc small">Chứng nhận Hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:2015</div>
+                    <div class="cert-desc small text-white">Chứng nhận Hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:2015</div>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="cert-item d-flex flex-column align-items-center text-center p-3 h-100 rounded bg-dark bg-opacity-25 transition-hover">
                     <div class="cert-icon mb-3"><i class="bi bi-trophy-fill text-warning" style="font-size: 3rem;"></i></div>
-                    <div class="cert-desc small">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn MOET</div>
+                    <div class="cert-desc small text-white">Chứng nhận kiểm định Chương trình đào tạo theo tiêu chuẩn MOET</div>
                 </div>
             </div>
         </div>
@@ -777,26 +487,26 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-brand mb-4">
                         <a href="index.html" class="d-inline-block mb-4">
-                            <img src="images/logo/logo-white.png" alt="HUB Logo" class="img-fluid" style="max-width: 200px;">
+                            <img src="images/logo/logo-white.png" alt="HUB Logo" class="img-fluid">
                         </a>
                         <p class="footer-about mb-4">
                             Trường Đại học Ngân hàng TP.HCM là cơ sở giáo dục đại học công lập trực thuộc Ngân hàng Nhà
                             nước Việt Nam, thành lập năm 1976.
                         </p>
                         <div class="footer-social d-flex gap-2">
-                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
                                 <i class="bi bi-facebook"></i>
                             </a>
-                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
                                 <i class="bi bi-youtube"></i>
                             </a>
-                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
                                 <i class="bi bi-instagram"></i>
                             </a>
-                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
                                 <i class="bi bi-linkedin"></i>
                             </a>
-                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                            <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
                                 <i class="bi bi-twitter"></i>
                             </a>
                         </div>
@@ -893,19 +603,19 @@
 
         <!-- Quick links floating buttons -->
         <div class="quick-buttons">
-            <a href="tel:0888353488" class="quick-button btn btn-danger rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Gọi ngay" style="width: 50px; height: 50px;">
+            <a href="tel:0888353488" class="quick-button btn btn-danger rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Gọi ngay">
                 <i class="bi bi-telephone-fill"></i>
             </a>
-            <a href="mailto:dhnhtphcm@hub.edu.vn" class="quick-button btn btn-primary rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Gửi email" style="width: 50px; height: 50px;">
+            <a href="mailto:dhnhtphcm@hub.edu.vn" class="quick-button btn btn-primary rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Gửi email">
                 <i class="bi bi-envelope-fill"></i>
             </a>
-            <a href="#" class="quick-button btn btn-info rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Chat Zalo" style="width: 50px; height: 50px;">
+            <a href="#" class="quick-button btn btn-info rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Chat Zalo">
                 <i class="bi bi-chat-fill"></i>
             </a>
-            <a href="#" class="quick-button btn btn-primary rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Messenger" style="width: 50px; height: 50px;">
+            <a href="#" class="quick-button btn btn-primary rounded-circle mb-2 shadow" data-bs-toggle="tooltip" data-bs-placement="left" title="Messenger">
                 <i class="bi bi-messenger"></i>
             </a>
-            <a href="#" class="quick-button btn btn-dark rounded-circle shadow" id="backToTop" data-bs-toggle="tooltip" data-bs-placement="left" title="Lên đầu trang" style="width: 50px; height: 50px;">
+            <a href="#" class="quick-button btn btn-dark rounded-circle shadow" id="backToTop" data-bs-toggle="tooltip" data-bs-placement="left" title="Lên đầu trang">
                 <i class="bi bi-arrow-up"></i>
             </a>
         </div>

@@ -1,126 +1,33 @@
-/* Main Style CSS */
+/* Component Imports */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
 @import url('components/variables.css');
-@import url('components/reset.css');
 @import url('components/header.css');
-@import url('components/hero.css');
-@import url('components/courses.css');
-@import url('components/feedback.css');
 @import url('components/footer.css');
 @import url('components/main.css');
-
-/* Custom Bootstrap Overrides */
-.btn-primary {
-    background-color: var(--hub-red) !important;
-    border-color: var(--hub-red) !important;
-    color: var(--text-light) !important;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: var(--hub-red-dark) !important;
-    border-color: var(--hub-red-dark) !important;
-    color: var(--text-dark) !important;
-}
-
-.btn-secondary {
-    background-color: var(--hub-gold) !important;
-    border-color: var(--hub-gold) !important;
-    color: var(--bg-dark) !important;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: #c09c23 !important;
-    border-color: #c09c23 !important;
-    color: var(--bg-dark) !important;
-}
-
-.bg-primary {
-    background-color: var(--hub-red) !important;
-}
-
-.bg-secondary {
-    background-color: var(--hub-gold) !important;
-}
-
-.text-primary {
-    color: var(--hub-red) !important;
-}
-
-.text-secondary {
-    color: var(--hub-gold) !important;
-}
-
-.border-primary {
-    border-color: var(--hub-red) !important;
-}
-
-.border-secondary {
-    border-color: var(--hub-gold) !important;
-}
-
-/* Custom Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fadeInUp {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* General Utility Classes */
-.btn-hub-primary {
+/* Đã xóa các import trùng lặp với Bootstrap */
+/* Custom CSS */
+.back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 3rem;
+    height: 3rem;
+    z-index: 1030;
+    /* Sử dụng Bootstrap utilities */
+    @extend .position-fixed, .d-flex, .align-items-center, .justify-content-center, .rounded-circle, .shadow;
     background-color: var(--hub-red);
-    color: white;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    font-weight: 600;
-    border-radius: 0.25rem;
+    color: white !important;
+    opacity: 0;
+    visibility: hidden;
     transition: all 0.3s ease;
 }
 
-.btn-hub-primary:hover {
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
     background-color: var(--hub-red-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.btn-hub-secondary {
-    background-color: var(--hub-gold);
-    color: var(--bg-dark);
-    border: none;
-    padding: 0.5rem 1.5rem;
-    font-weight: 600;
-    border-radius: 0.25rem;
-    transition: all 0.3s ease;
-}
-
-.btn-hub-secondary:hover {
-    background-color: #c09c23;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.section-padding {
-    padding: 5rem 0;
-}
-
-.section-padding-lg {
-    padding: 7rem 0;
-}
-
-.section-margin {
-    margin: 5rem 0;
-}
-
-.section-margin-lg {
-    margin: 7rem 0;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }

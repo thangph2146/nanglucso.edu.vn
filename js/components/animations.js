@@ -136,17 +136,34 @@ function initHoverEffects() {
             img.style.transform = 'scale(1)';
         });
     });
+
 }
 
 /**
  * Parallax effect for background elements
  */
+// Debounce function
+function debounce(func, wait, immediate) {
+    let timeout;
+    return function() {
+        const context = this, args = arguments;
+        const later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
+
 function initParallax() {
     const parallaxElements = document.querySelectorAll('.parallax');
     
     if (parallaxElements.length === 0) return;
-    
-    window.addEventListener('scroll', function() {
+
+    const debouncedParallaxHandler = debounce(function() {
         const scrollY = window.scrollY;
         
         parallaxElements.forEach(element => {
@@ -163,7 +180,9 @@ function initParallax() {
             
             element.style.backgroundPosition = `${position} ${yPos}`;
         });
-    });
+    }, 50); // Adjust wait time as needed, e.g., 50ms
+
+    window.addEventListener('scroll', debouncedParallaxHandler);
 }
 
 /**
@@ -190,6 +209,7 @@ function initTiltEffect() {
             element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
         });
     });
+
 }
 
 /**
@@ -282,4 +302,4 @@ window.addEventListener('load', function() {
             });
         }
     }
-}); 
+});
