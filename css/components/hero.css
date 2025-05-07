@@ -1,7 +1,7 @@
 /* Hero Styles from index.html */
 .hero-section {
     position: relative;
-    min-height: 95vh; /* Slightly increased height */
+    min-height: 90vh; /* Slightly increased height */
     background: var(--gradient-hero, linear-gradient(135deg, rgba(2, 80, 158, 0.95), rgba(7, 74, 145, 0.9))); /* Use variable */
     background-size: cover;
     background-position: center center;
@@ -49,9 +49,6 @@
 .hero-title span {
     color: var(--hub-gold-light);
     position: relative;
-    /* text-decoration: underline; */
-    /* text-decoration-color: var(--hub-gold); */
-    /* text-underline-offset: 8px; */
 }
 
 .hero-subtitle {
@@ -77,46 +74,7 @@
     margin-bottom: 2rem;
 }
 
-.hero-buttons .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--spacing-sm) var(--spacing-lg); /* Use variables */
-    border-radius: var(--border-radius-pill);
-    font-weight: 600;
-    transition: var(--transition-base);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: var(--font-size-sm);
-    box-shadow: var(--shadow-sm);
-}
 
-.hero-buttons .btn-primary {
-    background-color: var(--hub-red);
-    color: var(--text-light);
-    border: 2px solid transparent;
-}
-
-.hero-buttons .btn-primary:hover {
-    background-color: var(--hub-red-dark);
-    border-color: var(--hub-red-dark);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: var(--shadow-md);
-}
-
-.hero-buttons .btn-secondary {
-    border: 2px solid var(--hub-gold-light);
-    color: var(--hub-gold-light);
-    background-color: transparent;
-}
-
-.hero-buttons .btn-secondary:hover {
-    background-color: var(--hub-gold-light);
-    color: var(--hub-navy-dark);
-    border-color: var(--hub-gold-light);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: var(--shadow-md);
-}
 
 .stats-counter {
     display: flex;
@@ -276,17 +234,27 @@
 .hero-section.carousel {
     position: relative;
     overflow: hidden;
-    min-height: 95vh; /* Keep min-height on the main section */
+    min-height: 90vh; /* Keep min-height on the main section */
     color: var(--text-light);
 }
 
 .carousel-item {
-    min-height: 95vh; /* Match section height */
+    min-height: 90vh; /* Match section height */
     background: var(--gradient-hero, linear-gradient(135deg, rgba(2, 80, 158, 0.95), rgba(7, 74, 145, 0.9))); /* Moved from .hero-section */
     background-size: cover;
     background-position: center center;
-    padding: 100px 0 80px; /* Moved from .hero-section */
     transition: transform .6s ease-in-out; /* Default BS transition */
+    position: relative; /* Needed for overlay positioning if overlay is inside this wrapper too */
+}
+
+.carousel-item-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Optional: if you want to center .container horizontally too */
+    width: 100%;
+    min-height: inherit; /* Inherit min-height from .carousel-item */
+    padding: 60px 0; /* Add back some padding, adjust as needed */
+    position: relative; /* If .hero-bg-overlay is moved inside this */
 }
 
 .hero-section .container {
@@ -299,13 +267,10 @@
     padding: 1rem 0; 
 }
 
-/* Removed fade-in helper classes as they conflict with carousel */
-/* 
 .fade-in-up, .fade-in-left {
     opacity: 1 !important; 
     transform: none !important; 
 }
-*/
 
 .hero-image {
     display: flex;
