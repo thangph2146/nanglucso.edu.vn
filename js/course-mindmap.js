@@ -122,7 +122,7 @@ const resizeObserver = new ResizeObserver(entries => {
         existingSVG.remove();
     }
     // Check container before drawing
-    if ($('#container').n && $('#container').n.getBoundingClientRect().width > 0) {
+    if ($('#mindmap-container').n && $('#mindmap-container').n.getBoundingClientRect().width > 0) {
         drawLines(courseData); 
     }
 });
@@ -224,9 +224,9 @@ function createMap(data) {
         }
     }
 
-    const container = $('#container');
+    const container = $('#mindmap-container');
     if (!container.n) {
-        console.error("Mindmap container #container not found in DOM.");
+        console.error("Mindmap container #mindmap-container not found in DOM.");
         return;
     }
     container.html(''); 
@@ -314,9 +314,9 @@ function createMap(data) {
 }
 
 function drawLines(data) {
-    const containerElement = $('#container').n;
+    const containerElement = $('#mindmap-container').n;
     if (!containerElement) {
-        console.error("drawLines: Container #container not found.");
+        console.error("drawLines: Container #mindmap-container not found.");
         return;
     }
     
@@ -510,9 +510,9 @@ const courseData = [
 
 // Initial setup when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    const container = $('#container');
+    const container = $('#mindmap-container');
     if (!container.n) {
-        console.error("Mindmap container #container not found.");
+        console.error("Mindmap container #mindmap-container not found.");
         return;
     }
     createMap(courseData);
