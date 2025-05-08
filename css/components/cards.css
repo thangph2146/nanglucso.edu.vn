@@ -14,7 +14,7 @@
 
 .card-title {
     font-weight: 700;
-    color: var(--hub-red);
+    color: var(--color-red);
     margin-bottom: var(--spacing-sm);
 }
 

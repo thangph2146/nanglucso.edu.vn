@@ -21,7 +21,7 @@
 
 .news-card:hover .news-image-placeholder:before {
     transform: scale(1.1);
-    color: var(--hub-red-light);
+    color: var(--color-red-light);
 }
 
 .news-card {
@@ -39,14 +39,14 @@
 .news-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-hover, 0 0.5rem 1rem rgba(0,0,0,0.15));
-    border-color: var(--hub-gold-light, #ffd966);
+    border-color: var(--color-gold-light, #ffd966);
 }
 
 .news-date {
     position: absolute;
     top: var(--spacing-sm, 1rem);
     left: var(--spacing-sm, 1rem);
-    background-color: var(--hub-red-dark, #A70000);
+    background-color: var(--color-red-dark, #A70000);
     color: var(--text-light, #fff);
     padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 0.75rem);
     border-radius: var(--border-radius-sm, 0.25rem);
@@ -59,8 +59,8 @@
 }
 
 .news-card:hover .news-date {
-    background-color: var(--hub-gold, #f8c53a);
-    color: var(--hub-navy-dark, #101a33);
+    background-color: var(--color-gold, #f8c53a);
+    color: var(--color-navy-dark, #101a33);
     transform: scale(1.05);
 }
 
@@ -90,7 +90,7 @@
     font-size: var(--font-size-md, 1.1rem); /* Adjusted size */
     margin-bottom: var(--spacing-sm, 0.75rem);
     font-weight: 700;
-    color: var(--hub-navy-dark, #101a33);
+    color: var(--color-navy-dark, #101a33);
     line-height: 1.4;
     min-height: calc(1.4em * 2); /* Ensure space for 2 lines */
     overflow: hidden;
@@ -102,7 +102,7 @@
 }
 
 .news-card:hover .news-title {
-    color: var(--hub-red-dark, #A70000);
+    color: var(--color-red-dark, #A70000);
 }
 
 .news-text {
@@ -120,7 +120,7 @@
 }
 
 .news-link {
-    color: var(--hub-red-dark, #A70000);
+    color: var(--color-red-dark, #A70000);
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
@@ -132,7 +132,7 @@
 }
 
 .news-link:hover {
-    color: var(--hub-gold-dark, #b38f2c);
+    color: var(--color-gold-dark, #b38f2c);
     text-decoration: underline;
 }
 
@@ -184,7 +184,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--hub-gold, #f8c53a);
+    background-color: var(--color-gold, #f8c53a);
     border-radius: 3px;
 }
 

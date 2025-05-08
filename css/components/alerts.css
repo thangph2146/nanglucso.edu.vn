@@ -8,7 +8,7 @@
 .alert-danger {
     background-color: rgba(167, 0, 0, 0.1);
     border-color: rgba(167, 0, 0, 0.2);
-    color: var(--hub-red);
+    color: var(--color-red);
 }
 
 .alert-warning {

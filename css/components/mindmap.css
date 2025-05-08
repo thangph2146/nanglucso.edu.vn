@@ -1,0 +1,194 @@
+.f-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center; /* Changed from space-around */
+    align-items: center; 
+    flex-grow: 1; /* Allow columns to grow and shrink */
+    flex-basis: 0; /* Distribute space evenly among columns initially */
+    padding-top: var(--spacing-md); /* Add padding top */
+    padding-bottom: var(--spacing-md); /* Add padding bottom */
+}
+
+/* Ensure the middle column (div0 for root) can have a different width or allow its content to define width */
+#div0 {
+    flex-grow: 0.5; /* Example: give it less priority in growing if needed, or adjust based on root node size */
+    min-width: 300px;
+    width: 100%;
+}
+
+
+#container { 
+    display: flex; /* This is crucial for .f-col to work as columns */
+    justify-content: center; /* Center the group of columns */
+    align-items: stretch; /* Stretch columns to the same height if desired, or use align-items: center */
+    padding: var(--spacing-xl);
+    padding-bottom: calc(var(--spacing-xl) + 15px); /* Add space for potential scrollbar */
+    min-width: 600px; 
+    width: 100%; /* Take available width */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    min-height: 550px; 
+    position: relative; 
+    font-family: var(--font-family-base); 
+    overflow-x: auto; /* Enable horizontal scroll if needed */
+    overflow-y: hidden; /* Usually we don't want vertical scroll on the mindmap container itself */
+    gap: var(--spacing-xxxl); /* Updated */
+}
+
+#container p { 
+    padding: var(--spacing-sm) var(--spacing-lg); /* Updated */
+    background: var(--bg-white); /* Updated */
+    border: var(--border-width) solid var(--border-color); /* Updated */
+    border-radius: var(--border-radius-xl); /* Updated */
+    text-align: center;
+    min-width: 250px; 
+    margin: var(--spacing-md); /* Increased margin slightly */
+    box-shadow: var(--shadow-md); /* Updated */
+    font-size: var(--font-size-sm); /* Updated */
+    transition: var(--transition-base); /* Updated */
+    line-height: 1.45;
+    display: flex; /* For centering content inside if needed */
+    flex-direction: column; /* If content inside needs to stack */
+    justify-content: flex-start; /* Align content towards the top */
+    align-items: center; /* Horizontally center content */
+    position: relative; /* Ensure nodes establish a stacking context */
+    z-index: 2; /* Ensure nodes are above the SVG */
+}
+
+#container p:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg); /* Updated */
+    border-color: var(--color-red-light, var(--bs-primary-light)); /* Updated - Added fallback */
+}
+
+/* Visual Element (Icon/Image) */
+.node-visual {
+    margin-bottom: var(--spacing-sm); /* Updated */
+}
+
+.node-visual i {
+    font-size: 2.2rem; /* Kept specific size */
+    color: var(--color-red); /* Updated */
+}
+
+.node-visual img {
+    max-width: 40px; /* Limit image size */
+    height: auto;
+    display: block; 
+}
+
+/* Title Container */
+.node-title-container {
+    font-weight: 500; /* Make title slightly bolder */
+    margin-bottom: var(--spacing-xs); /* Updated */
+    line-height: 1.3;
+}
+
+#container p a {
+    text-decoration: none;
+    color: var(--text-dark); /* Updated */
+    display: block; 
+    width: 100%;
+    height: 100%;
+}
+
+/* Description */
+.node-description {
+    font-size: var(--font-size-xs); /* Updated */
+    color: var(--text-muted); /* Updated */
+    line-height: 1.3;
+}
+
+#container p.mindmap-root-node {
+    background-color: var(--color-red);
+    color: var(--text-light);
+    border-color: var(--color-red-dark);
+    padding: var(--spacing-lg) var(--spacing-xl); /* Updated */
+    font-size: var(--font-size-base); /* Updated */
+    font-weight: 500;
+    max-width: 220px;
+    box-shadow: 0 6px 18px rgba(var(--color-red-rgb, 220, 53, 69), 0.35); /* Kept custom shadow, added fallback RGB for primary */
+}
+
+#container p.mindmap-root-node .node-visual i {
+    color: var(--text-light); /* White icon for root node */
+    font-size: 2.5rem;
+}
+
+#container p.mindmap-root-node .node-title-container {
+    font-weight: 600; /* Bolder title for root */
+    font-size: var(--font-size-md); /* Updated */
+}
+
+#container p.mindmap-root-node .node-description {
+    color: rgba(255, 255, 255, 0.85); /* Lighter description for root */
+    font-size: var(--font-size-xs); /* Updated */
+}
+
+#container p.mindmap-root-node:hover {
+    background-color: var(--color-red-dark); /* Adjusted to use a variable, assuming --color-red-dark is darker */
+    box-shadow: 0 8px 25px rgba(var(--color-red-rgb, 220, 53, 69), 0.45); /* Kept custom shadow, added fallback RGB */
+    transform: translateY(-5px) scale(1.03); /* Consistent hover effect */
+}
+
+#container p.mindmap-root-node a {
+    color: var(--text-light); /* Ensure link text is white */
+}
+
+
+svg { 
+    position: absolute; /* Revert to absolute */
+    /* top, left, width, height are set by JS */
+    z-index: 1; /* Place SVG above container background but below nodes */
+    pointer-events: none; 
+}
+
+.path { 
+    stroke: var(--gray-500) !important; /* Keep red for debugging */
+    fill: none;
+    stroke-width: 3px !important; /* Keep thick for debugging */
+    stroke-linecap: round; 
+}
+
+/* === Responsive Adjustments for Mobile === */
+@media (max-width: 991.98px) {
+    /* Revert container back to simpler mobile settings if needed, */
+    /* but overflow-x: auto is needed for the absolute SVG approach if content overflows */
+    #container {
+        padding: var(--spacing-md);
+        min-width: unset; 
+        overflow-x: auto; /* Still needed if content width > screen width */
+        justify-content: flex-start; 
+        /* align-items: stretch; might cause issues with absolute SVG height? */
+        align-items: flex-start; /* Try aligning items to top */
+        min-height: 450px; /* Adjust min-height for mobile */
+    }
+
+    /* Keep mobile adjustments for nodes */
+    #container p {
+       max-width: 160px; 
+       padding: var(--spacing-sm) var(--spacing-md);
+       font-size: var(--font-size-xs); 
+       margin: var(--spacing-sm);
+    }
+    
+    #container p.mindmap-root-node {
+        font-size: var(--font-size-sm); 
+         max-width: 180px;
+         margin: var(--spacing-md) auto;
+    }
+    
+     #container p.mindmap-root-node .node-title-container {
+        font-size: 1rem; 
+    }
+    
+    #container p.mindmap-root-node .node-visual i {
+        font-size: 2rem; 
+    }
+    
+     #container p.mindmap-root-node .node-description {
+        font-size: 0.75rem; 
+    }
+    /* SVG remains absolute, lines should still draw */
+}

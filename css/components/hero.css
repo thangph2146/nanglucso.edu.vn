@@ -47,13 +47,13 @@
 }
 
 .hero-title span {
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
     position: relative;
 }
 
 .hero-subtitle {
     font-size: var(--font-size-lg, 1.25rem);
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
     margin-bottom: var(--spacing-sm, 1rem);
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -104,7 +104,7 @@
     font-size: var(--font-size-xl, 1.75rem);
     font-weight: 700;
     margin-bottom: var(--spacing-xs, 5px);
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
 }
 
 .stat-text {
@@ -132,7 +132,7 @@
 /* Responsive Styles for Hero Section */
 @media (max-width: 991.98px) {
     .hero-section {
-        padding: 80px 0 60px;
+        padding: 0px;
         min-height: auto; /* Adjust height for smaller screens */
         text-align: center; /* Center content on smaller screens */
     }
@@ -173,7 +173,7 @@
 
 @media (max-width: 767.98px) {
     .hero-section {
-        padding: 60px 0 40px;
+        padding: 0px;
     }
     .hero-title {
         font-size: var(--font-size-xl, 2rem);
@@ -295,7 +295,7 @@
 }
 
 .carousel-indicators .active {
-    background-color: var(--hub-red, #DC3545);
+    background-color: var(--color-red, #DC3545);
     opacity: 1;
 }
 

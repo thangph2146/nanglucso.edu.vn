@@ -1,24 +1,24 @@
 /* Helper classes */
 .text-danger {
-    color: var(--hub-red) !important;
+    color: var(--color-red) !important;
 }
 
 .bg-danger {
-    background-color: var(--hub-red) !important;
+    background-color: var(--color-red) !important;
 }
 
 .border-danger {
-    border-color: var(--hub-red) !important;
+    border-color: var(--color-red) !important;
 }
 
 .text-warning {
-    color: var(--hub-gold) !important;
+    color: var(--color-gold) !important;
 }
 
 .bg-warning {
-    background-color: var(--hub-gold) !important;
+    background-color: var(--color-gold) !important;
 }
 
 .border-warning {
-    border-color: var(--hub-gold) !important;
+    border-color: var(--color-gold) !important;
 } 

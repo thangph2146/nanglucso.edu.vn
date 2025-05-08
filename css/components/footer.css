@@ -1,6 +1,6 @@
 /* FOOTER STYLES */
 .footer {
-    background-color: var(--hub-navy-dark); /* Darker navy for better contrast */
+    background-color: var(--color-navy-dark); /* Darker navy for better contrast */
     color: var(--text-light);
     position: relative;
     font-size: var(--font-size-sm); /* Base font size for footer */
@@ -22,7 +22,7 @@
 }
 
 .footer-bottom {
-    background-color: var(--hub-navy); /* Slightly lighter than top for subtle separation */
+    background-color: var(--color-navy); /* Slightly lighter than top for subtle separation */
     padding: var(--spacing-md) 0;
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
@@ -73,7 +73,7 @@
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius-pill);
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
     transition: var(--transition-base);
     font-size: var(--font-size-base);
 }
@@ -105,14 +105,14 @@
 }
 
 .footer-contact-link:hover {
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
     text-decoration: underline;
 }
 
 .footer-contact-item:hover .footer-contact-icon {
     transform: scale(1.05) rotate(-10deg); /* Subtle rotation */
-    background-color: var(--hub-gold);
-    color: var(--hub-navy-dark);
+    background-color: var(--color-gold);
+    color: var(--color-navy-dark);
 }
 
 .footer-title {
@@ -133,7 +133,7 @@
     bottom: 0;
     width: 40px; /* Shorter */
     height: 3px; /* Thicker */
-    background-color: var(--hub-gold-light);
+    background-color: var(--color-gold-light);
     border-radius: 2px;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .footer-link:hover {
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
     padding-left: var(--spacing-sm);
     transform: translateX(3px);
 }
@@ -171,7 +171,7 @@
     left: -0.75rem; /* Adjusted position */
     opacity: 0;
     transition: var(--transition-base);
-    color: var(--hub-gold-light);
+    color: var(--color-gold-light);
     font-size: 0.8em;
 }
 
@@ -204,8 +204,8 @@
 .footer-social-link:hover,
 .footer-social .social-icon:hover {
     transform: translateY(-5px) scale(1.1);
-    background-color: var(--hub-gold) !important;
-    color: var(--hub-navy-dark) !important;
+    background-color: var(--color-gold) !important;
+    color: var(--color-navy-dark) !important;
 }
 
 .footer-copyright {
@@ -216,22 +216,22 @@
 }
 
 .footer-copyright a {
-    color: var(--hub-gold);
+    color: var(--color-gold);
     text-decoration: none;
     transition: var(--transition-fast);
 }
 
 .footer-copyright a:hover {
     text-decoration: underline;
-    color: var(--hub-gold);
+    color: var(--color-gold);
 }
 
 .footer-badge {
     position: absolute;
     right: 2rem;
     top: -25px;
-    background-color: var(--hub-gold);
-    color: var(--hub-red-dark);
+    background-color: var(--color-gold);
+    color: var(--color-red-dark);
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius-pill);
     font-weight: 600;
@@ -325,7 +325,7 @@
 
 .footer-newsletter-input:focus {
     outline: none;
-    border-color: var(--hub-gold);
+    border-color: var(--color-gold);
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 3px rgba(248, 197, 58, 0.1);
 }
@@ -337,7 +337,7 @@
 .footer-newsletter-button {
     height: 3rem;
     padding: 0 1.5rem;
-    background-color: var(--hub-red);
+    background-color: var(--color-red);
     color: white;
     border: none;
     border-radius: var(--border-radius-md);
@@ -350,8 +350,8 @@
 }
 
 .footer-newsletter-button:hover {
-    background-color: var(--hub-gold);
-    color: var(--hub-red-dark);
+    background-color: var(--color-gold);
+    color: var(--color-red-dark);
     transform: translateY(-2px);
 }
 
@@ -376,8 +376,8 @@
 }
 
 .footer-quick-link:hover {
-    background-color: var(--hub-gold);
-    color: var(--hub-red-dark);
+    background-color: var(--color-gold);
+    color: var(--color-red-dark);
     transform: translateY(-2px);
 }
 
@@ -399,7 +399,7 @@
 }
 
 .footer-bottom-link:hover {
-    color: var(--hub-gold);
+    color: var(--color-gold);
 }
 
 .footer-certificate {
@@ -441,7 +441,7 @@
     bottom: 0;
     width: 40px;
     height: 2px;
-    background-color: var(--hub-gold);
+    background-color: var(--color-gold);
 }
 
 /* Contact Info */
@@ -470,8 +470,8 @@
 
 .footer-social .social-icon:hover {
     transform: translateY(-5px) scale(1.1);
-    background-color: var(--hub-gold) !important;
-    color: var(--hub-navy-dark) !important;
+    background-color: var(--color-gold) !important;
+    color: var(--color-navy-dark) !important;
 }
 
 /* Copyright */
@@ -558,5 +558,5 @@
 }
 
 .hover-text-warning:hover {
-    color: var(--hub-gold) !important;
+    color: var(--color-gold) !important;
 }

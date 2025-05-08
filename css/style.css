@@ -7,8 +7,8 @@
 @import url("components/search-modal.css");
 @import url("components/hero.css");
 @import url("components/news.css");
-@import url("components/courses.css");
 @import url("components/footer.css");
+@import url("components/mindmap.css");
 
 
 /* Individual Component Files */
@@ -23,9 +23,11 @@
 @import url("components/animations.css"); /* Ensure this file exists and is correctly populated */
 
 
-/* Styling for icons within Footer Certificates */
-.cert-icon .bi {
-    font-size: 3rem; /* Or use a variable like var(--font-size-display-3) */
-    line-height: 1;
-}
 
+/* Fix for horizontal overflow on html and body */
+html,
+body {
+    overflow-x: hidden !important; /* Add !important to ensure override if needed */
+    width: 100%;
+    box-sizing: border-box;
+}

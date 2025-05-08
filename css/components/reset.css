@@ -53,12 +53,12 @@ h3 {
 
 a {
     text-decoration: none;
-    color: var(--hub-red);
+    color: var(--color-red);
     transition: var(--transition-base);
 }
 
 a:hover {
-    color: var(--hub-red-dark);
+    color: var(--color-red-dark);
 }
 
 ul, ol {
