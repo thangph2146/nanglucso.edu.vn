@@ -1,0 +1,71 @@
+/* Certification Section Styles */
+#certification-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.certification-card.card {
+    border: none;
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.certification-card.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 2.5rem rgba(var(--bs-dark-rgb, 33, 37, 41), 0.12) !important;
+}
+
+.cert-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    /* Background colors set via utility classes (e.g., bg-warning-soft) */
+}
+
+.cert-icon-wrapper i {
+    /* Colors set via utility classes (e.g., text-warning) */
+}
+
+.cert-desc {
+    color: var(--bs-dark); /* Dark text for better readability on white card */
+    line-height: 1.5;
+}
+
+/* Ensure soft background colors are defined if not using default Bootstrap SASS */
+/* These might already be in philosophy.css or variables.css */
+.bg-warning-soft {
+    background-color: rgba(var(--bs-warning-rgb), 0.1);
+}
+.bg-primary-soft {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+}
+/* Add definitions for bg-success-soft, bg-info-soft if they don't exist elsewhere */
+.bg-success-soft {
+    background-color: rgba(var(--bs-success-rgb), 0.1);
+}
+.bg-info-soft {
+    background-color: rgba(var(--bs-info-rgb), 0.1);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #certification-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .cert-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+    .cert-icon-wrapper i {
+       font-size: 2.2rem; /* Adjust icon size inside wrapper */
+    }
+     .cert-desc {
+        font-size: 0.8rem;
+    }
+} 
