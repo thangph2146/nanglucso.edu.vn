@@ -1,0 +1,55 @@
+/* Strategic Partners Section Styles */
+#strategic-partners {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: var(--bs-gray-100); /* Ensure light background */
+}
+
+.partner-logos-grid .col-lg-2, 
+.partner-logos-grid .col-md-3, 
+.partner-logos-grid .col-sm-4, 
+.partner-logos-grid .col-6 {
+    padding: 1rem; /* Add padding around each logo container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logos-grid .partner-logo {
+    max-width: 100%; /* Allow logo to take container width */
+    max-height: 60px; /* Limit height for consistency */
+    height: auto;
+    width: auto; /* Let width adjust based on height */
+    filter: grayscale(100%);
+    opacity: 0.6; /* Slightly more faded initially */
+    transition: all 0.3s ease-in-out; /* Combined transition */
+}
+
+.partner-logos-grid a:hover .partner-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.15); /* Slightly larger scale */
+}
+
+/* Responsive adjustments for Strategic Partners */
+@media (max-width: 991.98px) {
+    .partner-logos-grid .partner-logo {
+        max-height: 50px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 767.98px) {
+    #strategic-partners {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+     .partner-logos-grid .partner-logo {
+        max-height: 45px; 
+    }
+}
+
+@media (max-width: 575.98px) {
+    .partner-logos-grid .partner-logo {
+        max-height: 40px; 
+    }
+} 

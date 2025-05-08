@@ -1,0 +1,43 @@
+/* About Us Section Enhancements */
+#about-us {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about-us-content h3.display-6 {
+    margin-bottom: 1.5rem !important; /* Override Bootstrap if needed */
+}
+
+.check-list-custom li {
+    font-size: 1.1rem;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.check-list-custom li i {
+    color: var(--bs-primary); /* Ensure icon color matches theme */
+    font-size: 1.5rem; /* Larger check icons */
+    margin-right: 0.75rem;
+}
+
+.about-us-image-wrapper {
+    border: 5px solid var(--bs-white);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-us-image-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; /* More pronounced shadow */
+}
+
+/* Responsive adjustments for About Us */
+@media (max-width: 767.98px) {
+    #about-us {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .about-us-content h3.display-6 {
+        font-size: 2rem; /* Adjust for smaller screens */
+    }
+} 

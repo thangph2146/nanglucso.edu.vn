@@ -1,0 +1,45 @@
+/* Mission & Vision Section Enhancements */
+#mission-vision {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.mission-vision-card.card {
+    border: none; /* Remove default card border if any */
+    border-top: 4px solid var(--bs-primary);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 0.75rem; /* Slightly more rounded */
+}
+
+.mission-vision-card.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15) !important; /* Significant shadow on hover */
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem; 
+    background-color: rgba(var(--bs-primary-rgb), 0.1); 
+    transition: background-color 0.3s ease;
+}
+
+.mission-vision-card.card:hover .icon-circle {
+    background-color: rgba(var(--bs-primary-rgb), 0.2);
+}
+
+.mission-vision-card .card-body h3 {
+    color: var(--bs-dark);
+}
+
+/* Responsive adjustments for Mission & Vision */
+@media (max-width: 767.98px) {
+    #mission-vision {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+} 

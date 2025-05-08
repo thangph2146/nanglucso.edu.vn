@@ -1,0 +1,55 @@
+/* Philosophy Section Styles */
+#philosophy {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.philosophy-card.card {
+    border: none;
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.philosophy-card.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.icon-circle-alt {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    /* Background colors are set inline via utility classes e.g., bg-secondary-soft */
+}
+
+.philosophy-card .card-body h3 {
+    color: var(--bs-dark);
+    margin-bottom: 1rem;
+}
+
+/* Soft background colors (Bootstrap 5.x might not have these by default) */
+/* You might need to define these in your variables.css or here if not available */
+.bg-secondary-soft {
+    background-color: rgba(var(--bs-secondary-rgb), 0.1);
+}
+
+.bg-success-soft {
+    background-color: rgba(var(--bs-success-rgb), 0.1);
+}
+
+.bg-info-soft {
+    background-color: rgba(var(--bs-info-rgb), 0.1);
+}
+
+
+/* Responsive adjustments for Philosophy Section */
+@media (max-width: 767.98px) {
+    #philosophy {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+} 

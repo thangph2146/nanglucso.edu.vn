@@ -1,0 +1,95 @@
+/* Management Team Section Styles */
+#management-team {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.team-card.card {
+    border: none;
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden; /* Prevent image overflow on hover */
+}
+
+.team-card.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1.25rem 3.5rem rgba(var(--bs-dark-rgb, 33, 37, 41), 0.18) !important; /* Enhanced shadow */
+}
+
+.team-image-wrapper {
+    padding: 1.5rem 1.5rem 0; /* Add padding top/sides for image */
+}
+
+.team-member-img {
+    width: 100%; /* Fixed width for circle */
+    aspect-ratio: 3/4;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 4px solid var(--bs-light); /* Light border around image */
+    box-shadow: 0 4px 10px rgba(var(--bs-dark-rgb, 33, 37, 41), 0.1);
+    /* Removed border-top-radius as it's a circle now */
+}
+
+.team-card .card-body {
+    padding: 1rem 1.5rem 1.5rem; /* Adjust padding */
+}
+
+.team-card .card-title {
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem; /* Slightly smaller title */
+}
+
+.team-card .card-text.text-primary {
+    font-size: 0.85rem; /* Slightly smaller position text */
+    margin-bottom: 1rem; /* More space before description */
+}
+
+.team-card .card-text.small {
+    line-height: 1.6;
+    min-height: 60px; /* Adjust min-height if needed, or remove if content varies */
+    font-size: 0.85rem; /* Smaller description text */
+    color: var(--bs-secondary); /* Use secondary color for less emphasis */
+}
+
+.team-card .card-footer {
+    padding: 0 1.5rem 1.25rem; /* Adjust padding */
+    background-color: transparent; /* Ensure footer is transparent */
+    border-top: none; /* Remove top border */
+}
+
+.team-card .card-footer .btn {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.team-card .card-footer .btn-outline-primary:hover {
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+.team-card .card-footer .btn-outline-secondary:hover {
+    background-color: var(--bs-secondary);
+    color: var(--bs-white);
+}
+
+/* Responsive adjustments for Management Team */
+@media (max-width: 767.98px) {
+    #management-team {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    /* Image size remains the same, card width adjusts */
+}
+
+@media (max-width: 575.98px) {
+   /* No specific changes needed here unless layout breaks */
+} 

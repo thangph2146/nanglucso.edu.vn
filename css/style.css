@@ -6,6 +6,11 @@
 @import url("components/header.css");
 @import url("components/search-modal.css");
 @import url("components/hero.css");
+@import url("components/about-us.css");
+@import url("components/mission-vision.css");
+@import url("components/philosophy.css");
+@import url("components/management-team.css");
+@import url("components/strategic-partners.css");
 @import url("components/news.css");
 @import url("components/footer.css");
 @import url("components/mindmap.css");
@@ -30,4 +35,16 @@ body {
     overflow-x: hidden !important; /* Add !important to ensure override if needed */
     width: 100%;
     box-sizing: border-box;
+}
+
+/* General styling for section headers, kept from previous custom styles */
+.section-header {
+    margin-bottom: 4rem; 
+}
+
+/* Responsive adjustments for general section headers */
+@media (max-width: 767.98px) {
+    .section-header {
+        margin-bottom: 3rem;
+    }
 }
