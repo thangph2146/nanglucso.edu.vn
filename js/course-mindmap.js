@@ -1,7 +1,5 @@
 'use strict';
 
-// --- Refactored Helper Functions ---
-
 // Simplified DOM Selector/Wrapper
 const $ = function(selectorOrElement) {
     let nodes = [];
@@ -409,7 +407,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createMap(courseData);
     
     requestAnimationFrame(() => {
-        console.log("DOMContentLoaded: Calling drawLines via requestAnimationFrame");
         drawLines(courseData);
     });
         
