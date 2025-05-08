@@ -40,4 +40,18 @@
     .about-us-content h3.display-6 {
         font-size: 2rem; /* Adjust for smaller screens */
     }
+}
+
+/* Icon Placeholder Styles for About Us */
+.about-us-icon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bs-gray-200); /* Light gray background */
+    border-radius: 0.25rem; /* Match image rounding */
+    min-height: 300px; /* Approximate height, adjust as needed */
+}
+
+.about-us-icon-placeholder i {
+    opacity: 0.5;
 } 

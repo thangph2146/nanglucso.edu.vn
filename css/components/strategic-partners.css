@@ -31,10 +31,38 @@
     transform: scale(1.15); /* Slightly larger scale */
 }
 
+/* Icon Placeholder Styles for Partners */
+.partner-icon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Take column width */
+    height: 60px; /* Match logo max-height */
+    background-color: var(--bs-gray-200);
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.partner-link:hover .partner-icon-placeholder {
+    background-color: var(--bs-gray-300);
+}
+
+.partner-icon-placeholder i {
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.partner-link:hover .partner-icon-placeholder i {
+     opacity: 0.8;
+}
+
 /* Responsive adjustments for Strategic Partners */
 @media (max-width: 991.98px) {
     .partner-logos-grid .partner-logo {
         max-height: 50px; /* Adjust height for smaller screens */
+    }
+    .partner-icon-placeholder {
+        height: 50px; /* Match logo height */
     }
 }
 
@@ -46,10 +74,16 @@
      .partner-logos-grid .partner-logo {
         max-height: 45px; 
     }
+    .partner-icon-placeholder {
+        height: 45px; /* Match logo height */
+    }
 }
 
 @media (max-width: 575.98px) {
     .partner-logos-grid .partner-logo {
         max-height: 40px; 
+    }
+    .partner-icon-placeholder {
+        height: 40px; /* Match logo height */
     }
 } 
