@@ -431,7 +431,11 @@ function initMindmap(containerSelector, initialData) {
     // Ensure all nodes have 'collapsed' property, defaulting to false
     mindmapInstanceData = initialData.map(node => ({ 
         ...node, 
-        collapsed: node.collapsed === undefined ? false : node.collapsed 
+        // If collapsed is undefined in input data:
+        // - For non-root nodes (node.id !== null), default to true (collapsed).
+        // - For the root node (node.id === null), default to false (expanded, as it has no toggle).
+        // If collapsed IS defined in input data, use that value.
+        collapsed: node.collapsed === undefined ? (node.id !== null) : node.collapsed
     }));
     mindmapContainerSelector = containerSelector;
     
