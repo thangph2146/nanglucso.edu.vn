@@ -132,15 +132,17 @@ function createMap(data) {
     function findDepth(id, depth = 0) {
         while (id !== null) {
             let aktEl = data.filter(x => x.id == id);
-            if (aktEl.length === 0) { // Prevent error if parent not found
-                console.warn("Parent with id:", id, "not found during findDepth");
-                return depth; // or some default depth or error handling
+            if (aktEl.length === 0) { 
+                // console.warn("Parent with id:", id, "not found during findDepth"); // Keep console.warn for debugging data issues
+                return depth; 
             }
+            // If parent is collapsed, children's depth calculation might need adjustment or they are simply not rendered.
+            // For now, depth calculation remains, but rendering will be skipped.
             depth++;
             id = aktEl[0].parentId;
-            if (id == null) { // This is a first-level child (parent is the root)
-                if (aktEl[0].div === undefined) { // Check if div is defined for root's children
-                    console.warn("Element", aktEl[0].id, "is a child of root but has no .div property");
+            if (id == null) { 
+                if (aktEl[0].div === undefined) { 
+                    // console.warn("Element", aktEl[0].id, "is a child of root but has no .div property");
                 } else {
                     depth = depth * aktEl[0].div;
                 }
@@ -149,8 +151,7 @@ function createMap(data) {
         return depth;
     }
 
-    var aktDiv = -1; // first div at left side (-1*-1=1)
-    // Assign .div for first-level children (parentId: null, but not the root itself)
+    var aktDiv = -1; 
     data.filter(x => x.parentId === null && x.id !== null)
         .forEach(x => {
             x.div = aktDiv;
@@ -159,31 +160,68 @@ function createMap(data) {
 
     const rootNode = data.find(x => x.id === null);
     if (rootNode) {
-        rootNode.div = 0; // set root Elements div = 0
+        rootNode.div = 0; 
     } else {
         console.error("Root node (id: null) not found in data!");
-        return; // Cannot proceed without root
+        return; 
     }
 
-    // set divs for Childs of children (grandchildren of root, etc.)
     data.filter(x => (x.parentId !== null && x.id !== null))
         .forEach(x => {
-            const parentElement = data.find(p => p.id === x.parentId);
-            if (parentElement && parentElement.id !== null) { // Ensure parent is not the absolute root
-                x.div = findDepth(x.id); // Recalculate depth based on parent's .div
-            } else if (parentElement && parentElement.id === null) {
-                // This means x is a direct child of the root, its .div is already set above.
+            // Check if any ancestor is collapsed. If so, this node won't be visible,
+            // and its .div assignment might not be strictly necessary or could be misleading
+            // if it were used for layout calculations of visible elements.
+            let isOrphanedByCollapse = false;
+            if (x.parentId !== null && x.parentId !== undefined) {
+                const parentNode = data.find(p => p.id === x.parentId);
+                if (parentNode && isNodeOrAncestorCollapsed(parentNode, data)) {
+                    isOrphanedByCollapse = true;
+                }
+            }
+
+            if (!isOrphanedByCollapse) {
+                const parentElement = data.find(p => p.id === x.parentId);
+                if (parentElement && parentElement.id !== null) { 
+                    x.div = findDepth(x.id); 
+                } else if (parentElement && parentElement.id === null) {
+                    // This means x is a direct child of the root, its .div is already set above.
+                }
+            } else {
+                // Optionally, explicitly mark .div as undefined or skip if it's orphaned,
+                // though the rendering logic should handle not displaying it.
+                // x.div = undefined; // Or handle as needed.
             }
         });
+    
+    let divsToCreate = data
+        .filter(el => {
+            if (el.parentId !== null && el.parentId !== undefined) {
+                const parentNode = data.find(p => p.id === el.parentId);
+                // If the parent (or any ancestor) is collapsed, this 'el' won't be rendered,
+                // so its .div shouldn't contribute to column creation.
+                if (parentNode && isNodeOrAncestorCollapsed(parentNode, data)) {
+                    return false; 
+                }
+            }
+            return true; // Include if root, top-level, or child of a non-collapsed pathway
+        })
+        .map(item => item.div)
+        .filter(d => typeof d === 'number');
 
-    // find min and max Div-Number
-    let minDiv = Math.min(...data.map(item => item.div).filter(d => typeof d === 'number'));
-    let maxDiv = Math.max(...data.map(item => item.div).filter(d => typeof d === 'number'));
+    let minDiv = Math.min(...divsToCreate, 0); 
+    let maxDiv = Math.max(...divsToCreate, 0);
+
 
     if (!isFinite(minDiv) || !isFinite(maxDiv)) {
-        console.error("Could not determine min/max div numbers. Check .div assignments.", data.map(item => item.div));
-        minDiv = 0; // Fallback
-        maxDiv = 0; // Fallback
+        // This might happen if all nodes are children of collapsed nodes except the root
+        if (divsToCreate.length === 0 && rootNode) {
+            minDiv = rootNode.div;
+            maxDiv = rootNode.div;
+        } else {
+            console.error("Could not determine min/max div numbers. Check .div assignments.", data.map(item => item.div));
+            minDiv = 0; 
+            maxDiv = 0; 
+        }
     }
 
     const container = $('#container');
@@ -191,17 +229,52 @@ function createMap(data) {
         console.error("Mindmap container #container not found in DOM.");
         return;
     }
-    container.html(''); // Clear previous content
+    container.html(''); 
 
     for (let i = minDiv; i <= maxDiv; i++) {
         container.append('div').id(`div${i}`).addClass('f-col');
     }
 
     data.forEach(el => {
-        if (el.div !== undefined && $(`#div${el.div}`).n) {
-            const pElement = $(`#div${el.div}`).append('p').id(`p${el.id === null ? 'null' : el.id}`);
+        // Determine if the current element 'el' should be rendered.
+        // It should NOT be rendered if it has a parent AND that parent (or any ancestor of that parent) is collapsed.
+        if (el.parentId !== null && el.parentId !== undefined) {
+            const parentNode = data.find(p => p.id === el.parentId);
+            if (parentNode && isNodeOrAncestorCollapsed(parentNode, data)) {
+                return; // Do not render this child element.
+            }
+        }
 
-            // Create visual element (icon or image)
+        // If we reach here, 'el' itself is either:
+        // 1. The root node.
+        // 2. A top-level node (parentId is null but id is not null).
+        // 3. A child node whose parent (and ancestors) are NOT collapsed.
+        // So, we should proceed to render 'el'.
+
+        // Ensure the target div for this element exists (it might not if all its children were collapsed, leading to fewer columns)
+        const targetDivExists = $(`#div${el.div}`).n;
+
+        if (el.div !== undefined && targetDivExists) {
+            const pElement = $(`#div${el.div}`).append('p').id(`p${el.id === null ? 'null' : el.id}`);
+            
+            const children = data.filter(child => child.parentId === el.id);
+            if (children.length > 0) {
+                const toggleBtn = pElement.append('span').addClass('mindmap-toggle');
+                toggleBtn.html(el.collapsed ? '[+]' : '[-]');
+                if (toggleBtn.n) { 
+                    toggleBtn.n.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        const nodeData = data.find(n => n.id === el.id);
+                        if (nodeData) {
+                            nodeData.collapsed = !nodeData.collapsed;
+                        }
+                        createMap(data); 
+                        requestAnimationFrame(() => drawLines(data));
+                    });
+                }
+            }
+
+
             if (el.imageSrc || el.iconClass) {
                 const visualDiv = pElement.append('div').addClass('node-visual');
                 if (el.imageSrc) {
@@ -281,6 +354,15 @@ function drawLines(data) {
 
     data.forEach(el => {
         if (el.parentId !== undefined) { 
+            // Check if element or its parent should be drawn based on collapsed state
+            const elNodeData = data.find(item => item.id === el.id);
+            const parentNodeData = data.find(item => item.id === el.parentId);
+
+            if (elNodeData && parentNodeData && isNodeOrAncestorCollapsed(parentNodeData, data)) {
+                // If parent is collapsed, don't draw line to this child
+                return;
+            }
+            
             const aktElNode = $(`#p${el.id === null ? 'null' : el.id}`);
             const parElNode = $(`#p${el.parentId === null ? 'null' : el.parentId}`);
 
@@ -320,82 +402,111 @@ function drawLines(data) {
     // console.log("drawLines function finished.");
 }
 
+// Helper function to check if a node or any of its ancestors are collapsed
+function isNodeOrAncestorCollapsed(node, allData) {
+    if (!node) return false;
+    if (node.collapsed) return true;
+    if (node.parentId === undefined || node.parentId === null) return false; // Reached root or a top-level node
+
+    let parent = allData.find(p => p.id === node.parentId);
+    while (parent) {
+        if (parent.collapsed) return true;
+        if (parent.parentId === undefined || parent.parentId === null) break;
+        parent = allData.find(p => p.id === parent.parentId);
+    }
+    return false;
+}
+
 const courseData = [
     {
         id: null, text: "<b>Tất cả<br>Khóa học</b>",
         href: "/tat-ca-khoa-hoc",
-        iconClass: 'bi bi-collection-play-fill', description: "Khám phá toàn bộ lộ trình học tập."
+        iconClass: 'bi bi-collection-play-fill', description: "Khám phá toàn bộ lộ trình học tập.",
+        collapsed: false
     },
     {
         id: 'course1', parentId: null, text: "Lập trình Web<br>Cơ bản",
         href: "/khoa-hoc/lap-trinh-web-co-ban",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course2', parentId: null, text: "Phân tích<br>Dữ liệu",
         href: "/khoa-hoc/phan-tich-du-lieu",
-        iconClass: 'bi bi-bar-chart-line-fill', description: "Khai phá thông tin từ dữ liệu lớn."
+        iconClass: 'bi bi-bar-chart-line-fill', description: "Khai phá thông tin từ dữ liệu lớn.",
+        collapsed: false
     },
     {
         id: 'course3', parentId: null, text: "Thiết kế<br>UI/UX",
         href: "/khoa-hoc/thiet-ke-ui-ux",
-        iconClass: 'bi bi-palette-fill', description: "Tạo giao diện người dùng đẹp và hiệu quả."
+        iconClass: 'bi bi-palette-fill', description: "Tạo giao diện người dùng đẹp và hiệu quả.",
+        collapsed: false
     },
     {
         id: 'course4', parentId: null, text: "Tài chính<br>Ngân hàng Số",
         href: "/khoa-hoc/tai-chinh-ngan-hang-so",
-        iconClass: 'bi bi-bank', description: "Công nghệ và xu hướng trong tài chính số."
+        iconClass: 'bi bi-bank', description: "Công nghệ và xu hướng trong tài chính số.",
+        collapsed: false
     },
     // Example of a sub-node course1_1:
     {
         id: 'course1_1', parentId: 'course1', text: "HTML & CSS<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/html-css-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course1_2', parentId: 'course1', text: "JavaScript<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/javascript-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course1_3', parentId: 'course1', text: "React<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/react-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     // Example of a sub-node course_2:
     {
         id: 'course2_1', parentId: 'course2', text: "HTML & CSS<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/html-css-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course2_2', parentId: 'course2', text: "JavaScript<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/javascript-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course2_3', parentId: 'course2', text: "React<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/react-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
 
     // Example of a sub-node course_3: 
     {
         id: 'course3_1', parentId: 'course3', text: "HTML & CSS<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/html-css-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course3_2', parentId: 'course3', text: "JavaScript<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/javascript-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
     {
         id: 'course3_3', parentId: 'course3', text: "React<br>Fundamentals",
         href: "/khoa-hoc/lap-trinh-web-co-ban/react-fundamentals",
-        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web."
+        iconClass: 'bi bi-code-slash', description: "Nền tảng cho người mới bắt đầu với web.",
+        collapsed: false
     },
-];
+].map(node => ({ ...node, collapsed: node.collapsed === undefined ? false : node.collapsed })); // Ensure all nodes have 'collapsed'
 
 // Initial setup when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {

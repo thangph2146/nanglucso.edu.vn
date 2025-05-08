@@ -151,6 +151,27 @@ svg {
     stroke-linecap: round; 
 }
 
+/* Toggle Button for Collapsible Nodes */
+.mindmap-toggle {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: var(--font-size-lg); /* Larger for easier clicking */
+    font-weight: bold;
+    color: var(--color-red); /* Use a prominent color */
+    padding: 0px 5px; /* Small padding for click area */
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-base);
+    user-select: none; /* Prevent text selection on click */
+    z-index: 5; /* Ensure it's above other node content */
+}
+
+.mindmap-toggle:hover {
+    color: var(--color-red-dark);
+    background-color: rgba(0,0,0,0.05); /* Subtle background on hover */
+}
+
 /* === Responsive Adjustments for Mobile === */
 @media (max-width: 991.98px) {
     /* Revert container back to simpler mobile settings if needed, */
