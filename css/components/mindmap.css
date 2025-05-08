@@ -43,6 +43,7 @@
     border-radius: var(--border-radius-xl); /* Updated */
     text-align: center;
     min-width: 250px; 
+    max-width: 300px; 
     margin: var(--spacing-md); /* Increased margin slightly */
     box-shadow: var(--shadow-md); /* Updated */
     font-size: var(--font-size-sm); /* Updated */
