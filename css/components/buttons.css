@@ -2,6 +2,7 @@
 .btn {
     display: inline-flex; /* Added for icon alignment */
     align-items: center; /* Added for icon alignment */
+    gap: 0.5rem;
     border-radius: var(--border-radius-pill); /* Standardized border-radius */
     font-weight: 600;
     transition: var(--transition-base);

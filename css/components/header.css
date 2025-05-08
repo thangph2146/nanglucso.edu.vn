@@ -31,6 +31,10 @@
 .header-logo {
     height: 60px;
     transition: height 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-logo img {
@@ -59,7 +63,14 @@ body {
     transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Added for smooth hide/show */
     /* padding: 0.5rem 0; -> Removed, assuming .py-2 or similar in HTML */
 }
-
+/* Custom styles for Site Title */
+.site-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    letter-spacing: 0.05em;
+  }
+  
 .topbar.topbar-hidden {
     /* transform: translateY(-100%); // We hide it by moving the whole header */
     visibility: hidden;
@@ -123,7 +134,6 @@ body {
     color: var(--text-dark); 
     padding: 0.75rem 0.4rem; /* Giảm nhẹ padding ngang nếu cần */
     font-weight: 500;
-    text-transform: uppercase;
     font-size: var(--font-size-xs); /* Cân nhắc giảm font-size một chút */
     letter-spacing: 0.5px;
     border-bottom: 2px solid transparent; 
