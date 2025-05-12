@@ -763,3 +763,149 @@ ul.offcanvas-submenu-items > li:last-child > .offcanvas-submenu-link {
         width: 100vw;
     }
 }
+
+/* --- TỐI ƯU MENU OFFCANVAS ĐA CẤP (THAY THẾ CSS CŨ) --- */
+
+.offcanvas-submenu-list, .offcanvas-submenu-items {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.offcanvas-submenu-list ul, .offcanvas-submenu-items ul {
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--bs-border-color-translucent);
+    background: var(--bs-gray-50);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 0.25rem;
+}
+
+.offcanvas-submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+    color: var(--color-navy-dark, #2c3e50);
+    font-size: 1.05rem;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    background: transparent;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-left 0.2s;
+}
+@media (max-width: 991.98px) {
+  .offcanvas-submenu-link {
+    font-size: 1.15rem;
+    padding: 1rem 1.25rem;
+  }
+}
+
+.offcanvas-submenu-link .menu-icon-sub {
+    min-width: 1.5em;
+    min-height: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15em;
+    color: var(--color-red);
+    margin-right: 0.5rem;
+    transition: color 0.2s;
+}
+
+.offcanvas-submenu-link:hover, .offcanvas-submenu-link:focus {
+    background: linear-gradient(90deg, var(--color-red-pale) 80%, #fff 100%);
+    color: var(--color-red);
+    border-left: 4px solid var(--color-red);
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 rgba(200,0,0,0.04);
+    outline: none;
+}
+.offcanvas-submenu-link:hover .menu-icon-sub,
+.offcanvas-submenu-link:focus .menu-icon-sub {
+    color: var(--color-red-dark);
+}
+.offcanvas-submenu-link.active {
+    background: linear-gradient(90deg, var(--color-red-pale) 80%, #fff 100%);
+    color: var(--color-red-dark);
+    border-left: 4px solid var(--color-red-dark);
+    font-weight: 700;
+    box-shadow: 0 2px 12px 0 rgba(200,0,0,0.08);
+}
+.offcanvas-submenu-link.active .menu-icon-sub {
+    color: var(--color-red-dark);
+}
+
+.offcanvas-submenu-group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-red) !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 1.1rem 1.25rem 0.7rem 1.25rem;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+    background: var(--bs-light);
+    border-bottom: 1.5px solid var(--bs-border-color);
+    margin-bottom: 0;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+.offcanvas-submenu-group-title i {
+    font-size: 1.35em;
+    color: var(--color-red-dark);
+    min-width: 1.5em;
+    min-height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offcanvas-body > * {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.35s, transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.offcanvas-body > *.offcanvas-item-animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 767.98px) {
+  .offcanvas-submenu-link {
+    font-size: 1.18rem;
+    padding: 1.15rem 1.25rem;
+  }
+  .offcanvas-submenu-group-title {
+    font-size: 1.12rem;
+    padding: 1.2rem 1.25rem 0.8rem 1.25rem;
+  }
+}
+
+ul.offcanvas-submenu-list > li:last-child > .offcanvas-submenu-link,
+ul.offcanvas-submenu-items > li:last-child > .offcanvas-submenu-link {
+    border-bottom: none;
+}
+
+a.offcanvas-submenu-link.offcanvas-view-all-link {
+    color: var(--color-red);
+    font-weight: 600;
+    font-size: 1.08rem;
+    border-bottom: none;
+    padding-top: 1.1rem;
+    margin-left: 0;
+    background: var(--bs-gray-50);
+    border-radius: 0.25rem;
+}
+a.offcanvas-submenu-link.offcanvas-view-all-link:hover {
+    text-decoration: underline;
+    color: var(--color-red-dark);
+    background: var(--color-red-pale);
+}
+
+li.offcanvas-item-animate-in::marker {
+  display: none;
+  content: '';
+}

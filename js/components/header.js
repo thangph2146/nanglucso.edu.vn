@@ -293,113 +293,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function cloneAndRestructureContentNode(sourceNode, offcanvasBody, parentMobileIconClass) {
     const clonedSource = sourceNode.cloneNode(true);
-    offcanvasBody.innerHTML = ''; // Clear previous content
-
-    // Remove general mobile-specific icons like main menu icons or dropdown arrows early
-    // We keep .menu-icon-sub as those are specific to items
+    offcanvasBody.innerHTML = '';
     clonedSource.querySelectorAll('.arrow-icon, .menu-icon:not(.menu-icon-sub)').forEach(icon => icon.remove());
 
-    let currentListElement = null;
+    // Đệ quy sinh menu đa cấp, trả về <ul> hoặc <li> đúng chuẩn
+    function processNode(node, depth = 0) {
+        if (node.nodeType !== Node.ELEMENT_NODE) return null;
 
-    function ensureListExists() {
-        if (!currentListElement) {
-            currentListElement = document.createElement('ul');
-            currentListElement.className = 'offcanvas-submenu-items';
-            offcanvasBody.appendChild(currentListElement);
+        // Header nhóm
+        if (node.classList.contains('dropdown-header')) {
+            const title = document.createElement('h6');
+            title.className = 'offcanvas-submenu-group-title';
+            title.textContent = node.textContent.trim();
+            if (parentMobileIconClass && depth === 0) {
+                const icon = document.createElement('i');
+                icon.className = parentMobileIconClass;
+                title.insertBefore(icon, title.firstChild);
+            }
+            offcanvasBody.appendChild(title);
+            return null;
         }
-        return currentListElement;
+        // HR
+        if (node.tagName === 'HR') {
+            const hr = document.createElement('hr');
+            offcanvasBody.appendChild(hr);
+            return null;
+        }
+        // Lĩnh vực chính hoặc nhánh con
+        if (node.tagName === 'LI') {
+            // Tìm <a> và <ul> con (nếu có)
+            let aNode = null;
+            let ulNode = null;
+            Array.from(node.children).forEach(child => {
+                if (child.tagName === 'A') aNode = child;
+                if (child.tagName === 'UL') ulNode = child;
+            });
+            // Nếu không có <a> thì bỏ qua
+            if (!aNode) return null;
+            const li = document.createElement('li');
+            // Xử lý <a>
+            const a = processNode(aNode, depth);
+            if (a) li.appendChild(a);
+            // Xử lý <ul> nhánh con
+            if (ulNode) {
+                const subUl = processNode(ulNode, depth + 1);
+                if (subUl && subUl.children.length > 0) li.appendChild(subUl);
+            }
+            return li;
+        }
+        // <ul> danh sách các mục
+        if (node.tagName === 'UL') {
+            const ul = document.createElement('ul');
+            ul.className = 'offcanvas-submenu-list ps-3';
+            Array.from(node.children).forEach(child => {
+                const li = processNode(child, depth);
+                if (li) ul.appendChild(li);
+            });
+            return ul;
+        }
+        // <a> link
+        if (node.tagName === 'A') {
+            const a = document.createElement('a');
+            a.href = node.getAttribute('href') || '#';
+            a.className = 'offcanvas-submenu-link';
+            if (depth > 0) a.classList.add('small');
+            // Copy icon
+            const iconSub = node.querySelector('.menu-icon-sub');
+            if (iconSub) {
+                const iconClone = iconSub.cloneNode(true);
+                iconClone.removeAttribute('style');
+                a.appendChild(iconClone);
+            }
+            a.appendChild(document.createTextNode(' ' + node.textContent.trim()));
+            return a;
+        }
+        return null;
     }
 
-    function resetCurrentList() {
-        currentListElement = null;
-    }
-
-    function processChildren(parentElement) {
-        Array.from(parentElement.children).forEach(node => {
-            if (node.nodeType !== Node.ELEMENT_NODE) return;
-
-            // Ưu tiên xử lý .dropdown-header để đảm bảo nó luôn là H6 không có href
-            if (node.classList.contains('dropdown-header')) {
-                resetCurrentList();
-                const title = document.createElement('h6');
-                title.className = 'offcanvas-submenu-group-title';
-                // Lấy text content, không quan tâm thẻ gốc là a hay h6
-                title.textContent = node.textContent.trim(); 
-                
-                // Gắn icon của mục cha (nếu có)
-                if (parentMobileIconClass) { 
-                    const icon = document.createElement('i');
-                    icon.className = parentMobileIconClass; 
-                    // Chèn icon vào đầu, trước text
-                    title.insertBefore(icon, title.firstChild); 
-                }
-                offcanvasBody.appendChild(title);
-            }
-            
-            // Handle UL elements
-            else if (node.tagName === 'UL' && (node.classList.contains('dropdown-menu') || node.classList.contains('submenu-list'))) {
-                processChildren(node);
-            } 
-            // Handle LI elements
-            else if (node.tagName === 'LI') {
-                processChildren(node); 
-            }
-            // Handle A tags (links) - không phải dropdown-header
-            else if (node.tagName === 'A') {
-                if (node.classList.contains('view-all-link')) {
-                    resetCurrentList();
-                    const clonedLink = node.cloneNode(true); 
-                    clonedLink.className = 'offcanvas-view-all-link';
-                    clonedLink.removeAttribute('style'); 
-                    
-                    const viewAllWrapper = document.createElement('div');
-                    viewAllWrapper.className = 'offcanvas-view-all-wrapper';
-                    viewAllWrapper.appendChild(clonedLink);
-                    offcanvasBody.appendChild(viewAllWrapper);
-                } else if (node.classList.contains('dropdown-item')) {
-                    const list = ensureListExists();
-                    const newListItem = document.createElement('li');
-                    const newLink = document.createElement('a');
-                    newLink.href = node.getAttribute('href') || '#';
-                    newLink.className = 'offcanvas-submenu-link';
-
-                    let textContent = '';
-                    let iconSubElement = null;
-
-                    // Preserve text and .menu-icon-sub from the source <a>
-                    Array.from(node.childNodes).forEach(childNode => {
-                        if (childNode.nodeType === Node.TEXT_NODE) {
-                            textContent += childNode.textContent;
-                        } else if (childNode.nodeType === Node.ELEMENT_NODE && childNode.classList.contains('menu-icon-sub')) {
-                            iconSubElement = childNode.cloneNode(true);
-                            iconSubElement.removeAttribute('style'); // Remove any inline styles
-                        }
-                        // Ignore other elements like .menu-icon or .arrow-icon as they are handled globally or not needed
-                    });
-
-                    if (iconSubElement) {
-                        newLink.appendChild(iconSubElement);
-                    }
-                    newLink.appendChild(document.createTextNode(textContent.trim()));
-                    
-                    if (newLink.textContent.trim() !== '' || newLink.querySelector('.menu-icon-sub')) {
-                        newListItem.appendChild(newLink);
-                        list.appendChild(newListItem);
-                    }
-                }
-            } 
-            // Handle HR tags
-            else if (node.tagName === 'HR') {
-                resetCurrentList();
-                const hrElement = document.createElement('hr');
-                offcanvasBody.appendChild(hrElement);
-            }
-        });
-    }
-
-    // The sourceNode is typically a UL (dropdown-menu) or DIV (mega-menu - now removed).
-    // We should directly process its children.
-    processChildren(clonedSource);
+    // Bắt đầu xử lý các con của sourceNode
+    Array.from(clonedSource.children).forEach(child => {
+        const result = processNode(child, 0);
+        if (result) offcanvasBody.appendChild(result);
+    });
 }
 
 // Dark mode toggle
