@@ -6,14 +6,12 @@
 const actualCourseData = [
     {
         id: null, text: "<b>Tất cả<br>Lĩnh vực Đào tạo</b>",
-        href: "/tat-ca-khoa-hoc",
         iconClass: 'bi bi-mortarboard-fill', description: "Khám phá toàn bộ lộ trình học tập và phát triển kỹ năng tại trung tâm."
         // 'collapsed' property will be automatically added and defaulted to false by initMindmap
     },
     // --- Lập trình Web Cơ bản ---
     {
         id: 'course1', parentId: null, text: "Lập trình Web<br>Chuyên sâu",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau",
         iconClass: 'bi bi-braces', description: "Từ nền tảng đến kỹ thuật nâng cao trong phát triển web hiện đại."
     },
     {
@@ -49,7 +47,6 @@ const actualCourseData = [
     // --- Phân tích Dữ liệu ---
     {
         id: 'course2', parentId: null, text: "Khoa học Dữ liệu<br>Ứng dụng",
-        href: "/khoa-hoc/khoa-hoc-du-lieu-ung-dung",
         iconClass: 'bi bi-clipboard-data-fill', description: "Biến dữ liệu thành thông tin chi tiết và lợi thế cạnh tranh."
     },
     {
@@ -80,7 +77,6 @@ const actualCourseData = [
     // --- Thiết kế UI/UX ---
     {
         id: 'course3', parentId: null, text: "Thiết kế<br>Sản phẩm Số (UI/UX)",
-        href: "/khoa-hoc/thiet-ke-san-pham-so-ui-ux",
         iconClass: 'bi bi-gem', description: "Kiến tạo trải nghiệm người dùng đột phá và giao diện sản phẩm cuốn hút."
     },
     {
@@ -106,7 +102,6 @@ const actualCourseData = [
     // --- Tài chính Ngân hàng Số ---
     {
         id: 'course4', parentId: null, text: "Công nghệ Tài chính<br>(Fintech) Toàn diện",
-        href: "/khoa-hoc/cong-nghe-tai-chinh-fintech",
         iconClass: 'bi bi-cash-coin', description: "Khám phá sâu về công nghệ, ứng dụng và tương lai của ngành Fintech."
     },
     {
@@ -132,7 +127,6 @@ const actualCourseData = [
     // --- Digital Marketing (NEW CATEGORY) ---
     {
         id: 'course5', parentId: null, text: "Digital Marketing<br>Tổng lực",
-        href: "/khoa-hoc/digital-marketing-tong-luc",
         iconClass: 'bi bi-megaphone-fill', description: "Chiến lược và công cụ để thành công trong tiếp thị kỹ thuật số."
     },
     {
