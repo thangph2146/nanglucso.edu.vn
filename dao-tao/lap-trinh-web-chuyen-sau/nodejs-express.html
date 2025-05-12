@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="vi-VN" style="height: 100%;">
+
+<head id="Head">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Node.js & Express - Trung tâm đào tạo năng lực số</title>
+    <meta id="MetaDescription" name="description"
+        content="Khóa học Node.js & Express chuyên sâu giúp bạn xây dựng API mạnh mẽ, ứng dụng backend hiệu suất cao, sẵn sàng cho các dự án thực tế và cơ hội nghề nghiệp Backend Developer.">
+    <meta id="MetaKeywords" name="keywords"
+        content="nodejs, expressjs, backend, api, lập trình backend, khóa học nodejs, trung tâm đào tạo năng lực số, viện phát triển kinh tế số việt nam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components/variables.css">
+</head>
+
+<body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <!-- Topbar -->
+        <div class="topbar py-2">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <!-- Topbar Contact Info -->
+                    <div class="col-auto d-none d-md-block">
+                        <div class="d-flex flex-column gap-0">
+                            <span class="site-title-sub">Viện phát triển kinh tế số Việt Nam</span>
+                            <span class="site-title">Trung tâm đào tạo năng lực số</span>
+                        </div>
+                    </div>
+                    <!-- Topbar Social Icons -->
+                    <div class="col-auto">
+                        <ul class="list-inline mb-0 d-flex align-items-center">
+                            <li class="list-inline-item">
+                                <button type="button"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="YouTube">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-0">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-light py-0">
+                    <div class="container-fluid px-0 d-flex justify-content-between">
+                        <!-- Logo & Title -->
+                        <a class="navbar-brand me-auto d-flex align-items-center" href="../index.html">
+                            <div class="header-logo">
+                                <img src="../../images/logo/logo.png" alt="Trung tâm đào tạo năng lực số Logo">
+                            </div>
+                        </a>
+
+                        <!-- Desktop Navigation (LG and up) -->
+                        <div class="d-flex align-items-center">
+                            <ul class="navbar-nav d-none d-lg-flex flex-row mx-auto align-items-center">
+                                <li class="nav-item"><a class="nav-link" href="../index.html"><i
+                                            class="bi bi-house-door-fill me-2"></i>Trang chủ</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasGioiThieu" aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu"><i
+                                            class="bi bi-info-circle-fill me-2"></i>Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasDaoTao" aria-controls="offcanvasDaoTao"
+                                        data-content-source="contentForOffcanvasDaoTao"><i
+                                            class="bi bi-easel-fill me-2"></i>Đào tạo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasNghienCuu" aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu"><i
+                                            class="bi bi-search-heart-fill me-2"></i>Nghiên cứu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasHopTac" aria-controls="offcanvasHopTac"
+                                        data-content-source="contentForOffcanvasHopTac"><i
+                                            class="bi bi-people-fill me-2"></i>Hợp tác</a>
+                                </li>
+                            </ul>
+
+                            <!-- User Actions Area (Desktop and Mobile Toggler) -->
+                            <div class="ms-auto d-flex align-items-center">
+                                <button class="navbar-toggler d-lg-none shadow-none border-0" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Fullscreen Menu -->
+                        <div class="collapse navbar-collapse" id="navbarContent">
+                            <button type="button" class="btn-close-menu" data-bs-toggle="collapse"
+                                data-bs-target="#navbarContent" aria-label="Đóng menu">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../index.html">
+                                        <i class="bi bi-house-door-fill menu-icon"></i> Trang chủ
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" id="navbarDropdownGioiThieuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasGioiThieu"
+                                        aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu">
+                                        <i class="bi bi-info-circle-fill menu-icon"></i> Giới thiệu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownGioiThieuMobile"
+                                        id="contentForOffcanvasGioiThieu">
+                                        <li><a class="dropdown-item" href="../../gioi-thieu/tong-quan.html"><i
+                                                    class="bi bi-info-square menu-icon-sub"></i>Tổng quan</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="../../gioi-thieu/su-menh-tam-nhin.html"><i
+                                                    class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
+                                        <li><a class="dropdown-item active" href="../../gioi-thieu/co-cau-to-chuc.html"><i
+                                                    class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
+                                         
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownDaoTaoMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasDaoTao"
+                                        aria-controls="offcanvasDaoTao" data-content-source="contentForOffcanvasDaoTao">
+                                        <i class="bi bi-easel-fill menu-icon"></i> Đào tạo
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownDaoTaoMobile"
+                                        id="contentForOffcanvasDaoTao">
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Lĩnh vực đào tạo</h6>
+                                        </li>
+                                        <!-- Lập trình Web Chuyên sâu -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-braces menu-icon-sub"></i> Lập trình Web Chuyên sâu
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="html-css-nen-tang.html"><i class="bi bi-filetype-html me-1"></i> HTML & CSS Nền tảng</a></li>
+                                                <li><a class="dropdown-item small" href="javascript-nang-cao.html"><i class="bi bi-filetype-jsx me-1"></i> JavaScript Nâng cao</a></li>
+                                                <li><a class="dropdown-item small" href="reactjs-ecosystem.html"><i class="bi bi-react me-1"></i> ReactJS & Hệ sinh thái</a></li>
+                                                <li><a class="dropdown-item small" href="nodejs-express.html"><i class="bi bi-hdd-network-fill me-1"></i> Node.js & Express</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Khoa học Dữ liệu Ứng dụng -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-clipboard-data-fill menu-icon-sub"></i> Khoa học Dữ liệu Ứng dụng
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="nhap-mon.html"><i class="bi bi-calculator me-1"></i> Nhập môn Khoa học Dữ liệu</a></li>
+                                                <li><a class="dropdown-item small" href="python-xu-ly-du-lieu.html"><i class="bi bi-filetype-py me-1"></i> Python cho Xử lý Dữ liệu</a></li>
+                                                <li><a class="dropdown-item small" href="truc-quan-hoa-nang-cao.html"><i class="bi bi-graph-up-arrow me-1"></i> Trực quan hóa Dữ liệu Nâng cao</a></li>
+                                                <li><a class="dropdown-item small" href="machine-learning-co-ban.html"><i class="bi bi-cpu-fill me-1"></i> Machine Learning Cơ bản</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Thiết kế Sản phẩm Số (UI/UX) -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-gem menu-icon-sub"></i> Thiết kế Sản phẩm Số (UI/UX)
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="ux-research.html"><i class="bi bi-people me-1"></i> UX Research</a></li>
+                                                <li><a class="dropdown-item small" href="figma-a-z.html"><i class="bi bi-figma me-1"></i> Thiết kế UI với Figma</a></li>
+                                                <li><a class="dropdown-item small" href="interaction-prototyping.html"><i class="bi bi-magic me-1"></i> Interaction Design & Prototyping</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Công nghệ Tài chính (Fintech) Toàn diện -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-cash-coin menu-icon-sub"></i> Công nghệ Tài chính (Fintech)
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="tong-quan-fintech.html"><i class="bi bi-bank me-1"></i> Tổng quan Thị trường Fintech</a></li>
+                                                <li><a class="dropdown-item small" href="blockchain-ung-dung.html"><i class="bi bi-link-45deg me-1"></i> Blockchain Ứng dụng Tài chính</a></li>
+                                                <li><a class="dropdown-item small" href="thanh-toan-so-open-banking.html"><i class="bi bi-credit-card-2-back-fill me-1"></i> Thanh toán số & Ngân hàng mở</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Digital Marketing Tổng lực -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-megaphone-fill menu-icon-sub"></i> Digital Marketing Tổng lực
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="seo-content-marketing.html"><i class="bi bi-search-heart me-1"></i> SEO & Content Marketing</a></li>
+                                                <li><a class="dropdown-item small" href="quang-cao-truc-tuyen.html"><i class="bi bi-badge-ad-fill me-1"></i> Quảng cáo trực tuyến</a></li>
+                                                <li><a class="dropdown-item small" href="social-media-marketing.html"><i class="bi bi-share-fill me-1"></i> Social Media Marketing</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Tài nguyên học tập</h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="../../tai-nguyen/thu-vien.html">
+                                                <i class="bi bi-book-half menu-icon-sub"></i> Thư viện
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="../../tai-nguyen/e-learning.html">
+                                                <i class="bi bi-laptop menu-icon-sub"></i> E-learning
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownNghienCuuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasNghienCuu"
+                                        aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu">
+                                        <i class="bi bi-search-heart-fill menu-icon"></i> Nghiên cứu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownNghienCuuMobile"
+                                        id="contentForOffcanvasNghienCuu">
+                                        <li><a class="dropdown-item" href="../../nghien-cuu/de-tai.html"><i
+                                                    class="bi bi-search-heart menu-icon-sub"></i>Dự án & Nghiên cứu</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="../../nghien-cuu/cong-bo.html"><i
+                                                    class="bi bi-journal-richtext menu-icon-sub"></i>Ấn phẩm & Công bố</a></li>
+                                        <li><a class="dropdown-item" href="../../nghien-cuu/hoi-thao.html"><i
+                                                    class="bi bi-mic menu-icon-sub"></i>Hội thảo & Sự kiện</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownHopTacMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasHopTac"
+                                        aria-controls="offcanvasHopTac" data-content-source="contentForOffcanvasHopTac">
+                                        <i class="bi bi-people-fill menu-icon"></i> Hợp tác
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownHopTacMobile"
+                                        id="contentForOffcanvasHopTac">
+                                        <li><a class="dropdown-item" href="../../hop-tac/doi-tac-chien-luoc.html"><i
+                                                    class="bi bi-shield-check menu-icon-sub"></i>Đối tác chiến lược</a></li>
+                                        <li><a class="dropdown-item" href="../../hop-tac/doanh-nghiep.html"><i
+                                                    class="bi bi-building-check menu-icon-sub"></i>Hợp tác doanh
+                                                nghiệp</a></li>
+                                        <li><a class="dropdown-item" href="../../hop-tac/chuyen-gia.html"><i
+                                                    class="bi bi-person-video2 menu-icon-sub"></i>Mạng lưới chuyên gia</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <!-- Mobile Search Form (hidden on LG and up) -->
+                            <form class="mobile-search-form my-3 d-lg-none" action="#" method="GET">
+                                <div class="input-group">
+                                    <input type="search" class="form-control" placeholder="Tìm kiếm trong trang..."
+                                        aria-label="Tìm kiếm trong trang">
+                                    <button class="btn btn-secondary" type="submit" id="mobile-search-submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas Elements for Desktop Submenus -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasGioiThieu"
+        aria-labelledby="offcanvasGioiThieuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasGioiThieuLabel">Giới thiệu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDaoTao" aria-labelledby="offcanvasDaoTaoLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDaoTaoLabel">Đào tạo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNghienCuu"
+        aria-labelledby="offcanvasNghienCuuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNghienCuuLabel">Nghiên cứu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasHopTac" aria-labelledby="offcanvasHopTacLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasHopTacLabel">Hợp tác</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <!-- END Offcanvas Elements -->
+    
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Tìm kiếm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="GET" class="search-modal-form">
+                        <div class="input-group has-clear-button">
+                            <input type="text" id="searchInputModal" class="form-control"
+                                placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
+                            <button type="button" class="btn btn-sm btn-clear-search d-none"
+                                aria-label="Clear search input">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <button class="btn btn-primary btn-search-submit" type="submit"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HEADER SECTION -->
+    <!-- Hero Section: Giới thiệu khóa học -->
+    <section class="section section-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <h1 class="display-5 fw-bold text-primary mb-3">Node.js & Express</h1>
+                    <p class="lead mb-4">Khóa học chuyên sâu về Node.js và Express.js, giúp bạn xây dựng API mạnh mẽ, ứng dụng backend hiệu suất cao, sẵn sàng cho các dự án thực tế.</p>
+                    <a href="#dang-ky" class="btn btn-primary btn-lg me-2"><i class="bi bi-person-plus"></i> Đăng ký ngay</a>
+                    <a href="#faq" class="btn btn-outline-secondary btn-lg"><i class="bi bi-question-circle"></i> Tư vấn khóa học</a>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <i class="bi bi-hdd-network-fill display-1 text-success"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tại sao nên học tại đây? -->
+    <section class="section section-light py-5" id="why-learn">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fw-bold">Tại sao nên học Node.js & Express tại đây?</h2>
+                <p class="section-subtitle">Những lý do thuyết phục để bạn chọn khóa học Backend chuyên sâu này</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-primary-soft mb-3 mx-auto"><i class="bi bi-person-video3 fs-2 text-primary"></i></div>
+                            <h5 class="fw-bold mb-2">Giảng viên Backend kinh nghiệm</h5>
+                            <p class="mb-0 text-muted small">Học từ các chuyên gia phát triển Backend nhiều năm kinh nghiệm dự án thực tế.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-success-soft mb-3 mx-auto"><i class="bi bi-rocket-takeoff-fill fs-2 text-success"></i></div>
+                            <h5 class="fw-bold mb-2">Nội dung chuyên sâu, thực chiến</h5>
+                            <p class="mb-0 text-muted small">Bám sát công nghệ mới nhất, xây dựng API, làm việc với database, microservices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-info-soft mb-3 mx-auto"><i class="bi bi-code-braces fs-2 text-info"></i></div>
+                            <h5 class="fw-bold mb-2">Từ kiến thức nền tảng đến API chuyên nghiệp</h5>
+                            <p class="mb-0 text-muted small">Lộ trình bài bản, thực hành liên tục, phù hợp người đã biết JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-warning-soft mb-3 mx-auto"><i class="bi bi-server fs-2 text-warning"></i></div>
+                            <h5 class="fw-bold mb-2">Xây dựng dự án Backend thực tế</h5>
+                            <p class="mb-0 text-muted small">Áp dụng kiến thức vào dự án thực tế, review code và nhận phản hồi chi tiết.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-secondary-soft mb-3 mx-auto"><i class="bi bi-displayport-fill fs-2 text-secondary"></i></div>
+                            <h5 class="fw-bold mb-2">Học online/offline linh hoạt</h5>
+                            <p class="mb-0 text-muted small">Chủ động thời gian, học mọi lúc mọi nơi, tài liệu và video đầy đủ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-danger-soft mb-3 mx-auto"><i class="bi bi-briefcase-fill fs-2 text-danger"></i></div>
+                            <h5 class="fw-bold mb-2">Cơ hội việc làm Backend Developer</h5>
+                            <p class="mb-0 text-muted small">Nâng cao CV, sẵn sàng ứng tuyển các vị trí Backend Developer với Node.js.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bạn sẽ học được gì? -->
+    <section class="section section-white py-5" id="what-you-learn">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fw-bold">Bạn sẽ học được gì?</h2>
+                <p class="section-subtitle">Những kiến thức và kỹ năng bạn sẽ nắm được sau khóa học Node.js & Express</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-primary-soft mb-3 mx-auto"><i class="bi bi-node-plus-fill fs-2 text-primary"></i></div>
+                            <h5 class="fw-bold mb-2">Nắm vững Node.js & Express</h5>
+                            <p class="mb-0 text-muted small">Hiểu rõ kiến trúc, luồng sự kiện, middleware, routing, xây dựng server API RESTful.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-success-soft mb-3 mx-auto"><i class="bi bi-database-fill-gear fs-2 text-success"></i></div>
+                            <h5 class="fw-bold mb-2">Kết nối & thao tác Database</h5>
+                            <p class="mb-0 text-muted small">Làm việc với MongoDB, MySQL, PostgreSQL, thao tác CRUD, tối ưu truy vấn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-info-soft mb-3 mx-auto"><i class="bi bi-shield-lock-fill fs-2 text-info"></i></div>
+                            <h5 class="fw-bold mb-2">Bảo mật & xác thực</h5>
+                            <p class="mb-0 text-muted small">Xác thực JWT, bảo mật API, quản lý session, chống tấn công phổ biến (XSS, CSRF...)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-warning-soft mb-3 mx-auto"><i class="bi bi-cloud-arrow-up-fill fs-2 text-warning"></i></div>
+                            <h5 class="fw-bold mb-2">Triển khai & vận hành ứng dụng</h5>
+                            <p class="mb-0 text-muted small">Triển khai lên server, sử dụng Docker, CI/CD, log, giám sát hiệu suất.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-secondary-soft mb-3 mx-auto"><i class="bi bi-diagram-3-fill fs-2 text-secondary"></i></div>
+                            <h5 class="fw-bold mb-2">Thiết kế API & Microservices</h5>
+                            <p class="mb-0 text-muted small">Thiết kế API RESTful, tổ chức code, xây dựng microservices, quản lý version API.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-danger-soft mb-3 mx-auto"><i class="bi bi-award-fill fs-2 text-danger"></i></div>
+                            <h5 class="fw-bold mb-2">Dự án thực tế cuối khóa</h5>
+                            <p class="mb-0 text-muted small">Xây dựng API, backend cho ứng dụng thực tế, review code, nhận chứng nhận hoàn thành.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Lộ trình học -->
+    <section class="section section-light py-5" id="roadmap">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fw-bold">Lộ trình học chi tiết</h2>
+                <p class="section-subtitle">Khám phá các chủ đề và dự án thực tế xuyên suốt khóa học Node.js & Express</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-primary-soft mb-3 mx-auto"><i class="bi bi-flag-fill fs-2 text-primary"></i></div>
+                            <h5 class="fw-bold mb-2">Giới thiệu & Cài đặt môi trường</h5>
+                            <p class="mb-0 text-muted small">Làm quen Node.js, Express, cài đặt môi trường, sử dụng VSCode, Postman.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-success-soft mb-3 mx-auto"><i class="bi bi-node-plus-fill fs-2 text-success"></i></div>
+                            <h5 class="fw-bold mb-2">Kiến thức nền tảng Node.js</h5>
+                            <p class="mb-0 text-muted small">Luồng sự kiện, module, callback, async/await, quản lý package, npm/yarn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-info-soft mb-3 mx-auto"><i class="bi bi-diagram-3-fill fs-2 text-info"></i></div>
+                            <h5 class="fw-bold mb-2">Express.js & Xây dựng API</h5>
+                            <p class="mb-0 text-muted small">Routing, middleware, RESTful API, xử lý request/response, error handling.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-warning-soft mb-3 mx-auto"><i class="bi bi-database-fill-gear fs-2 text-warning"></i></div>
+                            <h5 class="fw-bold mb-2">Kết nối Database & ORM</h5>
+                            <p class="mb-0 text-muted small">Kết nối MongoDB, MySQL, sử dụng Mongoose/Sequelize, thao tác CRUD.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-secondary-soft mb-3 mx-auto"><i class="bi bi-shield-lock-fill fs-2 text-secondary"></i></div>
+                            <h5 class="fw-bold mb-2">Bảo mật & xác thực</h5>
+                            <p class="mb-0 text-muted small">Xác thực JWT, bảo mật API, quản lý session, chống tấn công phổ biến.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-danger-soft mb-3 mx-auto"><i class="bi bi-award-fill fs-2 text-danger"></i></div>
+                            <h5 class="fw-bold mb-2">Dự án thực tế cuối khóa</h5>
+                            <p class="mb-0 text-muted small">Xây dựng API, backend cho ứng dụng thực tế, review code, nhận chứng nhận hoàn thành.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Lợi ích khi tham gia -->
+    <section class="section section-light py-5" id="benefits">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fw-bold">Lợi ích khi tham gia khóa học</h2>
+                <p class="section-subtitle">Bạn sẽ nhận được nhiều giá trị thực tiễn và hỗ trợ tận tâm</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex align-items-start bg-white rounded shadow-sm p-4 h-100">
+                        <div class="icon-circle bg-primary-soft me-3 flex-shrink-0"><i class="bi bi-people-fill fs-2 text-primary"></i></div>
+                        <div>
+                            <div class="fw-bold mb-1">Cộng đồng học tập năng động</div>
+                            <div class="small text-muted">Tham gia group hỗ trợ, giao lưu, chia sẻ kinh nghiệm thực tế về Backend.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex align-items-start bg-white rounded shadow-sm p-4 h-100">
+                        <div class="icon-circle bg-success-soft me-3 flex-shrink-0"><i class="bi bi-chat-dots-fill fs-2 text-success"></i></div>
+                        <div>
+                            <div class="fw-bold mb-1">Mentor hỗ trợ 1-1</div>
+                            <div class="small text-muted">Được giải đáp thắc mắc, hỗ trợ thực hành, review code, định hướng nghề nghiệp Backend.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex align-items-start bg-white rounded shadow-sm p-4 h-100">
+                        <div class="icon-circle bg-info-soft me-3 flex-shrink-0"><i class="bi bi-book-half fs-2 text-info"></i></div>
+                        <div>
+                            <div class="fw-bold mb-1">Tài liệu cập nhật, thực tế</div>
+                            <div class="small text-muted">Bám sát xu hướng, nhiều ví dụ thực tế, tài nguyên mở rộng đa dạng.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex align-items-start bg-white rounded shadow-sm p-4 h-100">
+                        <div class="icon-circle bg-warning-soft me-3 flex-shrink-0"><i class="bi bi-patch-check-fill fs-2 text-warning"></i></div>
+                        <div>
+                            <div class="fw-bold mb-1">Cấp chứng nhận hoàn thành</div>
+                            <div class="small text-muted">Nhận chứng nhận uy tín, bổ sung CV, tăng cơ hội nghề nghiệp Backend Developer.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex align-items-start bg-white rounded shadow-sm p-4 h-100">
+                        <div class="icon-circle bg-secondary-soft me-3 flex-shrink-0"><i class="bi bi-lightbulb-fill fs-2 text-secondary"></i></div>
+                        <div>
+                            <div class="fw-bold mb-1">Thực hành dự án cá nhân</div>
+                            <div class="small text-muted">Tự xây dựng sản phẩm thực tế, bổ sung portfolio cá nhân, nâng cao kỹ năng thực chiến.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex align-items-start bg-white rounded shadow-sm p-4 h-100">
+                        <div class="icon-circle bg-danger-soft me-3 flex-shrink-0"><i class="bi bi-lightning-charge-fill fs-2 text-danger"></i></div>
+                        <div>
+                            <div class="fw-bold mb-1">Học từ nền tảng đến thực chiến</div>
+                            <div class="small text-muted">Lộ trình bài bản, thực hành liên tục, phù hợp mọi đối tượng đã biết JS cơ bản.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Chứng nhận & Cơ hội nghề nghiệp -->
+    <section class="section section-white py-5" id="certificate-career">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fw-bold">Chứng nhận & Cơ hội nghề nghiệp</h2>
+                <p class="section-subtitle">Những lợi ích và cơ hội bạn sẽ nhận được sau khi hoàn thành khóa học Node.js & Express</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-primary-soft mb-3 mx-auto"><i class="bi bi-patch-check-fill fs-2 text-primary"></i></div>
+                            <h5 class="fw-bold mb-2">Cấp chứng nhận hoàn thành</h5>
+                            <p class="mb-0 text-muted small">Nhận chứng nhận uy tín, bổ sung CV, tăng cơ hội nghề nghiệp Backend Developer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-success-soft mb-3 mx-auto"><i class="bi bi-briefcase-fill fs-2 text-success"></i></div>
+                            <h5 class="fw-bold mb-2">Sẵn sàng ứng tuyển Backend Developer</h5>
+                            <p class="mb-0 text-muted small">Nắm vững nền tảng, tự tin tham gia phỏng vấn, làm dự án thực tế với Node.js & Express.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <div class="icon-circle bg-info-soft mb-3 mx-auto"><i class="bi bi-people-fill fs-2 text-info"></i></div>
+                            <h5 class="fw-bold mb-2">Cộng đồng học tập năng động</h5>
+                            <p class="mb-0 text-muted small">Tham gia group hỗ trợ, giao lưu, chia sẻ kinh nghiệm thực tế về Backend.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Form đăng ký khóa học -->
+    <section class="section section-light py-5" id="dang-ky"></section>
+    <!-- FAQ - Câu hỏi thường gặp -->
+    <section class="section section-white py-5" id="faq">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title fw-bold">Câu hỏi thường gặp</h2>
+                <p class="section-subtitle">Những thắc mắc phổ biến về khóa học Node.js & Express</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq1-heading">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    Ai nên tham gia khóa học này?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Khóa học phù hợp cho người đã có kiến thức JavaScript cơ bản, sinh viên CNTT, lập trình viên muốn phát triển Backend, người chuyển ngành sang Backend Developer.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq2-heading">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    Có cần biết lập trình trước không?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nên có kiến thức JavaScript nền tảng. Nếu bạn chưa biết, hãy học khóa JavaScript Nâng cao trước khi tham gia.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq3-heading">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Học xong có thể làm được gì?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bạn có thể xây dựng API, backend cho ứng dụng thực tế, hiểu sâu về Node.js & Express, tự tin ứng tuyển Backend Developer hoặc học tiếp các công nghệ nâng cao.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq4-heading">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Có tài liệu thực hành và dự án không?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Khóa học cung cấp nhiều bài tập thực hành, dự án cuối khóa thực tế, tài liệu cập nhật liên tục và group hỗ trợ học viên.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq5-heading">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                    Mentor hỗ trợ như thế nào?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-heading" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Mentor hỗ trợ 1-1 qua group, giải đáp thắc mắc, review code, hướng dẫn thực hành và định hướng lộ trình học tiếp theo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <!-- Main Footer Content -->
+        <div class="row g-4 mb-5">
+            <!-- School Logo and Info -->
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand mb-4">
+                    <a href="../../index.html" class="d-inline-block mb-4">
+                        <img src="../../images/logo/logo.png" alt="HUB Logo" class="img-fluid">
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-4 col-md-6">
+                <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Thông tin liên hệ</h4>
+                <ul class="list-unstyled contact-info">
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-geo-alt-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Trụ sở chính:</strong>
+                            <p class="mb-0">36 Tôn Thất Đạm, Quận 1, Thành phố Hồ Chí Minh</p>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-buildings-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Cơ sở Hàm Nghi:</strong>
+                            <p class="mb-0">39 Hàm Nghi, Quận 1, Thành phố Hồ Chí Minh</p>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-buildings-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Cơ sở Thủ Đức:</strong>
+                            <p class="mb-0">56 Hoàng Diệu II, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-envelope-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Email:</strong>
+                            <p class="mb-0"><a href="mailto:dhnhtphcm@hub.edu.vn"
+                                    class="text-decoration-none text-white">dhnhtphcm@hub.edu.vn</a></p>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-telephone-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Hotline Tuyển sinh:</strong>
+                            <p class="mb-0"><a href="tel:0888353488" class="text-decoration-none text-white">0888 353
+                                    488</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-4 col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Dành cho người học</h4>
+                        <ul class="list-unstyled footer-links">
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Cổng thông tin đào tạo</a></li>
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Trang đăng ký tín chỉ</a></li>
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>E-Student</a></li>
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Học trực tuyến HUB-LMS</a></li>
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Thư viện</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-between align-items-center">
+            <p class="footer-about mb-4 text-center">
+                Trường Đại học Ngân hàng TP.HCM là cơ sở giáo dục đại học công lập <br> trực thuộc Ngân hàng Nhà
+                nước Việt Nam, thành lập năm 1976.
+            </p>
+            <div class="footer-social d-flex gap-2">
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-twitter"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright py-4 text-center border-top border-secondary">
+            <p class="mb-0">&copy; 2023 Đại Học Ngân Hàng TP. Hồ Chí Minh. Giấy phép ICP số: 41/GP-TTĐT. All Rights
+                Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/components/header.js"></script>
+    <script src="../../js/components/animations.js"></script>
+</body>
+
+</html>
