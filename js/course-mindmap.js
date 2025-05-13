@@ -16,32 +16,32 @@ const actualCourseData = [
     },
     {
         id: 'course1_1', parentId: 'course1', text: "HTML & CSS<br>Nền tảng",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau/html-css-nen-tang",
+        href: "dao-tao/lap-trinh-web-chuyen-sau/html-css-nen-tang.html",
         iconClass: 'bi bi-filetype-html', description: "Xây dựng cấu trúc và giao diện website từ cơ bản đến responsive."
     },
     {
         id: 'course1_2', parentId: 'course1', text: "JavaScript<br>Nâng cao",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau/javascript-nang-cao",
+        href: "dao-tao/lap-trinh-web-chuyen-sau/javascript-nang-cao.html",
         iconClass: 'bi bi-filetype-jsx', description: "ES6+, DOM, API, và các khái niệm JavaScript hiện đại."
     },
     {
         id: 'course1_2_1', parentId: 'course1_2', text: "Làm việc với API<br> (Fetch, Axios)",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau/javascript-nang-cao/api-integration",
+        href: "dao-tao/lap-trinh-web-chuyen-sau/javascript-nang-cao/api-integration.html",
         iconClass: 'bi bi-cloud-download-fill', description: "Tích hợp dữ liệu từ các nguồn bên ngoài vào ứng dụng web."
     },
     {
         id: 'course1_3', parentId: 'course1', text: "ReactJS &<br>Hệ sinh thái",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau/reactjs-ecosystem",
+        href: "dao-tao/lap-trinh-web-chuyen-sau/reactjs-ecosystem.html",
         iconClass: 'bi bi-react', description: "Xây dựng UI với React, Redux, Router và các thư viện phổ biến."
     },
     {
         id: 'course1_3_1', parentId: 'course1_3', text: "Quản lý State<br>với Redux/Context",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau/reactjs-ecosystem/state-management",
+        href: "dao-tao/lap-trinh-web-chuyen-sau/reactjs-ecosystem/state-management",
         iconClass: 'bi bi-diagram-3-fill', description: "Các kỹ thuật quản lý trạng thái ứng dụng React phức tạp."
     },
     {
         id: 'course1_4', parentId: 'course1', text: "Node.js & Express<br>Backend cơ bản",
-        href: "/khoa-hoc/lap-trinh-web-chuyen-sau/nodejs-express",
+        href: "dao-tao/lap-trinh-web-chuyen-sau/nodejs-express.html",
         iconClass: 'bi bi-hdd-network-fill', description: "Xây dựng API và backend cho ứng dụng web với Node.js."
     },
     // --- Phân tích Dữ liệu ---
@@ -51,27 +51,27 @@ const actualCourseData = [
     },
     {
         id: 'course2_1', parentId: 'course2', text: "Nhập môn<br>Khoa học Dữ liệu",
-        href: "/khoa-hoc/khoa-hoc-du-lieu-ung-dung/nhap-mon",
+        href: "dao-tao/khoa-hoc-du-lieu-ung-dung/nhap-mon.html",
         iconClass: 'bi bi-calculator', description: "Tổng quan về quy trình, công cụ và ứng dụng của khoa học dữ liệu."
     },
     {
         id: 'course2_2', parentId: 'course2', text: "Python cho<br>Xử lý Dữ liệu",
-        href: "/khoa-hoc/khoa-hoc-du-lieu-ung-dung/python-xu-ly-du-lieu",
+        href: "dao-tao/khoa-hoc-du-lieu-ung-dung/python-xu-ly-du-lieu.html",
         iconClass: 'bi bi-filetype-py', description: "Sử dụng Pandas, NumPy để làm sạch, biến đổi và phân tích dữ liệu."
     },
     {
         id: 'course2_2_1', parentId: 'course2_2', text: "Kỹ thuật<br>Làm sạch Dữ liệu",
-        href: "/khoa-hoc/khoa-hoc-du-lieu-ung-dung/python-xu-ly-du-lieu/lam-sach-du-lieu",
+        href: "dao-tao/khoa-hoc-du-lieu-ung-dung/python-xu-ly-du-lieu/lam-sach-du-lieu.html",
         iconClass: 'bi bi-funnel', description: "Các phương pháp xử lý dữ liệu thiếu, nhiễu và không nhất quán."
     },
     {
         id: 'course2_3', parentId: 'course2', text: "Trực quan hóa<br>Dữ liệu Nâng cao",
-        href: "/khoa-hoc/khoa-hoc-du-lieu-ung-dung/truc-quan-hoa-nang-cao",
+        href: "dao-tao/khoa-hoc-du-lieu-ung-dung/truc-quan-hoa-nang-cao.html",
         iconClass: 'bi bi-graph-up-arrow', description: "Sử dụng Matplotlib, Seaborn, Power BI để tạo biểu đồ và dashboard hiệu quả."
     },
     {
         id: 'course2_4', parentId: 'course2', text: "Machine Learning<br>Cơ bản",
-        href: "/khoa-hoc/khoa-hoc-du-lieu-ung-dung/machine-learning-co-ban",
+        href: "dao-tao/khoa-hoc-du-lieu-ung-dung/machine-learning-co-ban.html",
         iconClass: 'bi bi-cpu-fill', description: "Giới thiệu về các thuật toán học máy và ứng dụng thực tế."
     },
     // --- Thiết kế UI/UX ---
@@ -81,22 +81,22 @@ const actualCourseData = [
     },
     {
         id: 'course3_1', parentId: 'course3', text: "Nghiên cứu<br>Người dùng (UX Research)",
-        href: "/khoa-hoc/thiet-ke-san-pham-so-ui-ux/ux-research",
+        href: "dao-tao/thiet-ke-san-pham-so-ui-ux/ux-research.html",
         iconClass: 'bi bi-people', description: "Phương pháp thu thập insight và thấu hiểu nhu cầu người dùng."
     },
     {
         id: 'course3_2', parentId: 'course3', text: "Thiết kế UI với Figma<br>Từ A đến Z",
-        href: "/khoa-hoc/thiet-ke-san-pham-so-ui-ux/figma-a-z",
+        href: "dao-tao/thiet-ke-san-pham-so-ui-ux/figma-a-z.html",
         iconClass: 'bi bi-figma', description: "Làm chủ Figma: Design system, components, auto layout, prototyping."
     },
     {
         id: 'course3_2_1', parentId: 'course3_2', text: "Xây dựng<br>Design System",
-        href: "/khoa-hoc/thiet-ke-san-pham-so-ui-ux/figma-a-z/design-system",
+        href: "dao-tao/thiet-ke-san-pham-so-ui-ux/figma-a-z/design-system.html",
         iconClass: 'bi bi-columns-gap', description: "Tạo và quản lý thư viện UI nhất quán cho dự án lớn."
     },
     {
         id: 'course3_3', parentId: 'course3', text: "Interaction Design<br>& Prototyping Nâng cao",
-        href: "/khoa-hoc/thiet-ke-san-pham-so-ui-ux/interaction-prototyping",
+        href: "dao-tao/thiet-ke-san-pham-so-ui-ux/interaction-prototyping.html",
         iconClass: 'bi bi-magic', description: "Tạo mẫu thử tương tác phức tạp và hiệu ứng chuyển động mượt mà."
     },
     // --- Tài chính Ngân hàng Số ---
@@ -106,22 +106,22 @@ const actualCourseData = [
     },
     {
         id: 'course4_1', parentId: 'course4', text: "Tổng quan<br>Thị trường Fintech",
-        href: "/khoa-hoc/cong-nghe-tai-chinh-fintech/tong-quan-fintech",
+        href: "dao-tao/cong-nghe-tai-chinh-fintech/tong-quan-fintech.html",
         iconClass: 'bi bi-bank', description: "Các mô hình kinh doanh, sản phẩm và xu hướng chủ đạo trong Fintech."
     },
     {
         id: 'course4_2', parentId: 'course4', text: "Blockchain<br>Ứng dụng Tài chính",
-        href: "/khoa-hoc/cong-nghe-tai-chinh-fintech/blockchain-ung-dung",
+        href: "dao-tao/cong-nghe-tai-chinh-fintech/blockchain-ung-dung.html",
         iconClass: 'bi bi-link-45deg', description: "Hợp đồng thông minh, DeFi, và các ứng dụng thực tiễn của Blockchain."
     },
     {
         id: 'course4_2_1', parentId: 'course4_2', text: "Phát triển<br>Hợp đồng thông minh",
-        href: "/khoa-hoc/cong-nghe-tai-chinh-fintech/blockchain-ung-dung/smart-contract",
+        href: "dao-tao/cong-nghe-tai-chinh-fintech/blockchain-ung-dung/smart-contract.html",
         iconClass: 'bi bi-file-earmark-code', description: "Giới thiệu về Solidity và phát triển DApps cơ bản."
     },
     {
         id: 'course4_3', parentId: 'course4', text: "Thanh toán số<br>và Ngân hàng mở",
-        href: "/khoa-hoc/cong-nghe-tai-chinh-fintech/thanh-toan-so-open-banking",
+        href: "dao-tao/cong-nghe-tai-chinh-fintech/thanh-toan-so-open-banking",
         iconClass: 'bi bi-credit-card-2-back-fill', description: "Các giải pháp thanh toán hiện đại và xu thế Open Banking."
     },
     // --- Digital Marketing (NEW CATEGORY) ---
@@ -131,22 +131,22 @@ const actualCourseData = [
     },
     {
         id: 'course5_1', parentId: 'course5', text: "SEO & Content<br>Marketing Hiệu quả",
-        href: "/khoa-hoc/digital-marketing-tong-luc/seo-content-marketing",
+        href: "dao-tao/digital-marketing-tong-luc/seo-content-marketing.html",
         iconClass: 'bi bi-search-heart', description: "Tối ưu hóa công cụ tìm kiếm và xây dựng nội dung thu hút khách hàng."
     },
     {
         id: 'course5_1_1', parentId: 'course5_1', text: "Nghiên cứu<br>Từ khóa Chuyên sâu",
-        href: "/khoa-hoc/digital-marketing-tong-luc/seo-content-marketing/keyword-research",
+        href: "dao-tao/digital-marketing-tong-luc/seo-content-marketing/keyword-research.html",
         iconClass: 'bi bi-key-fill', description: "Công cụ và kỹ thuật để tìm kiếm và lựa chọn từ khóa chiến lược."
     },
     {
         id: 'course5_2', parentId: 'course5', text: "Quảng cáo trực tuyến<br>(Google Ads, Facebook Ads)",
-        href: "/khoa-hoc/digital-marketing-tong-luc/quang-cao-truc-tuyen",
+        href: "dao-tao/digital-marketing-tong-luc/quang-cao-truc-tuyen.html",
         iconClass: 'bi bi-badge-ad-fill', description: "Thiết lập và tối ưu hóa chiến dịch quảng cáo trên các nền tảng phổ biến."
     },
     {
         id: 'course5_3', parentId: 'course5', text: "Social Media<br>Marketing & Branding",
-        href: "/khoa-hoc/digital-marketing-tong-luc/social-media-marketing",
+        href: "dao-tao/digital-marketing-tong-luc/social-media-marketing.html",
         iconClass: 'bi bi-share-fill', description: "Xây dựng thương hiệu và tương tác với cộng đồng trên mạng xã hội."
     }
 ];
