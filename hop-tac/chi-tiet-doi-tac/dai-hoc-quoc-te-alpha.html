@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="vi-VN" style="height: 100%;">
+
+<head id="Head">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Đại học Quốc tế Alpha - Đối tác Quốc tế - Trung tâm đào tạo năng lực số</title>
+    <meta id="MetaDescription" name="description"
+        content="Thông tin chi tiết về Đại học Quốc tế Alpha, đối tác quốc tế của Trung tâm đào tạo năng lực số trong các chương trình trao đổi và hợp tác nghiên cứu.">
+    <meta id="MetaKeywords" name="keywords"
+        content="Đại học Quốc tế Alpha, đối tác quốc tế, hợp tác giáo dục, trung tâm đào tạo năng lực số, United States">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components/variables.css">
+    <link rel="stylesheet" href="../../css/components/doi-tac.css"> <!-- CSS chung cho đối tác -->
+    <link rel="stylesheet" href="../../css/pages/partner-detail.css"> <!-- CSS riêng cho trang chi tiết đối tác (sẽ tạo nếu cần) -->
+
+</head>
+
+<body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- HEADER SECTION (Copy từ trang hop-tac/hop-tac-quoc-te.html và chỉnh sửa đường dẫn tương đối) -->
+    <header class="header">
+        <!-- Topbar -->
+        <div class="topbar py-2">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <!-- Topbar Contact Info -->
+                    <div class="col-auto d-none d-md-block">
+                        <div class="d-flex flex-column gap-0">
+                            <span class="site-title-sub">Viện phát triển kinh tế số Việt Nam</span>
+                            <span class="site-title">Trung tâm đào tạo năng lực số</span>
+                        </div>
+                    </div>
+                    <!-- Topbar Social Icons -->
+                    <div class="col-auto">
+                        <ul class="list-inline mb-0 d-flex align-items-center">
+                            <li class="list-inline-item">
+                                <button type="button"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="YouTube">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-0">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-light py-0">
+                    <div class="container-fluid px-0 d-flex justify-content-between">
+                        <!-- Logo & Title -->
+                        <a class="navbar-brand me-auto d-flex align-items-center" href="../../index.html">
+                            <div class="header-logo">
+                                <img src="../../images/logo/logo.png" alt="HUB Logo">
+                            </div>
+                        </a>
+
+                        <!-- Desktop Navigation (LG and up) -->
+                        <div class="d-flex align-items-center">
+                            <ul class="navbar-nav d-none d-lg-flex flex-row mx-auto align-items-center">
+                                <li class="nav-item"><a class="nav-link" href="../../index.html"><i
+                                            class="bi bi-house-door-fill me-2"></i>Trang chủ</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasGioiThieu" aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu"><i
+                                            class="bi bi-info-circle-fill me-2"></i>Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasDaoTao" aria-controls="offcanvasDaoTao"
+                                        data-content-source="contentForOffcanvasDaoTao"><i
+                                            class="bi bi-easel-fill me-2"></i>Đào tạo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasNghienCuu" aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu"><i
+                                            class="bi bi-search-heart-fill me-2"></i>Nghiên cứu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasHopTac" aria-controls="offcanvasHopTac"
+                                        data-content-source="contentForOffcanvasHopTac"><i
+                                            class="bi bi-people-fill me-2"></i>Hợp tác</a>
+                                </li>
+                            </ul>
+
+                            <!-- User Actions Area (Desktop and Mobile Toggler) -->
+                            <div class="ms-auto d-flex align-items-center">
+                                <button class="navbar-toggler d-lg-none shadow-none border-0" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Fullscreen Menu -->
+                        <div class="collapse navbar-collapse" id="navbarContent">
+                            <button type="button" class="btn-close-menu" data-bs-toggle="collapse"
+                                data-bs-target="#navbarContent" aria-label="Đóng menu">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../../index.html">
+                                        <i class="bi bi-house-door-fill menu-icon"></i> Trang chủ
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownGioiThieuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasGioiThieu"
+                                        aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu">
+                                        <i class="bi bi-info-circle-fill menu-icon"></i> Giới thiệu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownGioiThieuMobile"
+                                        id="contentForOffcanvasGioiThieu">
+                                        <li><a class="dropdown-item" href="../../gioi-thieu/tong-quan.html"><i
+                                                    class="bi bi-info-square menu-icon-sub"></i>Tổng quan về HUB</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="../../gioi-thieu/su-menh-tam-nhin.html"><i
+                                                    class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
+                                        <li><a class="dropdown-item" href="../../gioi-thieu/co-cau-to-chuc.html"><i
+                                                    class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownDaoTaoMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasDaoTao"
+                                        aria-controls="offcanvasDaoTao" data-content-source="contentForOffcanvasDaoTao">
+                                        <i class="bi bi-easel-fill menu-icon"></i> Đào tạo
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownDaoTaoMobile"
+                                        id="contentForOffcanvasDaoTao">
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Lĩnh vực đào tạo</h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-braces menu-icon-sub"></i> Lập trình Web Chuyên sâu
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="../../dao-tao/lap-trinh-web-chuyen-sau/html-css-nen-tang.html"><i class="bi bi-filetype-html me-1"></i> HTML & CSS Nền tảng</a></li>
+                                                <li><a class="dropdown-item small" href="../../dao-tao/lap-trinh-web-chuyen-sau/javascript-nang-cao.html"><i class="bi bi-filetype-jsx me-1"></i> JavaScript Nâng cao</a></li>
+                                                <li><a class="dropdown-item small" href="../../dao-tao/lap-trinh-web-chuyen-sau/reactjs-ecosystem.html"><i class="bi bi-react me-1"></i> ReactJS & Hệ sinh thái</a></li>
+                                                <li><a class="dropdown-item small" href="../../dao-tao/lap-trinh-web-chuyen-sau/nodejs-express.html"><i class="bi bi-hdd-network-fill me-1"></i> Node.js & Express</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Tài nguyên học tập</h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="../../tai-nguyen/thu-vien.html">
+                                                <i class="bi bi-book-half menu-icon-sub"></i> Thư viện
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="../../tai-nguyen/e-learning.html">
+                                                <i class="bi bi-laptop menu-icon-sub"></i> E-learning
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownNghienCuuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasNghienCuu"
+                                        aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu">
+                                        <i class="bi bi-search-heart-fill menu-icon"></i> Nghiên cứu
+                                    </a>
+                                     <ul class="d-none" aria-labelledby="navbarDropdownNghienCuuMobile" id="contentForOffcanvasNghienCuu">
+                                        <li><a class="dropdown-item" href="../../nghien-cuu/cong-bo-khoa-hoc.html"><i class="bi bi-journal-text menu-icon-sub"></i>Công bố khoa học</a></li>
+                                        <li><a class="dropdown-item" href="../../nghien-cuu/du-an-nghien-cuu.html"><i class="bi bi-kanban menu-icon-sub"></i>Dự án nghiên cứu</a></li>
+                                        <li><a class="dropdown-item" href="../../nghien-cuu/seminar-workshop.html"><i class="bi bi-megaphone menu-icon-sub"></i>Seminar & Workshop</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" id="navbarDropdownHopTacMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasHopTac"
+                                        aria-controls="offcanvasHopTac"
+                                        data-content-source="contentForOffcanvasHopTac">
+                                        <i class="bi bi-people-fill menu-icon"></i> Hợp tác
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownHopTacMobile" id="contentForOffcanvasHopTac">
+                                        <li><a class="dropdown-item" href="../doi-tac-chien-luoc.html"><i class="bi bi-building-check menu-icon-sub"></i>Đối tác chiến lược</a></li>
+                                        <li><a class="dropdown-item" href="../hop-tac-doanh-nghiep.html"><i class="bi bi-briefcase menu-icon-sub"></i>Hợp tác doanh nghiệp</a></li>
+                                        <li><a class="dropdown-item active" href="../hop-tac-quoc-te.html"><i class="bi bi-globe-americas menu-icon-sub"></i>Hợp tác quốc tế</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER SECTION -->
+
+    <!-- Offcanvas Elements -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasGioiThieu"
+        aria-labelledby="offcanvasGioiThieuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasGioiThieuLabel">Giới thiệu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS from ../../js/components/header.js -->
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDaoTao" aria-labelledby="offcanvasDaoTaoLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDaoTaoLabel">Đào tạo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNghienCuu"
+        aria-labelledby="offcanvasNghienCuuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNghienCuuLabel">Nghiên cứu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasHopTac" aria-labelledby="offcanvasHopTacLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasHopTacLabel">Hợp tác</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+    <!-- END Offcanvas Elements -->
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Tìm kiếm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="GET" class="search-modal-form">
+                        <div class="input-group has-clear-button">
+                            <input type="text" id="searchInputModal" class="form-control"
+                                placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
+                            <button type="button" class="btn btn-sm btn-clear-search d-none"
+                                aria-label="Clear search input">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <button class="btn btn-primary btn-search-submit" type="submit"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HEADER SECTION -->
+
+    <main>
+        <!-- Hero Section -->
+        <section class="partner-hero-section text-center text-lg-start" style="background-image: url('../../images/backgrounds/hero-bg-2.jpg');">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 text-center">
+                        <img src="../../images/logo/placeholder-university-logo-light.png" alt="Logo Đại học Quốc tế Alpha" class="partner-hero-logo img-fluid">
+                    </div>
+                    <div class="col-lg-9">
+                        <h1 class="display-4 fw-bold mb-2">Đại học Quốc tế Alpha</h1>
+                        <p class="lead mb-1"><i class="bi bi-geo-alt-fill me-2"></i>United States</p>
+                        <p class="fst-italic">"Kết nối tri thức, kiến tạo tương lai toàn cầu."</p>
+                        <a href="https://example.edu/alpha-university" target="_blank" class="btn btn-light btn-lg mt-2">Truy cập Website <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb Section -->
+        <section class="breadcrumb-section py-3">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="../hop-tac.html">Hợp tác</a></li> <!-- Cần tạo trang hop-tac.html hoặc link về mục hợp tác đầu tiên -->
+                        <li class="breadcrumb-item"><a href="../hop-tac-quoc-te.html">Hợp tác Quốc tế</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Đại học Quốc tế Alpha</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Partner Detail Section -->
+        <section class="section section-light partner-detail-section" id="partner-detail" data-aos="fade-up">
+            <div class="container">
+                <div class="row gy-5">
+                    <!-- Left Column: Partner Info -->
+                    <div class="col-lg-8">
+                        <div class="partner-content">
+                            <h3 class="mb-3"><i class="bi bi-building me-2"></i>Giới thiệu về Đối tác</h3>
+                            <p>Đại học Quốc tế Alpha (Alpha International University - AIU), thành lập năm 1965, là một cơ sở giáo dục đại học tư thục hàng đầu tọa lạc tại thành phố Boston, Massachusetts, Hoa Kỳ. Với hơn 50 năm lịch sử, AIU tự hào về một cộng đồng đa dạng với hơn 15.000 sinh viên đến từ 120 quốc gia và đội ngũ giảng viên uy tín quốc tế.</p>
+                            <p>Sứ mệnh của AIU là cung cấp một môi trường giáo dục đổi mới, thúc đẩy tư duy phản biện và chuẩn bị cho sinh viên trở thành những nhà lãnh đạo toàn cầu trong các lĩnh vực khác nhau. Trường nổi bật với các chương trình đào tạo về Kinh doanh Quốc tế, Khoa học Máy tính, Kỹ thuật, và Nghệ thuật Sáng tạo. AIU liên tục được xếp hạng trong Top 100 các trường đại học tốt nhất Hoa Kỳ theo U.S. News & World Report.</p>
+                            
+                            <h3 class="mt-4 mb-3"><i class="bi bi-diagram-3-fill me-2"></i>Lĩnh vực Hợp tác chính với Trung tâm</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card cooperation-field-card h-100">
+                                        <div class="icon-circle bg-primary-soft">
+                                            <i class="bi bi-people-fill text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-semibold mb-1">Trao đổi Sinh viên & Giảng viên</h5>
+                                            <p class="small text-muted mb-0">Các chương trình trao đổi học thuật cho sinh viên và giảng viên giữa hai cơ sở, tập trung vào ngành Công nghệ Thông tin và Quản trị Kinh doanh.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card cooperation-field-card h-100">
+                                        <div class="icon-circle bg-success-soft">
+                                            <i class="bi bi-lightbulb-fill text-success"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-semibold mb-1">Hợp tác Nghiên cứu Khoa học</h5>
+                                            <p class="small text-muted mb-0">Thực hiện các dự án nghiên cứu chung trong lĩnh vực Trí tuệ Nhân tạo ứng dụng và Khoa học Dữ liệu, hướng tới các công bố quốc tế.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card cooperation-field-card h-100">
+                                        <div class="icon-circle bg-info-soft">
+                                            <i class="bi bi-calendar2-event-fill text-info"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-semibold mb-1">Đồng tổ chức Hội thảo/Workshop</h5>
+                                            <p class="small text-muted mb-0">Phối hợp tổ chức các sự kiện khoa học quốc tế thường niên, tạo diễn đàn trao đổi cho các nhà nghiên cứu và chuyên gia.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card cooperation-field-card h-100">
+                                        <div class="icon-circle bg-warning-soft">
+                                            <i class="bi bi-award-fill text-warning"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-semibold mb-1">Phát triển Chương trình Liên kết</h5>
+                                            <p class="small text-muted mb-0">Nghiên cứu và phát triển các chương trình đào tạo cử nhân và thạc sĩ liên kết cấp bằng kép hoặc tín chỉ chuyển tiếp.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="mt-4 mb-3"><i class="bi bi-stars me-2"></i>Chương trình & Dự án Nổi bật</h3>
+                            <div class="accordion" id="projectsAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="projectOneHeading">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectOneCollapse" aria-expanded="true" aria-controls="projectOneCollapse">
+                                            <i class="bi bi-airplane-fill me-2"></i>Chương trình Trao đổi Sinh viên Toàn cầu (Global Exchange Program - GEP)
+                                        </button>
+                                    </h2>
+                                    <div id="projectOneCollapse" class="accordion-collapse collapse show" aria-labelledby="projectOneHeading" data-bs-parent="#projectsAccordion">
+                                        <div class="accordion-body">
+                                            <p>Chương trình GEP cho phép sinh viên của Trung tâm và AIU có cơ hội học tập một học kỳ hoặc một năm tại trường đối tác. Sinh viên được trải nghiệm môi trường học thuật quốc tế, nâng cao trình độ ngoại ngữ và kỹ năng mềm. </p>
+                                            <p><strong>Đối tượng:</strong> Sinh viên năm thứ 2 và 3. <br>
+                                            <strong>Thời gian:</strong> 1-2 học kỳ. <br>
+                                            <strong>Học bổng:</strong> Cơ hội nhận học bổng hỗ trợ từ cả hai phía.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="projectTwoHeading">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectTwoCollapse" aria-expanded="false" aria-controls="projectTwoCollapse">
+                                            <i class="bi bi-cpu-fill me-2"></i>Dự án Nghiên cứu AI và Tương lai Việc làm
+                                        </button>
+                                    </h2>
+                                    <div id="projectTwoCollapse" class="accordion-collapse collapse" aria-labelledby="projectTwoHeading" data-bs-parent="#projectsAccordion">
+                                        <div class="accordion-body">
+                                            Dự án hợp tác nghiên cứu giữa các nhà khoa học của Trung tâm và Khoa Khoa học Máy tính AIU, tập trung vào việc phân tích tác động của Trí tuệ Nhân tạo đến thị trường lao động và đề xuất các giải pháp đào tạo nhân lực thích ứng. Kết quả dự kiến sẽ được công bố trên các tạp chí khoa học uy tín và hội thảo quốc tế.
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="accordion-item">
+                                    <h2 class="accordion-header" id="projectThreeHeading">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectThreeCollapse" aria-expanded="false" aria-controls="projectThreeCollapse">
+                                            <i class="bi bi-mortarboard-fill me-2"></i>Chương trình Liên kết Cử nhân Kỹ thuật Phần mềm
+                                        </button>
+                                    </h2>
+                                    <div id="projectThreeCollapse" class="accordion-collapse collapse" aria-labelledby="projectThreeHeading" data-bs-parent="#projectsAccordion">
+                                        <div class="accordion-body">
+                                           Chương trình đào tạo liên kết 2+2, sinh viên học 2 năm đầu tại Trung tâm và 2 năm cuối tại AIU để nhận bằng Cử nhân Kỹ thuật Phần mềm do AIU cấp. Chương trình được thiết kế để cung cấp kiến thức và kỹ năng theo chuẩn quốc tế.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="mt-4 mb-3"><i class="bi bi-camera-fill me-2"></i>Thư viện Hình ảnh Hợp tác</h3>
+                            <div class="row g-3">
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="../../images/gallery/partner-alpha-1.jpg" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image-src="../../images/gallery/partner-alpha-1.jpg" data-bs-image-alt="Ký kết hợp tác giữa hai đơn vị">
+                                        <img src="../../images/gallery/partner-alpha-1.jpg" alt="Ký kết hợp tác" class="img-fluid rounded shadow-sm partner-gallery-img">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                     <a href="../../images/gallery/partner-alpha-2.jpg" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image-src="../../images/gallery/partner-alpha-2.jpg" data-bs-image-alt="Sinh viên trao đổi tại Đại học Alpha">
+                                        <img src="../../images/gallery/partner-alpha-2.jpg" alt="Sinh viên trao đổi" class="img-fluid rounded shadow-sm partner-gallery-img">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="../../images/gallery/partner-alpha-3.jpg" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image-src="../../images/gallery/partner-alpha-3.jpg" data-bs-image-alt="Hội thảo khoa học chung">
+                                        <img src="../../images/gallery/partner-alpha-3.jpg" alt="Hội thảo khoa học" class="img-fluid rounded shadow-sm partner-gallery-img">
+                                    </a>
+                                </div>
+                                <!-- Thêm ảnh nếu cần -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Quick Info / Related Links -->
+                    <div class="col-lg-4">
+                        <div class="sticky-sidebar">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="bi bi-info-circle-fill"></i>Thông tin nhanh</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong><i class="bi bi-type me-2"></i>Tên đầy đủ:</strong> Alpha International University (AIU)</li>
+                                    <li class="list-group-item"><strong><i class="bi bi-calendar-check-fill me-2"></i>Năm thành lập:</strong> 1965</li>
+                                    <li class="list-group-item"><strong><i class="bi bi-geo-alt-fill me-2"></i>Địa chỉ:</strong> 123 University Ave, Boston, MA 02115, United States</li>
+                                    <li class="list-group-item"><strong><i class="bi bi-globe2 me-2"></i>Website:</strong> <a href="https://example.edu/alpha-university" target="_blank">example.edu/alpha-university</a></li>
+                                    <li class="list-group-item"><strong><i class="bi bi-envelope-fill me-2"></i>Liên hệ:</strong> <a href="mailto:international@alphauni.example.edu">international@alphauni.example.edu</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card shadow-sm mt-4">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0"><i class="bi bi-link-45deg me-2"></i>Liên kết hữu ích</h5>
+                                </div>
+                                <div class="list-group list-group-flush">
+                                    <a href="../hop-tac-quoc-te.html" class="list-group-item list-group-item-action"><i class="bi bi-arrow-left-circle-fill me-2"></i>Quay lại danh sách Đối tác Quốc tế</a>
+                                    <a href="../../lien-he.html?type=quoc-te" class="list-group-item list-group-item-action"><i class="bi bi-envelope-fill me-2"></i>Liên hệ về Hợp tác Quốc tế</a>
+                                    <!-- Thêm các link liên quan khác nếu có -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END Partner Detail Section -->
+
+    </main>
+
+    <!-- FOOTER SECTION (Copy từ trang hop-tac/hop-tac-quoc-te.html và chỉnh sửa đường dẫn tương đối) -->
+    <footer class="footer pt-5">
+        <!-- Main Footer Content -->
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <!-- School Logo and Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand mb-4">
+                        <a href="../../index.html" class="d-inline-block mb-4">
+                            <img src="../../images/logo/logo.png" alt="HUB Logo" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Thông tin liên hệ</h4>
+                    <ul class="list-unstyled contact-info">
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-geo-alt-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Trụ sở chính:</strong>
+                                <p class="mb-0">36 Tôn Thất Đạm, Quận 1, Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-buildings-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Cơ sở Hàm Nghi:</strong>
+                                <p class="mb-0">39 Hàm Nghi, Quận 1, Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-buildings-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Cơ sở Thủ Đức:</strong>
+                                <p class="mb-0">56 Hoàng Diệu II, Quận Thủ Đức, Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-envelope-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Email:</strong>
+                                <p class="mb-0"><a href="mailto:dhnhtphcm@hub.edu.vn"
+                                        class="text-decoration-none text-white">dhnhtphcm@hub.edu.vn</a></p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-telephone-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Hotline Tuyển sinh:</strong>
+                                <p class="mb-0"><a href="tel:0888353488" class="text-decoration-none text-white">0888 353
+                                        488</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Dành cho người học</h4>
+                            <ul class="list-unstyled footer-links">
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>Cổng thông tin đào tạo</a></li>
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>Trang đăng ký tín chỉ</a></li>
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>E-Student</a></li>
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>Học trực tuyến HUB-LMS</a></li>
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>Thư viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-center">
+                <p class="footer-about mb-4 text-center">
+                    Trường Đại học Ngân hàng TP.HCM là cơ sở giáo dục đại học công lập <br> trực thuộc Ngân hàng Nhà
+                    nước Việt Nam, thành lập năm 1976.
+                </p>
+                <div class="footer-social d-flex gap-2">
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="copyright py-4 text-center border-top border-secondary">
+                 <div class="container">
+                    <p class="mb-0">&copy; 2023 Đại Học Ngân Hàng TP. Hồ Chí Minh. Giấy phép ICP số: 41/GP-TTĐT. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/components/header.js"></script> <!-- Đảm bảo đường dẫn đúng -->
+    <script src="../../js/components/animations.js"></script>
+
+    <script>
+        // Khởi tạo tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+
+        // Image Modal (Lightbox)
+        var imageModal = document.getElementById('imageModal');
+        if (imageModal) {
+            imageModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget; // Button that triggered the modal
+                var imageSrc = button.getAttribute('data-bs-image-src');
+                var imageAlt = button.getAttribute('data-bs-image-alt');
+                
+                var modalImage = imageModal.querySelector('.modal-body img');
+                var modalTitle = imageModal.querySelector('.modal-title');
+
+                modalImage.src = imageSrc;
+                modalImage.alt = imageAlt;
+                modalTitle.textContent = imageAlt;
+            });
+        }
+    </script>
+
+    <!-- Image Modal HTML -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Xem hình ảnh</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" class="img-fluid rounded" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html> 
