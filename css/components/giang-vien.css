@@ -1,0 +1,124 @@
+/* Hiệu ứng pulse cho badge chức vụ */
+.badge-pulse {
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(13,110,253,0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(13,110,253,0); }
+    100% { box-shadow: 0 0 0 0 rgba(13,110,253,0); }
+}
+/* Hiệu ứng hover cho avatar */
+.avatar-hover:hover {
+    box-shadow: 0 0 0 6px #0d6efd33, 0 4px 24px rgba(0,0,0,0.12);
+    transform: scale(1.04);
+    transition: all 0.3s;
+}
+/* Hiệu ứng hover cho card */
+.card-hover:hover {
+    box-shadow: 0 8px 32px rgba(13,110,253,0.12), 0 1.5px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s;
+}
+/* Hiệu ứng hover cho nút */
+.btn-hover:hover, .btn-hover:focus {
+    box-shadow: 0 2px 12px #0d6efd33;
+    transform: translateY(-2px) scale(1.04);
+    transition: all 0.2s;
+}
+/* Timeline thành tích */
+.timeline {
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -1.7rem;
+    top: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border: 3px solid #0d6efd;
+    border-radius: 50%;
+    z-index: 1;
+}
+/* Icon pulse */
+.icon-pulse {
+    animation: iconPulse 1.2s infinite alternate;
+}
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.13); }
+}
+/* Card gradient cho khóa học */
+.course-card-gradient {
+    background: linear-gradient(135deg, #f8fafc 80%, #e7f1ff 100%);
+}
+/* Nút gradient hover */
+.btn-gradient-hover {
+    transition: background 0.3s, color 0.3s;
+}
+.btn-gradient-hover:hover, .btn-gradient-hover:focus {
+    background: linear-gradient(90deg, #0d6efd 0%, #20c997 100%) !important;
+    color: #fff !important;
+    border: none;
+}
+/* Ripple effect cho nút */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+.ripple:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    background: rgba(13,110,253,0.15);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.ripple:active:after {
+    opacity: 1;
+    transition: 0s;
+}
+/* Animate.css fallback (nếu chưa có) */
+.animate__animated { animation-duration: 1s; animation-fill-mode: both; }
+.animate__fadeInUp { animation-name: fadeInUp; }
+@keyframes fadeInUp { from { opacity: 0; transform: translate3d(0,40px,0); } to { opacity: 1; transform: none; } }
+.animate__pulse { animation-name: pulse; animation-duration: 1.2s; animation-iteration-count: infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
+/* QR code responsive */
+@media (max-width: 576px) {
+    .card.shadow-lg.p-4.p-md-5 { padding: 1.2rem !important; }
+    .timeline { margin-left: 0.7rem; padding-left: 0.7rem; }
+    img[alt="QR liên hệ"] { max-width: 60px !important; }
+}
+/* Course icon hiệu ứng phóng to khi hover card */
+.course-icon {
+    transition: transform 0.25s;
+}
+.card-hover:hover .course-icon {
+    transform: scale(1.18) rotate(-6deg);
+}
+/* Card bo góc lớn */
+.card.rounded-4 {
+    border-radius: 1.5rem !important;
+}
+/* Card group căn đều chiều cao */
+.card.flex-fill {
+    display: flex;
+    flex-direction: column;
+}
+.card-body {
+    flex: 1 1 auto;
+}
+@media (max-width: 767.98px) {
+    .card.rounded-4 { border-radius: 1rem !important; }
+} 

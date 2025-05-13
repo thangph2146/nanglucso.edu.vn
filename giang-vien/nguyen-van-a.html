@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi-VN" style="height: 100%;">
+
+<head id="Head">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Sứ mệnh và Tầm nhìn - Trung tâm đào tạo năng lực số</title>
+    <meta id="MetaDescription" name="description"
+        content="Tìm hiểu về sứ mệnh và tầm nhìn của Trung tâm đào tạo năng lực số - Viện phát triển kinh tế số Việt Nam, định hướng phát triển và những giá trị cốt lõi.">
+    <meta id="MetaKeywords" name="keywords"
+        content="sứ mệnh, tầm nhìn, trung tâm đào tạo năng lực số, viện phát triển kinh tế số việt nam, định hướng, giá trị cốt lõi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/variables.css">
+    <link rel="stylesheet" href="../css/components/giang-vien.css">
+</head>
+
+<body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <!-- Topbar -->
+        <div class="topbar py-2">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <!-- Topbar Contact Info -->
+                    <div class="col-auto d-none d-md-block">
+                        <div class="d-flex flex-column gap-0">
+                            <span class="site-title-sub">Viện phát triển kinh tế số Việt Nam</span>
+                            <span class="site-title">Trung tâm đào tạo năng lực số</span>
+                        </div>
+                    </div>
+                    <!-- Topbar Social Icons -->
+                    <div class="col-auto">
+                        <ul class="list-inline mb-0 d-flex align-items-center">
+                            <li class="list-inline-item">
+                                <button type="button"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="YouTube">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-0">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-light py-0">
+                    <div class="container-fluid px-0 d-flex justify-content-between">
+                        <!-- Logo & Title -->
+                        <a class="navbar-brand me-auto d-flex align-items-center" href="../index.html">
+                            <div class="header-logo">
+                                <img src="../images/logo/logo.png" alt="Trung tâm đào tạo năng lực số Logo">
+
+                            </div>
+                        </a>
+
+                        <!-- Desktop Navigation (LG and up) -->
+                        <div class="d-flex align-items-center">
+                            <ul class="navbar-nav d-none d-lg-flex flex-row mx-auto align-items-center">
+                                <li class="nav-item"><a class="nav-link" href="../index.html"><i
+                                            class="bi bi-house-door-fill me-2"></i>Trang chủ</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasGioiThieu" aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu"><i
+                                            class="bi bi-info-circle-fill me-2"></i>Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasDaoTao" aria-controls="offcanvasDaoTao"
+                                        data-content-source="contentForOffcanvasDaoTao"><i
+                                            class="bi bi-easel-fill me-2"></i>Đào tạo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasNghienCuu" aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu"><i
+                                            class="bi bi-search-heart-fill me-2"></i>Nghiên cứu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasHopTac" aria-controls="offcanvasHopTac"
+                                        data-content-source="contentForOffcanvasHopTac"><i
+                                            class="bi bi-people-fill me-2"></i>Hợp tác</a>
+                                </li>
+                            </ul>
+
+                            <!-- User Actions Area (Desktop and Mobile Toggler) -->
+                            <div class="ms-auto d-flex align-items-center">
+                                <button class="navbar-toggler d-lg-none shadow-none border-0" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Fullscreen Menu -->
+                        <div class="collapse navbar-collapse" id="navbarContent">
+                            <button type="button" class="btn-close-menu" data-bs-toggle="collapse"
+                                data-bs-target="#navbarContent" aria-label="Đóng menu">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../index.html">
+                                        <i class="bi bi-house-door-fill menu-icon"></i> Trang chủ
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" id="navbarDropdownGioiThieuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasGioiThieu"
+                                        aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu">
+                                        <i class="bi bi-info-circle-fill menu-icon"></i> Giới thiệu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownGioiThieuMobile"
+                                        id="contentForOffcanvasGioiThieu">
+                                        <li><a class="dropdown-item" href="tong-quan.html"><i
+                                                    class="bi bi-info-square menu-icon-sub"></i>Tổng quan</a>
+                                        </li>
+                                        <li><a class="dropdown-item active" href="su-menh-tam-nhin.html"><i
+                                                    class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
+                                        <li><a class="dropdown-item" href="co-cau-to-chuc.html"><i
+                                                    class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
+                                         
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownDaoTaoMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasDaoTao"
+                                        aria-controls="offcanvasDaoTao" data-content-source="contentForOffcanvasDaoTao">
+                                        <i class="bi bi-easel-fill menu-icon"></i> Đào tạo
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownDaoTaoMobile"
+                                        id="contentForOffcanvasDaoTao">
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Lĩnh vực đào tạo</h6>
+                                        </li>
+                                        <!-- Lập trình Web Chuyên sâu -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-braces menu-icon-sub"></i> Lập trình Web Chuyên sâu
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="../dao-tao/lap-trinh-web-chuyen-sau/html-css-nen-tang.html"><i class="bi bi-filetype-html me-1"></i> HTML & CSS Nền tảng</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/lap-trinh-web-chuyen-sau/javascript-nang-cao.html"><i class="bi bi-filetype-jsx me-1"></i> JavaScript Nâng cao</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/lap-trinh-web-chuyen-sau/reactjs-ecosystem.html"><i class="bi bi-react me-1"></i> ReactJS & Hệ sinh thái</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/lap-trinh-web-chuyen-sau/nodejs-express.html"><i class="bi bi-hdd-network-fill me-1"></i> Node.js & Express</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Khoa học Dữ liệu Ứng dụng -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-clipboard-data-fill menu-icon-sub"></i> Khoa học Dữ liệu Ứng dụng
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="../dao-tao/khoa-hoc-du-lieu-ung-dung/nhap-mon.html"><i class="bi bi-calculator me-1"></i> Nhập môn Khoa học Dữ liệu</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/khoa-hoc-du-lieu-ung-dung/python-xu-ly-du-lieu.html"><i class="bi bi-filetype-py me-1"></i> Python cho Xử lý Dữ liệu</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/khoa-hoc-du-lieu-ung-dung/truc-quan-hoa-nang-cao.html"><i class="bi bi-graph-up-arrow me-1"></i> Trực quan hóa Dữ liệu Nâng cao</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/khoa-hoc-du-lieu-ung-dung/machine-learning-co-ban.html"><i class="bi bi-cpu-fill me-1"></i> Machine Learning Cơ bản</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Thiết kế Sản phẩm Số (UI/UX) -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-gem menu-icon-sub"></i> Thiết kế Sản phẩm Số (UI/UX)
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="../dao-tao/thiet-ke-san-pham-so-ui-ux/ux-research.html"><i class="bi bi-people me-1"></i> UX Research</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/thiet-ke-san-pham-so-ui-ux/figma-a-z.html"><i class="bi bi-figma me-1"></i> Thiết kế UI với Figma</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/thiet-ke-san-pham-so-ui-ux/interaction-prototyping.html"><i class="bi bi-magic me-1"></i> Interaction Design & Prototyping</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Công nghệ Tài chính (Fintech) Toàn diện -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-cash-coin menu-icon-sub"></i> Công nghệ Tài chính (Fintech)
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="../dao-tao/cong-nghe-tai-chinh-fintech/tong-quan-fintech.html"><i class="bi bi-bank me-1"></i> Tổng quan Thị trường Fintech</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/cong-nghe-tai-chinh-fintech/blockchain-ung-dung.html"><i class="bi bi-link-45deg me-1"></i> Blockchain Ứng dụng Tài chính</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/cong-nghe-tai-chinh-fintech/thanh-toan-so-open-banking.html"><i class="bi bi-credit-card-2-back-fill me-1"></i> Thanh toán số & Ngân hàng mở</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Digital Marketing Tổng lực -->
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-megaphone-fill menu-icon-sub"></i> Digital Marketing Tổng lực
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="../dao-tao/digital-marketing-tong-luc/seo-content-marketing.html"><i class="bi bi-search-heart me-1"></i> SEO & Content Marketing</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/digital-marketing-tong-luc/quang-cao-truc-tuyen.html"><i class="bi bi-badge-ad-fill me-1"></i> Quảng cáo trực tuyến</a></li>
+                                                <li><a class="dropdown-item small" href="../dao-tao/digital-marketing-tong-luc/social-media-marketing.html"><i class="bi bi-share-fill me-1"></i> Social Media Marketing</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Tài nguyên học tập</h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="../tai-nguyen/thu-vien.html">
+                                                <i class="bi bi-book-half menu-icon-sub"></i> Thư viện
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="../tai-nguyen/e-learning.html">
+                                                <i class="bi bi-laptop menu-icon-sub"></i> E-learning
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownNghienCuuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasNghienCuu"
+                                        aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu">
+                                        <i class="bi bi-search-heart-fill menu-icon"></i> Nghiên cứu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownNghienCuuMobile"
+                                        id="contentForOffcanvasNghienCuu">
+                                        <li><a class="dropdown-item" href="../nghien-cuu/de-tai.html"><i
+                                                    class="bi bi-search-heart menu-icon-sub"></i>Dự án & Nghiên cứu</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="../nghien-cuu/cong-bo.html"><i
+                                                    class="bi bi-journal-richtext menu-icon-sub"></i>Ấn phẩm & Công bố</a></li>
+                                        <li><a class="dropdown-item" href="../nghien-cuu/hoi-thao.html"><i
+                                                    class="bi bi-mic menu-icon-sub"></i>Hội thảo & Sự kiện</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownHopTacMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasHopTac"
+                                        aria-controls="offcanvasHopTac" data-content-source="contentForOffcanvasHopTac">
+                                        <i class="bi bi-people-fill menu-icon"></i> Hợp tác
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownHopTacMobile"
+                                        id="contentForOffcanvasHopTac">
+                                        <li><a class="dropdown-item" href="../hop-tac/doi-tac-chien-luoc.html"><i
+                                                    class="bi bi-shield-check menu-icon-sub"></i>Đối tác chiến lược</a></li>
+                                        <li><a class="dropdown-item" href="../hop-tac/doanh-nghiep.html"><i
+                                                    class="bi bi-building-check menu-icon-sub"></i>Hợp tác doanh
+                                                nghiệp</a></li>
+                                        <li><a class="dropdown-item" href="../hop-tac/chuyen-gia.html"><i
+                                                    class="bi bi-person-video2 menu-icon-sub"></i>Mạng lưới chuyên gia</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <!-- Mobile Search Form (hidden on LG and up) -->
+                            <form class="mobile-search-form my-3 d-lg-none" action="#" method="GET">
+                                <div class="input-group">
+                                    <input type="search" class="form-control" placeholder="Tìm kiếm trong trang..."
+                                        aria-label="Tìm kiếm trong trang">
+                                    <button class="btn btn-secondary" type="submit" id="mobile-search-submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas Elements for Desktop Submenus -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasGioiThieu"
+        aria-labelledby="offcanvasGioiThieuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasGioiThieuLabel">Giới thiệu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDaoTao" aria-labelledby="offcanvasDaoTaoLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDaoTaoLabel">Đào tạo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNghienCuu"
+        aria-labelledby="offcanvasNghienCuuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNghienCuuLabel">Nghiên cứu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasHopTac" aria-labelledby="offcanvasHopTacLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasHopTacLabel">Hợp tác</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+    <!-- END Offcanvas Elements -->
+    
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Tìm kiếm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="GET" class="search-modal-form">
+                        <div class="input-group has-clear-button">
+                            <input type="text" id="searchInputModal" class="form-control"
+                                placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
+                            <button type="button" class="btn btn-sm btn-clear-search d-none"
+                                aria-label="Clear search input">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <button class="btn btn-primary btn-search-submit" type="submit"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HEADER SECTION -->
+
+    <main>
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 card-hover" style="background: linear-gradient(135deg, #f8fafc 80%, #e7f1ff 100%);">
+                            <div class="row g-4 align-items-start">
+                                <div class="col-md-4 text-center">
+                                    <div class="mx-auto mb-3 position-relative avatar-hover" style="width: 140px; height: 140px;">
+                                        <div class="bg-white rounded-circle border border-3 border-primary shadow d-flex align-items-center justify-content-center" style="width: 140px; height: 140px;">
+                                            <i class="bi bi-person-bounding-box display-3 text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="badge bg-primary fs-6 badge-pulse"><i class="bi bi-award-fill me-1"></i> Giám đốc Trung tâm</span>
+                                    </div>
+                                    <ul class="list-inline mt-3">
+                                        <li class="list-inline-item">
+                                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle btn-hover" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="mailto:nguyenvana@hub.edu.vn" class="btn btn-outline-secondary btn-sm rounded-circle btn-hover" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-8">
+                                    <h1 class="fw-bold mb-1">PGS. TS. Nguyễn Văn A</h1>
+                                    <blockquote class="blockquote border-start border-4 border-primary ps-3 mb-3">
+                                        <p class="mb-1"><i class="bi bi-quote text-primary fs-3 me-2"></i>Giáo dục là chìa khóa mở ra tương lai số cho mọi thế hệ trẻ Việt Nam.</p>
+                                        <footer class="blockquote-footer mt-1">Triết lý giảng dạy</footer>
+                                    </blockquote>
+                                    <p class="text-muted mb-3">Với hơn 20 năm kinh nghiệm trong lĩnh vực giáo dục và quản lý, PGS. TS. Nguyễn Văn A luôn tâm huyết với sự nghiệp đào tạo, phát triển nguồn nhân lực số chất lượng cao cho Việt Nam.</p>
+                                    <div class="row g-4 mb-3">
+                                        <!-- Chuyên môn: Card border màu riêng, icon pulse, tooltip -->
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold mb-3 text-primary"><i class="bi bi-mortarboard-fill fs-4 me-2"></i>Chuyên môn</h6>
+                                            <div class="row g-3">
+                                                <div class="col-12 col-md-4">
+                                                    <div class="card border-primary border-2 shadow-sm text-center card-hover animate__animated animate__fadeInUp h-100">
+                                                        <div class="mb-2">
+                                                            <i class="bi bi-people-fill text-primary fs-1 icon-pulse" data-bs-toggle="tooltip" data-bs-placement="top" title="Kinh nghiệm xây dựng, quản lý chương trình đào tạo hiện đại."></i>
+                                                        </div>
+                                                        <div class="fw-bold">Quản lý giáo dục</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="card border-success border-2 shadow-sm text-center card-hover animate__animated animate__fadeInUp h-100">
+                                                        <div class="mb-2">
+                                                            <i class="bi bi-cpu-fill text-success fs-1 icon-pulse" data-bs-toggle="tooltip" data-bs-placement="top" title="Ứng dụng công nghệ số vào giảng dạy, quản lý học tập."></i>
+                                                        </div>
+                                                        <div class="fw-bold">Chuyển đổi số trong đào tạo</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="card border-info border-2 shadow-sm text-center card-hover animate__animated animate__fadeInUp h-100">
+                                                        <div class="mb-2">
+                                                            <i class="bi bi-lightbulb-fill text-info fs-1 icon-pulse" data-bs-toggle="tooltip" data-bs-placement="top" title="Đào tạo kỹ năng số, phát triển nhân lực cho doanh nghiệp."></i>
+                                                        </div>
+                                                        <div class="fw-bold">Phát triển nguồn nhân lực số</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Liên hệ: Card border gradient, nút ripple, QR code -->
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold mb-3 text-success"><i class="bi bi-person-lines-fill fs-4 me-2"></i>Liên hệ</h6>
+                                            <div class="card border-0 shadow-sm card-hover" style="border: 2px solid; border-image: linear-gradient(135deg, #0d6efd, #20c997) 1;">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <span class="me-2"><i class="bi bi-envelope-fill text-secondary fs-4"></i></span>
+                                                        <a href="mailto:nguyenvana@hub.edu.vn" class="text-decoration-none fw-bold" aria-label="Email">nguyenvana@hub.edu.vn</a>
+                                                    </div>
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <span class="me-2"><i class="bi bi-linkedin text-primary fs-4"></i></span>
+                                                        <a href="#" class="text-decoration-none fw-bold" aria-label="LinkedIn">linkedin.com/in/nguyenvana</a>
+                                                    </div>
+                                                    <div class="row g-2 mt-2 align-items-center">
+                                                        <div class="col-6 col-md-4">
+                                                            <a href="#" class="btn btn-outline-primary btn-hover w-100 rounded-pill d-flex align-items-center justify-content-center ripple" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn" aria-label="LinkedIn">
+                                                                <i class="bi bi-linkedin fs-5"></i> <span class="ms-2 d-none d-md-inline">LinkedIn</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-6 col-md-4">
+                                                            <a href="mailto:nguyenvana@hub.edu.vn" class="btn btn-outline-secondary btn-hover w-100 rounded-pill d-flex align-items-center justify-content-center ripple" data-bs-toggle="tooltip" data-bs-placement="top" title="Gửi email" aria-label="Email">
+                                                                <i class="bi bi-envelope-fill fs-5"></i> <span class="ms-2 d-none d-md-inline">Email</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-12 col-md-4 text-center mt-2 mt-md-0">
+                                                            <img src="../images/qr-placeholder.png" alt="QR liên hệ" class="img-fluid rounded shadow-sm" style="max-width: 80px;" data-bs-toggle="tooltip" data-bs-placement="top" title="Quét để liên hệ nhanh">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Các khóa học phụ trách: Card group đẹp, border màu riêng, icon lớn, badge, mô tả ngắn, nút full width -->
+                                    <div class="mb-4">
+                                        <h6 class="fw-bold mb-3 text-info"><i class="bi bi-journal-code fs-4 me-2"></i>Các khóa học phụ trách</h6>
+                                        <div class="d-flex flex-column gap-3">
+                                            <!-- HTML & CSS Nền tảng -->
+                                            <div class="col d-flex">
+                                                <div class="card flex-fill border-2 border-primary shadow-sm rounded-4 card-hover h-100 d-flex flex-column">
+                                                    <div class="card-body d-flex flex-column align-items-center text-center">
+                                                        <div class="course-icon mb-2"><i class="bi bi-filetype-html text-primary fs-1"></i></div>
+                                                        <div class="fw-bold fs-5 mb-1">HTML & CSS Nền tảng</div>
+                                                        <span class="badge bg-primary mb-2">Cơ bản</span>
+                                                        <div class="small text-muted mb-3 flex-grow-1">Nắm vững nền tảng HTML5, CSS3, thiết kế giao diện web hiện đại, responsive, chuẩn SEO.</div>
+                                                        <a href="../dao-tao/lap-trinh-web-chuyen-sau/html-css-nen-tang.html" class="btn btn-primary btn-gradient-hover w-100 mt-auto" aria-label="Xem chi tiết HTML & CSS Nền tảng">Xem chi tiết</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- JavaScript Nâng cao -->
+                                            <div class="col d-flex">
+                                                <div class="card flex-fill border-2 border-warning shadow-sm rounded-4 card-hover h-100 d-flex flex-column">
+                                                    <div class="card-body d-flex flex-column align-items-center text-center">
+                                                        <div class="course-icon mb-2"><i class="bi bi-filetype-jsx text-warning fs-1"></i></div>
+                                                        <div class="fw-bold fs-5 mb-1">JavaScript Nâng cao</div>
+                                                        <span class="badge bg-warning text-dark mb-2">Nâng cao</span>
+                                                        <div class="small text-muted mb-3 flex-grow-1">Làm chủ JavaScript ES6+, thao tác DOM, xử lý sự kiện, xây dựng ứng dụng web động.</div>
+                                                        <a href="../dao-tao/lap-trinh-web-chuyen-sau/javascript-nang-cao.html" class="btn btn-warning btn-gradient-hover w-100 mt-auto text-dark" aria-label="Xem chi tiết JavaScript Nâng cao">Xem chi tiết</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ReactJS & Hệ sinh thái -->
+                                            <div class="col d-flex">
+                                                <div class="card flex-fill border-2 border-info shadow-sm rounded-4 card-hover h-100 d-flex flex-column">
+                                                    <div class="card-body d-flex flex-column align-items-center text-center">
+                                                        <div class="course-icon mb-2"><i class="bi bi-react text-info fs-1"></i></div>
+                                                        <div class="fw-bold fs-5 mb-1">ReactJS & Hệ sinh thái</div>
+                                                        <span class="badge bg-info text-dark mb-2">Chuyên sâu</span>
+                                                        <div class="small text-muted mb-3 flex-grow-1">Xây dựng ứng dụng SPA với ReactJS, quản lý state, kết nối API, tối ưu hiệu suất.</div>
+                                                        <a href="../dao-tao/lap-trinh-web-chuyen-sau/reactjs-ecosystem.html" class="btn btn-info btn-gradient-hover w-100 mt-auto text-dark" aria-label="Xem chi tiết ReactJS & Hệ sinh thái">Xem chi tiết</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Thành tích nổi bật: Timeline, icon star rung, border vàng cho thành tích đặc biệt, tooltip -->
+                                    <div class="mb-4">
+                                        <h6 class="fw-bold mb-3 text-warning"><i class="bi bi-trophy-fill fs-4 me-2"></i>Thành tích nổi bật</h6>
+                                        <div class="timeline">
+                                            <div class="timeline-item mb-2 d-flex align-items-center border border-3 border-warning rounded-3 p-2 animate__animated animate__pulse" data-bs-toggle="tooltip" data-bs-placement="top" title="Thành tích đặc biệt">
+                                                <span class="badge bg-primary fs-6 me-3"><i class="bi bi-star-fill text-warning me-1 icon-pulse"></i>2023</span>
+                                                <span>Được vinh danh <span class="fw-bold text-primary">"Nhà giáo tiêu biểu chuyển đổi số"</span> toàn quốc.</span>
+                                            </div>
+                                            <div class="timeline-item mb-2 d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Đề tài cấp Bộ">
+                                                <span class="badge bg-success fs-6 me-3">2019</span>
+                                                <span>Chủ nhiệm đề tài cấp Bộ về phát triển nguồn nhân lực số.</span>
+                                            </div>
+                                            <div class="timeline-item mb-2 d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Giải thưởng sáng tạo">
+                                                <span class="badge bg-info text-dark fs-6 me-3">2015</span>
+                                                <span>Giải thưởng <span class="fw-bold">Sáng tạo giáo dục Việt Nam</span>.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="../index.html#management-team" class="btn btn-outline-primary mt-2 btn-hover" aria-label="Quay lại danh sách giảng viên"><i class="bi bi-arrow-left me-1"></i>Quay lại danh sách giảng viên</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+   
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <!-- Main Footer Content -->
+        <div class="row g-4 mb-5">
+            <!-- School Logo and Info -->
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand mb-4">
+                    <a href="../index.html" class="d-inline-block mb-4">
+                        <img src="../images/logo/logo.png" alt="Trung tâm đào tạo năng lực số Logo" class="img-fluid">
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="col-lg-4 col-md-6">
+                <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Thông tin liên hệ</h4>
+                <ul class="list-unstyled contact-info">
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-geo-alt-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Trụ sở Viện:</strong>
+                            <p class="mb-0">[Địa chỉ Viện phát triển kinh tế số Việt Nam]</p>
+                        </div>
+                    </li>
+                     <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-buildings-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Văn phòng Trung tâm:</strong>
+                            <p class="mb-0">[Địa chỉ Trung tâm đào tạo năng lực số]</p>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-envelope-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Email:</strong>
+                            <p class="mb-0"><a href="mailto:info@nanglucso.edu.vn"
+                                    class="text-decoration-none text-white">info@nanglucso.edu.vn</a></p>
+                        </div>
+                    </li>
+                    <li class="d-flex mb-3">
+                        <div class="flex-shrink-0 me-3 text-warning">
+                            <i class="bi bi-telephone-fill fs-5"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <strong>Hotline Tư vấn:</strong>
+                            <p class="mb-0"><a href="tel:0123456789" class="text-decoration-none text-white">[Số điện thoại]</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-4 col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Khám phá</h4>
+                        <ul class="list-unstyled footer-links">
+                            <li class="mb-2"><a href="../tat-ca-khoa-hoc.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Các khóa học</a></li>
+                            <li class="mb-2"><a href="../cau-hoi-thuong-gap.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Câu hỏi thường gặp</a></li>
+                            <li class="mb-2"><a href="../blog.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Tin tức & Blog</a></li>
+                            <li class="mb-2"><a href="../lien-he.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Về chúng tôi</h4>
+                        <ul class="list-unstyled footer-links">
+                             <li class="mb-2"><a href="tong-quan.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Tổng quan</a></li>
+                            <li class="mb-2"><a href="su-menh-tam-nhin.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Sứ mệnh & Tầm nhìn</a></li>
+                            <li class="mb-2"><a href="doi-ngu-chuyen-gia.html"
+                                    class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                        class="bi bi-chevron-right me-2"></i>Đội ngũ chuyên gia</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-between align-items-center">
+            <p class="footer-about mb-4 text-center">
+                <strong>Trung tâm đào tạo năng lực số</strong><br> trực thuộc Viện phát triển kinh tế số Việt Nam.
+            </p>
+            <div class="footer-social d-flex gap-2">
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright py-4 text-center border-top border-secondary">
+            <p class="mb-0">&copy; 2024 Trung tâm đào tạo năng lực số - Viện phát triển kinh tế số Việt Nam. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/animations.js"></script>
+    <script>
+        // Kích hoạt tooltip Bootstrap 5
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+
+</html> 
