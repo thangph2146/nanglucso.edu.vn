@@ -115,6 +115,7 @@ body {
     color: var(--text-light);            /* Kept: Theme icon color */
     background-color: rgba(255,255,255,0.15); /* Kept: Theme background */
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Added for hover */
+    position: relative; /* Thêm để định vị badge */
 }
 
 .social-icon-custom:hover {
@@ -908,4 +909,67 @@ a.offcanvas-submenu-link.offcanvas-view-all-link:hover {
 li.offcanvas-item-animate-in::marker {
   display: none;
   content: '';
+}
+
+/* Cart Icon Styles */
+#cart-icon-wrapper {
+    position: relative;
+}
+
+.cart-icon {
+    /* Styles for the cart icon itself, if different from social-icon-custom */
+    /* For example, slightly larger or different color */
+}
+
+.cart-icon-container {
+    position: relative;
+    display: inline-flex; /* Giúp badge căn chỉnh tốt hơn với icon */
+}
+
+.cart-count-badge {
+    position: absolute;
+    top: -8px; /* Điều chỉnh vị trí theo chiều dọc */
+    right: -10px; /* Điều chỉnh vị trí theo chiều ngang */
+    background-color: var(--bs-danger); /* Sử dụng màu đỏ cho nổi bật */
+    color: white;
+    font-size: 0.7rem; /* Giảm kích thước font một chút */
+    font-weight: bold;
+    padding: 0.2em 0.5em; /* Tăng padding ngang, giảm padding dọc */
+    border-radius: 50%; /* Làm cho badge tròn hoàn hảo */
+    min-width: 20px; /* Đảm bảo badge có chiều rộng tối thiểu */
+    height: 20px; /* Đảm bảo badge có chiều cao tối thiểu */
+    display: flex; /* Sử dụng flex để căn giữa số */
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Đảm bảo số không bị lệch */
+    border: 2px solid white; /* Thêm viền trắng để tách biệt với icon */
+    box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Thêm bóng nhẹ */
+    transition: transform 0.2s ease-out, background-color 0.2s ease;
+}
+
+.cart-count-badge.d-none {
+    display: none !important;
+}
+
+/* Animation khi thêm sản phẩm */
+@keyframes popEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart-badge-animate-pop {
+    animation: popEffect 0.3s ease-out;
+}
+
+
+/* Optional: Adjust icon size if needed */
+.topbar .bi-cart-fill {
+    font-size: 1.2rem; /* Có thể tăng kích thước icon giỏ hàng nếu muốn */
 }

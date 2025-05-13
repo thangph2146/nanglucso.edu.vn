@@ -80,11 +80,23 @@
                                     <i class="bi bi-instagram"></i>
                                 </a>
                             </li>
-                            <li class="list-inline-item me-0">
+                            <li class="list-inline-item">
                                 <a href="#"
                                     class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
                                     aria-label="LinkedIn">
                                     <i class="bi bi-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-0" id="cart-icon-wrapper">
+                                <a href="#"
+                                    class="social-icon-custom cart-icon btn btn-sm rounded-circle d-flex align-items-center justify-content-center position-relative"
+                                    aria-label="Giỏ hàng">
+                                    <i class="bi bi-cart-fill"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count-badge">
+                                        0
+                                        <span class="visually-hidden">khóa học trong giỏ</span>
+                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -395,7 +407,7 @@
                 <div class="col-lg-7 mb-4 mb-lg-0">
                     <h1 class="display-5 fw-bold text-primary mb-3">HTML & CSS Nền tảng</h1>
                     <p class="lead mb-4">Khóa học giúp bạn xây dựng nền tảng vững chắc về HTML5 & CSS3, làm chủ kỹ năng thiết kế giao diện web hiện đại, chuẩn SEO, responsive và thân thiện với người dùng. Phù hợp cho người mới bắt đầu hoặc muốn củng cố kiến thức nền tảng.</p>
-                    <a href="#dang-ky" class="btn btn-primary btn-lg me-2"><i class="bi bi-person-plus"></i> Đăng ký ngay</a>
+                    <button type="button" id="addToCartBtn" class="btn btn-primary btn-lg me-2"><i class="bi bi-cart-plus-fill"></i> Thêm vào giỏ</button>
                     <a href="#faq" class="btn btn-outline-secondary btn-lg"><i class="bi bi-question-circle"></i> Tư vấn khóa học</a>
                 </div>
                 <div class="col-lg-5 text-center">
@@ -975,6 +987,38 @@
     <script src="../../js/main.js"></script>
     <script src="../../js/components/header.js"></script>
     <script src="../../js/components/animations.js"></script>
+    <script src="../../js/cart.js"></script>
+
+    {/* Cart Modal Start */}
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel"><i class="bi bi-cart-check-fill me-2"></i>Giỏ hàng của bạn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body" id="cartModalBody">
+                    <p class="text-center text-muted" id="cartEmptyMessage">Giỏ hàng của bạn đang trống.</p>
+                    <ul class="list-group list-group-flush" id="cartItemsList">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="my-0">Tên khóa học</h6>
+                                <small class="text-muted">Mã: HTMLCSS01</small>
+                            </div>
+                            <button class="btn btn-sm btn-outline-danger remove-from-cart-btn" data-course-id="HTMLCSS01">
+                                <i class="bi bi-trash-fill"></i> Xóa
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tiếp tục mua sắm</button>
+                    <a type="button" class="btn btn-primary" id="checkoutButton" href="../../gio-hang.html">Tiến hành thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/* Cart Modal End */}
 </body>
 
 </html>

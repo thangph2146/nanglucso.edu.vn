@@ -1,0 +1,74 @@
+/* css/shopping-cart-page.css */
+
+.cart-item-thumbnail {
+    width: 80px; 
+    height: 60px; 
+    object-fit: cover;
+    border-radius: 0.25rem; /* Thêm bo góc nhẹ cho ảnh thumbnail */
+}
+
+#cart-page-table-body h6.cart-item-title {
+    font-size: 0.95rem;
+    font-weight: 500; /* Điều chỉnh độ đậm của tiêu đề sản phẩm */
+}
+
+/* Kiểu cho thông báo giỏ hàng trống */
+#cart-page-empty-message {
+    border: 2px dashed var(--bs-gray-300); /* Thêm viền dashed cho nổi bật hơn */
+    padding: 2rem;
+    background-color: var(--bs-light);
+    border-radius: 0.5rem;
+}
+
+#cart-page-empty-message i.bi-cart-x-fill { /* Sử dụng icon fill cho đậm nét hơn */
+    font-size: 4rem;
+    color: var(--bs-gray-500);
+}
+
+#cart-page-empty-message h4 {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    color: var(--bs-dark);
+}
+
+#cart-page-empty-message p.empty-cart-subtext { /* Thêm class để dễ style */
+    font-size: 1rem;
+    color: var(--bs-secondary);
+}
+
+/* Kiểu cho phần tóm tắt đơn hàng */
+#summary-total-price {
+    font-size: 1.25rem; /* Tăng kích thước font cho tổng tiền */
+    font-weight: bold;
+    color: var(--bs-primary);
+}
+
+.cart-summary .list-group-item {
+    border-left: 0;
+    border-right: 0;
+    padding-left:0; /* Căn lề cho list group items */
+    padding-right:0;
+}
+
+.cart-summary .list-group-item:first-child {
+    border-top: 0;
+}
+.cart-summary .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+/* Responsive adjustments for smaller screens if needed */
+@media (max-width: 767.98px) {
+    #cart-page-table-body h6.cart-item-title {
+        font-size: 0.9rem;
+    }
+    .remove-item-page-btn .d-none.d-md-inline {
+        display: none !important; /* Đảm bảo text "Xóa" luôn ẩn trên mobile */
+    }
+    #cart-page-empty-message {
+        padding: 1.5rem;
+    }
+    #cart-page-empty-message i.bi-cart-x-fill {
+        font-size: 3rem;
+    }
+} 
