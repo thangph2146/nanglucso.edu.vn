@@ -1,28 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCart();
-});
+// document.addEventListener('DOMContentLoaded', () => { // Dòng này có thể bị trùng nếu file này được gọi sau DOMContentLoaded ở file khác
+//     initializeCart();
+// });
 
-const COURSE_DETAILS = {
-    id: 'HTMLCSS01',
-    name: 'HTML & CSS Nền tảng'
-};
+// const COURSE_DETAILS = { // Không cần thiết nữa nếu data-attributes là bắt buộc
+//     id: "HC001",
+//     name: "HTML & CSS Nền tảng",
+//     price: 1200000 
+// };
 
 // Sample courses to add if the cart is empty on the very first load
 const SAMPLE_COURSES_FOR_DEMO = [
-    { id: 'DEMOJS001', name: 'JavaScript Cơ Bản (Demo)', quantity: 1 },
-    { id: 'DEMOREACT002', name: 'ReactJS Cho Người Mới (Demo)', quantity: 1 }
+    { id: "JSADV01", name: "JavaScript Nâng cao", price: 1500000, quantity: 1 },
+    { id: "REACT01", name: "ReactJS & Hệ sinh thái", price: 2000000, quantity: 1 },
+    { id: "NODE01", name: "Node.js & Express", price: 1800000, quantity: 1 }
 ];
 
 let cartModalInstance = null; // To store Bootstrap modal instance
 
+function formatCurrency(amount) {
+    if (typeof amount !== 'number') {
+        return amount; // Trả về giá trị gốc nếu không phải là số
+    }
+    return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+}
+
 function initializeCart() {
-    // Check if 'cartItems' key doesn't exist in localStorage at all
     if (localStorage.getItem('cartItems') === null) {
         localStorage.setItem('cartItems', JSON.stringify(SAMPLE_COURSES_FOR_DEMO));
-        // No toast here, as it might be confusing on first load. 
-        // User will see the badge count updated.
     }
-    // Ensure cartItems is an array, even if it was not null but malformed.
     try {
         let items = JSON.parse(localStorage.getItem('cartItems'));
         if (!Array.isArray(items)) {
@@ -36,53 +41,73 @@ function initializeCart() {
     attachAddToCartEvent();
     attachCartIconEvent();
 
-    // Initialize Bootstrap Modal instance
     const cartModalElement = document.getElementById('cartModal');
     if (cartModalElement) {
         cartModalInstance = new bootstrap.Modal(cartModalElement);
+
+        // Xử lý focus khi modal được đóng hoàn toàn
+        cartModalElement.addEventListener('hidden.bs.modal', function () {
+            // Chuyển focus về một phần tử an toàn, ví dụ document.body
+            // Hoặc phần tử đã kích hoạt modal nếu bạn lưu trữ tham chiếu đến nó
+            document.body.focus(); 
+        });
     }
 }
 
 function attachAddToCartEvent() {
     const addToCartButton = document.getElementById('addToCartBtn');
     if (addToCartButton) {
+        const courseId = addToCartButton.dataset.courseId;
+        const courseName = addToCartButton.dataset.courseName;
+        const coursePriceStr = addToCartButton.dataset.coursePrice;
+
+        if (!courseId || !courseName || !coursePriceStr) {
+            console.error('Lỗi: Nút "Thêm vào giỏ" thiếu thông tin data-course-id, data-course-name, hoặc data-course-price.');
+            // Không cho phép thêm vào giỏ nếu thiếu thông tin
+            // Có thể vô hiệu hóa nút ở đây nếu muốn: addToCartButton.disabled = true;
+            return; 
+        }
+        
+        const coursePrice = parseInt(coursePriceStr, 10);
+        if (isNaN(coursePrice)) {
+            console.error('Lỗi: data-course-price không phải là một số hợp lệ.', coursePriceStr);
+            return;
+        }
+
         addToCartButton.addEventListener('click', () => {
-            addToCart(COURSE_DETAILS.name, COURSE_DETAILS.id);
+            addToCart(courseName, courseId, coursePrice);
         });
     }
 }
 
-function addToCart(courseName, courseId) {
+function addToCart(courseName, courseId, coursePrice) {
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    
-    if (!cartItems.some(item => item.id === courseId)) {
-        cartItems.push({ id: courseId, name: courseName, quantity: 1 });
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        showToast(`Đã thêm "${courseName}" vào giỏ hàng!`);
-        
-        const cartCountBadge = document.querySelector('.cart-count-badge');
-        if (cartCountBadge) {
-            // Temporarily make it visible for animation if it was hidden
-            const wasHidden = cartCountBadge.classList.contains('d-none');
-            if (wasHidden) cartCountBadge.classList.remove('d-none');
+    const existingItem = cartItems.find(item => item.id === courseId);
 
-            cartCountBadge.classList.add('cart-badge-animate-pop');
-            setTimeout(() => {
-                cartCountBadge.classList.remove('cart-badge-animate-pop');
-                // If it was hidden and cart is still empty (e.g. adding the only item then removing it quickly - edge case)
-                // updateCartCount will handle the d-none re-application correctly.
-            }, 500); 
-        }
+    if (existingItem) {
+        showToast(`"${courseName}" đã có trong giỏ hàng.`, 'warning');
     } else {
-        showToast(`"${courseName}" đã có trong giỏ hàng.`, 'info');
+        cartItems.push({ id: courseId, name: courseName, price: coursePrice, quantity: 1 });
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCartCount();
+        showToast(`Đã thêm "${courseName}" vào giỏ hàng!`, 'success');
+
+        // Hiệu ứng pop cho badge
+        const badge = document.querySelector('.cart-count-badge');
+        if (badge) {
+            badge.classList.add('cart-badge-animate-pop');
+            setTimeout(() => {
+                badge.classList.remove('cart-badge-animate-pop');
+            }, 300); // Thời gian animation là 0.3s
+        }
     }
-    updateCartCount();
 }
 
 function updateCartCount() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const cartCountBadge = document.querySelector('.cart-count-badge');
     const checkoutButton = document.getElementById('checkoutButton');
+    const proceedToCheckoutBtn = document.getElementById('proceed-to-checkout-btn');
 
     if (cartCountBadge) {
         cartCountBadge.textContent = cartItems.length;
@@ -94,6 +119,9 @@ function updateCartCount() {
     }
     if (checkoutButton) {
         checkoutButton.disabled = cartItems.length === 0;
+    }
+    if (proceedToCheckoutBtn) {
+        proceedToCheckoutBtn.disabled = cartItems.length === 0;
     }
 }
 
@@ -107,43 +135,49 @@ function attachCartIconEvent() {
     }
 }
 
-
 function displayCartModal() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const cartModalBodyList = document.getElementById('cartItemsList');
-    const cartEmptyMessage = document.getElementById('cartEmptyMessage');
+    const cartModalBody = document.getElementById('cartModalBody');
+    const cartModalTotal = document.getElementById('cartModalTotal');
 
-    if (!cartModalBodyList || !cartEmptyMessage) return;
+    if (!cartModalBody) {
+        console.error('Không tìm thấy body của modal giỏ hàng (cartModalBody).');
+        return;
+    }
+    cartModalBody.innerHTML = '';
 
-    cartModalBodyList.innerHTML = ''; // Clear previous items
+    let totalAmount = 0;
 
     if (cartItems.length === 0) {
-        cartEmptyMessage.style.display = 'block';
-        cartModalBodyList.style.display = 'none';
+        cartModalBody.innerHTML = '<p class="text-center text-muted">Giỏ hàng của bạn đang trống.</p>';
+        if(cartModalTotal) cartModalTotal.textContent = formatCurrency(0);
     } else {
-        cartEmptyMessage.style.display = 'none';
-        cartModalBodyList.style.display = 'block';
+        const ul = document.createElement('ul');
+        ul.className = 'list-group list-group-flush';
         cartItems.forEach(item => {
-            const listItem = document.createElement('li');
-            listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-            listItem.innerHTML = `
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `
                 <div>
                     <h6 class="my-0">${item.name}</h6>
-                    <small class="text-muted">Mã: ${item.id}</small>
+                    <small class="text-muted">Mã: ${item.id} - ${formatCurrency(item.price)}</small>
                 </div>
-                <button class="btn btn-sm btn-outline-danger remove-from-cart-btn" data-course-id="${item.id}">
-                    <i class="bi bi-trash-fill"></i> Xóa
+                <button class="btn btn-sm btn-outline-danger remove-from-cart-btn" data-course-id="${item.id}" title="Xóa khỏi giỏ">
+                    <i class="bi bi-trash"></i>
                 </button>
             `;
-            cartModalBodyList.appendChild(listItem);
+            ul.appendChild(li);
+            totalAmount += item.price * (item.quantity || 1);
         });
-        attachRemoveButtonsEvents(); // Attach events to newly created remove buttons
+        cartModalBody.appendChild(ul);
+        if(cartModalTotal) cartModalTotal.textContent = formatCurrency(totalAmount);
     }
 
+    attachRemoveButtonsEvents();
     if (cartModalInstance) {
         cartModalInstance.show();
     }
-    updateCartCount(); // Ensure checkout button state is correct
+    updateCartCount();
 }
 
 function attachRemoveButtonsEvents() {
@@ -161,16 +195,16 @@ function removeFromCart(courseId) {
     const itemIndex = cartItems.findIndex(item => item.id === courseId);
 
     if (itemIndex > -1) {
-        const removedItem = cartItems.splice(itemIndex, 1)[0];
+        const removedItemName = cartItems[itemIndex].name;
+        cartItems.splice(itemIndex, 1);
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        showToast(`Đã xóa "${removedItem.name}" khỏi giỏ hàng.`, 'info');
-    } else {
-        showToast('Không tìm thấy khóa học để xóa.', 'error');
-    }
-    updateCartCount();
-    // Re-render modal content if it's currently visible
-    if (cartModalInstance && document.getElementById('cartModal').classList.contains('show')) {
-        displayCartModal(); 
+        updateCartCount();
+        showToast(`Đã xóa "${removedItemName}" khỏi giỏ hàng.`, 'info');
+
+        // Nếu modal đang mở, render lại nội dung modal
+        if (cartModalInstance && document.getElementById('cartModal').classList.contains('show')) {
+            displayCartModal();
+        }
     }
 }
 
@@ -210,4 +244,11 @@ function showToast(message, type = 'success') {
         toast.style.opacity = '0';
         toast.style.transform = 'translateY(20px)';
     }, 3000);
+}
+
+// Gọi initializeCart một cách an toàn
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeCart);
+} else {
+    initializeCart();
 } 

@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const SAMPLE_COURSE_FOR_CART_PAGE_DEMO = { 
             id: "DEMO001", 
             name: "Khóa học Demo Đặc Biệt Cho Trang Giỏ Hàng",
-            // Bạn có thể thêm các thuộc tính khác ở đây nếu cấu trúc item yêu cầu
-            // ví dụ: price, description, imageUrl (mặc dù ảnh đang được hardcode trong render)
+            price: 990000 // Thêm giá cho khóa học demo
         };
         cartItems.push(SAMPLE_COURSE_FOR_CART_PAGE_DEMO);
         saveCartItems(cartItems); // saveCartItems is from shopping-cart-page.js
@@ -47,13 +46,15 @@ function renderCartPageItems() {
     const cartEmptyMessage = document.getElementById('cart-page-empty-message');
     const cartTableWrapper = document.getElementById('cart-page-table-wrapper');
     const proceedToCheckoutBtn = document.getElementById('proceed-to-checkout-btn');
+    const summaryTotalPriceElement = document.getElementById('summary-total-price'); // Thêm ID này vào HTML
 
-    if (!cartTableBody || !cartPageItemCount || !summaryItemCount || !cartEmptyMessage || !cartTableWrapper || !proceedToCheckoutBtn) {
-        console.error("Một hoặc nhiều phần tử DOM của trang giỏ hàng không tìm thấy.");
+    if (!cartTableBody || !cartPageItemCount || !summaryItemCount || !cartEmptyMessage || !cartTableWrapper || !proceedToCheckoutBtn || !summaryTotalPriceElement) {
+        console.error("Một hoặc nhiều phần tử DOM của trang giỏ hàng không tìm thấy (có thể thiếu summary-total-price).");
         return;
     }
 
     cartTableBody.innerHTML = ''; // Clear existing items
+    let totalAmount = 0;
 
     if (cartItems.length === 0) {
         cartEmptyMessage.classList.remove('d-none');
@@ -61,6 +62,7 @@ function renderCartPageItems() {
         cartPageItemCount.textContent = '0';
         summaryItemCount.textContent = '0';
         proceedToCheckoutBtn.disabled = true;
+        summaryTotalPriceElement.textContent = formatCurrency(0); // Sử dụng hàm formatCurrency
     } else {
         cartEmptyMessage.classList.add('d-none');
         cartTableWrapper.classList.remove('d-none');
@@ -70,6 +72,8 @@ function renderCartPageItems() {
 
         cartItems.forEach(item => {
             const row = cartTableBody.insertRow();
+            const itemPrice = item.price || 0; // Mặc định giá là 0 nếu không có
+            totalAmount += itemPrice * (item.quantity || 1);
             row.innerHTML = `
                 <td>
                     <div class="d-flex align-items-center">
@@ -80,7 +84,8 @@ function renderCartPageItems() {
                         </div>
                     </div>
                 </td>
-                <td class="text-center">1</td>
+                <td class="text-center">${formatCurrency(itemPrice)}</td>
+                <td class="text-center">${item.quantity || 1}</td>
                 <td class="text-end">
                     <button class="btn btn-sm btn-outline-danger remove-item-page-btn" data-course-id="${item.id}" title="Xóa khóa học">
                         <i class="bi bi-trash"></i> <span class="d-none d-md-inline">Xóa</span>
@@ -88,6 +93,7 @@ function renderCartPageItems() {
                 </td>
             `;
         });
+        summaryTotalPriceElement.textContent = formatCurrency(totalAmount); // Hiển thị tổng tiền
     }
     // Also update the header cart count using the global function from cart.js
     if (typeof updateCartCount === 'function') {
