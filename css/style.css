@@ -48,3 +48,9 @@ body {
         margin-bottom: 3rem;
     }
 }
+
+/* Custom styles for #whyLearnAccordion */
+#whyLearnAccordion .accordion-button {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}

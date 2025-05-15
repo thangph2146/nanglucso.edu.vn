@@ -3,11 +3,11 @@
 
 <head id="Head">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <title>Cơ cấu tổ chức - Trung tâm đào tạo năng lực số</title>
+    <title>JavaScript Nâng cao - Trung tâm đào tạo năng lực số</title>
     <meta id="MetaDescription" name="description"
-        content="Tìm hiểu về cơ cấu tổ chức, sơ đồ và các phòng ban của Trung tâm đào tạo năng lực số - Viện phát triển kinh tế số Việt Nam.">
+        content="Khóa học JavaScript Nâng cao giúp bạn làm chủ các khái niệm cốt lõi, kỹ thuật lập trình hiện đại với ESNext, làm việc hiệu quả với DOM, API và sẵn sàng chinh phục các framework JavaScript phổ biến.">
     <meta id="MetaKeywords" name="keywords"
-        content="cơ cấu tổ chức, sơ đồ tổ chức, phòng ban, trung tâm đào tạo năng lực số, viện phát triển kinh tế số việt nam">
+        content="javascript nâng cao, es6, esnext, lập trình javascript, frontend javascript, khóa học javascript, trung tâm đào tạo năng lực số, viện phát triển kinh tế số việt nam">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <!-- Favicon -->
@@ -406,8 +406,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-4 mb-lg-0">
                     <h1 class="display-5 fw-bold text-primary mb-3">JavaScript Nâng cao</h1>
-                    <p class="lead mb-4">Khóa học giúp bạn nâng tầm kỹ năng JavaScript, làm chủ lập trình web hiện đại, thực chiến dự án thực tế, chuẩn nghề nghiệp. Phù hợp cho người đã có kiến thức cơ bản về JS muốn phát triển lên chuyên sâu.</p>
-                    <a href="#dang-ky" class="btn btn-primary btn-lg me-2"><i class="bi bi-person-plus"></i> Đăng ký ngay</a>
+                    <p class="lead mb-4">Khóa học giúp bạn đi sâu vào các tính năng mạnh mẽ của JavaScript hiện đại (ESNext), làm chủ các kỹ thuật lập trình bất đồng bộ, thao tác DOM hiệu quả và các mẫu thiết kế phổ biến, tạo nền tảng vững chắc để chinh phục mọi framework JavaScript.</p>
+                    <button id="addToCartBtn" class="btn btn-primary btn-lg main-cta-button me-2" 
+                            data-course-id="JS001" 
+                            data-course-name="JavaScript Nâng cao"
+                            data-course-price="1500000">
+                        <i class="bi bi-cart-plus-fill me-2"></i>Thêm vào giỏ
+                    </button>
                     <a href="#faq" class="btn btn-outline-secondary btn-lg"><i class="bi bi-question-circle"></i> Tư vấn khóa học</a>
                 </div>
                 <div class="col-lg-5 text-center">
@@ -425,58 +430,172 @@
                 <h2 class="section-title fw-bold">Tại sao nên học JavaScript Nâng cao tại đây?</h2>
                 <p class="section-subtitle">Những lý do thuyết phục để bạn chọn khóa học này</p>
             </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <div class="icon-circle bg-primary-soft mb-3 mx-auto"><i class="bi bi-person-badge-fill fs-2 text-primary"></i></div>
-                            <h5 class="fw-bold mb-2">Giảng viên là chuyên gia thực chiến</h5>
-                            <p class="mb-0 text-muted small">Nhiều năm kinh nghiệm dự án thực tế, mentor tận tâm, hỗ trợ 1-1.</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="whyLearnAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingOne">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseOne" aria-expanded="true" aria-controls="whyLearnCollapseOne">
+                                    <div class="icon-circle bg-primary-soft me-3 flex-shrink-0"><i class="bi bi-person-workspace fs-5 text-primary"></i></div>
+                                    Giảng viên JavaScript chuyên sâu, giàu kinh nghiệm
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseOne" class="accordion-collapse collapse show" aria-labelledby="whyLearnHeadingOne" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="lead fw-normal mb-3">Đội ngũ giảng viên là những <strong class="text-primary">chuyên gia JavaScript hàng đầu</strong>, không chỉ vững vàng về lý thuyết ESNext mà còn dày dạn kinh nghiệm triển khai dự án thực tế với các thư viện và framework hiện đại.</p>
+                                    <h6 class="fw-semibold">Bạn sẽ nhận được:</h6>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-code-slash text-info me-2"></i><strong>Kiến thức chuyên sâu:</strong> Từ async/await, Promises, Modules đến Functional Programming và OOP trong JavaScript.</li>
+                                        <li class="mb-2"><i class="bi bi-life-preserver text-success me-2"></i><strong>Hướng dẫn tận tình:</strong> Giải đáp mọi thắc mắc, review code chi tiết, và chia sẻ "bí kíp" tối ưu hiệu suất.</li>
+                                        <li class="mb-2"><i class="bi bi-compass-fill text-danger me-2"></i><strong>Định hướng thực tiễn:</strong> Tư vấn lộ trình phát triển kỹ năng phù hợp với mục tiêu nghề nghiệp của bạn trong thế giới JavaScript.</li>
+                                    </ul>
+                                    <p class="mt-3 mb-0 text-center fst-italic small p-2 bg-light rounded">"Học từ người giỏi nhất để trở thành người giỏi hơn."</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <div class="icon-circle bg-success-soft mb-3 mx-auto"><i class="bi bi-lightning-charge-fill fs-2 text-success"></i></div>
-                            <h5 class="fw-bold mb-2">Nội dung cập nhật, thực chiến</h5>
-                            <p class="mb-0 text-muted small">Bám sát công nghệ mới, nhiều ví dụ thực tế, dự án cuối khóa.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingTwo">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseTwo" aria-expanded="false" aria-controls="#whyLearnCollapseTwo">
+                                    <div class="icon-circle bg-success-soft me-3 flex-shrink-0"><i class="bi bi-arrow-up-circle-fill fs-5 text-success"></i></div>
+                                    Chương trình học tiên tiến, bám sát ESNext & Frameworks
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseTwo" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingTwo" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3">Thế giới JavaScript thay đổi không ngừng. Chúng tôi cam kết mang đến chương trình <strong class="text-success">luôn được cập nhật</strong> với những tính năng mới nhất của ESNext và xu hướng sử dụng thư viện/framework.</p>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-stars text-warning me-2"></i><strong>Luôn dẫn đầu xu hướng:</strong> Tiếp cận các tính năng JavaScript mới nhất (ES2023+), Web APIs hiện đại.</li>
+                                        <li class="mb-2"><i class="bi bi-box-arrow-in-right text-primary me-2"></i><strong>Nền tảng vững chắc cho Frameworks:</strong> Hiểu sâu JavaScript là chìa khóa để làm chủ React, Vue, Angular.</li>
+                                        <li class="mb-2"><i class="bi bi-tools text-info me-2"></i><strong>Công cụ và quy trình chuyên nghiệp:</strong> Làm quen với Webpack, Babel, ESLint, Prettier và các công cụ phát triển hiện đại.</li>
+                                    </ul>
+                                    <hr class="my-3">
+                                    <p class="text-center fw-bold mb-0 text-success-emphasis">Nắm bắt tương lai của JavaScript, ngay hôm nay!</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <div class="icon-circle bg-info-soft mb-3 mx-auto"><i class="bi bi-code-slash fs-2 text-info"></i></div>
-                            <h5 class="fw-bold mb-2">Học từ nền tảng đến nâng cao</h5>
-                            <p class="mb-0 text-muted small">Kiến thức hệ thống, thực hành liên tục, phù hợp mọi đối tượng đã biết JS cơ bản.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingThree">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseThree" aria-expanded="false" aria-controls="whyLearnCollapseThree">
+                                    <div class="icon-circle bg-info-soft me-3 flex-shrink-0"><i class="bi bi-braces-asterisk fs-5 text-info"></i></div>
+                                    Lộ trình từ nền tảng vững chắc đến kỹ thuật phức tạp
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseThree" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingThree" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3">Dù bạn đã có kiến thức JavaScript cơ bản, khóa học này sẽ giúp bạn <strong class="text-info">hệ thống hóa và đào sâu</strong> vào những khái niệm cốt lõi và các kỹ thuật nâng cao, chuẩn bị cho những dự án phức tạp.</p>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-diagram-3-fill text-secondary me-2"></i><strong>Củng cố nền tảng:</strong> Ôn tập và làm rõ các khái niệm như scope, closure, this, prototypes.</li>
+                                        <li class="mb-2"><i class="bi bi-lightbulb-idea-fill text-success me-2"></i><strong>Làm chủ kỹ thuật nâng cao:</strong> Lập trình bất đồng bộ, Event Loop, Promises, Async/Await, Generators.</li>
+                                        <li class="mb-2"><i class="bi bi-terminal-plus text-danger me-2"></i><strong>Khám phá Design Patterns:</strong> Module, Singleton, Factory, Observer và cách áp dụng trong JavaScript.</li>
+                                    </ul>
+                                    <p class="mt-3 mb-0 text-center"><strong class="h5 text-info-emphasis">Xây dựng nền móng JavaScript không thể phá vỡ!</strong></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <div class="icon-circle bg-warning-soft mb-3 mx-auto"><i class="bi bi-cpu-fill fs-2 text-warning"></i></div>
-                            <h5 class="fw-bold mb-2">Thực hành dự án thực tế</h5>
-                            <p class="mb-0 text-muted small">Xây dựng ứng dụng, giải quyết bài toán thực tế, review code chi tiết.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingFour">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseFour" aria-expanded="false" aria-controls="whyLearnCollapseFour">
+                                    <div class="icon-circle bg-warning-soft me-3 flex-shrink-0"><i class="bi bi-stopwatch-fill fs-5 text-warning"></i></div>
+                                    Thời lượng học tập trung, tối đa hóa hiệu quả
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseFour" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingFour" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3">Chúng tôi hiểu rằng thời gian là vàng bạc. Khóa học được thiết kế với <strong class="text-warning">thời lượng tối ưu</strong>, tập trung vào kiến thức cốt lõi và thực hành chuyên sâu để bạn nhanh chóng nâng tầm kỹ năng.</p>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-calendar-check-fill text-primary me-2"></i><strong>Lộ trình tinh gọn:</strong> Tập trung vào những kiến thức JavaScript nâng cao quan trọng nhất.</li>
+                                        <li class="mb-2"><i class="bi bi-keyboard-fill text-success me-2"></i><strong>Thực hành chiếm 70%:</strong> "Code nói lên tất cả" – bạn sẽ dành phần lớn thời gian để giải quyết bài toán thực tế.</li>
+                                        <li class="mb-2"><i class="bi bi-fast-forward-fill text-danger me-2"></i><strong>Tăng tốc sự nghiệp:</strong> Trang bị kỹ năng cần thiết để bứt phá trong thời gian ngắn nhất.</li>
+                                    </ul>
+                                    <div class="alert alert-warning-subtle mt-3 mb-0 small" role="alert">
+                                        <i class="bi bi-exclamation-triangle-fill me-1"></i> Đầu tư thời gian hiệu quả, gặt hái thành công vượt trội!
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <div class="icon-circle bg-secondary-soft mb-3 mx-auto"><i class="bi bi-laptop-fill fs-2 text-secondary"></i></div>
-                            <h5 class="fw-bold mb-2">Học online/offline linh hoạt</h5>
-                            <p class="mb-0 text-muted small">Chủ động thời gian, học mọi lúc mọi nơi, tài nguyên mở rộng.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingFive">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseFive" aria-expanded="false" aria-controls="whyLearnCollapseFive">
+                                    <div class="icon-circle bg-secondary-soft me-3 flex-shrink-0"><i class="bi bi-collection-play-fill fs-5 text-secondary"></i></div>
+                                    Lựa chọn học tập đa dạng: Online, Offline và Hybrid
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseFive" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingFive" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3"><strong>Sự linh hoạt là ưu tiên hàng đầu!</strong> Chúng tôi cung cấp nhiều hình thức học tập để phù hợp với lịch trình và phong cách học của mỗi cá nhân.</p>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <h6 class="fw-semibold"><i class="bi bi-building text-primary me-2"></i>Học Offline (Trực tiếp)</h6>
+                                            <p class="small mb-0 ps-4">Tương tác trực tiếp, thảo luận sôi nổi, và nhận phản hồi tức thì tại các cơ sở hiện đại, đầy đủ tiện nghi.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="fw-semibold"><i class="bi bi-cloud-laptop-fill text-success me-2"></i>Học Online (Trực tuyến)</h6>
+                                            <p class="small mb-0 ps-4">Truy cập bài giảng, tài liệu, và diễn đàn hỗ trợ mọi lúc mọi nơi, học theo tốc độ của bạn với nền tảng E-learning tiên tiến.</p>
+                                        </div>
+                                    </div>
+                                     <p class="text-center mt-3 mb-0"><i class="bi bi-shuffle fs-4 text-secondary-emphasis"></i> <span class="align-middle ms-1">Mô hình <strong class="fw-bold">Hybrid</strong> kết hợp ưu điểm của cả hai hình thức, mang lại trải nghiệm tối ưu.</span></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body p-4">
-                            <div class="icon-circle bg-danger-soft mb-3 mx-auto"><i class="bi bi-graph-up-arrow fs-2 text-danger"></i></div>
-                            <h5 class="fw-bold mb-2">Cơ hội nghề nghiệp rộng mở</h5>
-                            <p class="mb-0 text-muted small">Bổ sung CV, tăng cơ hội ứng tuyển Frontend/Fullstack.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingSix">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseSix" aria-expanded="false" aria-controls="whyLearnCollapseSix">
+                                    <div class="icon-circle bg-danger-soft me-3 flex-shrink-0"><i class="bi bi-briefcase-fill fs-5 text-danger"></i></div>
+                                    Mở rộng cơ hội sự nghiệp với kỹ năng JavaScript đỉnh cao
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseSix" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingSix" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3">Thành thạo JavaScript nâng cao là <strong class="text-danger">chìa khóa vàng</strong> mở ra cánh cửa đến với những vị trí lập trình viên Frontend và Fullstack hấp dẫn với mức lương cạnh tranh.</p>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-graph-up-arrow text-warning me-2"></i><strong>Nhu cầu nhân lực cao:</strong> JavaScript là ngôn ngữ thống trị mảng Frontend và ngày càng phổ biến ở Backend.</li>
+                                        <li class="mb-2"><i class="bi bi-file-earmark-person-fill text-primary me-2"></i><strong>CV nổi bật:</strong> Chứng nhận hoàn thành khóa học và các dự án thực tế sẽ là điểm cộng lớn.</li>
+                                        <li class="mb-2"><i class="bi bi-globe2 text-info me-2"></i><strong>Sẵn sàng cho các Frameworks:</strong> Nền tảng JavaScript vững chắc giúp bạn dễ dàng tiếp cận React, Angular, Vue.js.</li>
+                                    </ul>
+                                    <blockquote class="blockquote text-center mt-3 border-start border-danger border-4 ps-3">
+                                        <p class="mb-1 fst-italic">"Đầu tư vào kỹ năng JavaScript là đầu tư cho một tương lai sự nghiệp không giới hạn."</p>
+                                        <footer class="blockquote-footer mb-0 mt-0 pt-0 small">Hãy để chúng tôi đồng hành cùng bạn!</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingSeven">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseSeven" aria-expanded="false" aria-controls="whyLearnCollapseSeven">
+                                    <div class="icon-circle bg-primary-soft me-3 flex-shrink-0"><i class="bi bi-people-fill fs-5 text-primary"></i></div>
+                                    Môi trường học tập tương tác, cộng đồng JavaScript năng động
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseSeven" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingSeven" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3">Học tập không chỉ là tiếp thu kiến thức một chiều. Chúng tôi xây dựng một <strong class="text-primary">cộng đồng JavaScript sôi nổi</strong>, nơi bạn có thể kết nối, chia sẻ và cùng nhau phát triển.</p>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-chat-left-dots-fill text-info me-2"></i><strong>Diễn đàn trao đổi 24/7:</strong> Đặt câu hỏi, chia sẻ giải pháp và học hỏi từ bạn bè và giảng viên.</li>
+                                        <li class="mb-2"><i class="bi bi-calendar3-event-fill text-success me-2"></i><strong>Workshops & Code Challenges:</strong> Tham gia các buổi workshop chuyên đề và thử thách code để cọ xát thực tế.</li>
+                                        <li class="mb-2"><i class="bi bi-person-plus-fill text-danger me-2"></i><strong>Kết nối với chuyên gia:</strong> Cơ hội giao lưu và học hỏi kinh nghiệm từ các lập trình viên JavaScript dày dạn.</li>
+                                    </ul>
+                                    <p class="mt-3 mb-0 text-center alert alert-primary py-2"><strong>Cùng nhau chinh phục thế giới JavaScript!</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="whyLearnHeadingEight">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyLearnCollapseEight" aria-expanded="false" aria-controls="whyLearnCollapseEight">
+                                    <div class="icon-circle bg-success-soft me-3 flex-shrink-0"><i class="bi bi-lightbulb-fill fs-5 text-success"></i></div>
+                                    Rèn luyện tư duy lập trình, giải quyết vấn đề & tối ưu hóa
+                                </button>
+                            </h2>
+                            <div id="whyLearnCollapseEight" class="accordion-collapse collapse" aria-labelledby="whyLearnHeadingEight" data-bs-parent="#whyLearnAccordion">
+                                <div class="accordion-body">
+                                    <p class="mb-3">Khóa học không chỉ dạy bạn "viết code" mà còn rèn luyện <strong class="text-success">"tư duy như một lập trình viên"</strong>. Bạn sẽ học cách phân tích vấn đề, tìm kiếm giải pháp tối ưu và viết mã nguồn sạch, hiệu quả.</p>
+                                    <ul class="list-unstyled ps-3 mt-2">
+                                        <li class="mb-2"><i class="bi bi-search-heart-fill text-primary me-2"></i><strong>Phân tích và giải quyết vấn đề:</strong> Tiếp cận các bài toán thực tế và học cách chia nhỏ vấn đề để giải quyết.</li>
+                                        <li class="mb-2"><i class="bi bi-bug-fill text-warning me-2"></i><strong>Kỹ năng Debugging chuyên sâu:</strong> Làm chủ Chrome DevTools và các kỹ thuật gỡ lỗi hiệu quả.</li>
+                                        <li class="mb-2"><i class="bi bi-speedometer2 text-info me-2"></i><strong>Tối ưu hóa hiệu suất:</strong> Hiểu về Memory Management, Performance Profiling và các kỹ thuật tối ưu code JavaScript.</li>
+                                    </ul>
+                                    <p class="mt-3 mb-0 text-center display-7 lh-1 text-success-emphasis"><em>"Code tốt không chỉ chạy đúng, mà còn phải đẹp và hiệu quả."</em></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
