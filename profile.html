@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="vi-VN" style="height: 100%;">
+
+<head id="Head">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Hồ sơ cá nhân - Trung tâm đào tạo năng lực số</title>
+    <meta id="MetaDescription" name="description"
+        content="Quản lý thông tin cá nhân, các khóa học đã đăng ký và lịch sử giao dịch tại Trung tâm đào tạo năng lực số.">
+    <meta id="MetaKeywords" name="keywords"
+        content="hồ sơ cá nhân, thông tin tài khoản, khóa học của tôi, lịch sử đơn hàng, trung tâm đào tạo năng lực số">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/variables.css">
+    <!-- Thêm CSS cho trang profile nếu cần -->
+    <!-- <link rel="stylesheet" href="css/profile.css"> -->
+</head>
+
+<body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <!-- Topbar -->
+        <div class="topbar py-2">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <!-- Topbar Contact Info -->
+                    <div class="col-auto d-none d-md-block">
+                        <div class="d-flex flex-column gap-0">
+                            <span class="site-title-sub">Viện phát triển kinh tế số Việt Nam</span>
+                            <span class="site-title">Trung tâm đào tạo năng lực số</span>
+                        </div>
+                    </div>
+                    <!-- Topbar Social Icons -->
+                    <div class="col-auto">
+                        <ul class="list-inline mb-0 d-flex align-items-center">
+                            <li class="list-inline-item">
+                                <button type="button"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Tìm kiếm">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="YouTube">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-0">
+                                <a href="#"
+                                    class="social-icon-custom btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                    aria-label="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-0" id="cart-icon-wrapper">
+                                <a href="#"
+                                    class="social-icon-custom cart-icon btn btn-sm rounded-circle d-flex align-items-center justify-content-center position-relative"
+                                    aria-label="Giỏ hàng">
+                                    <i class="bi bi-cart-fill"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count-badge">
+                                        0
+                                        <span class="visually-hidden">khóa học trong giỏ</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-light py-0">
+                    <div class="container-fluid px-0 d-flex justify-content-between">
+                        <!-- Logo & Title -->
+                        <a class="navbar-brand me-auto d-flex align-items-center" href="index.html">
+                            <div class="header-logo">
+                                <img src="images/logo/logo.png" alt="HUB Logo">
+                            </div>
+                        </a>
+
+                        <!-- Desktop Navigation (LG and up) -->
+                        <div class="d-flex align-items-center">
+                            <ul class="navbar-nav d-none d-lg-flex flex-row mx-auto align-items-center">
+                                <li class="nav-item"><a class="nav-link" href="index.html"><i
+                                            class="bi bi-house-door-fill me-2"></i>Trang chủ</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasGioiThieu" aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu"><i
+                                            class="bi bi-info-circle-fill me-2"></i>Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasDaoTao" aria-controls="offcanvasDaoTao"
+                                        data-content-source="contentForOffcanvasDaoTao"><i
+                                            class="bi bi-easel-fill me-2"></i>Đào tạo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasNghienCuu" aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu"><i
+                                            class="bi bi-search-heart-fill me-2"></i>Nghiên cứu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasHopTac" aria-controls="offcanvasHopTac"
+                                        data-content-source="contentForOffcanvasHopTac"><i
+                                            class="bi bi-people-fill me-2"></i>Hợp tác</a>
+                                </li>
+                            </ul>
+
+                            <!-- User Actions Area (Desktop and Mobile Toggler) -->
+                            <div class="ms-auto d-flex align-items-center">
+                                <!-- Nút Profile sẽ được thêm ở đây sau -->
+                                <!-- <a href="profile.html" class="btn btn-outline-primary btn-sm me-2 d-none d-lg-inline-block">
+                                    <i class="bi bi-person-circle me-1"></i> Hồ sơ
+                                </a> -->
+                                <button class="navbar-toggler d-lg-none shadow-none border-0" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Fullscreen Menu -->
+                        <div class="collapse navbar-collapse" id="navbarContent">
+                            <button type="button" class="btn-close-menu" data-bs-toggle="collapse"
+                                data-bs-target="#navbarContent" aria-label="Đóng menu">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">
+                                        <i class="bi bi-house-door-fill menu-icon"></i> Trang chủ
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownGioiThieuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasGioiThieu"
+                                        aria-controls="offcanvasGioiThieu"
+                                        data-content-source="contentForOffcanvasGioiThieu">
+                                        <i class="bi bi-info-circle-fill menu-icon"></i> Giới thiệu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownGioiThieuMobile"
+                                        id="contentForOffcanvasGioiThieu">
+                                        <li><a class="dropdown-item" href="gioi-thieu/tong-quan.html"><i
+                                                    class="bi bi-info-square menu-icon-sub"></i>Tổng quan về HUB</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="gioi-thieu/su-menh-tam-nhin.html"><i
+                                                    class="bi bi-bullseye menu-icon-sub"></i>Sứ mệnh & Tầm nhìn</a></li>
+                                        <li><a class="dropdown-item" href="gioi-thieu/co-cau-to-chuc.html"><i
+                                                    class="bi bi-diagram-3 menu-icon-sub"></i>Cơ cấu tổ chức</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownDaoTaoMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasDaoTao"
+                                        aria-controls="offcanvasDaoTao" data-content-source="contentForOffcanvasDaoTao">
+                                        <i class="bi bi-easel-fill menu-icon"></i> Đào tạo
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownDaoTaoMobile"
+                                        id="contentForOffcanvasDaoTao">
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Lĩnh vực đào tạo</h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="#">
+                                                <i class="bi bi-braces menu-icon-sub"></i> Lập trình Web Chuyên sâu
+                                            </a>
+                                            <ul class="list-unstyled ps-4 mb-2">
+                                                <li><a class="dropdown-item small" href="dao-tao/lap-trinh-web-chuyen-sau/html-css-nen-tang.html"><i class="bi bi-filetype-html me-1"></i> HTML & CSS Nền tảng</a></li>
+                                                <li><a class="dropdown-item small" href="dao-tao/lap-trinh-web-chuyen-sau/javascript-nang-cao.html"><i class="bi bi-filetype-jsx me-1"></i> JavaScript Nâng cao</a></li>
+                                                <li><a class="dropdown-item small" href="dao-tao/lap-trinh-web-chuyen-sau/reactjs-ecosystem.html"><i class="bi bi-react me-1"></i> ReactJS & Hệ sinh thái</a></li>
+                                                <li><a class="dropdown-item small" href="dao-tao/lap-trinh-web-chuyen-sau/nodejs-express.html"><i class="bi bi-hdd-network-fill me-1"></i> Node.js & Express</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Add other training categories here if needed -->
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <h6 class="dropdown-header fw-bold text-uppercase">Tài nguyên học tập</h6>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tai-nguyen/thu-vien.html">
+                                                <i class="bi bi-book-half menu-icon-sub"></i> Thư viện
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tai-nguyen/e-learning.html">
+                                                <i class="bi bi-laptop menu-icon-sub"></i> E-learning
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownNghienCuuMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasNghienCuu"
+                                        aria-controls="offcanvasNghienCuu"
+                                        data-content-source="contentForOffcanvasNghienCuu">
+                                        <i class="bi bi-search-heart-fill menu-icon"></i> Nghiên cứu
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownNghienCuuMobile"
+                                        id="contentForOffcanvasNghienCuu">
+                                        <li><a class="dropdown-item" href="nghien-cuu/de-tai.html"><i
+                                                    class="bi bi-search-heart menu-icon-sub"></i>Đề tài nghiên cứu</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="nghien-cuu/cong-bo-khoa-hoc.html"><i
+                                                    class="bi bi-journal-richtext menu-icon-sub"></i>Công bố khoa
+                                                học</a></li>
+                                        <li><a class="dropdown-item" href="nghien-cuu/tap-chi-khoa-hoc.html"><i
+                                                    class="bi bi-journals menu-icon-sub"></i>Tạp chí khoa học</a></li>
+                                        <li><a class="dropdown-item" href="nghien-cuu/hoi-thao-khoa-hoc.html"><i
+                                                    class="bi bi-mic menu-icon-sub"></i>Hội thảo khoa học</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navbarDropdownHopTacMobile" role="button"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasHopTac"
+                                        aria-controls="offcanvasHopTac" data-content-source="contentForOffcanvasHopTac">
+                                        <i class="bi bi-people-fill menu-icon"></i> Hợp tác
+                                    </a>
+                                    <ul class="d-none" aria-labelledby="navbarDropdownHopTacMobile"
+                                        id="contentForOffcanvasHopTac">
+                                        <li><a class="dropdown-item" href="hop-tac/quoc-te.html"><i
+                                                    class="bi bi-globe2 menu-icon-sub"></i>Hợp tác quốc tế</a></li>
+                                        <li><a class="dropdown-item" href="hop-tac/doanh-nghiep.html"><i
+                                                    class="bi bi-building-check menu-icon-sub"></i>Hợp tác doanh
+                                                nghiệp</a></li>
+                                        <li><a class="dropdown-item" href="hop-tac/cuu-sinh-vien.html"><i
+                                                    class="bi bi-person-check menu-icon-sub"></i>Cựu sinh viên</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Nút Profile cho mobile -->
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="profile.html">
+                                        <i class="bi bi-person-circle menu-icon"></i> Hồ sơ cá nhân
+                                    </a>
+                                </li> -->
+                            </ul>
+
+                            <!-- Mobile Search Form (hidden on LG and up) -->
+                            <form class="mobile-search-form my-3 d-lg-none" action="#" method="GET">
+                                <div class="input-group">
+                                    <input type="search" class="form-control" placeholder="Tìm kiếm trong trang..."
+                                        aria-label="Tìm kiếm trong trang">
+                                    <button class="btn btn-secondary" type="submit" id="mobile-search-submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offcanvas Elements for Desktop Submenus -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasGioiThieu"
+        aria-labelledby="offcanvasGioiThieuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasGioiThieuLabel">Giới thiệu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDaoTao" aria-labelledby="offcanvasDaoTaoLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDaoTaoLabel">Đào tạo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNghienCuu"
+        aria-labelledby="offcanvasNghienCuuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNghienCuuLabel">Nghiên cứu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasHopTac" aria-labelledby="offcanvasHopTacLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasHopTacLabel">Hợp tác</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Content will be populated by JS -->
+        </div>
+    </div>
+
+    <!-- END Offcanvas Elements -->
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Tìm kiếm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="GET" class="search-modal-form">
+                        <div class="input-group has-clear-button">
+                            <input type="text" id="searchInputModal" class="form-control"
+                                placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
+                            <button type="button" class="btn btn-sm btn-clear-search d-none"
+                                aria-label="Clear search input">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <button class="btn btn-primary btn-search-submit" type="submit"><i
+                                    class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HEADER SECTION -->
+
+    <!-- MAIN PROFILE CONTENT SECTION -->
+    <main class="main-content py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Navigation -->
+                <div class="col-lg-3">
+                    <nav class="nav nav-pills flex-column profile-sidebar mb-4 shadow-sm rounded p-3 bg-light">
+                        <div class="text-center mb-3 border-bottom pb-3">
+                            <img src="https://via.placeholder.com/100" alt="User Avatar" class="img-thumbnail rounded-circle mb-2" style="width: 100px; height: 100px; object-fit: cover;">
+                            <h5 class="mb-0">[Tên người dùng]</h5>
+                            <small class="text-muted">Học viên</small>
+                        </div>
+                        <a href="#profile-info" class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="profile-info" aria-selected="true">
+                            <i class="bi bi-person-vcard-fill me-2"></i>Thông tin cá nhân
+                        </a>
+                        <a href="#enrolled-courses" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="enrolled-courses" aria-selected="false">
+                            <i class="bi bi-journal-bookmark-fill me-2"></i>Khóa học của tôi
+                        </a>
+                        <a href="#order-history" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="order-history" aria-selected="false">
+                            <i class="bi bi-receipt-cutoff me-2"></i>Lịch sử đơn hàng
+                        </a>
+                        <a href="#wishlist" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false">
+                            <i class="bi bi-heart-fill me-2"></i>Danh sách yêu thích
+                        </a>
+                        <a href="#account-settings" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="account-settings" aria-selected="false">
+                            <i class="bi bi-gear-fill me-2"></i>Cài đặt tài khoản
+                        </a>
+                        <hr class="my-2">
+                        <a href="#" class="nav-link text-danger">
+                            <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="col-lg-9">
+                    <div class="tab-content" id="profileTabContent">
+                        <!-- Thông tin cá nhân -->
+                        <div class="tab-pane fade show active" id="profile-info" role="tabpanel" aria-labelledby="profile-info-tab">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light border-bottom">
+                                    <h4 class="mb-0 fw-semibold text-primary-emphasis"><i class="bi bi-person-vcard-fill me-2"></i>Thông tin cá nhân</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="row mb-4 align-items-center">
+                                        <div class="col-md-3 text-center">
+                                            <img src="https://via.placeholder.com/150" alt="Avatar" id="profileAvatarPreview" class="img-thumbnail rounded-circle mb-2" style="width: 120px; height: 120px; object-fit: cover;">
+                                            <input type="file" id="avatarUpload" class="d-none" accept="image/*">
+                                            <button class="btn btn-sm btn-outline-primary" onclick="document.getElementById('avatarUpload').click();"><i class="bi bi-pencil-square me-1"></i>Đổi ảnh</button>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h3 class="mb-1" id="profileDisplayName">Nguyễn Văn A</h3>
+                                            <p class="text-muted mb-1">Học viên</p>
+                                            <p class="small mb-0"><i class="bi bi-envelope-fill me-2 text-muted"></i> <a href="mailto:nguyenvana@example.com" id="profileDisplayEmail">nguyenvana@example.com</a></p>
+                                            <p class="small mb-0"><i class="bi bi-telephone-fill me-2 text-muted"></i> <span id="profileDisplayPhone">090xxxxxxx</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <form id="profileInfoForm" class="mt-4">
+                                        <h5 class="mb-3 border-bottom pb-2 fw-semibold">Chỉnh sửa thông tin</h5>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="profileFullName" placeholder="Họ và tên" value="Nguyễn Văn A" required>
+                                                    <label for="profileFullName">Họ và tên</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-floating">
+                                                    <input type="email" class="form-control" id="profileEmail" placeholder="Email" value="nguyenvana@example.com" required>
+                                                    <label for="profileEmail">Email</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-floating">
+                                                    <input type="tel" class="form-control" id="profilePhone" placeholder="Số điện thoại" value="090xxxxxxx">
+                                                    <label for="profilePhone">Số điện thoại</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-floating">
+                                                    <input type="date" class="form-control" id="profileBirthdate" placeholder="Ngày sinh">
+                                                    <label for="profileBirthdate">Ngày sinh</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 form-floating">
+                                            <textarea class="form-control" id="profileAddress" placeholder="Địa chỉ của bạn" style="height: 100px"></textarea>
+                                            <label for="profileAddress">Địa chỉ</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary"><i class="bi bi-save-fill me-2"></i>Lưu thay đổi</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Khóa học của tôi -->
+                        <div class="tab-pane fade" id="enrolled-courses" role="tabpanel" aria-labelledby="enrolled-courses-tab">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light border-bottom">
+                                    <h4 class="mb-0 fw-semibold text-success-emphasis"><i class="bi bi-journal-bookmark-fill me-2"></i>Khóa học của tôi</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <!-- Ví dụ hiển thị danh sách khóa học -->
+                                    <div class="row row-cols-1 row-cols-md-2 g-4" id="myCoursesList">
+                                        <!-- Course Card 1: Đang học -->
+                                        <div class="col">
+                                            <div class="card h-100 shadow-sm course-card">
+                                                <img src="https://via.placeholder.com/300x200/5cb85c/fff?text=HTML+CSS+Cơ+Bản" class="card-img-top" alt="HTML CSS Cơ Bản">
+                                                <div class="card-body d-flex flex-column">
+                                                    <h5 class="card-title fw-semibold">HTML, CSS từ Zero đến Hero</h5>
+                                                    <p class="card-text small text-muted flex-grow-1">Nắm vững nền tảng xây dựng giao diện web tĩnh với HTML5 và CSS3.</p>
+                                                    <div class="mb-2">
+                                                        <small class="text-muted">Tiến độ: 75%</small>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="btn btn-success mt-auto align-self-start"><i class="bi bi-play-circle-fill me-2"></i>Tiếp tục học</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Course Card 2: Đã hoàn thành -->
+                                        <div class="col">
+                                            <div class="card h-100 shadow-sm course-card">
+                                                <img src="https://via.placeholder.com/300x200/0275d8/fff?text=JavaScript+Nâng+Cao" class="card-img-top" alt="JavaScript Nâng Cao">
+                                                <div class="card-body d-flex flex-column">
+                                                    <h5 class="card-title fw-semibold">JavaScript Nâng Cao & ESNext</h5>
+                                                    <p class="card-text small text-muted flex-grow-1">Làm chủ các khái niệm JavaScript hiện đại, sẵn sàng cho Framework.</p>
+                                                    <div class="mb-2">
+                                                        <small class="text-muted">Hoàn thành</small>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="btn btn-primary mt-auto align-self-start"><i class="bi bi-patch-check-fill me-2"></i>Xem chứng chỉ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Course Card 3: Chưa bắt đầu -->
+                                        <div class="col">
+                                            <div class="card h-100 shadow-sm course-card">
+                                                <img src="https://via.placeholder.com/300x200/f0ad4e/fff?text=ReactJS+Mastery" class="card-img-top" alt="ReactJS Mastery">
+                                                <div class="card-body d-flex flex-column">
+                                                    <h5 class="card-title fw-semibold">ReactJS & Hệ sinh thái</h5>
+                                                    <p class="card-text small text-muted flex-grow-1">Xây dựng ứng dụng Frontend động và mạnh mẽ với React và Redux.</p>
+                                                     <div class="mb-2">
+                                                        <small class="text-muted">Chưa bắt đầu</small>
+                                                        <div class="progress" style="height: 10px;">
+                                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="btn btn-warning mt-auto align-self-start text-dark"><i class="bi bi-play-btn-fill me-2"></i>Bắt đầu ngay</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Empty state: Khi không có khóa học -->
+                                    <div id="noCoursesEnrolled" class="text-center p-5" style="display: none;">
+                                        <i class="bi bi-journals display-1 text-muted"></i>
+                                        <h4 class="mt-3 fw-normal">Bạn chưa đăng ký khóa học nào.</h4>
+                                        <p class="text-muted">Hãy khám phá các khóa học thú vị của chúng tôi để bắt đầu hành trình học tập của bạn!</p>
+                                        <a href="dao-tao.html" class="btn btn-primary"><i class="bi bi-search me-2"></i>Khám phá khóa học</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lịch sử đơn hàng -->
+                        <div class="tab-pane fade" id="order-history" role="tabpanel" aria-labelledby="order-history-tab">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light border-bottom">
+                                     <h4 class="mb-0 fw-semibold text-info-emphasis"><i class="bi bi-receipt-cutoff me-2"></i>Lịch sử đơn hàng</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="table-responsive" id="orderHistoryTableContainer">
+                                        <table class="table table-hover align-middle">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col">Mã đơn hàng</th>
+                                                    <th scope="col">Ngày đặt</th>
+                                                    <th scope="col">Số lượng</th>
+                                                    <th scope="col">Tổng tiền</th>
+                                                    <th scope="col">Trạng thái</th>
+                                                    <th scope="col">Chi tiết</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Example Row 1 -->
+                                                <tr>
+                                                    <td><span class="fw-semibold">#DH00123</span></td>
+                                                    <td>15/07/2023</td>
+                                                    <td>2 khóa học</td>
+                                                    <td>1.200.000đ</td>
+                                                    <td><span class="badge bg-success-subtle text-success-emphasis rounded-pill">Hoàn thành</span></td>
+                                                    <td><button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#orderDetailModal"><i class="bi bi-eye-fill"></i></button></td>
+                                                </tr>
+                                                <!-- Example Row 2 -->
+                                                <tr>
+                                                    <td><span class="fw-semibold">#DH00124</span></td>
+                                                    <td>20/07/2023</td>
+                                                    <td>1 khóa học</td>
+                                                    <td>800.000đ</td>
+                                                    <td><span class="badge bg-warning-subtle text-warning-emphasis rounded-pill">Đang xử lý</span></td>
+                                                    <td><button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#orderDetailModal"><i class="bi bi-eye-fill"></i></button></td>
+                                                </tr>
+                                                <!-- Example Row 3 -->
+                                                <tr>
+                                                    <td><span class="fw-semibold">#DH00125</span></td>
+                                                    <td>22/07/2023</td>
+                                                    <td>3 khóa học</td>
+                                                    <td>2.500.000đ</td>
+                                                    <td><span class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Đã hủy</span></td>
+                                                    <td><button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#orderDetailModal"><i class="bi bi-eye-fill"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Empty state: Khi không có đơn hàng -->
+                                    <div id="noOrdersFound" class="text-center p-5" style="display: none;">
+                                        <i class="bi bi-cart-x display-1 text-muted"></i>
+                                        <h4 class="mt-3 fw-normal">Bạn chưa có đơn hàng nào.</h4>
+                                        <p class="text-muted">Tất cả các giao dịch của bạn sẽ được ghi lại ở đây.</p>
+                                        <a href="dao-tao.html" class="btn btn-primary"><i class="bi bi-bag-check-fill me-2"></i>Mua khóa học ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Danh sách yêu thích -->
+                        <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light border-bottom">
+                                    <h4 class="mb-0 fw-semibold text-danger-emphasis"><i class="bi bi-heart-fill me-2"></i>Danh sách yêu thích</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="myWishlistItems">
+                                        <!-- Wishlist Item 1 -->
+                                        <div class="col">
+                                            <div class="card h-100 shadow-sm course-card wishlist-item">
+                                                <img src="https://via.placeholder.com/300x200/ff6b6b/fff?text=NodeJS+Backend" class="card-img-top" alt="NodeJS Backend">
+                                                <div class="card-body d-flex flex-column">
+                                                    <h5 class="card-title fw-semibold">Node.js & Express: Xây dựng Backend</h5>
+                                                    <p class="card-text small text-muted flex-grow-1">Phát triển API RESTful mạnh mẽ và hiệu quả với Node.js và Express.</p>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <span class="text-primary fw-bold fs-5">950.000đ</span>
+                                                        <span class="badge bg-warning text-dark">Mới</span>
+                                                    </div>
+                                                    <div class="mt-auto d-flex gap-2">
+                                                        <a href="#" class="btn btn-primary flex-grow-1"><i class="bi bi-cart-plus-fill me-1"></i> Thêm vào giỏ</a>
+                                                        <button class="btn btn-outline-danger"><i class="bi bi-trash3-fill"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Wishlist Item 2 -->
+                                        <div class="col">
+                                            <div class="card h-100 shadow-sm course-card wishlist-item">
+                                                <img src="https://via.placeholder.com/300x200/4ecdc4/fff?text=Python+Data+Science" class="card-img-top" alt="Python Data Science">
+                                                <div class="card-body d-flex flex-column">
+                                                    <h5 class="card-title fw-semibold">Python cho Khoa học Dữ liệu</h5>
+                                                    <p class="card-text small text-muted flex-grow-1">Từ cơ bản đến trực quan hóa dữ liệu và Machine Learning với Python.</p>
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <span class="text-primary fw-bold fs-5">1.500.000đ</span>
+                                                        <del class="text-muted small">1.800.000đ</del>
+                                                    </div>
+                                                    <div class="mt-auto d-flex gap-2">
+                                                        <a href="#" class="btn btn-primary flex-grow-1"><i class="bi bi-cart-plus-fill me-1"></i> Thêm vào giỏ</a>
+                                                        <button class="btn btn-outline-danger"><i class="bi bi-trash3-fill"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Empty state: Khi không có mục yêu thích -->
+                                    <div id="noWishlistItems" class="text-center p-5" style="display: none;">
+                                        <i class="bi bi-suit-heart display-1 text-muted"></i>
+                                        <h4 class="mt-3 fw-normal">Danh sách yêu thích của bạn đang trống.</h4>
+                                        <p class="text-muted">Thêm các khóa học bạn quan tâm vào đây để dễ dàng theo dõi nhé!</p>
+                                        <a href="dao-tao.html" class="btn btn-primary"><i class="bi bi-search me-2"></i>Tìm khóa học ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cài đặt tài khoản -->
+                        <div class="tab-pane fade" id="account-settings" role="tabpanel" aria-labelledby="account-settings-tab">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light border-bottom">
+                                    <h4 class="mb-0 fw-semibold text-dark-emphasis"><i class="bi bi-gear-fill me-2"></i>Cài đặt tài khoản</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="mb-3 fw-semibold">Đổi mật khẩu</h5>
+                                    <form id="changePasswordForm">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="currentPassword" placeholder="Mật khẩu hiện tại" required>
+                                            <label for="currentPassword">Mật khẩu hiện tại</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="newPassword" placeholder="Mật khẩu mới" required>
+                                            <label for="newPassword">Mật khẩu mới</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="confirmNewPassword" placeholder="Xác nhận mật khẩu mới" required>
+                                            <label for="confirmNewPassword">Xác nhận mật khẩu mới</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary"><i class="bi bi-key-fill me-1"></i>Đổi mật khẩu</button>
+                                    </form>
+                                    <hr class="my-4">
+                                    <h5 class="mb-3 fw-semibold">Thông báo</h5>
+                                     <div class="form-check form-switch mb-2">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="emailNotifications" checked>
+                                        <label class="form-check-label" for="emailNotifications">Nhận thông báo qua Email về cập nhật khóa học và ưu đãi</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="smsNotifications">
+                                        <label class="form-check-label" for="smsNotifications">Nhận thông báo quan trọng qua SMS (ví dụ: xác nhận giao dịch)</label>
+                                    </div>
+                                    <hr class="my-4">
+                                    <h5 class="mb-3 fw-semibold">Tài khoản liên kết</h5>
+                                    <div class="mb-2">
+                                        <button class="btn btn-outline-danger me-2"><i class="bi bi-google me-1"></i> Liên kết với Google</button>
+                                        <button class="btn btn-outline-primary"><i class="bi bi-facebook me-1"></i> Liên kết với Facebook</button>
+                                    </div>
+                                     <hr class="my-4">
+                                    <h5 class="mb-3 fw-semibold">Xóa tài khoản</h5>
+                                    <p class="text-muted small">Lưu ý: Hành động này không thể hoàn tác. Tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn.</p>
+                                    <button class="btn btn-danger"><i class="bi bi-trash3-fill me-1"></i> Yêu cầu xóa tài khoản</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- END MAIN PROFILE CONTENT SECTION -->
+
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <!-- Main Footer Content -->
+        <div class="container"> <!-- Added container for proper alignment -->
+            <div class="row g-4 mb-5">
+                <!-- School Logo and Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand mb-4">
+                        <a href="index.html" class="d-inline-block mb-4">
+                            <img src="images/logo/logo.png" alt="HUB Logo" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Thông tin liên hệ</h4>
+                    <ul class="list-unstyled contact-info">
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-geo-alt-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Trụ sở chính:</strong>
+                                <p class="mb-0">36 Tôn Thất Đạm, Quận 1, Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-envelope-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Email:</strong>
+                                <p class="mb-0"><a href="mailto:dhnhtphcm@hub.edu.vn"
+                                        class="text-decoration-none text-white">dhnhtphcm@hub.edu.vn</a></p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-3">
+                            <div class="flex-shrink-0 me-3 text-warning">
+                                <i class="bi bi-telephone-fill fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <strong>Hotline Tuyển sinh:</strong>
+                                <p class="mb-0"><a href="tel:0888353488" class="text-decoration-none text-white">0888 353
+                                        488</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="footer-widget-title fs-5 fw-bold mb-4 pb-2 position-relative">Dành cho người học</h4>
+                            <ul class="list-unstyled footer-links">
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>Cổng thông tin đào tạo</a></li>
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>E-Learning</a></li>
+                                <li class="mb-2"><a href="#"
+                                        class="text-decoration-none text-white-50 hover-text-warning d-block py-1"><i
+                                            class="bi bi-chevron-right me-2"></i>Thư viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-center">
+                <p class="footer-about mb-4 text-center">
+                    Trung tâm đào tạo năng lực số - Viện phát triển kinh tế số Việt Nam.
+                </p>
+                <div class="footer-social d-flex gap-2">
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon btn btn-sm btn-dark d-flex align-items-center justify-content-center">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="copyright py-4 text-center border-top border-secondary mt-4"> <!-- Added mt-4 -->
+                <p class="mb-0">&copy; 2024 Trung tâm đào tạo năng lực số. All Rights Reserved.</p>
+            </div>
+        </div> <!-- End container for footer -->
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/animations.js"></script>
+    <script src="js/cart.js"></script>
+    <!-- Thêm JS cho trang profile nếu cần -->
+    <!-- <script src="js/profile.js"></script> -->
+
+    <!-- Modal Giỏ hàng (Bootstrap Modal) -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel"><i class="bi bi-cart-check-fill me-2"></i>Giỏ hàng của bạn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cartModalBody">
+                    <p class="text-center text-muted">Giỏ hàng của bạn đang trống.</p> 
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div>
+                        <strong>Tổng cộng: <span id="cartModalTotal" class="text-primary fw-bold">0đ</span></strong>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <a type="button" class="btn btn-primary" id="checkoutButton" href="gio-hang.html">Tiến hành thanh toán</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chi tiết Đơn hàng -->
+    <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-semibold" id="orderDetailModalLabel"><i class="bi bi-receipt-cutoff me-2"></i>Chi tiết Đơn hàng: <span class="text-primary" id="modalOrderId">#DH00123</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong class="fw-semibold">Ngày đặt:</strong> <span id="modalOrderDate">15/07/2023</span></p>
+                            <p class="mb-1"><strong class="fw-semibold">Trạng thái:</strong> <span class="badge bg-success-subtle text-success-emphasis rounded-pill" id="modalOrderStatus">Hoàn thành</span></p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <p class="mb-1"><strong class="fw-semibold">Người mua:</strong> <span id="modalOrderCustomerName">Nguyễn Văn A</span></p>
+                            <p class="mb-1"><strong class="fw-semibold">Email:</strong> <span id="modalOrderCustomerEmail">nguyenvana@example.com</span></p>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-semibold border-bottom pb-2 mb-3">Các khóa học đã đặt:</h6>
+                    <div id="modalOrderItemsContainer">
+                        <!-- Item 1 -->
+                        <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
+                            <div>
+                                <h6 class="mb-0 fw-normal">HTML, CSS từ Zero đến Hero</h6>
+                                <small class="text-muted">Số lượng: 1</small>
+                            </div>
+                            <div class="text-end">
+                                <p class="mb-0 fw-semibold">600.000đ</p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom">
+                            <div>
+                                <h6 class="mb-0 fw-normal">JavaScript Nâng Cao & ESNext</h6>
+                                <small class="text-muted">Số lượng: 1</small>
+                            </div>
+                            <div class="text-end">
+                                <p class="mb-0 fw-semibold">600.000đ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-end mt-3 pt-3 border-top">
+                        <h5 class="fw-bold">Tổng cộng: <span class="text-danger" id="modalOrderTotal">1.200.000đ</span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg me-1"></i>Đóng</button>
+                    <button type="button" class="btn btn-primary"><i class="bi bi-printer-fill me-1"></i> In đơn hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Modal Chi tiết Đơn hàng -->
+</body>
+
+</html>
