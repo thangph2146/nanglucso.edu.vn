@@ -90,18 +90,6 @@
                                     <i class="bi bi-linkedin"></i>
                                 </a>
                             </li>
-                            <li class="list-inline-item me-0" id="cart-icon-wrapper">
-                                <a href="#"
-                                    class="social-icon-custom cart-icon btn btn-sm rounded-circle d-flex align-items-center justify-content-center position-relative"
-                                    aria-label="Giỏ hàng">
-                                    <i class="bi bi-cart-fill"></i>
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count-badge">
-                                        0
-                                        <span class="visually-hidden">khóa học trong giỏ</span>
-                                    </span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -157,7 +145,29 @@
                                     aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
-                            </div>
+                                <div class="d-none d-lg-block" id="cart-icon-wrapper-desktop">
+                                    <a href="#"
+                                        class="social-icon-custom cart-icon btn btn-sm rounded-circle d-flex align-items-center justify-content-center position-relative ms-2"
+                                        aria-label="Giỏ hàng" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                        <i class="bi bi-cart-fill text-primary"></i>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count-badge">
+                                            0
+                                            <span class="visually-hidden">khóa học trong giỏ</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="d-lg-none" id="cart-icon-wrapper-mobile">
+                                    <a href="#"
+                                        class="social-icon-custom cart-icon btn btn-sm rounded-circle d-flex align-items-center justify-content-center position-relative ms-2"
+                                        aria-label="Giỏ hàng" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                        <i class="bi bi-cart-fill text-primary"></i>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count-badge">
+                                            0
+                                            <span class="visually-hidden">khóa học trong giỏ</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div> 
                         </div>
 
                         <!-- Mobile Fullscreen Menu -->
@@ -256,6 +266,21 @@
                                         <li><a class="dropdown-item active" href="hop-tac-doanh-nghiep.html"><i class="bi bi-briefcase menu-icon-sub"></i>Hợp tác doanh nghiệp</a></li>
                                         <li><a class="dropdown-item" href="hop-tac-quoc-te.html"><i class="bi bi-globe-americas menu-icon-sub"></i>Hợp tác quốc tế</a></li>
                                     </ul>
+                                </li>
+                                <li class="nav-item d-block d-lg-none mt-3">
+                                    <a href="#"
+                                        class="nav-link d-flex align-items-center justify-content-center position-relative"
+                                        aria-label="Giỏ hàng" data-bs-toggle="modal"
+                                        data-bs-target="#cartModal">
+                                        <i class="bi bi-cart-fill me-2 fs-5 text-primary"></i>
+                                        <span>Giỏ hàng</span>
+                                        <span
+                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count-badge"
+                                            style="font-size:0.8rem; min-width:20px; height:20px; left:calc(100% - 10px);">
+                                            0
+                                            <span class="visually-hidden">khóa học trong giỏ</span>
+                                        </span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
